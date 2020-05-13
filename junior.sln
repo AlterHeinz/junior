@@ -5,6 +5,15 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juniorcopy", "juniorcopy\juniorcopy.csproj", "{202719B9-A09F-4C6B-9AD6-B43A1845CB31}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EPROM-dumps", "EPROM-dumps", "{B1528E6A-9F84-4E8F-A98B-FC3FB918B21E}"
+	ProjectSection(SolutionItems) = preProject
+		EPROM-dumps\juniorRcv0200.bin = EPROM-dumps\juniorRcv0200.bin
+		EPROM-dumps\juniorRcv0200B1_V1.err.txt = EPROM-dumps\juniorRcv0200B1_V1.err.txt
+		EPROM-dumps\juniorRcv1C00.bin = EPROM-dumps\juniorRcv1C00.bin
+		EPROM-dumps\juniorRcv2000B1.bin = EPROM-dumps\juniorRcv2000B1.bin
+		EPROM-dumps\juniorRcv2000B2.bin = EPROM-dumps\juniorRcv2000B2.bin
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
