@@ -7,11 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juniorcopy", "juniorcopy\ju
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EPROM-dumps", "EPROM-dumps", "{B1528E6A-9F84-4E8F-A98B-FC3FB918B21E}"
 	ProjectSection(SolutionItems) = preProject
-		EPROM-dumps\juniorRcv0200.bin = EPROM-dumps\juniorRcv0200.bin
-		EPROM-dumps\juniorRcv0200B1_V1.err.txt = EPROM-dumps\juniorRcv0200B1_V1.err.txt
-		EPROM-dumps\juniorRcv1C00.bin = EPROM-dumps\juniorRcv1C00.bin
-		EPROM-dumps\juniorRcv2000B1.bin = EPROM-dumps\juniorRcv2000B1.bin
-		EPROM-dumps\juniorRcv2000B2.bin = EPROM-dumps\juniorRcv2000B2.bin
+		EPROM-dumps\juniorAdr0200.bin = EPROM-dumps\juniorAdr0200.bin
+		EPROM-dumps\juniorAdr1400.bin = EPROM-dumps\juniorAdr1400.bin
+		EPROM-dumps\juniorEprom1000.bin = EPROM-dumps\juniorEprom1000.bin
+		EPROM-dumps\juniorEprom1C00.bin = EPROM-dumps\juniorEprom1C00.bin
+		EPROM-dumps\juniorEprom2000B1.bin = EPROM-dumps\juniorEprom2000B1.bin
+		EPROM-dumps\juniorEprom2000B2.bin = EPROM-dumps\juniorEprom2000B2.bin
 	EndProjectSection
 EndProject
 Global
