@@ -15,8 +15,6 @@ namespace juniorcopy
     // - converts a text file in "7+7 format" to a binary file which then contains the original junior memory data.
     public class Program
     {
-        static bool _continue;
-
         public static void Main(string[] args)
         {
             Console.Error.WriteLine("Hi, i'm juniorcopy");
@@ -99,13 +97,16 @@ namespace juniorcopy
             const string textFileName = "juniorRcv.txt";
             using (StreamWriter sw = new StreamWriter(textFileName, false))
             {
-                _continue = true;
-                Task t = Task.Factory.StartNew(() => Read(port, sw));
+                using (CancellationTokenSource cts = new CancellationTokenSource())
+                {
+                    Task t = Task.Factory.StartNew(() => Read(port, sw, cts.Token));
 
-                Console.Error.WriteLine("junior may start sending now!");
-                Console.Error.WriteLine("press ENTER to finish conversion and exit - after transmission has completed.");
-                string name = Console.ReadLine();
-                t.Wait();
+                    Console.Error.WriteLine("junior may start sending now!");
+                    Console.Error.WriteLine("press ENTER to finish conversion and exit - after transmission has completed.");
+                    string name = Console.ReadLine();
+                    cts.Cancel();
+                    t.Wait();
+                }
             }
             Console.Error.WriteLine("created intermediate file {0}", textFileName);
 
@@ -113,9 +114,9 @@ namespace juniorcopy
             Convert772bin(textFileName);
         }
 
-        private static void Read(SerialPort port, StreamWriter sw)
+        private static void Read(SerialPort port, StreamWriter sw, CancellationToken ct)
         {
-            while (_continue)
+            while (!ct.IsCancellationRequested)
             {
                 try
                 {
