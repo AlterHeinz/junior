@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 namespace juniorcopy
 {
     // Console program which 
-    // - reads from COM3: or COM4: and writes to ./"juniorRcv.txt" in "7+7 format"
+    // - reads from COM3: or COM4: and writes to ./"juniorRcv.bin"
     // OR: 
     // - reads a given file and writes its contents to COM3: or COM4:
-    // OR:
-    // - converts a text file in "7+7 format" to a binary file which then contains the original junior memory data.
     public class Program
     {
         public static void Main(string[] args)

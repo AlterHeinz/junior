@@ -1,2 +1,2 @@
-juniorcopy -s fileToSend.bin
+juniorcopy -s juniorAdr0200.bin
 pause
