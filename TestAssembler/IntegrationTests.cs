@@ -183,13 +183,12 @@ namespace TestAssembler
         {
             Task<string> error = Task.Factory.StartNew(() => testling.StandardError.ReadToEnd());
             Task<string> output = Task.Factory.StartNew(() => testling.StandardOutput.ReadToEnd());
-            Console.WriteLine("err: {0}", error);
-            Console.WriteLine("out: {0}", output);
-
             testling.WaitForExit();
             Console.WriteLine("WaitForExit()");
             Thread.Sleep(100);
 
+            Console.WriteLine("err: {0}", error.Result);
+            Console.WriteLine("out: {0}", output.Result);
             return output.Result;
         }
 

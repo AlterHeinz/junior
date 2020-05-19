@@ -16,16 +16,13 @@ namespace juniorassembler
         {
             if (innerPos == 1)
             {
-                Console.Error.WriteLine("pos {0}: obsolete final byte: {1:X2}", pos, instruction.OpCode);
-                if (2 == instruction.NoOfBytes)
-                    Forward("{0} ??");
-                else
-                    Forward("{0} ????");
+                //Console.Error.WriteLine("pos {0}: obsolete final byte: {1:X2}", pos, instruction.OpCode);
+                Forward();
             }
             else if (innerPos == 2)
             {
-                Console.Error.WriteLine("pos {0}: obsolete final bytes: {1:X2} {2:X2}", pos, instruction.OpCode, arg1);
-                Forward("{0} ??{1:X2}");
+                //Console.Error.WriteLine("pos {0}: obsolete final bytes: {1:X2} {2:X2}", pos, instruction.OpCode, arg1);
+                Forward();
             }
         }
 
@@ -54,24 +51,49 @@ namespace juniorassembler
 
             if (innerPos == instruction.NoOfBytes)
             {
-                switch (innerPos)
-                {
-                    case 1:
-                        Forward("{0}");
-                        break;
-                    case 2:
-                        Forward("{0} {1:X2}");
-                        break;
-                    case 3:
-                        Forward("{0} {2:X2}{1:X2}");
-                        break;
-                    default:
-                        //Debug.Fail("bad innerPos");
-                        break;
-                }
+                Forward();
                 pos++;
                 innerPos = 0;
             }
+        }
+
+        private void Forward()
+        {
+            string format = null;
+            switch (innerPos)
+            {
+                case 1:
+                    switch (instruction.NoOfBytes)
+                    {
+                        case 1:
+                            format = "{0}";
+                            break;
+                        case 2:
+                            format = "{0} ??";
+                            break;
+                        case 3:
+                            format = "{0} ????";
+                            break;
+                        default:
+                            Debug.Fail("bad instruction.NoOfBytes");
+                            break;
+                    }
+                    break;
+                case 2:
+                    if (2 == instruction.NoOfBytes)
+                        format = "{0} {1:X2}";
+                    else
+                        format = "{0} ??{1:X2}";
+                    break;
+                case 3:
+                    format = "{0} {2:X2}{1:X2}";
+                    break;
+                default:
+                    Debug.Fail("bad innerPos");
+                    break;
+            }
+            if (format != null)
+                Forward(format);
         }
 
         private void Forward(string format)
