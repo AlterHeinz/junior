@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EPROM-dumps", "EPROM-dumps"
 		EPROM-dumps\juniorEprom2000B2.bin = EPROM-dumps\juniorEprom2000B2.bin
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juniorassembler", "juniorassembler\juniorassembler.csproj", "{373BC172-02A7-4334-80CE-13699A2C2C3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAssembler", "TestAssembler\TestAssembler.csproj", "{E1A59098-0E90-4A58-8BDE-515DC6AB2B64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{202719B9-A09F-4C6B-9AD6-B43A1845CB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{202719B9-A09F-4C6B-9AD6-B43A1845CB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{202719B9-A09F-4C6B-9AD6-B43A1845CB31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{373BC172-02A7-4334-80CE-13699A2C2C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{373BC172-02A7-4334-80CE-13699A2C2C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{373BC172-02A7-4334-80CE-13699A2C2C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{373BC172-02A7-4334-80CE-13699A2C2C3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A59098-0E90-4A58-8BDE-515DC6AB2B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A59098-0E90-4A58-8BDE-515DC6AB2B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A59098-0E90-4A58-8BDE-515DC6AB2B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A59098-0E90-4A58-8BDE-515DC6AB2B64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
