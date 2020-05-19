@@ -29,6 +29,14 @@ namespace TestAssembler
 
         [TestMethod]
         [DeploymentItem(@"juniorassembler.exe")]
+        public void SingleByteOpPHAViaFileVerboseYieldsPHA()
+        {
+            string output = TransformVerbose(0x48);
+            Assert.AreEqual("0000: 48     PHA\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
         public void DualByteOpLDAimViaStdInYieldsLDAim()
         {
             string output = Transform("A97F");
@@ -37,10 +45,26 @@ namespace TestAssembler
 
         [TestMethod]
         [DeploymentItem(@"juniorassembler.exe")]
+        public void DualByteOpLDAimViaStdInVerboseYieldsLDAim()
+        {
+            string output = Transform("A97F", true);
+            Assert.AreEqual("0000: A97F   LDAim 7F\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
         public void TripleByteOpLDAViaStdInYieldsLDA()
         {
             string output = Transform("AD7F03");
             Assert.AreEqual("LDA 037F\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void TripleByteOpLDAViaStdInVerboseYieldsLDA()
+        {
+            string output = Transform("AD7F03", true);
+            Assert.AreEqual("0000: AD7F03 LDA 037F\r\n", output);
         }
 
         [TestMethod]
@@ -57,6 +81,14 @@ namespace TestAssembler
         {
             string output = Transform(0xAD, 0x7F, 0x03, 0x48);
             Assert.AreEqual("LDA 037F\r\nPHA\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void TwoOpsViaFileVerboseYieldsLDAPHAetc()
+        {
+            string output = TransformVerbose(0xAD, 0x7F, 0x03, 0x48);
+            Assert.AreEqual("0000: AD7F03 LDA 037F\r\n0003: 48     PHA\r\n", output);
         }
 
         [TestMethod]
@@ -134,10 +166,21 @@ namespace TestAssembler
             Assert.AreEqual(expected, output);
         }
 
-        private static string Transform(string machineCodeBytes)
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorEprom1C00.bin")]
+        [DeploymentItem(@"TestFiles\juniorEprom1C00_Verbose_expected.txt")]
+        public void Disassemble1C00DumpVerboseYieldsExpectedText()
+        {
+            string output = TransformFile("juniorEprom1C00.bin", true);
+            string expected = File.ReadAllText("juniorEprom1C00_Verbose_expected.txt");
+            Assert.AreEqual(expected, output);
+        }
+
+        private static string Transform(string machineCodeBytes, bool verbose = false)
         {
             // configure and start process
-            ProcessStartInfo psi = new ProcessStartInfo("juniorassembler", "-d");
+            ProcessStartInfo psi = new ProcessStartInfo("juniorassembler", verbose ? "-dv " : "-d");
             psi.UseShellExecute = false;
             psi.RedirectStandardInput = true;
             psi.RedirectStandardOutput = true;
@@ -162,10 +205,16 @@ namespace TestAssembler
             return TransformFile("tempHexData.bin");
         }
 
-        private static string TransformFile(string filename)
+        private static string TransformVerbose(params byte[] machineCodeBytes)
+        {
+            File.WriteAllBytes("tempHexData.bin", machineCodeBytes);
+            return TransformFile("tempHexData.bin", true);
+        }
+
+        private static string TransformFile(string filename, bool verbose = false)
         {
             // configure and start process
-            ProcessStartInfo psi = new ProcessStartInfo("juniorassembler", "-d " + filename);
+            ProcessStartInfo psi = new ProcessStartInfo("juniorassembler", (verbose ? "-dv " : "-d ") + filename);
             psi.UseShellExecute = false;
             psi.RedirectStandardOutput = true;
             psi.RedirectStandardError = true;

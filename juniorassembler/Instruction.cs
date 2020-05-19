@@ -19,7 +19,7 @@ namespace juniorassembler
             return ret;
         }
 
-        public int OpCode => OpCode;
+        public int OpCode => data.Item1;
 
         public int NoOfBytes
         {
