@@ -93,6 +93,22 @@ namespace TestAssembler
 
         [TestMethod]
         [DeploymentItem(@"juniorassembler.exe")]
+        public void LDAWith0ByteFollowingYieldsQuestionMarks()
+        {
+            string output = Transform(0xAD);
+            Assert.AreEqual("LDA ????\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void LDAzWith0ByteFollowingYieldsQuestionMarks()
+        {
+            string output = Transform(0xA5);
+            Assert.AreEqual("LDAz ??\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
         public void UnknownOpcodeYieldsEmptyLine()
         {
             string output = Transform("33");

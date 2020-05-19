@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace juniorassembler
@@ -15,13 +16,16 @@ namespace juniorassembler
         {
             if (innerPos == 1)
             {
-                Console.Error.WriteLine("pos {0}: obsolete final byte: {1:X2}", pos, opCode);
-                Forward("{0} ????", instruction.GetLabel());
+                Console.Error.WriteLine("pos {0}: obsolete final byte: {1:X2}", pos, instruction.OpCode);
+                if (2 == instruction.NoOfBytes)
+                    Forward("{0} ??");
+                else
+                    Forward("{0} ????");
             }
             else if (innerPos == 2)
             {
-                Console.Error.WriteLine("pos {0}: obsolete final bytes: {1:X2} {2:X2}", pos, opCode, arg1);
-                Forward("{0} ??{1:X2}", instruction.GetLabel(), arg1);
+                Console.Error.WriteLine("pos {0}: obsolete final bytes: {1:X2} {2:X2}", pos, instruction.OpCode, arg1);
+                Forward("{0} ??{1:X2}");
             }
         }
 
@@ -34,8 +38,7 @@ namespace juniorassembler
         {
             if (innerPos == 0)
             {
-                opCode = value;
-                instruction = Instruction.allInstructions[opCode];
+                instruction = Instruction.find(value);
                 innerPos++;
             }
             else if (innerPos == 1)
@@ -44,40 +47,42 @@ namespace juniorassembler
                 innerPos++;
             }
             else
-                innerPos++;
-
-            if (innerPos == instruction.GetNoOfBytes())
             {
-                Forward(Combine(instruction.GetLabel(), arg1, value, innerPos));
+                arg2 = value;
+                innerPos++;
+            }
+
+            if (innerPos == instruction.NoOfBytes)
+            {
+                switch (innerPos)
+                {
+                    case 1:
+                        Forward("{0}");
+                        break;
+                    case 2:
+                        Forward("{0} {1:X2}");
+                        break;
+                    case 3:
+                        Forward("{0} {2:X2}{1:X2}");
+                        break;
+                    default:
+                        //Debug.Fail("bad innerPos");
+                        break;
+                }
                 pos++;
                 innerPos = 0;
             }
         }
 
-        public static string Combine(string opCode, byte arg1, byte arg2, int innerPos)
+        private void Forward(string format)
         {
-            switch (innerPos)
-            {
-                case 1:
-                    return string.Format("{0}", opCode ?? "??");
-                case 2:
-                    return string.Format("{0} {1:X2}", opCode ?? "??", arg1);
-                case 3:
-                    return string.Format("{0} {1:X2}{2:X2}", opCode ?? "??", arg2, arg1);
-                default:
-                    return "?#?#?";
-            }
-        }
-
-        private void Forward(string format, params object[] args)
-        {
-            output.WriteLine(format, args);
+            output.WriteLine(format, instruction.Label, arg1, arg2);
         }
 
         private readonly TextWriter output;
-        private byte opCode;
         private Instruction instruction;
         private byte arg1;
+        private byte arg2;
         private int innerPos = 0;
         private int pos = 0;
     }

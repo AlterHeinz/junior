@@ -1,73 +1,96 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace juniorassembler
 {
-    public class Instruction : Tuple<int, string, AddressMode>
+    public class Instruction
     {
-        public Instruction(int opCode, string name, AddressMode am)
-            : base(opCode, name, am)
-        {}
-
-        public int GetNoOfBytes()
+        private Instruction(int opCode, string name, AddressMode am)
         {
-            switch (Item3)
+            data = new Tuple<int, string, AddressMode>(opCode, name, am);
+        }
+
+        private Tuple<int, string, AddressMode> data;
+
+        public static Instruction find(byte opCode)
+        {
+            var ret = allInstructions[opCode];
+            Debug.Assert(opCode == ret.data.Item1);
+            return ret;
+        }
+
+        public int OpCode => OpCode;
+
+        public int NoOfBytes
+        {
+            get
             {
-                case AddressMode.NONE:
-                    return 1;
-                case AddressMode.ix:
-                case AddressMode.iy:
-                case AddressMode.zp:
-                case AddressMode.zx:
-                case AddressMode.zy:
-                case AddressMode.im:
-                    return 2;
-                case AddressMode.a:
-                    return 1;
-                case AddressMode.abs:
-                    return 3;
-                case AddressMode.rel:
-                    return 2;
-                case AddressMode.x:
-                case AddressMode.y:
-                    return 3;
-                case AddressMode.i:
-                    return 3;
-                default:
-                    return 1;
-            };
+                switch (data.Item3)
+                {
+                    case AddressMode.NONE:
+                        return 1;
+                    case AddressMode.ix:
+                    case AddressMode.iy:
+                    case AddressMode.zp:
+                    case AddressMode.zx:
+                    case AddressMode.zy:
+                    case AddressMode.im:
+                        return 2;
+                    case AddressMode.a:
+                        return 1;
+                    case AddressMode.abs:
+                        return 3;
+                    case AddressMode.rel:
+                        return 2;
+                    case AddressMode.x:
+                    case AddressMode.y:
+                        return 3;
+                    case AddressMode.i:
+                        return 3;
+                    default:
+                        return 1;
+                }
+            }
         }
 
-        public string GetLabel()
+        public string Label
         {
-            return Item2 + GetAddressModeLabel();
-        }
-
-        private string GetAddressModeLabel()
-        {
-            switch (Item3)
+            get
             {
-                case AddressMode.NONE:
-                case AddressMode.abs:
-                case AddressMode.rel:
-                    return "";
-                case AddressMode.zp:
-                    return "z";
-                case AddressMode.ix:
-                case AddressMode.iy:
-                case AddressMode.zx:
-                case AddressMode.zy:
-                case AddressMode.im:
-                case AddressMode.a:
-                case AddressMode.x:
-                case AddressMode.y:
-                case AddressMode.i:
-                    return Item3.ToString();
-                default:
-                    return "?";
-            };
+                return data.Item2 + AddressModeLabel;
+            }
         }
 
-        public static readonly Instruction[] allInstructions = new Instruction[]
+        private string AddressModeLabel
+        {
+            get
+            {
+                switch (data.Item3)
+                {
+                    case AddressMode.NONE:
+                    case AddressMode.abs:
+                    case AddressMode.rel:
+                        return "";
+                    case AddressMode.zp:
+                        return "z";
+                    case AddressMode.ix:
+                    case AddressMode.iy:
+                    case AddressMode.zx:
+                    case AddressMode.zy:
+                    case AddressMode.im:
+                    case AddressMode.a:
+                    case AddressMode.x:
+                    case AddressMode.y:
+                    case AddressMode.i:
+                        return data.Item3.ToString();
+                    default:
+                        return "?";
+                }
+            }
+        }
+
+        // inspired by links in de.wikipedia.org/wiki/MOS_Technology_6502
+        private static readonly Instruction[] allInstructions = new Instruction[]
         {
             new Instruction(0x00, "BRK", AddressMode.NONE),
             new Instruction(0x01, "ORA", AddressMode.ix),
