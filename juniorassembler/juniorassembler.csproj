@@ -46,9 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressMode.cs" />
+    <Compile Include="ConcreteInstruction.cs" />
     <Compile Include="HexCharCombiner.cs" />
     <Compile Include="Instruction.cs" />
-    <Compile Include="OperationProcessor.cs" />
+    <Compile Include="OperationCombiner.cs" />
+    <Compile Include="OutputFormatter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

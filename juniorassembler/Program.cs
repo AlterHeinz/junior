@@ -17,7 +17,7 @@ namespace juniorassembler
             bool verbose = args[0] == "-dv";
             if (args.Length == 1)
             {
-                var chain = new HexCharCombiner(new OperationProcessor(Console.Out, verbose));
+                var chain = new HexCharCombiner(new OperationCombiner(new OutputFormatter(Console.Out, verbose)));
                 for (int c = Console.Read(); c != -1; c = Console.Read())
                     chain.OnNext((char)c);
                 chain.OnCompleted();
@@ -25,7 +25,7 @@ namespace juniorassembler
             else
             {
                 byte[] data = File.ReadAllBytes(args[1]);
-                var chain = new OperationProcessor(Console.Out, verbose);
+                var chain = new OperationCombiner(new OutputFormatter(Console.Out, verbose));
                 foreach (byte b in data)
                     chain.OnNext(b);
                 chain.OnCompleted();
