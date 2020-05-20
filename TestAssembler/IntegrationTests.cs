@@ -31,8 +31,8 @@ namespace TestAssembler
         [DeploymentItem(@"juniorassembler.exe")]
         public void SingleByteOpPHAViaFileVerboseYieldsPHA()
         {
-            string output = TransformVerbose(0x48);
-            Assert.AreEqual("0000: 48     PHA\r\n", output);
+            string output = TransformVerbose("0080", 0x48);
+            Assert.AreEqual("0080: 48     PHA\r\n", output);
         }
 
         [TestMethod]
@@ -47,8 +47,8 @@ namespace TestAssembler
         [DeploymentItem(@"juniorassembler.exe")]
         public void DualByteOpLDAimViaStdInVerboseYieldsLDAim()
         {
-            string output = Transform("A97F", true);
-            Assert.AreEqual("0000: A97F   LDAim 7F\r\n", output);
+            string output = Transform("A97F", true, "0700");
+            Assert.AreEqual("0700: A97F   LDAim 7F\r\n", output);
         }
 
         [TestMethod]
@@ -63,8 +63,8 @@ namespace TestAssembler
         [DeploymentItem(@"juniorassembler.exe")]
         public void TripleByteOpLDAViaStdInVerboseYieldsLDA()
         {
-            string output = Transform("AD7F03", true);
-            Assert.AreEqual("0000: AD7F03 LDA 037F\r\n", output);
+            string output = Transform("AD7F03", true, "FF80");
+            Assert.AreEqual("FF80: AD7F03 LDA 037F\r\n", output);
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@ namespace TestAssembler
         [DeploymentItem(@"juniorassembler.exe")]
         public void TwoOpsViaFileVerboseYieldsLDAPHAetc()
         {
-            string output = TransformVerbose(0xAD, 0x7F, 0x03, 0x48);
+            string output = TransformVerbose("0000", 0xAD, 0x7F, 0x03, 0x48);
             Assert.AreEqual("0000: AD7F03 LDA 037F\r\n0003: 48     PHA\r\n", output);
         }
 
@@ -172,27 +172,16 @@ namespace TestAssembler
         [DeploymentItem(@"TestFiles\juniorEprom1C00_Verbose_expected.txt")]
         public void Disassemble1C00DumpVerboseYieldsExpectedText()
         {
-            string output = TransformFile("juniorEprom1C00.bin", true);
+            string output = TransformFile("juniorEprom1C00.bin", true, "1C00");
             string expected = File.ReadAllText("juniorEprom1C00_Verbose_expected.txt");
             Assert.AreEqual(expected, output);
         }
 
-        private static string Transform(string machineCodeBytes, bool verbose = false)
+        private static string Transform(string machineCodeBytes, bool verbose = false, string startAddr = "")
         {
-            // configure and start process
-            ProcessStartInfo psi = new ProcessStartInfo("juniorassembler", verbose ? "-dv " : "-d");
-            psi.UseShellExecute = false;
-            psi.RedirectStandardInput = true;
-            psi.RedirectStandardOutput = true;
-            psi.RedirectStandardError = true;
+            Process testling = ConfigureAndStartProcess("", verbose, startAddr, true);
 
-            Process testling = Process.Start(psi);
-            testling.EnableRaisingEvents = true;
-            testling.Exited += Testling_Exited;
-            testling.OutputDataReceived += Testling_OutputDataReceived;
-            testling.ErrorDataReceived += Testling_ErrorDataReceived;
-
-            // process data and stop process
+            // push data into StdIn
             testling.StandardInput.Write(machineCodeBytes);
             testling.StandardInput.Close();
 
@@ -205,17 +194,24 @@ namespace TestAssembler
             return TransformFile("tempHexData.bin");
         }
 
-        private static string TransformVerbose(params byte[] machineCodeBytes)
+        private static string TransformVerbose(string startAddr, params byte[] machineCodeBytes)
         {
             File.WriteAllBytes("tempHexData.bin", machineCodeBytes);
-            return TransformFile("tempHexData.bin", true);
+            return TransformFile("tempHexData.bin", true, startAddr);
         }
 
-        private static string TransformFile(string filename, bool verbose = false)
+        private static string TransformFile(string filename, bool verbose = false, string startAddr = "")
+        {
+            Process testling = ConfigureAndStartProcess(filename, verbose, startAddr, false);
+            return ReadOutputDataAndStopProcess(testling);
+        }
+
+        private static Process ConfigureAndStartProcess(string filename, bool verbose, string startAddr, bool redirectStdIn)
         {
             // configure and start process
-            ProcessStartInfo psi = new ProcessStartInfo("juniorassembler", (verbose ? "-dv " : "-d ") + filename);
+            ProcessStartInfo psi = new ProcessStartInfo("juniorassembler", (verbose ? "-dv " + startAddr + " " : "-d ") + filename);
             psi.UseShellExecute = false;
+            psi.RedirectStandardInput = redirectStdIn;
             psi.RedirectStandardOutput = true;
             psi.RedirectStandardError = true;
 
@@ -224,8 +220,7 @@ namespace TestAssembler
             testling.Exited += Testling_Exited;
             testling.OutputDataReceived += Testling_OutputDataReceived;
             testling.ErrorDataReceived += Testling_ErrorDataReceived;
-
-            return ReadOutputDataAndStopProcess(testling);
+            return testling;
         }
 
         private static string ReadOutputDataAndStopProcess(Process testling)

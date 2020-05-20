@@ -7,10 +7,11 @@ namespace juniorassembler
     // formats one ConcreteInstruction and writes it out
     public class OutputFormatter : IObserver<Tuple<ConcreteInstruction, int>>
     {
-        public OutputFormatter(TextWriter output, bool verbose)
+        public OutputFormatter(TextWriter output, bool verbose, string startAddr)
         {
             this.output = output;
             this.verbose = verbose;
+            this.startAddr = startAddr.Length > 0 ? Convert.ToUInt16(startAddr, 16) : (ushort)0;
         }
 
         public void OnCompleted()
@@ -85,10 +86,11 @@ namespace juniorassembler
 
         private void Forward(string format, ConcreteInstruction instr)
         {
-            output.WriteLine(format, instr.Label, instr.Arg1, instr.Arg2, instr.OpCode, instr.Address);
+            output.WriteLine(format, instr.Label, instr.Arg1, instr.Arg2, instr.OpCode, startAddr + instr.Address);
         }
 
         private readonly TextWriter output;
         private bool verbose;
+        private ushort startAddr;
     }
 }
