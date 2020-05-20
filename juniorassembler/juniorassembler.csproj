@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AddressMode.cs" />
     <Compile Include="ConcreteInstruction.cs" />
+    <Compile Include="Iterators.cs" />
     <Compile Include="HexCharCombiner.cs" />
     <Compile Include="Instruction.cs" />
     <Compile Include="OperationCombiner.cs" />

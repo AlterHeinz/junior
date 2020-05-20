@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace juniorassembler
 {
@@ -20,19 +19,14 @@ namespace juniorassembler
             bool withoutFilename = args.Length == 1 || (verbose && args.Length == 2);
             if (withoutFilename)
             {
-                var chain = new HexCharCombiner(new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr)));
-                for (int c = Console.Read(); c != -1; c = Console.Read())
-                    chain.OnNext((char)c);
-                chain.OnCompleted();
+                var filterPipeline = new HexCharCombiner(new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr)));
+                Iterators.IterateTextChars(Console.In, filterPipeline);
             }
             else
             {
                 string filename = verbose ? args[2]: args[1];
-                byte[] data = File.ReadAllBytes(filename);
-                var chain = new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr));
-                foreach (byte b in data)
-                    chain.OnNext(b);
-                chain.OnCompleted();
+                var filterPipeline = new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr));
+                Iterators.IterateFileBytes(filename, filterPipeline);
             }
             Console.Error.WriteLine("bye.");
         }
