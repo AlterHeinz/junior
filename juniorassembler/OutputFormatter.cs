@@ -36,7 +36,11 @@ namespace juniorassembler
                     break;
                 case 2:
                     if (2 == innerPos)
-                        format = "{0} {1:X2}";
+                        if (verbose)
+                            // special case for branch instructions
+                            format = "{0} {5}";
+                        else
+                            format = "{0} {1:X2}";
                     else
                         format = "{0} ??";
                     break;
@@ -86,7 +90,7 @@ namespace juniorassembler
 
         private void Forward(string format, ConcreteInstruction instr)
         {
-            output.WriteLine(format, instr.Label, instr.Arg1, instr.Arg2, instr.OpCode, startAddr + instr.Address);
+            output.WriteLine(format, instr.Label, instr.Arg1, instr.Arg2, instr.OpCode, startAddr + instr.Address, instr.GetArg1OrBranchDestination(startAddr));
         }
 
         private readonly TextWriter output;

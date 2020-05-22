@@ -45,10 +45,34 @@ namespace TestAssembler
 
         [TestMethod]
         [DeploymentItem(@"juniorassembler.exe")]
+        public void BranchOpViaStdInYieldsNormalDestination()
+        {
+            string output = Transform("D007");
+            Assert.AreEqual("BNE 07\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
         public void DualByteOpLDAimViaStdInVerboseYieldsLDAim()
         {
             string output = Transform("A97F", true, "0700");
             Assert.AreEqual("0700: A97F   LDAim 7F\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void BranchOpForwardViaStdInVerboseYieldsVerboseBranchDestination()
+        {
+            string output = Transform("D007", true, "0727");
+            Assert.AreEqual("0727: D007   BNE +7>30\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void BranchOpBackwardViaStdInVerboseYieldsVerboseBranchDestination()
+        {
+            string output = Transform("F0E7", true, "0727");
+            Assert.AreEqual("0727: F0E7   BEQ -25>10\r\n", output);
         }
 
         [TestMethod]

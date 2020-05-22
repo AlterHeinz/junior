@@ -21,6 +21,8 @@ namespace juniorassembler
 
         public int OpCode => data.Item1;
 
+        public bool IsBranchInstruction => data.Item3 == AddressMode.rel;
+
         public int NoOfBytes
         {
             get
