@@ -88,9 +88,21 @@ namespace juniorassembler
             }
         }
 
+        public string GetArg1OrBranchDestination(ConcreteInstruction instr)
+        {
+            if (instr.IsBranchInstruction)
+            {
+                sbyte offset = (sbyte)instr.Arg1;
+                int destination = startAddr + instr.Address + 2 + offset;
+                return string.Format("{0}{1}>{2:X2}", offset >= 0 ? "+" : "", offset, destination & 0xFF);
+            }
+            else
+                return string.Format("{0:X2}", instr.Arg1);
+        }
+
         private void Forward(string format, ConcreteInstruction instr)
         {
-            output.WriteLine(format, instr.Label, instr.Arg1, instr.Arg2, instr.OpCode, startAddr + instr.Address, instr.GetArg1OrBranchDestination(startAddr));
+            output.WriteLine(format, instr.Label, instr.Arg1, instr.Arg2, instr.OpCode, startAddr + instr.Address, GetArg1OrBranchDestination(instr));
         }
 
         private readonly TextWriter output;
