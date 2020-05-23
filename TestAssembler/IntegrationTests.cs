@@ -93,6 +93,30 @@ namespace TestAssembler
 
         [TestMethod]
         [DeploymentItem(@"juniorassembler.exe")]
+        public void LDASymbolPADViaStdInVerboseYieldsLDAWithPAD()
+        {
+            string output = Transform("AD821A", true, "FF80");
+            Assert.AreEqual("FF80: AD821A LDA 1A82 PBD\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void JMPSymbolRSTViaFileVerboseYieldsJMPToRST()
+        {
+            string output = TransformVerbose("1F80", 0x4C, 0x1D, 0x1C);
+            Assert.AreEqual("1F80: 4C1D1C JMP 1C1D RST\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void KnownFunctionAddressVerboseYieldsExtraOutput()
+        {
+            string output = TransformVerbose("2F00", 0xA9, 0x07);
+            Assert.AreEqual("2F00: ------ Hexeditor\r\n2F00: A907   LDAim 07\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
         public void TwoOpsViaStdInYieldsLDAPHA()
         {
             string output = Transform("AD7F0348");
@@ -111,8 +135,8 @@ namespace TestAssembler
         [DeploymentItem(@"juniorassembler.exe")]
         public void TwoOpsViaFileVerboseYieldsLDAPHAetc()
         {
-            string output = TransformVerbose("0000", 0xAD, 0x7F, 0x03, 0x48);
-            Assert.AreEqual("0000: AD7F03 LDA 037F\r\n0003: 48     PHA\r\n", output);
+            string output = TransformVerbose("0010", 0xAD, 0x7F, 0x03, 0x48);
+            Assert.AreEqual("0010: AD7F03 LDA 037F\r\n0013: 48     PHA\r\n", output);
         }
 
         [TestMethod]
