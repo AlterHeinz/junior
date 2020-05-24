@@ -1,4 +1,5 @@
-﻿1C00: 85F3   STAz F3
+﻿1C00: ------ monitor.SAVEAllRegisters
+1C00: 85F3   STAz F3
 1C02: 68     PLA
 1C03: 85F1   STAz F1
 1C05: 68     PLA
@@ -13,8 +14,8 @@
 1C14: 86F2   STXz F2
 1C16: A201   LDXim 01
 1C18: 86FF   STXz FF
-1C1A: 4C331C JMP 1C33
-1C1D: ------ RST
+1C1A: 4C331C JMP 1C33 monitor.START
+1C1D: ------ monitor.RESET
 1C1D: A91E   LDAim 1E
 1C1F: 8D831A STA 1A83 PBDD
 1C22: A904   LDAim 04
@@ -24,17 +25,19 @@
 1C2A: 85F6   STAz F6
 1C2C: A2FF   LDXim FF
 1C2E: 9A     TXS
-1C2F: 4C861E JMP 1E86
+1C2F: 4C861E JMP 1E86 comfortableReset
 1C32: 33     
-1C33: 20881D JSR 1D88
+1C33: ------ monitor.START
+1C33: 20881D JSR 1D88 monitor.SCAND
 1C36: D0FB   BNE -5>33
-1C38: 20881D JSR 1D88
+1C38: 20881D JSR 1D88 monitor.SCAND
 1C3B: F0FB   BEQ -5>38
-1C3D: 20881D JSR 1D88
+1C3D: 20881D JSR 1D88 monitor.SCAND
 1C40: F0F6   BEQ -10>38
-1C42: 20F91D JSR 1DF9 ??
+1C42: 20F91D JSR 1DF9 monitor.??
 1C45: C913   CMPim 13
 1C47: D013   BNE +19>5C
+1C49: ------ monitor.GO
 1C49: A6F2   LDXz F2
 1C4B: 9A     TXS
 1C4C: A5FB   LDAz FB
@@ -47,6 +50,7 @@
 1C57: A4F4   LDYz F4
 1C59: A5F3   LDAz F3
 1C5B: 40     RTI
+1C5C: ------ monitor.handleKey
 1C5C: C910   CMPim 10
 1C5E: D006   BNE +6>66
 1C60: A903   LDAim 03
@@ -62,7 +66,7 @@
 1C74: E6FA   INCz FA
 1C76: D002   BNE +2>7A
 1C78: E6FB   INCz FB
-1C7A: 4C331C JMP 1C33
+1C7A: 4C331C JMP 1C33 monitor.START
 1C7D: C914   CMPim 14
 1C7F: D00B   BNE +11>8C
 1C81: A5EF   LDAz EF
@@ -98,7 +102,8 @@
 1CB8: FF     
 1CB9: 22     
 1CBA: 33     
-1CBB: 20EE1F JSR 1FEE deactivate EPROM segments
+1CBB: ------ floppy.writeExec
+1CBB: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1CBE: A920   LDAim 20
 1CC0: A000   LDYim 00
 1CC2: 2C0016 BIT 1600
@@ -114,7 +119,7 @@
 1CD8: 10FB   BPL -5>D5
 1CDA: D0EF   BNE -17>CB
 1CDC: 84EC   STYz EC
-1CDE: 4CDD1F JMP 1FDD activate EPROM segments(1A08)
+1CDE: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1CE1: E6EB   INCz EB
 1CE3: E6ED   INCz ED
 1CE5: 4CD31C JMP 1CD3
@@ -124,7 +129,8 @@
 1CEB: FF     
 1CEC: 22     
 1CED: 33     
-1CEE: 20EE1F JSR 1FEE deactivate EPROM segments
+1CEE: ------ floppy.vglExec
+1CEE: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1CF1: A920   LDAim 20
 1CF3: A000   LDYim 00
 1CF5: 2C0016 BIT 1600
@@ -141,7 +147,7 @@
 1D0D: 10FB   BPL -5>0A
 1D0F: D0ED   BNE -19>FE
 1D11: 84EC   STYz EC
-1D13: 4CDD1F JMP 1FDD activate EPROM segments(1A08)
+1D13: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1D16: E6EB   INCz EB
 1D18: E6ED   INCz ED
 1D1A: 4C081D JMP 1D08
@@ -189,23 +195,25 @@
 1D4A: FF     
 1D4B: 22     
 1D4C: 33     
-1D4D: ------ ??
+1D4D: ------ monitor.??
 1D4D: A202   LDXim 02
 1D4F: A000   LDYim 00
-1D51: B1E6   LDAiy E6
+1D51: B1E6   LDAiy E6 orig.CURADL
 1D53: 95F9   STAzx F9
 1D55: C8     INY
 1D56: CA     DEX
 1D57: 10F8   BPL -8>51
-1D59: 205C1E JSR 1E5C ??
-1D5C: 208E1D JSR 1D8E ??
+1D59: 205C1E JSR 1E5C monitor.??
+1D5C: 208E1D JSR 1D8E monitor.??
 1D5F: D0FB   BNE -5>5C
-1D61: 208E1D JSR 1D8E ??
+1D61: ------ monitor.SCANB
+1D61: 208E1D JSR 1D8E monitor.??
 1D64: F0FB   BEQ -5>61
-1D66: 208E1D JSR 1D8E ??
+1D66: 208E1D JSR 1D8E monitor.??
 1D69: F0F6   BEQ -10>61
-1D6B: 20F91D JSR 1DF9 ??
+1D6B: 20F91D JSR 1DF9 monitor.??
 1D6E: 60     RTS
+1D6F: ------ monitor.??
 1D6F: 205C1D JSR 1D5C
 1D72: C910   CMPim 10
 1D74: 1011   BPL +17>87
@@ -220,24 +228,25 @@
 1D83: 05FE   ORAz FE
 1D85: A2FF   LDXim FF
 1D87: 60     RTS
+1D88: ------ monitor.SCAND
 1D88: A000   LDYim 00
 1D8A: B1FA   LDAiy FA
 1D8C: 85F9   STAz F9
-1D8E: ------ ??
+1D8E: ------ monitor.??
 1D8E: A97F   LDAim 7F
 1D90: 8D811A STA 1A81 PADD
 1D93: A208   LDXim 08
 1D95: A4F6   LDYz F6
 1D97: A5FB   LDAz FB
-1D99: 20CC1D JSR 1DCC
+1D99: 20CC1D JSR 1DCC monitor.??
 1D9C: 88     DEY
 1D9D: F00D   BEQ +13>AC
 1D9F: A5FA   LDAz FA
-1DA1: 20CC1D JSR 1DCC
+1DA1: 20CC1D JSR 1DCC monitor.??
 1DA4: 88     DEY
 1DA5: F005   BEQ +5>AC
 1DA7: A5F9   LDAz F9
-1DA9: 20CC1D JSR 1DCC
+1DA9: 20CC1D JSR 1DCC monitor.??
 1DAC: A900   LDAim 00
 1DAE: 8D811A STA 1A81 PADD
 1DB1: A003   LDYim 03
@@ -254,18 +263,20 @@
 1DC7: 0980   ORAim 80
 1DC9: 49FF   EORim FF
 1DCB: 60     RTS
+1DCC: ------ monitor.??
 1DCC: 48     PHA
 1DCD: 84FC   STYz FC
 1DCF: 4A     LSRa
 1DD0: 4A     LSRa
 1DD1: 4A     LSRa
 1DD2: 4A     LSRa
-1DD3: 20DF1D JSR 1DDF
+1DD3: 20DF1D JSR 1DDF monitor.??
 1DD6: 68     PLA
 1DD7: 290F   ANDim 0F
-1DD9: 20DF1D JSR 1DDF
+1DD9: 20DF1D JSR 1DDF monitor.??
 1DDC: A4FC   LDYz FC
 1DDE: 60     RTS
+1DDF: ------ monitor.??
 1DDF: A8     TAY
 1DE0: B90F1F LDAy 1F0F
 1DE3: 8D801A STA 1A80 PAD
@@ -279,7 +290,7 @@
 1DF6: E8     INX
 1DF7: E8     INX
 1DF8: 60     RTS
-1DF9: ------ ??
+1DF9: ------ monitor.??
 1DF9: A221   LDXim 21
 1DFB: A001   LDYim 01
 1DFD: 20B51D JSR 1DB5
@@ -307,6 +318,7 @@
 1E20: FF     
 1E21: 22     
 1E22: 33     
+1E23: ------ floppy.readExec
 1E23: A920   LDAim 20
 1E25: A000   LDYim 00
 1E27: 2C0016 BIT 1600
@@ -343,9 +355,9 @@
 1E59: FF     
 1E5A: 22     
 1E5B: 33     
-1E5C: ------ ??
+1E5C: ------ monitor.??
 1E5C: A000   LDYim 00
-1E5E: B1E6   LDAiy E6
+1E5E: B1E6   LDAiy E6 orig.CURADL
 1E60: A001   LDYim 01
 1E62: C900   CMPim 00
 1E64: F01A   BEQ +26>80
@@ -367,13 +379,14 @@
 1E83: FF     
 1E84: 22     
 1E85: 33     
+1E86: ------ comfortableReset
 1E86: 86F2   STXz F2
 1E88: D8     CLD
 1E89: 78     SEI
-1E8A: 20881D JSR 1D88
+1E8A: 20881D JSR 1D88 monitor.SCAND
 1E8D: D003   BNE +3>92
-1E8F: 4C331C JMP 1C33
-1E92: 20611D JSR 1D61
+1E8F: 4C331C JMP 1C33 monitor.START
+1E92: 20611D JSR 1D61 monitor.SCANB
 1E95: C900   CMPim 00
 1E97: D008   BNE +8>A1
 1E99: A901   LDAim 01
@@ -382,19 +395,19 @@
 1EA1: C901   CMPim 01
 1EA3: D008   BNE +8>AD
 1EA5: A901   LDAim 01
-1EA7: 8DF9FF STA FFF9 flag EPROM me
-1EAA: 4C0040 JMP 4000
+1EA7: 8DF9FF STA FFF9 flag EPROM med
+1EAA: 4C0040 JMP 4000 Texteditor
 1EAD: C90D   CMPim 0D
 1EAF: D008   BNE +8>B9
 1EB1: A901   LDAim 01
-1EB3: 8DF9FF STA FFF9 flag EPROM me
-1EB6: 4C304F JMP 4F30
+1EB3: 8DF9FF STA FFF9 flag EPROM med
+1EB6: 4C304F JMP 4F30 Directory
 1EB9: C90F   CMPim 0F
 1EBB: D008   BNE +8>C5
 1EBD: A901   LDAim 01
-1EBF: 8DF9FF STA FFF9 flag EPROM me
-1EC2: 4C0050 JMP 5000
-1EC5: 4C331C JMP 1C33
+1EBF: 8DF9FF STA FFF9 flag EPROM med
+1EC2: 4C0050 JMP 5000 Floppy
+1EC5: 4C331C JMP 1C33 monitor.START
 1EC8: FF     
 1EC9: FF     
 1ECA: FF     
@@ -406,39 +419,43 @@
 1ED0: FF     
 1ED1: 22     
 1ED2: 33     
-1ED3: A5E2   LDAz E2
-1ED5: 85E6   STAz E6
-1ED7: A5E3   LDAz E3
-1ED9: 85E7   STAz E7
+1ED3: ------ monitor.??
+1ED3: A5E2   LDAz E2 orig.BEGADL
+1ED5: 85E6   STAz E6 orig.CURADL
+1ED7: A5E3   LDAz E3 orig.BEGADH
+1ED9: 85E7   STAz E7 orig.CURADH
 1EDB: 60     RTS
+1EDC: ------ monitor.??
 1EDC: 18     CLC
-1EDD: A5E8   LDAz E8
+1EDD: A5E8   LDAz E8 orig.CENDL
 1EDF: 65F6   ADCz F6
-1EE1: 85E8   STAz E8
-1EE3: A5E9   LDAz E9
+1EE1: 85E8   STAz E8 orig.CENDL
+1EE3: A5E9   LDAz E9 orig.CENDH
 1EE5: 6900   ADCim 00
-1EE7: 85E9   STAz E9
+1EE7: 85E9   STAz E9 orig.CENDH
 1EE9: 60     RTS
+1EEA: ------ monitor.??
 1EEA: 38     SEC
-1EEB: A5E8   LDAz E8
+1EEB: A5E8   LDAz E8 orig.CENDL
 1EED: E5F6   SBCz F6
-1EEF: 85E8   STAz E8
-1EF1: A5E9   LDAz E9
+1EEF: 85E8   STAz E8 orig.CENDL
+1EF1: A5E9   LDAz E9 orig.CENDH
 1EF3: E900   SBCim 00
-1EF5: 85E9   STAz E9
+1EF5: 85E9   STAz E9 orig.CENDH
 1EF7: 60     RTS
 1EF8: 18     CLC
-1EF9: A5E6   LDAz E6
+1EF9: ------ monitor.??
+1EF9: A5E6   LDAz E6 orig.CURADL
 1EFB: 65F6   ADCz F6
-1EFD: 85E6   STAz E6
-1EFF: A5E7   LDAz E7
+1EFD: 85E6   STAz E6 orig.CURADL
+1EFF: A5E7   LDAz E7 orig.CURADH
 1F01: 6900   ADCim 00
-1F03: 85E7   STAz E7
+1F03: 85E7   STAz E7 orig.CURADH
 1F05: 38     SEC
-1F06: A5E6   LDAz E6
-1F08: E5E8   SBCz E8
-1F0A: A5E7   LDAz E7
-1F0C: E5E9   SBCz E9
+1F06: A5E6   LDAz E6 orig.CURADL
+1F08: E5E8   SBCz E8 orig.CENDL
+1F0A: A5E7   LDAz E7 orig.CURADH
+1F0C: E5E9   SBCz E9 orig.CENDH
 1F0E: 60     RTS
 1F0F: 40     RTI
 1F10: 792430 ADCy 3024
@@ -462,8 +479,8 @@
 1F2C: 03     
 1F2D: 03     
 1F2E: 03     
-1F2F: 6C7A1A JMPi 1A7A
-1F32: 6C7E1A JMPi 1A7E
+1F2F: 6C7A1A JMPi 1A7A orig.NMIL
+1F32: 6C7E1A JMPi 1A7E orig.IRQL
 1F35: FF     
 1F36: FF     
 1F37: FF     
@@ -472,7 +489,8 @@
 1F3A: FF     
 1F3B: 22     
 1F3C: 33     
-1F3D: 20EE1F JSR 1FEE deactivate EPROM segments
+1F3D: ------ texteditor.sr1
+1F3D: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1F40: 88     DEY
 1F41: 301A   BMI +26>5D
 1F43: B19A   LDAiy 9A
@@ -489,50 +507,56 @@
 1F57: 8566   STAz 66
 1F59: 9002   BCC +2>5D
 1F5B: E667   INCz 67
-1F5D: 4CDD1F JMP 1FDD activate EPROM segments(1A08)
+1F5D: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1F60: 22     
 1F61: 33     
-1F62: 20EE1F JSR 1FEE deactivate EPROM segments
+1F62: ------ texteditor.sr2
+1F62: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1F65: 88     DEY
 1F66: 3006   BMI +6>6E
 1F68: B19A   LDAiy 9A
 1F6A: C920   CMPim 20
 1F6C: F0F7   BEQ -9>65
-1F6E: 4CDD1F JMP 1FDD activate EPROM segments(1A08)
+1F6E: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1F71: 22     
 1F72: 33     
-1F73: 20EE1F JSR 1FEE deactivate EPROM segments
+1F73: ------ texteditor.sr3
+1F73: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1F76: C8     INY
 1F77: D002   BNE +2>7B
 1F79: E62F   INCz 2F
 1F7B: B12E   LDAiy 2E
 1F7D: C91D   CMPim 1D
 1F7F: D0F5   BNE -11>76
-1F81: 4CDD1F JMP 1FDD activate EPROM segments(1A08)
+1F81: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1F84: 22     
 1F85: 33     
-1F86: 20EE1F JSR 1FEE deactivate EPROM segments
+1F86: ------ texteditor.sr4
+1F86: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1F89: 209011 JSR 1190
-1F8C: 4CDD1F JMP 1FDD activate EPROM segments(1A08)
+1F8C: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1F8F: 22     
 1F90: 33     
-1F91: 20EE1F JSR 1FEE deactivate EPROM segments
+1F91: ------ texteditor.sr5
+1F91: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1F94: B19A   LDAiy 9A
 1F96: AA     TAX
-1F97: 4CDD1F JMP 1FDD activate EPROM segments(1A08)
+1F97: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1F9A: 22     
 1F9B: 33     
-1F9C: 20EE1F JSR 1FEE deactivate EPROM segments
+1F9C: ------ bios.readfileSameBank
+1F9C: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1F9F: B160   LDAiy 60
 1FA1: AA     TAX
-1FA2: 4CDD1F JMP 1FDD activate EPROM segments(1A08)
+1FA2: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1FA5: FF     
 1FA6: FF     
 1FA7: FF     
 1FA8: 22     
 1FA9: 33     
-1FAA: A5E2   LDAz E2
-1FAC: A6E3   LDXz E3
+1FAA: ------ hexeditor.start
+1FAA: A5E2   LDAz E2 orig.BEGADL
+1FAC: A6E3   LDXz E3 orig.BEGADH
 1FAE: 85FA   STAz FA
 1FB0: 86FB   STXz FB
 1FB2: A901   LDAim 01
@@ -542,44 +566,44 @@
 1FBB: FF     
 1FBC: 22     
 1FBD: 33     
-1FBE: ------ read 1 byte from EPROM
-1FBE: 20D41F JSR 1FD4 activate EPROM bank and segments(1A09)
+1FBE: ------ bios.read 1 byte from EPROM
+1FBE: 20D41F JSR 1FD4 bios.activate EPROM bank and segments(1A09)
 1FC1: B160   LDAiy 60
 1FC3: AA     TAX
-1FC4: ------ activate EPROM bank and segments(1A08)
+1FC4: ------ bios.activate EPROM bank and segments(1A08)
 1FC4: AD081A LDA 1A08
-1FC7: ------ activate EPROM bank and segments(AC)
+1FC7: ------ bios.activate EPROM bank and segments(AC)
 1FC7: 0A     ASLa
 1FC8: 2A     ROLa
 1FC9: 8DFFFF STA FFFF flag EPROM Bank
 1FCC: 6A     RORa
 1FCD: 6A     RORa
-1FCE: 4CE01F JMP 1FE0 activate EPROM segments(AC)
+1FCE: 4CE01F JMP 1FE0 bios.activate EPROM segments(AC)
 1FD1: FF     
 1FD2: 22     
 1FD3: 33     
-1FD4: ------ activate EPROM bank and segments(1A09)
+1FD4: ------ bios.activate EPROM bank and segments(1A09)
 1FD4: AD091A LDA 1A09
-1FD7: 4CC71F JMP 1FC7 activate EPROM bank and segments(AC)
+1FD7: 4CC71F JMP 1FC7 bios.activate EPROM bank and segments(AC)
 1FDA: FF     
 1FDB: 22     
 1FDC: 33     
-1FDD: ------ activate EPROM segments(1A08)
+1FDD: ------ bios.activate EPROM segments(1A08)
 1FDD: AD081A LDA 1A08
-1FE0: ------ activate EPROM segments(AC)
+1FE0: ------ bios.activate EPROM segments(AC)
 1FE0: 8DF8FF STA FFF8 flag EPROM lo
 1FE3: 4A     LSRa
-1FE4: 8DF9FF STA FFF9 flag EPROM me
+1FE4: 8DF9FF STA FFF9 flag EPROM med
 1FE7: 4A     LSRa
-1FE8: 8DFAFF STA FFFA flag EPROM hi
+1FE8: 8DFAFF STA FFFA flag EPROM hi/NMIadr
 1FEB: 60     RTS
 1FEC: 22     
 1FED: 33     
-1FEE: ------ deactivate EPROM segments
+1FEE: ------ bios.deactivate EPROM segments
 1FEE: A900   LDAim 00
 1FF0: 8DF8FF STA FFF8 flag EPROM lo
-1FF3: 8DF9FF STA FFF9 flag EPROM me
-1FF6: 8DFAFF STA FFFA flag EPROM hi
+1FF3: 8DF9FF STA FFF9 flag EPROM med
+1FF6: 8DFAFF STA FFFA flag EPROM hi/NMIadr
 1FF9: 60     RTS
 1FFA: 2F     
 1FFB: 1F     

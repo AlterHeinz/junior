@@ -61,6 +61,14 @@ namespace TestAssembler
 
         [TestMethod]
         [DeploymentItem(@"juniorassembler.exe")]
+        public void DualByteOpLDAzViaStdInVerboseYieldsLDAzWithSymbol()
+        {
+            string output = Transform("A5E2", true, "0700");
+            Assert.AreEqual("0700: A5E2   LDAz E2 orig.BEGADL\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
         public void BranchOpForwardViaStdInVerboseYieldsVerboseBranchDestination()
         {
             string output = Transform("D007", true, "0727");
@@ -104,7 +112,7 @@ namespace TestAssembler
         public void JMPSymbolRSTViaFileVerboseYieldsJMPToRST()
         {
             string output = TransformVerbose("1F80", 0x4C, 0x1D, 0x1C);
-            Assert.AreEqual("1F80: 4C1D1C JMP 1C1D RST\r\n", output);
+            Assert.AreEqual("1F80: 4C1D1C JMP 1C1D monitor.RESET\r\n", output);
         }
 
         [TestMethod]

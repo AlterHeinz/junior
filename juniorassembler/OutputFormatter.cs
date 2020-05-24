@@ -58,8 +58,11 @@ namespace juniorassembler
                 case 2:
                     if (2 == innerPos)
                         if (verbose)
-                            // special case for branch instructions
-                            return "{0} {5}";
+                            if (instr.IsBranchInstruction)
+                                // special case for branch instructions
+                                return "{0} {5}";
+                            else
+                                return "{0} {1:X2}{6}"; // special postfix for instructions with symbols
                         else
                             return "{0} {1:X2}";
                     else
@@ -114,7 +117,7 @@ namespace juniorassembler
 
         public string GetSymbolPostfix(ConcreteInstruction instr)
         {
-            if (verbose && instr.NoOfBytes == 3)
+            if (verbose && instr.NoOfBytes != 1)
             {
                 string postfix = SymbolMap.find(instr.Argument);
                 return postfix == null ? "" : " " + postfix;
