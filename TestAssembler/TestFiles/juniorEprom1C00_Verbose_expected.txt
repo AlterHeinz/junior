@@ -1,28 +1,28 @@
 ﻿1C00: ------ monitor.SAVEAllRegisters
-1C00: 85F3   STAz F3
+1C00: 85F3   STAz F3 monitor.??
 1C02: 68     PLA
-1C03: 85F1   STAz F1
+1C03: 85F1   STAz F1 monitor.??
 1C05: 68     PLA
-1C06: 85EF   STAz EF
-1C08: 85FA   STAz FA
+1C06: 85EF   STAz EF monitor.??
+1C08: 85FA   STAz FA monitor.??
 1C0A: 68     PLA
-1C0B: 85F0   STAz F0
-1C0D: 85FB   STAz FB
-1C0F: 84F4   STYz F4
-1C11: 86F5   STXz F5
+1C0B: 85F0   STAz F0 monitor.??
+1C0D: 85FB   STAz FB monitor.??
+1C0F: 84F4   STYz F4 monitor.??
+1C11: 86F5   STXz F5 monitor.??
 1C13: BA     TSX
-1C14: 86F2   STXz F2
+1C14: 86F2   STXz F2 monitor.??
 1C16: A201   LDXim 01
-1C18: 86FF   STXz FF
+1C18: 86FF   STXz FF monitor.??
 1C1A: 4C331C JMP 1C33 monitor.START
 1C1D: ------ monitor.RESET
 1C1D: A91E   LDAim 1E
 1C1F: 8D831A STA 1A83 PBDD
 1C22: A904   LDAim 04
-1C24: 85F1   STAz F1
+1C24: 85F1   STAz F1 monitor.??
 1C26: A903   LDAim 03
-1C28: 85FF   STAz FF
-1C2A: 85F6   STAz F6
+1C28: 85FF   STAz FF monitor.??
+1C2A: 85F6   STAz F6 monitor.??/editor.BYTES
 1C2C: A2FF   LDXim FF
 1C2E: 9A     TXS
 1C2F: 4C861E JMP 1E86 comfortableReset
@@ -34,67 +34,67 @@
 1C3B: F0FB   BEQ -5>38
 1C3D: 20881D JSR 1D88 monitor.SCAND
 1C40: F0F6   BEQ -10>38
-1C42: 20F91D JSR 1DF9 monitor.??
+1C42: 20F91D JSR 1DF9 monitor.GETKEY
 1C45: C913   CMPim 13
 1C47: D013   BNE +19>5C
 1C49: ------ monitor.GO
-1C49: A6F2   LDXz F2
+1C49: A6F2   LDXz F2 monitor.??
 1C4B: 9A     TXS
-1C4C: A5FB   LDAz FB
+1C4C: A5FB   LDAz FB monitor.??
 1C4E: 48     PHA
-1C4F: A5FA   LDAz FA
+1C4F: A5FA   LDAz FA monitor.??
 1C51: 48     PHA
-1C52: A5F1   LDAz F1
+1C52: A5F1   LDAz F1 monitor.??
 1C54: 48     PHA
-1C55: A6F5   LDXz F5
-1C57: A4F4   LDYz F4
-1C59: A5F3   LDAz F3
+1C55: A6F5   LDXz F5 monitor.??
+1C57: A4F4   LDYz F4 monitor.??
+1C59: A5F3   LDAz F3 monitor.??
 1C5B: 40     RTI
 1C5C: ------ monitor.handleKey
 1C5C: C910   CMPim 10
 1C5E: D006   BNE +6>66
 1C60: A903   LDAim 03
-1C62: 85FF   STAz FF
+1C62: 85FF   STAz FF monitor.??
 1C64: D014   BNE +20>7A
 1C66: C911   CMPim 11
 1C68: D006   BNE +6>70
 1C6A: A900   LDAim 00
-1C6C: 85FF   STAz FF
+1C6C: 85FF   STAz FF monitor.??
 1C6E: F00A   BEQ +10>7A
 1C70: C912   CMPim 12
 1C72: D009   BNE +9>7D
-1C74: E6FA   INCz FA
+1C74: E6FA   INCz FA monitor.??
 1C76: D002   BNE +2>7A
-1C78: E6FB   INCz FB
+1C78: E6FB   INCz FB monitor.??
 1C7A: 4C331C JMP 1C33 monitor.START
 1C7D: C914   CMPim 14
 1C7F: D00B   BNE +11>8C
-1C81: A5EF   LDAz EF
-1C83: 85FA   STAz FA
-1C85: A5F0   LDAz F0
-1C87: 85FB   STAz FB
+1C81: A5EF   LDAz EF monitor.??
+1C83: 85FA   STAz FA monitor.??
+1C85: A5F0   LDAz F0 monitor.??
+1C87: 85FB   STAz FB monitor.??
 1C89: 4C7A1C JMP 1C7A
 1C8C: C915   CMPim 15
 1C8E: 10EA   BPL -22>7A
-1C90: 85E1   STAz E1
-1C92: A4FF   LDYz FF
+1C90: 85E1   STAz E1 monitor.??
+1C92: A4FF   LDYz FF monitor.??
 1C94: D00D   BNE +13>A3
-1C96: B1FA   LDAiy FA
+1C96: B1FA   LDAiy FA monitor.??
 1C98: 0A     ASLa
 1C99: 0A     ASLa
 1C9A: 0A     ASLa
 1C9B: 0A     ASLa
-1C9C: 05E1   ORAz E1
-1C9E: 91FA   STAiy FA
+1C9C: 05E1   ORAz E1 monitor.??
+1C9E: 91FA   STAiy FA monitor.??
 1CA0: 4C7A1C JMP 1C7A
 1CA3: A204   LDXim 04
-1CA5: 06FA   ASLz FA
-1CA7: 26FB   ROLz FB
+1CA5: 06FA   ASLz FA monitor.??
+1CA7: 26FB   ROLz FB monitor.??
 1CA9: CA     DEX
 1CAA: D0F9   BNE -7>A5
-1CAC: A5FA   LDAz FA
-1CAE: 05E1   ORAz E1
-1CB0: 85FA   STAz FA
+1CAC: A5FA   LDAz FA monitor.??
+1CAE: 05E1   ORAz E1 monitor.??
+1CB0: 85FA   STAz FA monitor.??
 1CB2: 4C7A1C JMP 1C7A
 1CB5: FF     
 1CB6: FF     
@@ -195,62 +195,64 @@
 1D4A: FF     
 1D4B: 22     
 1D4C: 33     
-1D4D: ------ monitor.??
+1D4D: ------ editor.SCAN
 1D4D: A202   LDXim 02
 1D4F: A000   LDYim 00
-1D51: B1E6   LDAiy E6 orig.CURADL
-1D53: 95F9   STAzx F9
+1D51: B1E6   LDAiy E6 editor.CURADL
+1D53: 95F9   STAzx F9 monitor.??
 1D55: C8     INY
 1D56: CA     DEX
 1D57: 10F8   BPL -8>51
-1D59: 205C1E JSR 1E5C monitor.??
-1D5C: 208E1D JSR 1D8E monitor.??
+1D59: 205C1E JSR 1E5C editor.OPLEN
+1D5C: ------ editor.SCANA
+1D5C: 208E1D JSR 1D8E monitor.SCANDS
 1D5F: D0FB   BNE -5>5C
-1D61: ------ monitor.SCANB
-1D61: 208E1D JSR 1D8E monitor.??
+1D61: ------ editor.SCANB
+1D61: 208E1D JSR 1D8E monitor.SCANDS
 1D64: F0FB   BEQ -5>61
-1D66: 208E1D JSR 1D8E monitor.??
+1D66: 208E1D JSR 1D8E monitor.SCANDS
 1D69: F0F6   BEQ -10>61
-1D6B: 20F91D JSR 1DF9 monitor.??
+1D6B: 20F91D JSR 1DF9 monitor.GETKEY
 1D6E: 60     RTS
-1D6F: ------ monitor.??
-1D6F: 205C1D JSR 1D5C
+1D6F: ------ editor.GETBYT
+1D6F: 205C1D JSR 1D5C editor.SCANA
 1D72: C910   CMPim 10
 1D74: 1011   BPL +17>87
 1D76: 0A     ASLa
 1D77: 0A     ASLa
 1D78: 0A     ASLa
 1D79: 0A     ASLa
-1D7A: 85FE   STAz FE
-1D7C: 205C1D JSR 1D5C
+1D7A: 85FE   STAz FE editor.NIBBLE
+1D7C: 205C1D JSR 1D5C editor.SCANA
 1D7F: C910   CMPim 10
 1D81: 1004   BPL +4>87
-1D83: 05FE   ORAz FE
+1D83: 05FE   ORAz FE editor.NIBBLE
 1D85: A2FF   LDXim FF
 1D87: 60     RTS
 1D88: ------ monitor.SCAND
 1D88: A000   LDYim 00
-1D8A: B1FA   LDAiy FA
-1D8C: 85F9   STAz F9
-1D8E: ------ monitor.??
+1D8A: B1FA   LDAiy FA monitor.??
+1D8C: 85F9   STAz F9 monitor.??
+1D8E: ------ monitor.SCANDS
 1D8E: A97F   LDAim 7F
 1D90: 8D811A STA 1A81 PADD
 1D93: A208   LDXim 08
-1D95: A4F6   LDYz F6
-1D97: A5FB   LDAz FB
-1D99: 20CC1D JSR 1DCC monitor.??
+1D95: A4F6   LDYz F6 monitor.??/editor.BYTES
+1D97: A5FB   LDAz FB monitor.??
+1D99: 20CC1D JSR 1DCC monitor.SHOW
 1D9C: 88     DEY
 1D9D: F00D   BEQ +13>AC
-1D9F: A5FA   LDAz FA
-1DA1: 20CC1D JSR 1DCC monitor.??
+1D9F: A5FA   LDAz FA monitor.??
+1DA1: 20CC1D JSR 1DCC monitor.SHOW
 1DA4: 88     DEY
 1DA5: F005   BEQ +5>AC
-1DA7: A5F9   LDAz F9
-1DA9: 20CC1D JSR 1DCC monitor.??
+1DA7: A5F9   LDAz F9 monitor.??
+1DA9: 20CC1D JSR 1DCC monitor.SHOW
 1DAC: A900   LDAim 00
 1DAE: 8D811A STA 1A81 PADD
 1DB1: A003   LDYim 03
 1DB3: A200   LDXim 00
+1DB5: ------ monitor.ONEKEY
 1DB5: A9FF   LDAim FF
 1DB7: 8E821A STX 1A82 PBD
 1DBA: E8     INX
@@ -263,22 +265,22 @@
 1DC7: 0980   ORAim 80
 1DC9: 49FF   EORim FF
 1DCB: 60     RTS
-1DCC: ------ monitor.??
+1DCC: ------ monitor.SHOW
 1DCC: 48     PHA
-1DCD: 84FC   STYz FC
+1DCD: 84FC   STYz FC monitor.??
 1DCF: 4A     LSRa
 1DD0: 4A     LSRa
 1DD1: 4A     LSRa
 1DD2: 4A     LSRa
-1DD3: 20DF1D JSR 1DDF monitor.??
+1DD3: 20DF1D JSR 1DDF monitor.CONVD
 1DD6: 68     PLA
 1DD7: 290F   ANDim 0F
-1DD9: 20DF1D JSR 1DDF monitor.??
-1DDC: A4FC   LDYz FC
+1DD9: 20DF1D JSR 1DDF monitor.CONVD
+1DDC: A4FC   LDYz FC monitor.??
 1DDE: 60     RTS
-1DDF: ------ monitor.??
+1DDF: ------ monitor.CONVD
 1DDF: A8     TAY
-1DE0: B90F1F LDAy 1F0F
+1DE0: B90F1F LDAy 1F0F monitor.LOOKhexTo7Segm
 1DE3: 8D801A STA 1A80 PAD
 1DE6: 8E821A STX 1A82 PBD
 1DE9: A07F   LDYim 7F
@@ -290,15 +292,16 @@
 1DF6: E8     INX
 1DF7: E8     INX
 1DF8: 60     RTS
-1DF9: ------ monitor.??
+1DF9: ------ monitor.GETKEY
 1DF9: A221   LDXim 21
 1DFB: A001   LDYim 01
-1DFD: 20B51D JSR 1DB5
+1DFD: 20B51D JSR 1DB5 monitor.ONEKEY
 1E00: D007   BNE +7>09
 1E02: E027   CPXim 27
 1E04: D0F5   BNE -11>FB
 1E06: A915   LDAim 15
 1E08: 60     RTS
+1E09: ------ monitor.KEYIN
 1E09: A0FF   LDYim FF
 1E0B: 0A     ASLa
 1E0C: B003   BCS +3>11
@@ -355,9 +358,9 @@
 1E59: FF     
 1E5A: 22     
 1E5B: 33     
-1E5C: ------ monitor.??
+1E5C: ------ editor.OPLEN
 1E5C: A000   LDYim 00
-1E5E: B1E6   LDAiy E6 orig.CURADL
+1E5E: B1E6   LDAiy E6 editor.CURADL
 1E60: A001   LDYim 01
 1E62: C900   CMPim 00
 1E64: F01A   BEQ +26>80
@@ -373,39 +376,39 @@
 1E78: F006   BEQ +6>80
 1E7A: 290F   ANDim 0F
 1E7C: AA     TAX
-1E7D: BC1F1F LDYx 1F1F
-1E80: 84F6   STYz F6
+1E7D: BC1F1F LDYx 1F1F editor.opLen
+1E80: 84F6   STYz F6 monitor.??/editor.BYTES
 1E82: 60     RTS
 1E83: FF     
 1E84: 22     
 1E85: 33     
 1E86: ------ comfortableReset
-1E86: 86F2   STXz F2
+1E86: 86F2   STXz F2 monitor.??
 1E88: D8     CLD
 1E89: 78     SEI
 1E8A: 20881D JSR 1D88 monitor.SCAND
 1E8D: D003   BNE +3>92
 1E8F: 4C331C JMP 1C33 monitor.START
-1E92: 20611D JSR 1D61 monitor.SCANB
+1E92: 20611D JSR 1D61 editor.SCANB
 1E95: C900   CMPim 00
 1E97: D008   BNE +8>A1
 1E99: A901   LDAim 01
-1E9B: 8DF8FF STA FFF8 flag EPROM lo
+1E9B: 8DF8FF STA FFF8 bios.flag EPROM lo
 1E9E: 4C002F JMP 2F00 Hexeditor
 1EA1: C901   CMPim 01
 1EA3: D008   BNE +8>AD
 1EA5: A901   LDAim 01
-1EA7: 8DF9FF STA FFF9 flag EPROM med
+1EA7: 8DF9FF STA FFF9 bios.flag EPROM med
 1EAA: 4C0040 JMP 4000 Texteditor
 1EAD: C90D   CMPim 0D
 1EAF: D008   BNE +8>B9
 1EB1: A901   LDAim 01
-1EB3: 8DF9FF STA FFF9 flag EPROM med
+1EB3: 8DF9FF STA FFF9 bios.flag EPROM med
 1EB6: 4C304F JMP 4F30 Directory
 1EB9: C90F   CMPim 0F
 1EBB: D008   BNE +8>C5
 1EBD: A901   LDAim 01
-1EBF: 8DF9FF STA FFF9 flag EPROM med
+1EBF: 8DF9FF STA FFF9 bios.flag EPROM med
 1EC2: 4C0050 JMP 5000 Floppy
 1EC5: 4C331C JMP 1C33 monitor.START
 1EC8: FF     
@@ -419,44 +422,45 @@
 1ED0: FF     
 1ED1: 22     
 1ED2: 33     
-1ED3: ------ monitor.??
-1ED3: A5E2   LDAz E2 orig.BEGADL
-1ED5: 85E6   STAz E6 orig.CURADL
-1ED7: A5E3   LDAz E3 orig.BEGADH
-1ED9: 85E7   STAz E7 orig.CURADH
+1ED3: ------ editor.BEGIN
+1ED3: A5E2   LDAz E2 editor.BEGADL
+1ED5: 85E6   STAz E6 editor.CURADL
+1ED7: A5E3   LDAz E3 editor.BEGADH
+1ED9: 85E7   STAz E7 editor.CURADH
 1EDB: 60     RTS
-1EDC: ------ monitor.??
+1EDC: ------ editor.ADCEND
 1EDC: 18     CLC
-1EDD: A5E8   LDAz E8 orig.CENDL
-1EDF: 65F6   ADCz F6
-1EE1: 85E8   STAz E8 orig.CENDL
-1EE3: A5E9   LDAz E9 orig.CENDH
+1EDD: A5E8   LDAz E8 editor.CENDL
+1EDF: 65F6   ADCz F6 monitor.??/editor.BYTES
+1EE1: 85E8   STAz E8 editor.CENDL
+1EE3: A5E9   LDAz E9 editor.CENDH
 1EE5: 6900   ADCim 00
-1EE7: 85E9   STAz E9 orig.CENDH
+1EE7: 85E9   STAz E9 editor.CENDH
 1EE9: 60     RTS
-1EEA: ------ monitor.??
+1EEA: ------ editor.RECEND
 1EEA: 38     SEC
-1EEB: A5E8   LDAz E8 orig.CENDL
-1EED: E5F6   SBCz F6
-1EEF: 85E8   STAz E8 orig.CENDL
-1EF1: A5E9   LDAz E9 orig.CENDH
+1EEB: A5E8   LDAz E8 editor.CENDL
+1EED: E5F6   SBCz F6 monitor.??/editor.BYTES
+1EEF: 85E8   STAz E8 editor.CENDL
+1EF1: A5E9   LDAz E9 editor.CENDH
 1EF3: E900   SBCim 00
-1EF5: 85E9   STAz E9 orig.CENDH
+1EF5: 85E9   STAz E9 editor.CENDH
 1EF7: 60     RTS
 1EF8: 18     CLC
-1EF9: ------ monitor.??
-1EF9: A5E6   LDAz E6 orig.CURADL
-1EFB: 65F6   ADCz F6
-1EFD: 85E6   STAz E6 orig.CURADL
-1EFF: A5E7   LDAz E7 orig.CURADH
+1EF9: ------ editor.??
+1EF9: A5E6   LDAz E6 editor.CURADL
+1EFB: 65F6   ADCz F6 monitor.??/editor.BYTES
+1EFD: 85E6   STAz E6 editor.CURADL
+1EFF: A5E7   LDAz E7 editor.CURADH
 1F01: 6900   ADCim 00
-1F03: 85E7   STAz E7 orig.CURADH
+1F03: 85E7   STAz E7 editor.CURADH
 1F05: 38     SEC
-1F06: A5E6   LDAz E6 orig.CURADL
-1F08: E5E8   SBCz E8 orig.CENDL
-1F0A: A5E7   LDAz E7 orig.CURADH
-1F0C: E5E9   SBCz E9 orig.CENDH
+1F06: A5E6   LDAz E6 editor.CURADL
+1F08: E5E8   SBCz E8 editor.CENDL
+1F0A: A5E7   LDAz E7 editor.CURADH
+1F0C: E5E9   SBCz E9 editor.CENDH
 1F0E: 60     RTS
+1F0F: ------ monitor.LOOKhexTo7Segm
 1F0F: 40     RTI
 1F10: 792430 ADCy 3024
 1F13: 191202 ORAy 0212
@@ -466,6 +470,7 @@
 1F1A: 03     
 1F1B: 4621   LSRz 21
 1F1D: 060E   ASLz 0E
+1F1F: ------ editor.opLen
 1F1F: 02     
 1F20: 02     
 1F21: 02     
@@ -555,12 +560,12 @@
 1FA8: 22     
 1FA9: 33     
 1FAA: ------ hexeditor.start
-1FAA: A5E2   LDAz E2 orig.BEGADL
-1FAC: A6E3   LDXz E3 orig.BEGADH
-1FAE: 85FA   STAz FA
-1FB0: 86FB   STXz FB
+1FAA: A5E2   LDAz E2 editor.BEGADL
+1FAC: A6E3   LDXz E3 editor.BEGADH
+1FAE: 85FA   STAz FA monitor.??
+1FB0: 86FB   STXz FB monitor.??
 1FB2: A901   LDAim 01
-1FB4: 8DF8FF STA FFF8 flag EPROM lo
+1FB4: 8DF8FF STA FFF8 bios.flag EPROM lo
 1FB7: 4C002F JMP 2F00 Hexeditor
 1FBA: FF     
 1FBB: FF     
@@ -575,7 +580,7 @@
 1FC7: ------ bios.activate EPROM bank and segments(AC)
 1FC7: 0A     ASLa
 1FC8: 2A     ROLa
-1FC9: 8DFFFF STA FFFF flag EPROM Bank
+1FC9: 8DFFFF STA FFFF bios.flag EPROM Bank
 1FCC: 6A     RORa
 1FCD: 6A     RORa
 1FCE: 4CE01F JMP 1FE0 bios.activate EPROM segments(AC)
@@ -591,19 +596,19 @@
 1FDD: ------ bios.activate EPROM segments(1A08)
 1FDD: AD081A LDA 1A08
 1FE0: ------ bios.activate EPROM segments(AC)
-1FE0: 8DF8FF STA FFF8 flag EPROM lo
+1FE0: 8DF8FF STA FFF8 bios.flag EPROM lo
 1FE3: 4A     LSRa
-1FE4: 8DF9FF STA FFF9 flag EPROM med
+1FE4: 8DF9FF STA FFF9 bios.flag EPROM med
 1FE7: 4A     LSRa
-1FE8: 8DFAFF STA FFFA flag EPROM hi/NMIadr
+1FE8: 8DFAFF STA FFFA bios.flag EPROM hi/NMIadr
 1FEB: 60     RTS
 1FEC: 22     
 1FED: 33     
 1FEE: ------ bios.deactivate EPROM segments
 1FEE: A900   LDAim 00
-1FF0: 8DF8FF STA FFF8 flag EPROM lo
-1FF3: 8DF9FF STA FFF9 flag EPROM med
-1FF6: 8DFAFF STA FFFA flag EPROM hi/NMIadr
+1FF0: 8DF8FF STA FFF8 bios.flag EPROM lo
+1FF3: 8DF9FF STA FFF9 bios.flag EPROM med
+1FF6: 8DFAFF STA FFFA bios.flag EPROM hi/NMIadr
 1FF9: 60     RTS
 1FFA: 2F     
 1FFB: 1F     

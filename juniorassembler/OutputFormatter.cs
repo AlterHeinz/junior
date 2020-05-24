@@ -61,8 +61,10 @@ namespace juniorassembler
                         if (verbose && instr.IsBranchInstruction)
                             // special case for branch instructions
                             return "{0} {5}";
-                        else
+                        else if (verbose && instr.IsZeroAddressing)
                             return "{0} {1:X2}{6}"; // special postfix for instructions with symbols
+                        else
+                            return "{0} {1:X2}";
                     }
                     else
                         return "{0} ??";

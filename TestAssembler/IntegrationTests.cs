@@ -64,7 +64,15 @@ namespace TestAssembler
         public void DualByteOpLDAzViaStdInVerboseYieldsLDAzWithSymbol()
         {
             string output = Transform("A5E2", true, "0700");
-            Assert.AreEqual("0700: A5E2   LDAz E2 orig.BEGADL\r\n", output);
+            Assert.AreEqual("0700: A5E2   LDAz E2 editor.BEGADL\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void DualByteOpLDAimViaStdInVerboseYieldsLDAimWithNoSymbol()
+        {
+            string output = Transform("A9FF", true, "1DC9");
+            Assert.AreEqual("1DC9: A9FF   LDAim FF\r\n", output);
         }
 
         [TestMethod]

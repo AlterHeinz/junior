@@ -23,6 +23,8 @@ namespace juniorassembler
 
         public bool IsBranchInstruction => data.Item3 == AddressMode.rel;
 
+        public bool IsZeroAddressing => (NoOfBytes == 2 && data.Item3 != AddressMode.im && data.Item3 != AddressMode.rel);
+
         public int NoOfBytes
         {
             get
