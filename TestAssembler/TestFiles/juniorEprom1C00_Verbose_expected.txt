@@ -1,28 +1,28 @@
 ﻿1C00: ------ monitor.SAVEAllRegisters
-1C00: 85F3   STAz F3 monitor.??
+1C00: 85F3   STAz F3 monitor.SaveAC
 1C02: 68     PLA
-1C03: 85F1   STAz F1 monitor.??
+1C03: 85F1   STAz F1 monitor.SaveP
 1C05: 68     PLA
-1C06: 85EF   STAz EF monitor.??
-1C08: 85FA   STAz FA monitor.??
+1C06: 85EF   STAz EF monitor.SavePCL
+1C08: 85FA   STAz FA monitor.POINTL
 1C0A: 68     PLA
-1C0B: 85F0   STAz F0 monitor.??
-1C0D: 85FB   STAz FB monitor.??
-1C0F: 84F4   STYz F4 monitor.??
-1C11: 86F5   STXz F5 monitor.??
+1C0B: 85F0   STAz F0 monitor.SavePCH
+1C0D: 85FB   STAz FB monitor.POINTH
+1C0F: 84F4   STYz F4 monitor.SaveRy
+1C11: 86F5   STXz F5 monitor.SaveRX
 1C13: BA     TSX
-1C14: 86F2   STXz F2 monitor.??
+1C14: 86F2   STXz F2 monitor.SaveSP
 1C16: A201   LDXim 01
-1C18: 86FF   STXz FF monitor.??
+1C18: 86FF   STXz FF monitor.MODE
 1C1A: 4C331C JMP 1C33 monitor.START
 1C1D: ------ monitor.RESET
 1C1D: A91E   LDAim 1E
 1C1F: 8D831A STA 1A83 PBDD
 1C22: A904   LDAim 04
-1C24: 85F1   STAz F1 monitor.??
+1C24: 85F1   STAz F1 monitor.SaveP
 1C26: A903   LDAim 03
-1C28: 85FF   STAz FF monitor.??
-1C2A: 85F6   STAz F6 monitor.??/editor.BYTES
+1C28: 85FF   STAz FF monitor.MODE
+1C2A: 85F6   STAz F6 monitor.BYTES
 1C2C: A2FF   LDXim FF
 1C2E: 9A     TXS
 1C2F: 4C861E JMP 1E86 comfortableReset
@@ -38,63 +38,63 @@
 1C45: C913   CMPim 13
 1C47: D013   BNE +19>5C
 1C49: ------ monitor.GO
-1C49: A6F2   LDXz F2 monitor.??
+1C49: A6F2   LDXz F2 monitor.SaveSP
 1C4B: 9A     TXS
-1C4C: A5FB   LDAz FB monitor.??
+1C4C: A5FB   LDAz FB monitor.POINTH
 1C4E: 48     PHA
-1C4F: A5FA   LDAz FA monitor.??
+1C4F: A5FA   LDAz FA monitor.POINTL
 1C51: 48     PHA
-1C52: A5F1   LDAz F1 monitor.??
+1C52: A5F1   LDAz F1 monitor.SaveP
 1C54: 48     PHA
-1C55: A6F5   LDXz F5 monitor.??
-1C57: A4F4   LDYz F4 monitor.??
-1C59: A5F3   LDAz F3 monitor.??
+1C55: A6F5   LDXz F5 monitor.SaveRX
+1C57: A4F4   LDYz F4 monitor.SaveRy
+1C59: A5F3   LDAz F3 monitor.SaveAC
 1C5B: 40     RTI
 1C5C: ------ monitor.handleKey
 1C5C: C910   CMPim 10
 1C5E: D006   BNE +6>66
 1C60: A903   LDAim 03
-1C62: 85FF   STAz FF monitor.??
+1C62: 85FF   STAz FF monitor.MODE
 1C64: D014   BNE +20>7A
 1C66: C911   CMPim 11
 1C68: D006   BNE +6>70
 1C6A: A900   LDAim 00
-1C6C: 85FF   STAz FF monitor.??
+1C6C: 85FF   STAz FF monitor.MODE
 1C6E: F00A   BEQ +10>7A
 1C70: C912   CMPim 12
 1C72: D009   BNE +9>7D
-1C74: E6FA   INCz FA monitor.??
+1C74: E6FA   INCz FA monitor.POINTL
 1C76: D002   BNE +2>7A
-1C78: E6FB   INCz FB monitor.??
+1C78: E6FB   INCz FB monitor.POINTH
 1C7A: 4C331C JMP 1C33 monitor.START
 1C7D: C914   CMPim 14
 1C7F: D00B   BNE +11>8C
-1C81: A5EF   LDAz EF monitor.??
-1C83: 85FA   STAz FA monitor.??
-1C85: A5F0   LDAz F0 monitor.??
-1C87: 85FB   STAz FB monitor.??
+1C81: A5EF   LDAz EF monitor.SavePCL
+1C83: 85FA   STAz FA monitor.POINTL
+1C85: A5F0   LDAz F0 monitor.SavePCH
+1C87: 85FB   STAz FB monitor.POINTH
 1C89: 4C7A1C JMP 1C7A
 1C8C: C915   CMPim 15
 1C8E: 10EA   BPL -22>7A
-1C90: 85E1   STAz E1 monitor.??
-1C92: A4FF   LDYz FF monitor.??
+1C90: 85E1   STAz E1 monitor.KEY
+1C92: A4FF   LDYz FF monitor.MODE
 1C94: D00D   BNE +13>A3
-1C96: B1FA   LDAiy FA monitor.??
+1C96: B1FA   LDAiy FA monitor.POINTL
 1C98: 0A     ASLa
 1C99: 0A     ASLa
 1C9A: 0A     ASLa
 1C9B: 0A     ASLa
-1C9C: 05E1   ORAz E1 monitor.??
-1C9E: 91FA   STAiy FA monitor.??
+1C9C: 05E1   ORAz E1 monitor.KEY
+1C9E: 91FA   STAiy FA monitor.POINTL
 1CA0: 4C7A1C JMP 1C7A
 1CA3: A204   LDXim 04
-1CA5: 06FA   ASLz FA monitor.??
-1CA7: 26FB   ROLz FB monitor.??
+1CA5: 06FA   ASLz FA monitor.POINTL
+1CA7: 26FB   ROLz FB monitor.POINTH
 1CA9: CA     DEX
 1CAA: D0F9   BNE -7>A5
-1CAC: A5FA   LDAz FA monitor.??
-1CAE: 05E1   ORAz E1 monitor.??
-1CB0: 85FA   STAz FA monitor.??
+1CAC: A5FA   LDAz FA monitor.POINTL
+1CAE: 05E1   ORAz E1 monitor.KEY
+1CB0: 85FA   STAz FA monitor.POINTL
 1CB2: 4C7A1C JMP 1C7A
 1CB5: FF     
 1CB6: FF     
@@ -199,7 +199,7 @@
 1D4D: A202   LDXim 02
 1D4F: A000   LDYim 00
 1D51: B1E6   LDAiy E6 editor.CURADL
-1D53: 95F9   STAzx F9 monitor.??
+1D53: 95F9   STAzx F9 monitor.INH
 1D55: C8     INY
 1D56: CA     DEX
 1D57: 10F8   BPL -8>51
@@ -231,22 +231,22 @@
 1D87: 60     RTS
 1D88: ------ monitor.SCAND
 1D88: A000   LDYim 00
-1D8A: B1FA   LDAiy FA monitor.??
-1D8C: 85F9   STAz F9 monitor.??
+1D8A: B1FA   LDAiy FA monitor.POINTL
+1D8C: 85F9   STAz F9 monitor.INH
 1D8E: ------ monitor.SCANDS
 1D8E: A97F   LDAim 7F
 1D90: 8D811A STA 1A81 PADD
 1D93: A208   LDXim 08
-1D95: A4F6   LDYz F6 monitor.??/editor.BYTES
-1D97: A5FB   LDAz FB monitor.??
+1D95: A4F6   LDYz F6 monitor.BYTES
+1D97: A5FB   LDAz FB monitor.POINTH
 1D99: 20CC1D JSR 1DCC monitor.SHOW
 1D9C: 88     DEY
 1D9D: F00D   BEQ +13>AC
-1D9F: A5FA   LDAz FA monitor.??
+1D9F: A5FA   LDAz FA monitor.POINTL
 1DA1: 20CC1D JSR 1DCC monitor.SHOW
 1DA4: 88     DEY
 1DA5: F005   BEQ +5>AC
-1DA7: A5F9   LDAz F9 monitor.??
+1DA7: A5F9   LDAz F9 monitor.INH
 1DA9: 20CC1D JSR 1DCC monitor.SHOW
 1DAC: A900   LDAim 00
 1DAE: 8D811A STA 1A81 PADD
@@ -267,7 +267,7 @@
 1DCB: 60     RTS
 1DCC: ------ monitor.SHOW
 1DCC: 48     PHA
-1DCD: 84FC   STYz FC monitor.??
+1DCD: 84FC   STYz FC monitor.TEMP
 1DCF: 4A     LSRa
 1DD0: 4A     LSRa
 1DD1: 4A     LSRa
@@ -276,7 +276,7 @@
 1DD6: 68     PLA
 1DD7: 290F   ANDim 0F
 1DD9: 20DF1D JSR 1DDF monitor.CONVD
-1DDC: A4FC   LDYz FC monitor.??
+1DDC: A4FC   LDYz FC monitor.TEMP
 1DDE: 60     RTS
 1DDF: ------ monitor.CONVD
 1DDF: A8     TAY
@@ -377,13 +377,13 @@
 1E7A: 290F   ANDim 0F
 1E7C: AA     TAX
 1E7D: BC1F1F LDYx 1F1F editor.opLen
-1E80: 84F6   STYz F6 monitor.??/editor.BYTES
+1E80: 84F6   STYz F6 monitor.BYTES
 1E82: 60     RTS
 1E83: FF     
 1E84: 22     
 1E85: 33     
 1E86: ------ comfortableReset
-1E86: 86F2   STXz F2 monitor.??
+1E86: 86F2   STXz F2 monitor.SaveSP
 1E88: D8     CLD
 1E89: 78     SEI
 1E8A: 20881D JSR 1D88 monitor.SCAND
@@ -431,7 +431,7 @@
 1EDC: ------ editor.ADCEND
 1EDC: 18     CLC
 1EDD: A5E8   LDAz E8 editor.CENDL
-1EDF: 65F6   ADCz F6 monitor.??/editor.BYTES
+1EDF: 65F6   ADCz F6 monitor.BYTES
 1EE1: 85E8   STAz E8 editor.CENDL
 1EE3: A5E9   LDAz E9 editor.CENDH
 1EE5: 6900   ADCim 00
@@ -440,16 +440,16 @@
 1EEA: ------ editor.RECEND
 1EEA: 38     SEC
 1EEB: A5E8   LDAz E8 editor.CENDL
-1EED: E5F6   SBCz F6 monitor.??/editor.BYTES
+1EED: E5F6   SBCz F6 monitor.BYTES
 1EEF: 85E8   STAz E8 editor.CENDL
 1EF1: A5E9   LDAz E9 editor.CENDH
 1EF3: E900   SBCim 00
 1EF5: 85E9   STAz E9 editor.CENDH
 1EF7: 60     RTS
 1EF8: 18     CLC
-1EF9: ------ editor.??
+1EF9: ------ editor.ADCUR
 1EF9: A5E6   LDAz E6 editor.CURADL
-1EFB: 65F6   ADCz F6 monitor.??/editor.BYTES
+1EFB: 65F6   ADCz F6 monitor.BYTES
 1EFD: 85E6   STAz E6 editor.CURADL
 1EFF: A5E7   LDAz E7 editor.CURADH
 1F01: 6900   ADCim 00
@@ -562,8 +562,8 @@
 1FAA: ------ hexeditor.start
 1FAA: A5E2   LDAz E2 editor.BEGADL
 1FAC: A6E3   LDXz E3 editor.BEGADH
-1FAE: 85FA   STAz FA monitor.??
-1FB0: 86FB   STXz FB monitor.??
+1FAE: 85FA   STAz FA monitor.POINTL
+1FB0: 86FB   STXz FB monitor.POINTH
 1FB2: A901   LDAim 01
 1FB4: 8DF8FF STA FFF8 bios.flag EPROM lo
 1FB7: 4C002F JMP 2F00 Hexeditor
