@@ -57,14 +57,13 @@ namespace juniorassembler
                     return "{0}";
                 case 2:
                     if (2 == innerPos)
-                        if (verbose)
-                            if (instr.IsBranchInstruction)
-                                // special case for branch instructions
-                                return "{0} {5}";
-                            else
-                                return "{0} {1:X2}{6}"; // special postfix for instructions with symbols
+                    {
+                        if (verbose && instr.IsBranchInstruction)
+                            // special case for branch instructions
+                            return "{0} {5}";
                         else
-                            return "{0} {1:X2}";
+                            return "{0} {1:X2}{6}"; // special postfix for instructions with symbols
+                    }
                     else
                         return "{0} ??";
                 case 3:
