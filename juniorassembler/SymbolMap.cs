@@ -13,6 +13,9 @@ namespace juniorassembler
 
         private static Dictionary<int, string> allDefaultSymbols = new Dictionary<int, string>
         {
+            { 0x00A0, "serial.CurrentL" },
+            { 0x00A1, "serial.CurrentH" },
+            { 0x00A2, "serial.CurrentHiOrLoBits" },
             { 0x00E1, "monitor.KEY" },
             { 0x00E2, "editor.BEGADL" },
             { 0x00E3, "editor.BEGADH" },
@@ -37,6 +40,10 @@ namespace juniorassembler
             { 0x00FE, "editor.NIBBLE" },
             { 0x00FF, "monitor.MODE" },
             { 0x0200, "serial.transmit to PC" },
+            { 0x0260, "serial.sendLow/log1/Stopbit" },
+            { 0x0264, "serial.sendHi/log0/Startbit" },
+            { 0x0266, "serial.sendBit" },
+            { 0x0280, "serial.send7BitWord" },
             { 0x0300, "serial.receive from PC" },
             { 0x1A7A, "orig.NMIL" },
             { 0x1A7B, "orig.NMIH" },

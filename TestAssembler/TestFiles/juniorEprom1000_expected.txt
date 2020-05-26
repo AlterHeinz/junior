@@ -1,0 +1,779 @@
+﻿
+
+
+
+
+PHP
+SEI
+LDAim 5D
+STA 1A64
+LDAim 04
+STA 140E
+LDAim 08
+STA 140D
+LDAim 88
+STA 140E
+PLP
+RTS
+
+
+
+
+
+LDAim 08
+STA 140E
+LDAim 38
+STA 1408
+BIT 140A
+LDAim 84
+STA 140E
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim D0
+STA 1408
+LDA 140A
+LDAim 6E
+STA 1A64
+RTS
+
+
+
+LDA 140A
+STAz 7C
+LDAim 79
+STA 1A64
+RTS
+LDA 140A
+STAz 7B
+LDAz 7C
+STAz 7A
+JSR 1005
+STAz 79
+RTS
+
+
+
+
+
+
+
+
+PHA
+TXAa
+PHA
+LDAim 76
+STA 1AFD
+PHP
+SEI
+INCz 58
+BNE 1E
+INCz 59
+LDAz 59
+ANDim 03
+BNE 16
+PHP
+SED
+CLC
+LDAz 5C
+ADCim 01
+CMPim 60
+BNE 08
+LDAz 5D
+ADCim 00
+STAz 5D
+LDAim 00
+STAz 5C
+PLP
+LDXz 57
+BEQ 19
+LDXz 57
+CLC
+LDAx 03E8
+SBCz 58
+LDAx 03F0
+SBCz 59
+BPL 0A
+LDAx 03E0
+JSR 1240
+DECz 57
+BNE E7
+PLP
+PLA
+TAX
+PLA
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SEC
+LDAz CC
+SBCz CA
+TAY
+LDAz CD
+SBCz CB
+TAX
+BCS 0B
+RTS
+
+
+JMP 1180
+
+
+
+
+
+LDAz CA
+CMPz CE
+LDAz CB
+SBCz CF
+BCS 34
+STYz CA
+SEC
+LDAz CC
+SBCz CA
+STAz CC
+BCS 02
+DECz CD
+CLC
+TXAa
+ADCz CF
+STAz CF
+INY
+BNE 05
+INX
+INCz CD
+INCz CF
+TYA
+BEQ 08
+DEY
+LDAiy CC
+STAiy CE
+TYA
+BNE F8
+TXAa
+BEQ 08
+DEX
+DECz CD
+DECz CF
+CLC
+BCC ED
+RTS
+
+
+INY
+STYz CC
+BNE 01
+INX
+TXAa
+BEQ 10
+LDYim 00
+LDAiy CA
+STAiy CE
+INY
+BNE F9
+INCz CB
+INCz CF
+DEX
+BNE F2
+LDYim 00
+CPYz CC
+BEQ 09
+LDAiy CA
+STAiy CE
+INY
+CPYz CC
+BNE F7
+RTS
+
+STAz 8A
+LDAz 8E
+CMPz 8F
+BEQ 21
+LDAz 8A
+PHA
+TXAa
+PHA
+TYA
+PHA
+TSX
+TXAa
+LDYz 8F
+STAy 03C8
+PHP
+SEI
+LDYz 8E
+STYz 8F
+PLP
+LDAy 03C8
+TAX
+TXS
+PLA
+TAY
+PLA
+TAX
+PLA
+STAz 8A
+LDAz 8A
+DECz 91
+RTI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PHP
+TAX
+LDAim 01
+SEI
+STAx 03D0
+CPXz 8E
+BCS 02
+STXz 8E
+JMP 1286
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 8F
+PHP
+TAX
+LDAim 00
+STAx 03D0
+CLI
+NOP
+LDXim 00
+INX
+CPXz 90
+BNE 02
+LDXim 01
+LDAx 03D0
+BEQ F4
+STXz 8E
+SEI
+LDAz 91
+BEQ 02
+PLP
+RTS
+INCz 91
+PLP
+TSX
+INCx 0101
+BNE 03
+INCx 0102
+PHP
+JMP 1200
+
+
+
+
+
+
+
+SEI
+DECz 91
+BEQ 01
+RTI
+INCz 91
+CLI
+JMP 1200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INCz 91
+BIT 140D
+BPL 46
+PHA
+LDAim 13
+PHA
+LDAim 44
+PHA
+JMP 1314
+
+
+RTS
+LDA 140D
+AND 140E
+ASLa
+BMI 13
+ASLa
+BMI 13
+ASLa
+BMI 13
+ASLa
+BMI 13
+ASLa
+BMI 13
+ASLa
+BMI 13
+ASLa
+BMI 13
+RTS
+JMPi 1A6C
+JMPi 1A6A
+JMPi 1A68
+JMPi 1A66
+JMPi 1A64
+JMPi 1A62
+JMPi 1A60
+PLA
+JMP 12A3
+
+
+
+
+BIT 1AD5
+BMI 04
+BVC 20
+BCS 0B
+PHP
+BIT 1ADC
+CLI
+JSR 1368
+PLP
+BVC 04
+CLI
+JSR 136B
+JMP 12A3
+JMPi 1A76
+JMPi 1A74
+
+
+
+
+
+
+PHA
+BIT 1600
+BPL FB
+LDAim 08
+STA 1601
+PLA
+NOP
+NOP
+BIT 1600
+BPL FB
+BVC 06
+BIT 1601
+CLC
+BCC F1
+JMP 12A3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -221,6 +221,50 @@ namespace TestAssembler
 
         [TestMethod]
         [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorAdr0200.bin")]
+        [DeploymentItem(@"TestFiles\juniorAdr0200_expected.txt")]
+        public void Disassemble0200DumpYieldsExpectedText()
+        {
+            string output = TransformFile("juniorAdr0200.bin");
+            string expected = File.ReadAllText("juniorAdr0200_expected.txt");
+            Assert.AreEqual(expected, output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorAdr0200.bin")]
+        [DeploymentItem(@"TestFiles\juniorAdr0200_Verbose_expected.txt")]
+        public void Disassemble0200DumpVerboseYieldsExpectedText()
+        {
+            string output = TransformFile("juniorAdr0200.bin", true, "0200");
+            string expected = File.ReadAllText("juniorAdr0200_Verbose_expected.txt");
+            Assert.AreEqual(expected, output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorEprom1000.bin")]
+        [DeploymentItem(@"TestFiles\juniorEprom1000_expected.txt")]
+        public void Disassemble1000DumpYieldsExpectedText()
+        {
+            string output = TransformFile("juniorEprom1000.bin");
+            string expected = File.ReadAllText("juniorEprom1000_expected.txt");
+            Assert.AreEqual(expected, output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorEprom1000.bin")]
+        [DeploymentItem(@"TestFiles\juniorEprom1000_Verbose_expected.txt")]
+        public void Disassemble1000DumpVerboseYieldsExpectedText()
+        {
+            string output = TransformFile("juniorEprom1000.bin", true, "1000");
+            string expected = File.ReadAllText("juniorEprom1000_Verbose_expected.txt");
+            Assert.AreEqual(expected, output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
         [DeploymentItem(@"juniorEprom1C00.bin")]
         [DeploymentItem(@"TestFiles\juniorEprom1C00_expected.txt")]
         public void Disassemble1C00DumpYieldsExpectedText()

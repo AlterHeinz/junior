@@ -66,6 +66,10 @@
   <PropertyGroup>
     <PostBuildEvent>copy juniorassembler.exe ..\..\..\TestAssembler\bin\Debug
 copy juniorassembler.exe ..\..\..\TestAssembler\bin\Release
+copy ..\..\..\EPROM-dumps\juniorAdr0200.bin ..\..\..\TestAssembler\bin\Debug
+copy ..\..\..\EPROM-dumps\juniorAdr0200.bin ..\..\..\TestAssembler\bin\Release
+copy ..\..\..\EPROM-dumps\juniorEprom1000.bin ..\..\..\TestAssembler\bin\Debug
+copy ..\..\..\EPROM-dumps\juniorEprom1000.bin ..\..\..\TestAssembler\bin\Release
 copy ..\..\..\EPROM-dumps\juniorEprom1C00.bin ..\..\..\TestAssembler\bin\Debug
 copy ..\..\..\EPROM-dumps\juniorEprom1C00.bin ..\..\..\TestAssembler\bin\Release</PostBuildEvent>
   </PropertyGroup>
