@@ -18,16 +18,18 @@ namespace juniorassembler
         internal string find(int argument)
         {
             string ret;
-            if (allDefaultSymbolsLow.TryGetValue(argument, out ret))
+            // prio 1 - may override common symbols!
+            if ((!inBank2) && allSymbolsBank1.TryGetValue(argument, out ret))
                 return ret;
-            if ((!inBank2) && allDefaultSymbolsBank1.TryGetValue(argument, out ret))
+            if (inBank2 && allSymbolsBank2.TryGetValue(argument, out ret))
                 return ret;
-            if (inBank2 && allDefaultSymbolsBank2.TryGetValue(argument, out ret))
+            // prio 2
+            if (allCommonSymbols.TryGetValue(argument, out ret))
                 return ret;
             return null;
         }
 
-        private static Dictionary<int, string> allDefaultSymbolsLow = new Dictionary<int, string>
+        private static Dictionary<int, string> allCommonSymbols = new Dictionary<int, string>
         {
             { 0x0057, "bs.topWait" },
             { 0x0058, "bs.aktZeitL" },
@@ -211,33 +213,28 @@ namespace juniorassembler
             { 0x1FDD, "bios.activate EPROM segments(1A08)" },
             { 0x1FE0, "bios.activate EPROM segments(AC)" },
             { 0x1FEE, "bios.deactivate EPROM segments" },
+
+            { 0xFFF8, "bios.flag EPROM lo" },
+            { 0xFFF9, "bios.flag EPROM med" },
+            { 0xFFFA, "bios.flag EPROM hi/NMIadr" },
+            { 0xFFFC, "RSTadr" },
+            { 0xFFFE, "IRQadr" },
+            { 0xFFFF, "bios.flag EPROM Bank" },
         };
 
-        private static Dictionary<int, string> allDefaultSymbolsBank1 = new Dictionary<int, string>
+        private static Dictionary<int, string> allSymbolsBank1 = new Dictionary<int, string>
         {
             { 0x2F00, "Hexeditor" },
             { 0x4000, "Texteditor" },
             { 0x4F30, "Directory" },
             { 0x5000, "Floppy" },
-            { 0xFFF8, "bios.flag EPROM lo" },
-            { 0xFFF9, "bios.flag EPROM med" },
-            { 0xFFFA, "bios.flag EPROM hi/NMIadr" },
-            { 0xFFFC, "RSTadr" },
-            { 0xFFFE, "IRQadr" },
-            { 0xFFFF, "bios.flag EPROM Bank" },
         };
 
-        private static Dictionary<int, string> allDefaultSymbolsBank2 = new Dictionary<int, string>
+        private static Dictionary<int, string> allSymbolsBank2 = new Dictionary<int, string>
         {
             { 0x2AAA, "Reversi" },
             { 0x5655, "Pacman" },
             { 0x6800, "Superhirn" },
-            { 0xFFF8, "bios.flag EPROM lo" },
-            { 0xFFF9, "bios.flag EPROM med" },
-            { 0xFFFA, "bios.flag EPROM hi/NMIadr" },
-            { 0xFFFC, "RSTadr" },
-            { 0xFFFE, "IRQadr" },
-            { 0xFFFF, "bios.flag EPROM Bank" },
         };
     }
 }
