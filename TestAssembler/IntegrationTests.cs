@@ -285,6 +285,58 @@ namespace TestAssembler
             Assert.AreEqual(expected, output);
         }
 
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorEprom2000B1.bin")]
+        [DeploymentItem(@"TestFiles\juniorEprom2000B1_expected.txt")]
+        public void Disassemble2000B1DumpYieldsExpectedText()
+        {
+            string output = TransformFile("juniorEprom2000B1.bin");
+            string expected = File.ReadAllText("juniorEprom2000B1_expected.txt");
+            if (expected.GetHashCode() != output.GetHashCode())
+                File.WriteAllText("juniorEprom2000B1_actual.txt", output);
+            Assert.AreEqual(expected.GetHashCode(), output.GetHashCode());
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorEprom2000B1.bin")]
+        [DeploymentItem(@"TestFiles\juniorEprom2000B1_Verbose_expected.txt")]
+        public void Disassemble2000B1DumpVerboseYieldsExpectedText()
+        {
+            string output = TransformFile("juniorEprom2000B1.bin", true, "2000");
+            string expected = File.ReadAllText("juniorEprom2000B1_Verbose_expected.txt");
+            if (expected.GetHashCode() != output.GetHashCode())
+                File.WriteAllText("juniorEprom2000B1_Verbose_actual.txt", output);
+            Assert.AreEqual(expected.GetHashCode(), output.GetHashCode());
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorEprom2000B2.bin")]
+        [DeploymentItem(@"TestFiles\juniorEprom2000B2_expected.txt")]
+        public void Disassemble2000B2DumpYieldsExpectedText()
+        {
+            string output = TransformFile("juniorEprom2000B2.bin");
+            string expected = File.ReadAllText("juniorEprom2000B2_expected.txt");
+            if (expected.GetHashCode() != output.GetHashCode())
+                File.WriteAllText("juniorEprom2000B2_actual.txt", output);
+            Assert.AreEqual(expected.GetHashCode(), output.GetHashCode());
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        [DeploymentItem(@"juniorEprom2000B2.bin")]
+        [DeploymentItem(@"TestFiles\juniorEprom2000B2_Verbose_expected.txt")]
+        public void Disassemble2000B2DumpVerboseYieldsExpectedText()
+        {
+            string output = TransformFile("juniorEprom2000B2.bin", true, "2000B2");
+            string expected = File.ReadAllText("juniorEprom2000B2_Verbose_expected.txt");
+            if (expected.GetHashCode() != output.GetHashCode())
+                File.WriteAllText("juniorEprom2000B2_Verbose_actual.txt", output);
+            Assert.AreEqual(expected.GetHashCode(), output.GetHashCode());
+        }
+
         private static string Transform(string machineCodeBytes, bool verbose = false, string startAddr = "")
         {
             Process testling = ConfigureAndStartProcess("", verbose, startAddr, true);

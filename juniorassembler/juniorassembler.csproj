@@ -71,7 +71,11 @@ copy ..\..\..\EPROM-dumps\juniorAdr0200.bin ..\..\..\TestAssembler\bin\Release
 copy ..\..\..\EPROM-dumps\juniorEprom1000.bin ..\..\..\TestAssembler\bin\Debug
 copy ..\..\..\EPROM-dumps\juniorEprom1000.bin ..\..\..\TestAssembler\bin\Release
 copy ..\..\..\EPROM-dumps\juniorEprom1C00.bin ..\..\..\TestAssembler\bin\Debug
-copy ..\..\..\EPROM-dumps\juniorEprom1C00.bin ..\..\..\TestAssembler\bin\Release</PostBuildEvent>
+copy ..\..\..\EPROM-dumps\juniorEprom1C00.bin ..\..\..\TestAssembler\bin\Release
+copy ..\..\..\EPROM-dumps\juniorEprom2000B1.bin ..\..\..\TestAssembler\bin\Debug
+copy ..\..\..\EPROM-dumps\juniorEprom2000B1.bin ..\..\..\TestAssembler\bin\Release
+copy ..\..\..\EPROM-dumps\juniorEprom2000B2.bin ..\..\..\TestAssembler\bin\Debug
+copy ..\..\..\EPROM-dumps\juniorEprom2000B2.bin ..\..\..\TestAssembler\bin\Release</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

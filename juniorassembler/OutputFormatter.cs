@@ -5,13 +5,14 @@ using System.IO;
 namespace juniorassembler
 {
     // formats one ConcreteInstruction and writes it out
-    public class OutputFormatter : IObserver<Tuple<ConcreteInstruction, int>>
+    internal class OutputFormatter : IObserver<Tuple<ConcreteInstruction, int>>
     {
-        public OutputFormatter(TextWriter output, bool verbose, string startAddr)
+        public OutputFormatter(TextWriter output, bool verbose, string startAddr, SymbolMap symbolMap)
         {
             this.output = output;
             this.verbose = verbose;
             this.startAddr = startAddr.Length > 0 ? Convert.ToUInt16(startAddr, 16) : (ushort)0;
+            this.symbolMap = symbolMap;
         }
 
         public void OnCompleted()
@@ -32,7 +33,7 @@ namespace juniorassembler
             // extra line for function symbol?
             if (verbose)
             {
-                string knownSymbol = SymbolMap.find(CalcRealAddr(instr));
+                string knownSymbol = symbolMap.find(CalcRealAddr(instr));
                 if (knownSymbol != null)
                     output.WriteLine("{0:X4}: ------ {1}", CalcRealAddr(instr), knownSymbol);
             }
@@ -120,7 +121,7 @@ namespace juniorassembler
         {
             if (verbose && instr.NoOfBytes != 1)
             {
-                string postfix = SymbolMap.find(instr.Argument);
+                string postfix = symbolMap.find(instr.Argument);
                 return postfix == null ? "" : " " + postfix;
             }
             return "";
@@ -135,5 +136,6 @@ namespace juniorassembler
         private readonly TextWriter output;
         private bool verbose;
         private ushort startAddr;
+        private SymbolMap symbolMap;
     }
 }

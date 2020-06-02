@@ -5,13 +5,29 @@ namespace juniorassembler
     // a lookup table for known symbols - function or variable addresses
     internal class SymbolMap
     {
-        internal static string find(int argument)
+        internal static SymbolMap OfBank1 { get { return new SymbolMap(false); } }
+        internal static SymbolMap OfBank2 { get { return new SymbolMap(true); } }
+
+        private SymbolMap(bool inBank2)
         {
-            string ret;
-            return allDefaultSymbols.TryGetValue(argument, out ret) ? ret : null;
+            this.inBank2 = inBank2;
         }
 
-        private static Dictionary<int, string> allDefaultSymbols = new Dictionary<int, string>
+        private bool inBank2;
+
+        internal string find(int argument)
+        {
+            string ret;
+            if (allDefaultSymbolsLow.TryGetValue(argument, out ret))
+                return ret;
+            if ((!inBank2) && allDefaultSymbolsBank1.TryGetValue(argument, out ret))
+                return ret;
+            if (inBank2 && allDefaultSymbolsBank2.TryGetValue(argument, out ret))
+                return ret;
+            return null;
+        }
+
+        private static Dictionary<int, string> allDefaultSymbolsLow = new Dictionary<int, string>
         {
             { 0x0057, "bs.topWait" },
             { 0x0058, "bs.aktZeitL" },
@@ -195,13 +211,27 @@ namespace juniorassembler
             { 0x1FDD, "bios.activate EPROM segments(1A08)" },
             { 0x1FE0, "bios.activate EPROM segments(AC)" },
             { 0x1FEE, "bios.deactivate EPROM segments" },
-            { 0x2AAA, "Reversi" }, // Bank2
-            { 0x2F00, "Hexeditor" }, // Bank1
-            { 0x4000, "Texteditor" }, // Bank?
-            { 0x4F30, "Directory" }, // Bank?
-            { 0x5000, "Floppy" }, // Bank?
-            { 0x5655, "Pacman" }, // Bank2
-            { 0x6800, "Superhirn" }, // Bank2
+        };
+
+        private static Dictionary<int, string> allDefaultSymbolsBank1 = new Dictionary<int, string>
+        {
+            { 0x2F00, "Hexeditor" },
+            { 0x4000, "Texteditor" },
+            { 0x4F30, "Directory" },
+            { 0x5000, "Floppy" },
+            { 0xFFF8, "bios.flag EPROM lo" },
+            { 0xFFF9, "bios.flag EPROM med" },
+            { 0xFFFA, "bios.flag EPROM hi/NMIadr" },
+            { 0xFFFC, "RSTadr" },
+            { 0xFFFE, "IRQadr" },
+            { 0xFFFF, "bios.flag EPROM Bank" },
+        };
+
+        private static Dictionary<int, string> allDefaultSymbolsBank2 = new Dictionary<int, string>
+        {
+            { 0x2AAA, "Reversi" },
+            { 0x5655, "Pacman" },
+            { 0x6800, "Superhirn" },
             { 0xFFF8, "bios.flag EPROM lo" },
             { 0xFFF9, "bios.flag EPROM med" },
             { 0xFFFA, "bios.flag EPROM hi/NMIadr" },

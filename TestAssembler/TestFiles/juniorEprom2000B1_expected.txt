@@ -1,0 +1,40815 @@
+﻿CMPim 20
+BCC 1A
+CMPim 7F
+BCC 04
+TAX
+LDAx 2000
+JSR 205C
+INCz 6D
+LDAz 6D
+CMPim 49
+BCC 06
+LDAim 01
+STAz 6D
+INCz 6E
+RTS
+CMPim 1D
+BEQ 1C
+CMPim 0D
+BEQ 10
+CMPim 0A
+BEQ 1B
+CMPim 0E
+BEQ 22
+CMPim 0C
+BEQ 19
+LDAim A8
+BNE D6
+JSR 205C
+LDAim 01
+STAz 6D
+RTS
+LDAim 0D
+JSR 2036
+LDAim 0A
+JSR 205C
+INCz 6E
+RTS
+LDAim 1B
+JSR 205C
+LDAim 0C
+JSR 205C
+LDAim 01
+STAz 6D
+STAz 6E
+RTS
+PHA
+LDAim 02
+BIT 140D
+BEQ FB
+PLA
+STA 1401
+RTS
+LDAim FF
+STA 1403
+LDA 140C
+ANDim F0
+ORAim 08
+STA 140C
+RTS
+
+
+
+
+
+
+LDAiy A8
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+CPYz B3
+TAY
+TAY
+TAY
+TAY
+
+
+CMPx A8DE
+TAY
+TAY
+
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+CPYim DA
+
+CMPy A8A8
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+CMPix C3
+
+LDYz C5
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+
+ORAz 06
+
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+TAY
+JSR 2118
+LDAim 01
+STAz 6D
+STAz 6E
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2069
+LDAim 5C
+LDXim 20
+STA 1A06
+STX 1A07
+JSR 2138
+
+
+RTI
+NOP
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+LDYim 01
+JSR 25A5
+PLA
+STAz 84
+LDYim 01
+JSR 25A5
+PLA
+JSR 2463
+DECz 84
+BNE F3
+RTS
+BEQ 08
+DEX
+JSR 214E
+JSR 214E
+INX
+RTS
+LDAim 00
+STA 1A82
+LDAim 9E
+STA 1A83
+LDXim 04
+JSR 214E
+LDAim 1E
+STA 1A83
+LDXim 04
+JSR 214E
+DEY
+BNE E9
+RTS
+JSR 2100
+JSR 2503
+BRK
+PHP
+
+
+RTS
+JSR 2176
+JMP 1C1D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOP
+NOP
+NOP
+CMPim 20
+BCS 0E
+CMPim 00
+BEQ 0A
+CMPim 09
+BEQ 0A
+CMPim 07
+BNE 0D
+LDAim F1
+LDYim 00
+STAiy 9A
+JSR 2284
+JSR 231D
+RTS
+CMPim 08
+BNE 07
+JSR 22CF
+JSR 231D
+RTS
+CMPim 0A
+BNE 07
+JSR 2297
+JSR 231D
+RTS
+JMP 25D1
+
+
+
+BVC 5E
+ORAim 21
+ASLz 19
+ORAx 0800
+BRK
+
+BRK
+BRK
+BRK
+BRK
+LDXim 0F
+STX 0400
+LDAx 2240
+STA 0401
+DEX
+BPL F4
+LDXim 08
+STXz 9B
+LDYim 00
+STYz 98
+STYz 99
+STYz 9A
+LDAim 20
+STAiy 9A
+INY
+BNE FB
+INCz 9B
+LDXz 9B
+CPXim 10
+BNE F1
+LDXim 08
+STXz 9B
+RTS
+
+
+
+
+
+
+INCz 98
+LDAz 98
+CMPim 50
+BNE 18
+LDAim 00
+STAz 98
+INCz 99
+BNE 10
+
+
+
+INCz 99
+CLC
+LDAz 9A
+ADCim 50
+STAz 9A
+BCC 08
+BCS 04
+INCz 9A
+BNE 02
+INCz 9B
+LDAz 99
+CMPim 19
+BEQ 01
+RTS
+LDAim 00
+STAz 99
+LDAz 9A
+SEC
+SBCim D0
+STAz 9A
+LDAz 9B
+SBCim 07
+STAz 9B
+RTS
+
+
+
+
+
+
+DECz 99
+LDAim B0
+BNE 0C
+DECz 98
+BPL 06
+LDAim 4F
+STAz 98
+DECz 99
+LDAim FF
+CLC
+ADCz 9A
+STAz 9A
+BCC 01
+RTS
+DECz 9B
+LDAz 99
+BMI 01
+RTS
+CLC
+LDAz 9A
+ADCim D0
+STAz 9A
+LDAz 9B
+ADCim 07
+STAz 9B
+LDAim 18
+STAz 99
+RTS
+
+LDAim 01
+STAz 9B
+LDAz 99
+ASLa
+ASLa
+CLC
+ADCz 99
+ASLa
+ASLa
+ROLz 9B
+ASLa
+ROLz 9B
+ASLa
+ROLz 9B
+CLC
+ADCz 98
+STAz 9A
+BCC 02
+INCz 9B
+NOP
+NOP
+LDXim 0F
+STX 0400
+LDAz 9A
+STA 0401
+DEX
+STX 0400
+LDAz 9B
+ANDim 07
+STA 0401
+RTS
+
+
+
+
+
+
+LDYim 02
+JSR 25A5
+PLA
+STAz 99
+PLA
+STAz 98
+JSR 22FD
+RTS
+
+
+
+
+
+
+SEC
+LDAz 9A
+SBCz 98
+STAz 9A
+BCS 02
+DECz 9B
+LDAim 00
+STAz 98
+JSR 231D
+RTS
+
+
+
+LDAim 00
+STAz 98
+STAz 99
+JMP 22FD
+
+
+
+JSR 225E
+JSR 231D
+RTS
+
+
+LDYim 02
+JSR 25A5
+PLA
+STAz 61
+PLA
+STAz 60
+LDYim 00
+LDAiy 60
+RTS
+
+
+
+PHA
+LDYim 02
+JSR 25A5
+PLA
+STAz 67
+PLA
+STAz 66
+LDYim 00
+PLA
+STAiy 66
+RTS
+
+
+
+LDAz 61
+CMPz 65
+BNE 04
+LDAz 60
+CMPz 64
+RTS
+
+
+
+LDAz 67
+CMPz 6B
+BNE 04
+LDAz 66
+CMPz 6A
+RTS
+
+
+
+LDYim 02
+JSR 25A5
+PLA
+STAz 61
+PLA
+STAz 60
+RTS
+
+
+
+LDYim 02
+JSR 25A5
+PLA
+STAz 67
+PLA
+STAz 66
+RTS
+
+
+
+INCz 60
+BNE 02
+INCz 61
+RTS
+INCz 66
+BNE 02
+INCz 67
+RTS
+LDAz 62
+STAz 60
+LDAz 63
+STAz 61
+RTS
+LDAz 68
+STAz 66
+LDAz 69
+STAz 67
+RTS
+
+
+
+LDYim 00
+JSR 1F9C
+INCz 60
+BNE 0F
+BEQ 0B
+LDYim 00
+STAiy 66
+INCz 66
+BNE 02
+INCz 67
+RTS
+INCz 61
+TXAa
+RTS
+
+
+
+
+
+LDYim 00
+LDAiy 9A
+PHA
+JSR 2284
+JSR 231D
+PLA
+RTS
+
+JSR 2431
+JMP 1D61
+JSR 1D88
+BEQ 0D
+LDYim 00
+DEY
+BNE FD
+DECz 96
+BNE F2
+LDAim 0A
+BNE 02
+LDAim 60
+STAz 96
+RTS
+
+JSR 242B
+NOP
+NOP
+NOP
+CLC
+CMPim 0A
+BCC 02
+ADCim 06
+ADCim 30
+RTS
+
+
+
+
+
+
+
+JMPi 1A04
+JMPi 1A06
+JSR 2250
+LDAim 05
+LDXim 22
+BNE 10
+JSR 2100
+LDAim 00
+LDXim 20
+BNE 07
+JSR 23F2
+LDAim 09
+LDXim 24
+STA 1A06
+STX 1A07
+RTS
+
+
+
+
+
+JSR 35DD
+LDAim A7
+LDXim 35
+BNE 17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 23E9
+LDAim FE
+LDXim 23
+STA 1A04
+STX 1A05
+RTS
+
+
+
+
+
+LDAim 4F
+SEC
+SBCz 98
+TAY
+LDAim 20
+STAiy 9A
+DEY
+BPL FB
+JSR 2297
+RTS
+
+LDAim 20
+JSR 2463
+LDAim 20
+JMP 2463
+
+LDAim 1D
+JMP 2463
+
+
+
+
+
+
+
+
+
+ORAim 30
+CMPim 3A
+BMI 03
+CLC
+ADCim 07
+JSR 2463
+RTS
+PHA
+CLC
+LSRa
+LSRa
+LSRa
+LSRa
+JSR 24E2
+PLA
+ANDim 0F
+JSR 24E2
+RTS
+
+
+
+
+JSR 24D4
+LDYim 04
+JSR 25A5
+LDYim 03
+PLA
+STAy 0031
+DEY
+BPL F9
+LDYim 00
+LDAiy 31
+JSR 2463
+LDAz 31
+CMPz 33
+BNE 06
+LDAz 32
+CMPz 34
+BEQ 08
+INCz 31
+BNE 02
+INCz 32
+BNE E5
+RTS
+
+
+
+LDYim 04
+JSR 25A5
+LDYim 03
+PLA
+STAy 0031
+DEY
+BPL F9
+JSR 2460
+LDYim 00
+STAiy 31
+LDAz 31
+CMPz 33
+BNE 06
+LDAz 32
+CMPz 34
+BEQ 08
+INCz 31
+BNE 02
+INCz 32
+BNE E5
+RTS
+
+
+
+JSR 3A6B
+JSR 246F
+LDAim 00
+STAz 95
+LDAz 6E
+CMPim 3D
+BEQ FE
+JSR 1F05
+BCS FE
+LDAz E7
+JSR 24EF
+LDAz E6
+JSR 24EF
+JSR 24C9
+JSR 3590
+JSR 24D4
+JMP 256A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CMPim 61
+BCC 06
+CMPim 7B
+BCS 02
+ANDim DF
+RTS
+
+STYz 7F
+PLA
+STAz 80
+PLA
+STAz 81
+PLA
+STAz 82
+PLA
+STAz 83
+PHA
+LDAz 82
+PHA
+TSX
+LDYim 00
+INY
+INCx 0101
+BNE 03
+INCx 0102
+LDAiy 82
+PHA
+CPYz 7F
+BNE F0
+LDAz 81
+PHA
+LDAz 80
+PHA
+RTS
+CMPim 0D
+BNE 03
+JMP 234E
+CMPim 0B
+BNE 07
+JSR 22C9
+JSR 231D
+RTS
+CMPim 0C
+BNE 06
+JSR 2339
+BRK
+BRK
+RTS
+CMPim 0E
+BNE 04
+JSR 2370
+RTS
+CMPim 1D
+BNE 06
+JSR 24B7
+JSR 234E
+RTS
+LDYim 01
+LDAiy 48
+STAz 42
+LDYim 00
+LDAiy 48
+ANDz 44
+DECz 42
+BMI 04
+LSRa
+JMP 260C
+STAz 41
+NOP
+NOP
+NOP
+LDYim 02
+LDAiy 48
+STAz 42
+LDAim 06
+CLC
+ADCz 41
+DECz 42
+BNE F9
+TAY
+LDAiy 48
+CMPim FF
+BNE 03
+STAz 43
+RTS
+STAz 45
+INY
+LDAiy 48
+STAz 46
+INY
+LDAiy 48
+STAz 47
+RTS
+
+LDYim 00
+LDAiy 48
+STAz 42
+INY
+LDAiy 48
+ANDz 44
+INY
+CMPiy 48
+BEQ 0A
+INY
+CPYz 42
+BMI F1
+LDAim 00
+STAz 41
+RTS
+INY
+LDAiy 48
+STAz 41
+RTS
+
+
+
+
+
+
+
+
+LDAim 00
+STAz 43
+JSR 2640
+LDAz 41
+BNE 05
+LDAim FF
+STAz 43
+RTS
+ASLa
+CLC
+ADCz 41
+TAX
+LDAz 41
+CMPim 0A
+BPL 10
+LDAx 3030
+STAz 45
+LDAx 3031
+STAz 46
+LDAx 3032
+STAz 47
+RTS
+LDAx 3030
+STAz 48
+LDAx 3031
+STAz 49
+JSR 2600
+RTS
+
+
+
+
+
+
+
+JSR 24CE
+LDAz 98
+CMPim 0D
+BEQ 06
+LDAz 6D
+CMPim 0E
+BNE F1
+LDAim B8
+STAz 48
+LDAim 31
+STAz 49
+JSR 2668
+LDAz 43
+BEQ 01
+RTS
+LDAz 45
+JSR 2463
+LDAz 46
+JSR 2463
+LDAz 47
+JSR 2463
+LDAim D0
+STAz 48
+LDAim 31
+STAz 49
+JSR 2668
+LDAz 45
+CMPim 20
+BEQ 0F
+JSR 2463
+LDAz 46
+CMPim 20
+BEQ 03
+JSR 2463
+RTS
+
+
+LDAz 44
+ANDim 1F
+CMPim 10
+BEQ 01
+RTS
+JSR 24CE
+DECz E7
+LDYim FF
+LDAiy E6
+INCz E7
+CLC
+ADCz E6
+JSR 24EF
+RTS
+
+
+
+
+
+
+
+
+
+
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+PLA
+
+BRK
+
+
+
+BRK
+BRK
+JSR 2339
+BMI 00
+LDAz CB
+JSR 24EF
+LDAz CA
+JSR 24EF
+JSR 24CE
+LDAz CD
+JSR 24EF
+LDAz CC
+JSR 24EF
+JSR 24CE
+LDAz CF
+JSR 24EF
+LDAz CE
+JSR 24EF
+RTS
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+LDAz CA
+CMPz CC
+LDAz CB
+SBCz CD
+BCS 03
+JSR 3E40
+RTS
+
+JSR 2770
+LDXz 5B
+LDAx 03B0
+BCC 09
+LDYim 48
+LDAim 00
+STAiy CE
+DEY
+BNE FB
+JSR 2D45
+RTS
+
+
+LDAz 57
+BEQ 01
+RTS
+JSR 2810
+LDAz FA
+STAz CE
+CLC
+ADCim 48
+STAz CA
+LDAz FB
+STAz CF
+ADCim 00
+STAz CB
+JMP 277F
+
+
+
+
+
+
+
+LDAz 57
+BEQ 01
+RTS
+JSR 2810
+LDAz CC
+SEC
+SBCim 48
+STAz CC
+BCS 02
+DECz CD
+LDAz FA
+STAz CA
+CLC
+ADCim 48
+STAz CE
+LDAz FB
+STAz CB
+ADCim 00
+STAz CF
+JSR 2770
+LDXz 5B
+LDAx 03B0
+BCC 09
+LDYim 47
+LDAim 00
+STAiy CA
+DEY
+BPL FB
+JSR 2D45
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDYim 18
+BNE 02
+LDYz 99
+INY
+LDXz 99
+LDAx 03B0
+BEQ 1C
+LDAz 5E
+CMPy 037E
+LDAz 5F
+SBCy 0397
+BCC 10
+LDAy 037E
+SEC
+SBCim 01
+STAz CC
+LDAy 0397
+SBCim 00
+STAz CD
+RTS
+LDAz 5E
+STAz CC
+LDAz 5F
+STAz CD
+RTS
+
+
+
+
+
+
+
+
+LDAz 57
+BEQ 01
+RTS
+JSR 283A
+LDAz CC
+BNE 02
+DECz CD
+DECz CC
+LDXz FA
+STXz CA
+LDYz FB
+STYz CB
+INX
+BNE 01
+INY
+STXz CE
+STYz CF
+JSR 2770
+JSR 2D45
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 57
+BEQ 01
+RTS
+JSR 283A
+LDXz FA
+STXz CE
+LDYz FB
+STYz CF
+INX
+BNE 01
+INY
+STXz CA
+STYz CB
+JMP 286B
+LDAz 57
+BEQ 13
+LDA 0FA0
+CMPim 41
+BEQ 0C
+JSR 2910
+
+ANDim 54
+ANDim 1A
+CLC
+JMP 28C7
+LDA 0FA0
+CMPim 20
+BEQ 07
+JSR 2910
+BNE 0F
+CMPy 1A0F
+CLC
+RTS
+
+
+
+
+
+
+
+
+JSR 2910
+
+ANDim 5E
+ANDim 30
+CLC
+JSR 2BD8
+BCS 0D
+STAz 8B
+JSR 2BD8
+BCS 06
+STAz 5E
+LDAz 8B
+STAz 5F
+JSR 2D48
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDYim 06
+JSR 25A5
+LDAim 01
+STAz CF
+PLA
+STAz CE
+ASLa
+ASLa
+CLC
+ADCz CE
+ASLa
+ASLa
+ROLz CF
+ASLa
+ROLz CF
+ASLa
+ROLz CF
+STAz CE
+PLA
+CLC
+ADCz CE
+STAz CE
+BCC 02
+INCz CF
+LDYim 03
+PLA
+STAy 00CA
+DEY
+BPL F9
+JSR 3E40
+RTS
+
+
+
+
+
+
+
+ADCix 75
+
+
+ADCz 72
+PLA
+ADCix 6C
+
+JSR 6120
+ADCz 6E
+
+ADCz 72
+ADCz 20
+ADCix 64
+
+ADCz 73
+
+ADCz 20
+PLA
+ADCix 72
+
+
+
+BCS 79
+
+
+
+
+
+
+
+
+
+JSR 2910
+
+ANDim 6E
+ANDim 30
+CLC
+NOP
+NOP
+NOP
+JSR 246F
+LDAim 00
+STAz E6
+LDAim 08
+STAz E7
+LDYim 4F
+LDAiy E6
+CMPim 20
+BNE 03
+DEY
+BNE F7
+INY
+NOP
+STYz 56
+LDYim 00
+STYz 55
+LDYz 55
+CPYz 56
+BEQ 0A
+LDAiy E6
+JSR 2463
+INCz 55
+JMP 29A2
+JSR 24D4
+LDAz E6
+CLC
+ADCim 50
+STAz E6
+BCC 02
+INCz E7
+CMPim D0
+BNE 04
+LDAz E7
+CMPim 0F
+BNE C5
+JSR 2469
+JSR 2910
+BNE 0F
+
+
+BMI 18
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2910
+
+ANDim 66
+ANDim 30
+CLC
+JSR 2BD8
+BCS 20
+PHA
+JSR 2BD8
+BCS 2E
+NOP
+NOP
+STA 037E
+NOP
+PLA
+STA 0397
+LDAim 00
+STA 03B0
+JSR 2C04
+JSR 2D50
+JSR 2AE8
+CLC
+RTS
+CMPim 12
+BNE 06
+JSR 2B00
+JMP 2AB9
+CMPim 11
+BNE 07
+JSR 2B60
+JMP 2AB9
+PLA
+JSR 2910
+BNE 0F
+
+
+BMI 18
+SEC
+RTS
+
+
+
+
+
+
+
+
+
+
+JSR 2339
+ASLz 00
+LDA 037E
+STAz FA
+LDA 0397
+STAz FB
+LDAim 00
+STAz 57
+JSR 28A0
+RTS
+
+LDA 0395
+STA 037E
+LDA 03AE
+STA 0397
+LDA 03C7
+STA 03B0
+JSR 2D45
+RTS
+
+
+
+
+
+
+
+
+
+
+LDAz 57
+BEQ 01
+RTS
+INCz FA
+BNE 02
+INCz FB
+JSR 2CE0
+LDAz 57
+BEQ 03
+JSR 2B00
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 57
+BEQ 01
+RTS
+LDAz FA
+BNE 02
+DECz FB
+DECz FA
+JSR 2CE0
+LDAz 57
+BEQ 03
+JSR 2B60
+RTS
+
+
+
+
+
+LDA 037E
+STAz 58
+NOP
+NOP
+NOP
+NOP
+NOP
+SEC
+LDA 0397
+STAz 59
+SBCim 02
+STA 0397
+LDAim 00
+STAz 95
+JSR 2C04
+NOP
+NOP
+NOP
+LDAz 59
+CMP 03AF
+BCC 28
+BNE 07
+LDAz 58
+CMP 0396
+BCC 1F
+LDXim 00
+LDAx 037F
+STAx 037E
+LDAx 0398
+STAx 0397
+LDAx 03B1
+STAx 03B0
+INX
+CPXim 18
+BNE E9
+JSR 2C00
+JMP 2B7C
+JSR 2D48
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2460
+BCC 01
+RTS
+CMPim 41
+BCC 02
+SBCim 07
+SEC
+SBCim 30
+CLC
+RTS
+
+
+
+
+
+
+
+JSR 2BC0
+BCC 01
+RTS
+CMPim 10
+BCC 01
+RTS
+ASLa
+ASLa
+ASLa
+ASLa
+STAz FE
+JSR 2BC0
+BCC 01
+RTS
+CMPim 10
+BCC 01
+RTS
+ORAz FE
+RTS
+
+
+
+
+
+
+
+
+
+LDXim 17
+BNE 02
+LDXim 00
+STXz 5B
+LDAx 037E
+STAz 5C
+LDAx 0397
+STAz 5D
+LDAx 03B0
+STAz 95
+LDAz 95
+BEQ 2B
+LDAim 48
+STAz F6
+NOP
+LDYim 00
+LDAiy 5C
+CMPim 03
+BEQ 11
+CMPim 1D
+BEQ 11
+DECz F6
+BEQ 0D
+INCz 5C
+BNE EB
+INCz 5D
+JMP 2C1F
+LDAim 00
+STAz 95
+INCz 5C
+BNE 02
+INCz 5D
+JMP 2C6A
+LDXim 00
+LDAix 5C
+CMPim FF
+BNE 0A
+LDYim 02
+LDAiy 5C
+CMPim 02
+BNE 02
+INCz 95
+LDXim 00
+LDAix 5C
+JSR 1E60
+LDAz 5C
+CLC
+ADCz F6
+STAz 5C
+BCC 02
+INCz 5D
+INCz 5B
+LDXz 5B
+LDAz 5C
+STAx 037E
+LDAz 5D
+STAx 0397
+LDAz 95
+STAx 03B0
+CPXim 18
+BNE 96
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDXz 5B
+LDAx 03B0
+STAz 95
+LDXim 00
+LDAix E6
+STAz 44
+LDXim 00
+LDAix E6
+LDXz 95
+BNE 06
+JSR 24EF
+JMP 2CBE
+JSR 2463
+JSR 3C90
+LDXz 5B
+INX
+LDAz E6
+CMPx 037E
+BNE E2
+LDAz E7
+CMPx 0397
+BNE DB
+LDAz 95
+BNE 03
+JSR 26A8
+RTS
+
+
+
+
+
+
+JSR 2CE8
+JSR 28A0
+RTS
+BRK
+LDAim 00
+STAz 57
+LDXim 00
+LDAx 0397
+CMPz FB
+BCC 0E
+BEQ 03
+INCz 57
+RTS
+LDAx 037E
+CMPz FA
+BCC 02
+BNE F4
+CPXim 18
+BNE 03
+INCz 57
+RTS
+INX
+LDAx 0397
+CMPz FB
+BCC F1
+BNE 09
+LDAx 037E
+CMPz FA
+BCC E8
+BEQ E6
+DEX
+STXz 99
+SEC
+LDAz FA
+SBCx 037E
+PHA
+LDAz FB
+SBCx 0397
+BNE FE
+PLA
+LDYx 03B0
+BNE 01
+ASLa
+CLC
+ADCim 06
+STAz 98
+JSR 22FD
+RTS
+
+
+
+
+
+
+
+JSR 2C04
+JSR 2D50
+JSR 2CE0
+RTS
+
+JSR 2364
+LDA 037E
+STAz E6
+LDA 0397
+STAz E7
+LDXim 00
+STXz 5B
+LDXz 5B
+LDAz E7
+JSR 24EF
+LDXz 5B
+LDAz E6
+JSR 24EF
+JSR 24C9
+JSR 2CA0
+LDXz 5B
+CPXz 99
+BMI 03
+JSR 24D4
+INCz 5B
+LDXz 99
+CPXim 18
+BNE DB
+JSR 24D4
+JSR 2339
+PLP
+CLC
+LDAz 5F
+JSR 24EF
+LDAz 5E
+JSR 24EF
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2466
+JSR 248B
+LDAz E2
+LDXz E3
+STAz FA
+STXz FB
+STA 037E
+STX 0397
+LDAim 00
+STA 03B0
+JSR 2D45
+RTS
+
+
+
+
+
+
+
+
+
+JSR 2BE3
+BCC 01
+RTS
+LDXz 57
+BEQ 02
+CLC
+RTS
+PHA
+LDXz 99
+INX
+STXz 55
+LDAx 037E
+STAz 58
+LDAx 0397
+STAz 59
+LDAx 03B0
+STAz 5A
+PLA
+PHA
+LDYim 00
+STAiy FA
+JSR 2C04
+LDXz 55
+DEX
+LDAx 03B0
+BEQ 07
+PLA
+JSR 2463
+JMP 2E0D
+PLA
+JSR 24EF
+JSR 2B20
+LDXz 55
+LDAx 037E
+CMPz 58
+BNE 0E
+LDAx 0397
+CMPz 59
+BNE 07
+LDAx 03B0
+CMPz 5A
+BEQ 03
+JSR 2D48
+RTS
+
+
+
+
+
+JSR 2E38
+JSR 28A0
+RTS
+
+LDXim 00
+STXz 57
+LDXz 99
+CPXim 18
+BCS 06
+LDAz 98
+CMPim 06
+BCS 03
+INCz 57
+RTS
+SEC
+SBCim 06
+LDYx 03B0
+BNE 01
+LSRa
+CLC
+ADCx 037E
+STAz FA
+LDAim 00
+ADCx 0397
+STAz FB
+INX
+CMPx 0397
+BCC 0B
+BNE 07
+LDAz FA
+CMPx 037E
+BCC 02
+INCz 57
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2910
+LDYim 32
+
+
+JSR 2018
+ANDy 2F23
+CLC
+LDAz FB
+STAz CB
+JSR 24EF
+LDAz FA
+STAz CA
+JSR 24EF
+LDYim 05
+JSR 3294
+JSR 2BD8
+BCS 2E
+STAz CD
+JSR 24EF
+JSR 2BD8
+BCS 24
+STAz CC
+JSR 24EF
+LDYim 06
+JSR 3294
+JSR 2BD8
+BCS 15
+STAz CF
+JSR 24EF
+JSR 2BD8
+BCS 0B
+STAz CE
+JSR 24EF
+JSR 3E40
+JSR 2C04
+JSR 2D48
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDXz 99
+LDAx 03B0
+BNE 03
+JSR 2284
+JSR 2284
+JMP 2FDD
+
+
+
+JSR 38D0
+NOP
+NOP
+NOP
+JSR 2DAA
+NOP
+NOP
+JSR 2460
+NOP
+NOP
+NOP
+BCC 4E
+NOP
+NOP
+NOP
+NOP
+CMPim 1C
+BCS 38
+ASLa
+TAX
+LDAx 3200
+STA 1A00
+LDAx 3201
+STA 1A01
+JSR 2F30
+JMP 2F0A
+
+JMPi 1A00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CMPim 1D
+BEQ 04
+CMPim 20
+BCC AF
+JSR 2DD6
+JMP 2F0A
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+CMPim 47
+BNE 08
+JSR 2A90
+NOP
+NOP
+JMP 2F0A
+CMPim 48
+BNE 06
+JSR 2B43
+JMP 2F0A
+CMPim 49
+BNE 06
+JSR 2B20
+JMP 2F0A
+CMPim 4A
+BNE 0A
+LDAz 57
+BNE 06
+LDYx 2250
+JMP 1C4C
+CMPim 4B
+BNE 08
+JSR 2E80
+NOP
+NOP
+JMP 2F0A
+NOP
+NOP
+NOP
+JSR 2BC6
+CMPim 10
+BCS 08
+JSR 2DD0
+NOP
+NOP
+JMP 2F0A
+JMP 2F0A
+
+
+
+
+
+
+
+
+
+
+
+LDAim 08
+STAz 8E
+STAz 8F
+LDAim 00
+STAz 91
+JSR 3A6B
+RTS
+
+LDXz 99
+LDAx 03B0
+BNE 03
+JSR 22CF
+JSR 22CF
+JSR 231D
+JSR 2E30
+RTS
+JSR 2297
+JMP 2FDD
+JSR 22C9
+JMP 2FDD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2020
+JMPi 7864
+ADCim 6D
+JSR 207A
+JSR 787A
+JSR 2078
+JSR 2061
+JSR 797A
+JSR 2079
+JSR 2020
+
+LDYim 31
+BRK
+
+ANDiy 00
+PHA
+ANDiy 00
+PLP
+ANDiy 00
+RTS
+BMI 00
+BRK
+BRK
+BRK
+
+
+
+
+
+
+
+
+
+
+JSR 7020
+PLA
+BCS FF
+JSR 6220
+BCS 6C
+
+JSR 6320
+JMPi FF63
+JSR 6A20
+
+
+
+ADCim 74
+BCS 6C
+BCS 62
+ADCim 74
+
+ADC FF69
+JSR 7320
+ADCz 63
+
+JSR 7220
+
+ADCim FF
+JSR 7020
+PLA
+ADCix 6A
+ADC 6270
+RORzx 63
+
+JSR 6320
+JMPi FF69
+JSR 7220
+
+
+
+JSR 7020
+JMPi 6A61
+ADCim 20
+
+RORzx 73
+
+JSR 7320
+ADCz 69
+
+JSR FF20
+JSR 7320
+
+ADCy 6564
+ADCy 7473
+ADCy 6362
+
+
+
+ADCy 7974
+ADCix FF
+JSR 6C20
+
+ADCy 646C
+ADCy 6174
+ADCy 646C
+ADCy 6362
+
+JMPi 7964
+
+JMPi 6C76
+
+ADCy 7063
+ADCy 7063
+ADCy 6E69
+ADCy 7063
+ADCy 6E62
+ADCz FF
+JSR 6320
+JMPi FF64
+JSR 6320
+BCS 78
+
+BCS 78
+ADCim 6E
+SEI
+
+BCS 78
+
+ADCz 71
+
+JSR 7320
+ADCz 64
+
+JSR 0320
+BRK
+CPXim 05
+
+
+
+
+
+
+ADCix 61
+ROR 6564
+
+
+ADCix 64
+
+
+
+ADCix 6C
+
+ADCix 63
+ADC 7370
+
+
+
+BRK
+BEQ 04
+
+
+
+
+ADCix 73
+JMPi 20FF
+JSR 6F72
+JMPi 20FF
+JSR 736C
+
+
+JSR 7220
+
+
+
+JSR 7420
+SEI
+ADCix 74
+SEI
+
+
+ADCix 78
+
+
+SEI
+
+ADCz 78
+
+JSR 6E20
+
+BCS 20
+JSR 0320
+BRK
+CPXim 05
+
+
+
+
+ADCix 73
+JMPi 6F72
+JMPi 736C
+
+
+
+
+
+
+SEI
+JMPi 7864
+
+ADCz 63
+ADCim 6E
+
+
+BRK
+
+
+
+
+
+
+ADCim 78
+
+JSR 6D69
+JSR 6920
+ADCy 787A
+ADCy 7820
+JSR 0003
+ORAzx 03
+BRK
+ASL 89FF
+BRK
+
+ORAix 0D
+
+LDXim 01
+
+
+BRK
+
+ASLa
+
+
+ASLz 0B
+BRK
+BRK
+ROLa
+
+
+
+
+
+
+
+STYz 04
+
+LDYx 0305
+ORAix 0A
+
+LDXim 02
+
+ASLa
+ASLz DF
+STXzy 07
+
+LDXy 1F08
+ASLz 03
+
+ASL 1F09
+ASLzx 04
+
+ASLx 0005
+BRK
+ORAim 00
+
+BRK
+BRK
+BRK
+ANDy 3932
+
+ANDy 3932
+
+SEI
+ANDim 4B
+PLP
+STAz 28
+BNE 28
+BNE 2F
+SBC E42E
+
+NOP
+
+INX
+ROLa
+ANDy 3932
+
+ANDy 3932
+
+ANDy 3932
+
+ANDy 0032
+RTI
+ANDy 8032
+ROL 3239
+ANDy 3932
+
+ANDy 3932
+
+
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2284
+DEY
+BNE FA
+JMP 231D
+
+
+
+LSRzx 65
+
+
+
+PLA
+ADCim 65
+
+ADCz 20
+RORzx 6F
+ROR 5820
+CLI
+CLI
+CLI
+JSR 6962
+
+JSR 5858
+CLI
+CLI
+JSR 616E
+
+PLA
+JSR 5858
+CLI
+CLI
+ROL 2020
+JSR 2020
+JSR 2020
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ADCx 0201
+
+
+ORAz 06
+
+PHP
+ORAim 0A
+
+
+ORA 0F0E
+BPL 11
+
+
+
+ORAzx 16
+
+CLC
+
+ORAy 1C1E
+
+BRK
+JSR 213D
+
+LSRx 2524
+ROLz 2F
+PLP
+ANDim 5B
+
+BIT 2E7E
+AND 3130
+
+
+
+ANDzx 36
+
+SEC
+ANDy 7C7B
+
+
+
+
+ADCx 6261
+
+
+ADCz 66
+
+PLA
+ADCim 6A
+
+JMPi 6E6D
+
+BCS 71
+
+
+
+ADCzx 76
+
+SEI
+
+ADCy 3C2B
+
+RTI
+JSR 415D
+
+
+
+EORz 46
+
+PHA
+EORim 4A
+
+JMP 4E4D
+
+BVC 51
+
+
+
+EORzx 56
+
+CLI
+
+EORy 3E2A
+
+RTS
+JSR 0B20
+ASLa
+ORAim 08
+
+JSR 2020
+JSR 2020
+JSR 8E20
+
+BCC 91
+
+
+STYz 95
+STXzy 97
+TYA
+STAy 9B9A
+
+JSR 2020
+PHP
+
+ORAx 1B0E
+JSR 1D7F
+JSR 2020
+JSR 2D20
+ROL 3020
+ANDiy 32
+
+
+ANDzx 36
+
+SEC
+ANDy 2220
+JSR 2020
+JSR 1220
+ORAiy 05
+ASLz 0E
+JSR 2020
+JSR 2020
+JSR 2020
+JSR D1D0
+
+
+
+CMPzx D6
+
+CLD
+CMPy DBDA
+
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR FF20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PHP
+SEI
+LDA 140C
+ANDim 1F
+ORAim 60
+STA 140C
+LDA 140B
+ANDim C3
+ORAim 04
+STA 140B
+LDAim 22
+LDXim 10
+STA 1A66
+STX 1A67
+STX 1A65
+LDAim 00
+STAz 79
+PLP
+JMP 1005
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDXim 04
+ASLa
+RORz 7A
+ASLa
+DEX
+BNE F9
+RTS
+LDXim 08
+RORa
+EORz 7A
+DEX
+BNE FA
+RORa
+RTS
+
+
+
+
+BRK
+BRK
+JSR 35F0
+CMPim 15
+BEQ 09
+CMPim 0A
+BCC 02
+ADCim 06
+ADCim 30
+RTS
+LDAz 79
+BEQ EC
+LDAim 00
+STAz 79
+LDAz 7A
+JSR 358D
+LDAz 7B
+JSR 358D
+JSR 3597
+BCC D9
+LDAz 7A
+EORim FF
+TAX
+LDAx 33A0
+RTS
+
+
+
+
+
+
+JSR 34DD
+JSR 1D8E
+BNE FB
+LDAim 15
+STAz 76
+RTS
+
+
+
+
+
+
+JSR 1D88
+BEQ 05
+JSR 1D8E
+BEQ F6
+JSR 1DF9
+CMPim 15
+BNE 03
+STAz 76
+RTS
+CMPz 76
+BNE 15
+LDAim 20
+BIT 140D
+BEQ 0B
+JSR 3623
+LDAz 76
+LDYz 78
+BEQ 04
+DECz 78
+LDAim 15
+RTS
+STAz 76
+LDYim 08
+STYz 78
+LDYim 99
+STY 1408
+STY 1409
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2466
+JSR 38B0
+JSR 37BD
+JSR 39B5
+
+ROLzx 06
+JSR 39B5
+
+ROLzx 07
+JMP 382F
+BRK
+BRK
+INC 0820
+LDXim 01
+JSR 376C
+JMP 3664
+INC 0830
+LDXim 03
+JSR 376C
+JMP 366F
+BRK
+JSR 38B0
+JSR 37BD
+LDXim 00
+LDAim ED
+STAx 0E30
+LDAim 20
+STAx 0E2F
+STXz 03
+LDXim 04
+JSR 376C
+LDXz 03
+INX
+CPXim 30
+BNE E8
+LDAim 20
+STAx 0E30
+LDAim EF
+STAx 0E2F
+STXz 03
+LDXim 04
+JSR 376C
+LDXz 03
+DEX
+BPL EA
+JMP 3681
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+LDAz 8F
+STAz 94
+PHP
+SEI
+NOP
+NOP
+NOP
+NOP
+LDXim 00
+LDYim 00
+CPXz 57
+BPL 1B
+INX
+LDAx 03E0
+CMPz 94
+BEQ F4
+INY
+STAy 03E0
+LDAx 03E8
+STAy 03E8
+LDAx 03F0
+STAy 03F0
+JMP 36C9
+STYz 57
+LDA 03D8
+CMPz 94
+BNE 05
+JSR 3870
+BEQ 07
+LDXz 94
+LDAim 00
+STAx 03D8
+LDAz 94
+JSR 126C
+PLP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PHP
+SEI
+LDAzx 00
+CLC
+ADCz 58
+STAz 5A
+LDAzx 01
+ADCz 59
+STAz 5B
+LDXz 57
+BEQ 27
+LDAx 03F0
+CMPz 5B
+BMI 09
+BNE 1E
+LDAx 03E8
+CMPz 5A
+BCS 17
+LDAx 03E8
+STAx 03E9
+LDAx 03F0
+STAx 03F1
+LDAx 03E0
+STAx 03E1
+DEX
+BNE DB
+NOP
+NOP
+INX
+LDAz 5A
+STAx 03E8
+LDAz 5B
+STAx 03F0
+LDAz 8F
+STAx 03E0
+INCz 57
+JSR 126A
+PLP
+RTS
+JSR 3A6B
+LDAim 00
+STAz 58
+STAz 59
+STAz 57
+LDAim 90
+LDXim 10
+STA 1A76
+STX 1A77
+LDAim 76
+STA 1AFD
+RTS
+
+
+
+
+
+
+PHP
+SEI
+ASLa
+ASLa
+NOP
+NOP
+PHA
+LDAz 58
+STAz 5E
+LDAz 59
+STAz 5F
+PLA
+CLC
+SBCz 59
+EORim FF
+STAz 59
+PLP
+RTS
+
+
+
+
+
+PHP
+SEI
+LDAz 5E
+STAz 58
+LDAz 5F
+STAz 59
+PLP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2466
+JSR 37BD
+LDAz 5C
+CMPz 00
+BEQ FA
+STAz 00
+LDAz 5D
+JSR 24EF
+LDAz 5C
+JSR 24EF
+JSR 24D4
+LDAim 06
+NOP
+NOP
+NOP
+JMP 382F
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 38B0
+LDAim 00
+STA 03F9
+LDAim 00
+LDXz 90
+STAx 03D8
+DEX
+BNE FA
+RTS
+PHP
+SEI
+LDXim 01
+LDAx 03D8
+BNE 0A
+INX
+CPXz 90
+BNE F6
+STA 03F9
+PLP
+RTS
+LDAim 00
+STAx 03D8
+TXAa
+STA 03F9
+JMP 38AB
+BRK
+PHP
+SEI
+LDA 03F9
+BNE 07
+LDAz 8F
+STA 03F9
+PLP
+RTS
+LDXz 8F
+LDAim 01
+STAx 03D8
+TXAa
+JSR 126C
+PLP
+RTS
+JSR 1240
+PLP
+RTS
+SEI
+LDXim 09
+STXz 90
+LDAim 00
+LDXim 07
+STAx 03D0
+DEX
+BNE FA
+LDAim 01
+STA 03D8
+JSR 38D0
+JSR 3860
+JSR 37C0
+RTS
+
+
+LDAim 08
+STAz 8E
+STAz 8F
+LDAim 00
+STAz 91
+JSR 3A6B
+RTS
+
+
+STAx 03C8
+LDAz 94
+JMP 1240
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 8F
+JMP 126C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDYim 03
+JSR 25A5
+PLA
+STAz 94
+NOP
+SEI
+TAX
+LDAx 39E0
+TAY
+PLA
+STAy 0100
+DEY
+PLA
+STAy 0100
+DEY
+LDXim 03
+LDAim 00
+STAy 0100
+DEY
+DEX
+BPL F9
+TYA
+LDXz 94
+CLI
+JMP 38E0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SEI
+LDAim 13
+LDXim 03
+STAx 1A74
+DEX
+BPL FA
+LDXim 0D
+STAx 1A60
+DEX
+BPL FA
+LDAim 7F
+STA 140E
+BIT 1AD4
+STA 1AE4
+LDAim 00
+LDXim 13
+STA 1A7E
+STX 1A7F
+CLI
+RTS
+
+
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PHA
+LDAim F4
+STA 1AFF
+DECz 09
+BNE 32
+LDAim 04
+STAz 09
+SED
+LDAz 0A
+CLC
+ADCim 01
+STAz 0A
+CMPim 60
+BNE 22
+LDAim 00
+STAz 0A
+LDAz 0B
+CLC
+ADCim 01
+STAz 0B
+CMPim 60
+BNE 13
+LDAim 00
+STAz 0B
+LDAz 0C
+CLC
+ADCim 01
+STAz 0C
+CMPim 24
+BNE 04
+LDAim 00
+STAz 0C
+CLD
+PLA
+RTS
+
+
+
+
+
+
+
+
+
+
+LDAim 04
+STAz 09
+LDAim 00
+STAz 0A
+STAz 0B
+STAz 0C
+RTS
+
+
+
+
+
+
+
+
+
+SEI
+LDAz 0A
+PHA
+LDAz 0B
+PHA
+LDAz 0C
+CLI
+JSR 24EF
+LDAim 3A
+JSR 2463
+PLA
+JSR 24EF
+LDAim 3A
+JSR 2463
+PLA
+JSR 24EF
+RTS
+
+
+
+
+
+
+
+
+
+
+JSR 3B49
+LDAim 00
+LDXim 3B
+STA 1A76
+STX 1A77
+LDAim F4
+STA 1AFF
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 3C78
+JSR 3C6E
+STAz E2
+JSR 3C6E
+STAz E3
+JSR 3C6E
+CLC
+ADCz E2
+PHP
+STAz E8
+JSR 3C6E
+PLP
+ADCz E3
+STAz E9
+JSR 1ED3
+JSR 3BDA
+JSR 3CED
+JMP 1C1D
+JSR 3C6E
+LDYim 00
+CMPiy E6
+BNE 06
+JSR 3C90
+BCC F2
+RTS
+STAz F9
+LDAz E6
+STAz FA
+LDAz E7
+STAz FB
+JSR 1D5C
+JMP 1C1D
+
+
+
+
+
+
+
+BIT 1A82
+BPL FB
+BIT 1A82
+BMI FB
+ASL 1AD5
+LDYim 23
+STY 1AF5
+ROLa
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDXim A0
+TXAa
+PHA
+JSR 1D8E
+PLA
+TAX
+DEX
+BNE F6
+RTS
+JSR 3CBD
+JSR 3CBD
+JMP 1C1D
+
+
+BVC A9
+ORAix 20
+BRK
+
+BCC FB
+RTS
+BRK
+BRK
+LDAim FF
+JSR 3C00
+CMPim 55
+BNE F9
+RTS
+BRK
+JSR 3C6E
+LDYim 00
+STAiy E6
+JSR 3C90
+BCC F4
+RTS
+PHA
+INCz E6
+BNE 02
+INCz E7
+JSR 1F05
+PLA
+RTS
+JSR 1ED3
+LDAim 00
+TAY
+CLC
+ADCiy E6
+JSR 3C90
+BCC F8
+PHA
+JSR 1ED3
+PLA
+RTS
+JSR 3C9C
+STAz FB
+LDAim 02
+STAz F6
+JSR 3C55
+RTS
+JSR 3C78
+JSR 3C6E
+STAz E2
+JSR 3C6E
+STAz E3
+JMP 3CD6
+JSR 3C78
+JSR 3C6E
+JSR 3C6E
+JSR 3C6E
+CLC
+ADCz E2
+PHP
+STAz E8
+JSR 3C6E
+PLP
+ADCz E3
+STAz E9
+JSR 1ED3
+JSR 3C83
+JSR 3C6E
+STAz FA
+JSR 3CB0
+LDAz FA
+CMPz FB
+BNE F7
+LDAz E2
+STAz FA
+LDAz E3
+STAz FB
+LDAz E8
+STAz E4
+LDAz E9
+STAz E5
+RTS
+BRK
+
+
+
+LDAz CD
+CMPz CF
+BCC 08
+BNE 13
+LDAz CC
+CMPz CE
+BCS 0D
+LDYz CB
+DEY
+LDAiy CC
+STAiy CE
+TYA
+BNE F8
+RTS
+BRK
+
+
+
+ORAiy 00
+LDXim 01
+BIT 1AD5
+BPL FB
+STX 1A82
+LDAim 15
+STA 1AF5
+DEX
+BPL F0
+RTS
+BRK
+BRK
+LDXim 01
+BIT 1AD5
+BPL FB
+STX 1A82
+LDAim 0A
+STA 1AF5
+DEX
+BPL F0
+RTS
+
+
+
+
+
+
+
+ORAiy A2
+PHP
+STXz F8
+ASLa
+PHA
+BCC 05
+JSR 3D2F
+BMI 03
+JSR 3D44
+PLA
+DECz F8
+BNE EF
+RTS
+LDXim 1F
+STX 1A83
+LDXim 00
+STXz DE
+LDAim FF
+JSR 3D5F
+DECz DE
+BNE F7
+LDAim 55
+JSR 3D5F
+RTS
+JSR 3C9C
+PHA
+JSR 3D75
+LDAz E2
+JSR 3D5F
+LDAz E3
+JSR 3D5F
+SEC
+LDAz E8
+SBCz E2
+PHP
+JSR 3D5F
+PLP
+LDAz E9
+SBCz E3
+JSR 3D5F
+JSR 1ED3
+LDYim 00
+LDAiy E6
+JSR 3D5F
+JSR 3C90
+BCC F4
+PLA
+JSR 3D5F
+JSR 3D5F
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 3CBD
+JMP 1C1D
+JSR 3CCD
+JMP 1C1D
+JSR 3E40
+JMP 1C1D
+JSR 3D8D
+JMP 1C1D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JMP 1190
+
+CMPz CE
+LDAz CB
+SBCz CF
+BCS 47
+SEC
+LDAz CC
+SBCz CA
+PHP
+CLC
+ADCz CE
+STAz CE
+LDAz CD
+SBCz CB
+PLP
+ADCz CF
+STAz CF
+CLC
+BCC 13
+
+
+
+LDAz CE
+BNE 02
+DECz CF
+DECz CE
+LDAz CC
+BNE 02
+DECz CD
+DECz CC
+LDAiy CC
+STAiy CE
+LDAz CA
+CMPz CC
+LDAz CB
+SBCz CD
+BCC E2
+RTS
+
+
+INCz CA
+BNE 02
+INCz CB
+INCz CE
+BNE 02
+INCz CF
+LDAiy CA
+STAiy CE
+LDAz CA
+CMPz CC
+LDAz CB
+SBCz CD
+BCC E6
+RTS
+
+
+
+
+
+NOP
+NOP
+NOP
+JSR 246F
+LDAz E6
+LDXz E7
+LDYim 00
+STA 037E
+STX 0397
+STY 03B0
+JSR 2C04
+LDXim 00
+STXz 5B
+LDAz E7
+JSR 24EF
+LDAz E6
+JSR 24EF
+JSR 24C9
+JSR 2CA0
+LDAz 6D
+CMPim 01
+BEQ 03
+JSR 24D4
+JSR 1F05
+BCS 1E
+LDAz 6E
+CMPim 39
+BNE 05
+LDAim 0E
+JSR 2463
+LDXz 5B
+INX
+CPXim 18
+BNE CE
+LDA 0396
+LDX 03AF
+LDY 03C8
+JMP 3EB3
+LDAim 0E
+JSR 2463
+JMP 1C1D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CMP A74D
+ASLx 6401
+ADCzx 6D
+BCS 20
+
+
+
+
+
+
+LDAim 03
+STA 1A08
+JSR 1FDD
+JMP 47A7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2370
+JSR 2339
+SEC
+BRK
+JSR 4049
+ROLa
+JSR 4046
+
+NOP
+JSR 4046
+
+NOP
+JSR 4046
+INX
+JSR 4046
+
+NOP
+RTS
+
+
+
+
+
+
+JSR 24CE
+LDYim 01
+JSR 25A5
+PLA
+PHA
+TAX
+LDAzx 01
+JSR 24EF
+PLA
+TAX
+LDAzx 00
+JSR 24EF
+RTS
+
+
+JSR 4020
+LDAz 2A
+STAz 51
+LDAz 2B
+STAz 52
+LDAz 2E
+STAz 60
+LDAz 2F
+STAz 61
+LDAim 00
+STAz 24
+STAz 53
+JMP 40AA
+JSR 23FE
+CMPim 1D
+BEQ 1F
+CMPim 20
+BCC 50
+LDXz 98
+INX
+CPXz 4C
+BEQ 06
+JSR 2463
+CLC
+BCC E8
+JSR 2463
+JSR 23FE
+CMPim 1D
+BNE 39
+LDAz 98
+BEQ 03
+JSR 24D4
+JSR 413F
+NOP
+NOP
+LDAz 22
+CMPz 51
+LDAz 23
+SBCz 52
+BCC 06
+LDAz 99
+BNE C4
+BEQ 0F
+JSR 4157
+
+EORix EA
+NOP
+NOP
+NOP
+NOP
+INCz 53
+JSR 2364
+LDAz 60
+STAz 20
+LDAz 61
+STAz 21
+LDAim 00
+STAz 54
+RTS
+
+JSR 2506
+
+RTI
+ASL EA41
+CLC
+BCC FE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LSRz 65
+PLA
+JMPi 7265
+PLA
+ADCix 66
+
+ADCz 72
+JSR 6153
+
+
+JSR 6F66
+JMPi 7467
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SED
+SEC
+LDAz 51
+SBCim 01
+STAz 22
+LDAz 52
+SBCim 00
+STAz 23
+CLD
+RTS
+
+
+
+SED
+CLC
+LDAz 51
+ADCim 01
+STAz 51
+LDAz 52
+ADCim 00
+STAz 52
+CLD
+RTS
+
+BRK
+
+
+
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz CB
+STAz CD
+PLA
+STAz CA
+CLC
+ADCim 1B
+STAz CC
+BCC 02
+INCz CD
+LDAim 1B
+STAz CE
+LDAim 08
+STAz CF
+JSR 1190
+RTS
+
+
+
+
+
+ADCix 74
+ADCz 69
+ADCz 6E
+
+ADCz 23
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 1D20
+
+ADCzx 70
+
+ADCix 74
+ADCim 6E
+
+
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+ORAx 5023
+JMPi 7461
+
+JSR 757A
+JSR 6577
+ROR 6769
+JSR 7566
+ADCz 72
+JSR 6553
+ADCim 74
+ADCz 23
+JSR 231D
+ROR 7565
+ADCz 20
+
+ADCix 74
+ADCz 69
+
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR FF03
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 00
+STAz 4D
+STAz 4E
+JSR 2339
+BRK
+ORAix EA
+LDYz 4C
+JSR 1F62
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+INY
+NOP
+NOP
+NOP
+INY
+TYA
+CLC
+ADCz 4D
+STAz 4D
+BCC 02
+INCz 4E
+JSR 2297
+JSR 231D
+LDAz 99
+BNE DC
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAz 53
+BNE 28
+SEC
+LDAz 4D
+SBCz 20
+STAz 4D
+LDAz 4E
+SBCz 21
+STAz 4E
+CLC
+LDAz 4D
+ADCz 2E
+STAz 4D
+LDAz 4E
+ADCz 2F
+STAz 4E
+CLC
+LDAz 4D
+ADCz E8
+STAz 4F
+LDAz 4E
+ADCz E9
+STAz 50
+RTS
+CLC
+LDAz 2E
+ADCz 4D
+STAz 4F
+LDAz 2F
+ADCz 4E
+STAz 50
+RTS
+
+
+
+
+
+BRK
+BRK
+LDAz 20
+STAz CA
+LDAz 21
+STAz CB
+LDAz E8
+STAz CC
+LDAz E9
+STAz CD
+CLC
+LDAz CA
+ADCz 4D
+STAz CE
+LDAz CB
+ADCz 4E
+STAz CF
+JSR 1F86
+RTS
+
+
+
+BRK
+BRK
+LDAim 00
+STAz 24
+LDAz 64
+CMPz 4F
+LDAz 65
+SBCz 50
+BCS 0B
+JSR 4157
+LDXzy 41
+INCz 24
+NOP
+NOP
+NOP
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+LDAz 2E
+STAz 66
+LDAz 2F
+STAz 67
+LDAz 2A
+STAz 51
+LDAz 2B
+STAz 52
+JSR 2339
+BRK
+ORAix EA
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+LDYz 4C
+JSR 1F3D
+CLC
+BCC 17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 1D
+JSR 2409
+NOP
+NOP
+NOP
+JSR 24D4
+JSR 413F
+LDAz 99
+BEQ 03
+JMP 42F3
+RTS
+
+BRK
+BRK
+LDAz 66
+STAz 20
+LDAz 67
+STAz 21
+LDAz 4F
+STAz E8
+LDAz 50
+STAz E9
+LDAz 53
+BEQ 12
+SED
+SEC
+LDAz 51
+SBCim 01
+STAz 22
+LDAz 52
+SBCim 00
+STAz 23
+CLD
+JSR 4409
+LDAim 03
+LDYim 00
+STAiy E8
+JSR 4023
+RTS
+
+
+BRK
+
+
+BRK
+BRK
+JSR 4157
+
+EORix EA
+NOP
+NOP
+NOP
+NOP
+LDAim 01
+STAz 51
+STAz 2A
+LDAim 00
+STAz 52
+STAz 2B
+STAz 22
+STAz 23
+LDAz 62
+STAz 60
+STAz E8
+STAz 2E
+LDAz 63
+STAz 61
+STAz E9
+STAz 2F
+LDAim 00
+STAz 24
+LDAim 50
+STAz 4C
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+LDAz 4C
+STAz 4D
+JSR 23FE
+CMPim 1D
+BEQ 17
+CMPim 20
+BCS 04
+INCz 94
+BNE 2B
+DECz 4D
+BNE ED
+JSR 23FE
+CMPim 1D
+BEQ 04
+INCz 24
+BNE 1C
+LDAz 60
+STAz E8
+STAz 64
+LDAz 61
+STAz E9
+STAz 65
+LDAz 51
+STAz 22
+LDAz 52
+STAz 23
+JSR 413F
+JMP 439E
+NOP
+NOP
+JSR 4409
+JSR 4060
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz E8
+STAz 60
+LDYz E9
+DEY
+STYz 61
+LDYim FE
+JSR 1F9C
+TXAa
+CMPim 1D
+BEQ 01
+RTS
+SEC
+LDAz E8
+SBCim 01
+STAz E8
+BCS 02
+DECz E9
+SED
+SEC
+LDAz 22
+SBCim 01
+STAz 22
+LDAz 23
+SBCim 00
+STAz 23
+CLD
+LDAz 22
+BNE CE
+LDAz 23
+BNE CA
+RTS
+JSR 4157
+STAy EA41
+NOP
+NOP
+NOP
+NOP
+JSR 4211
+JSR 4252
+NOP
+NOP
+NOP
+JSR 42B9
+LDAz 24
+BEQ 01
+RTS
+LDAz 53
+BNE 03
+JSR 4293
+JSR 42DD
+JSR 4335
+JSR 4157
+CPXim 41
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR 24CE
+LDAz E9
+JSR 24EF
+LDAz E8
+JSR 24EF
+JSR 24CE
+LDAz 4E
+JSR 24EF
+LDAz 4D
+JSR 24EF
+JSR 24CE
+LDAz 50
+JSR 24EF
+LDAz 4F
+JSR 24EF
+RTS
+
+
+
+
+
+
+BRK
+BRK
+SEC
+SBCim 30
+CMPim 0A
+BCS 01
+RTS
+ANDim DF
+SBCim 07
+CMPim 0A
+BCS 02
+SEC
+RTS
+CMPim 10
+RTS
+
+
+
+BRK
+BRK
+LDAim 00
+STAz 50
+STAz 4F
+LDYz 4D
+LDAy 0800
+JSR 44C0
+BCC 01
+RTS
+LDYim 04
+ASLz 4F
+ROLz 50
+DEY
+BNE F9
+ORAz 4F
+INCz 4D
+JMP 44DE
+
+
+BRK
+BRK
+LDAim 00
+STAz 2D
+STAz 2C
+LDYz 4D
+LDAy 0800
+SEC
+SBCim 30
+CMPim 0A
+BCC 01
+RTS
+INCz 4D
+LDYim 04
+ASLz 2C
+ROLz 2D
+DEY
+BNE F9
+ORAz 2C
+JMP 4503
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ADCy 7473
+ADCz 6D
+RORz 65
+PLA
+JMPi 7265
+
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 0320
+BRK
+
+
+LDAim 00
+STAz 2E
+LDAz 63
+STAz 2F
+LDYz 62
+BNE 02
+DECz 2F
+DEY
+LDAz 2C
+STAz 2A
+LDAz 2D
+STAz 2B
+SED
+SEC
+LDAz 2C
+SBCim 01
+STAz 2C
+LDAz 2D
+SBCim 00
+STAz 2D
+CLD
+SED
+SEC
+LDAz 2C
+SBCim 01
+STAz 2C
+LDAz 2D
+SBCim 00
+STAz 2D
+CLD
+BCC 06
+JSR 1F73
+CLC
+BCC E9
+INY
+BNE 02
+INCz 2F
+STYz 2E
+RTS
+
+
+
+
+
+
+
+
+
+
+CMPim 64
+BNE 03
+JMP 47F8
+CMPim 6D
+BNE 03
+JMP 6A70
+SEC
+SBCim 30
+CMPim 0A
+BCS 68
+JMP 4678
+
+
+
+
+
+
+BRK
+BRK
+LDA 0800
+CMPim 2B
+BNE 1B
+LDA 0801
+CMPim 2B
+BNE 03
+JMP 46AF
+CMPim 20
+BNE 03
+JMP 46D5
+SEC
+SBCim 30
+CMPim 0A
+BCS 3E
+JMP 46ED
+CMPim 2D
+BNE 1B
+LDA 0801
+CMPim 2D
+BNE 03
+JMP 46A0
+CMPim 20
+BNE 03
+JMP 4710
+SEC
+SBCim 30
+CMPim 0A
+BCS 1F
+JMP 4736
+CMPim 65
+BNE 03
+JMP 4763
+CMPim 61
+BNE 03
+JMP 478F
+CMPim 63
+BNE 03
+JMP 4AAA
+CMPim 69
+BNE 86
+JMP 6A00
+JSR 4157
+ANDz 46
+RTS
+
+
+
+
+LSRz 61
+JMPi 6373
+PLA
+ADCz 73
+JSR 6F4B
+ADC 616D
+ROR 6F64
+
+JSR 2020
+JSR 2020
+JSR 0320
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAz 22
+CMPz 2C
+LDAz 23
+SBCz 2D
+BCS 08
+LDAz 22
+STAz 2C
+LDAz 23
+STAz 2D
+RTS
+
+
+
+
+BRK
+BRK
+LDAz 54
+BEQ 03
+JSR 4440
+LDAz 24
+BNE 06
+JSR 4550
+JSR 4060
+RTS
+LDAim 00
+STAz 4D
+JSR 44FF
+JSR 464D
+LDAz 2C
+BNE 07
+LDAz 2D
+BNE 03
+JMP 46A0
+JSR 4666
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDYim 01
+STYz 2C
+DEY
+STYz 2D
+JSR 4666
+RTS
+
+
+BRK
+BRK
+LDAim 24
+CMPz 22
+LDAim 00
+SBCz 23
+BCC 03
+JMP 46A0
+SED
+SEC
+LDAz 22
+SBCim 23
+STAz 2C
+LDAz 23
+SBCim 00
+STAz 2D
+CLD
+JSR 4666
+RTS
+
+
+
+
+BRK
+BRK
+SED
+CLC
+LDAz 2A
+ADCim 23
+STAz 2C
+LDAz 2B
+ADCim 00
+STAz 2D
+CLD
+JSR 464D
+JSR 4666
+RTS
+BRK
+BRK
+LDAim 01
+STAz 4D
+JSR 44FF
+SED
+CLC
+LDAz 2A
+ADCz 2C
+STAz 2C
+LDAz 2B
+ADCz 2D
+STAz 2D
+CLD
+JSR 464D
+JSR 4666
+RTS
+
+
+
+
+
+
+LDAim 25
+CMPz 2A
+LDAim 00
+SBCz 2B
+BCC 03
+JMP 46A0
+SED
+SEC
+LDAz 2A
+SBCim 23
+STAz 2C
+LDAz 2B
+SBCim 00
+STAz 2D
+CLD
+JSR 4666
+RTS
+
+
+
+
+
+
+LDAim 01
+STAz 4D
+JSR 44FF
+SED
+SEC
+LDAz 2A
+SBCz 2C
+STAz 2C
+LDAz 2B
+SBCz 2D
+STAz 2D
+CLD
+BCC 08
+LDAz 2C
+BNE 07
+LDAz 2D
+BNE 03
+JMP 46A0
+JSR 4666
+RTS
+
+
+
+
+
+
+LDAim 01
+STAz 4D
+JSR 44DA
+LDAz 4F
+CMPz E8
+LDAz 50
+SBCz E9
+BCC 0B
+LDAz 4F
+STAz 64
+LDAz 50
+STAz 65
+JSR 4023
+LDYim 04
+LDAim 20
+STAy 0800
+DEY
+BPL FA
+JSR 2364
+RTS
+
+
+LDAim 01
+STAz 4D
+JSR 44DA
+LDAz 4F
+STAz 62
+LDAz 50
+STAz 63
+JSR 436C
+RTS
+
+
+
+
+
+JSR 38D0
+JSR 2466
+JSR 248B
+JSR 436C
+JSR 2460
+PHA
+LDA 081B
+CMPim 20
+BEQ 09
+JSR 4157
+CPXim 41
+NOP
+NOP
+NOP
+NOP
+PLA
+JSR 47D4
+JMP 47B3
+
+
+
+
+
+
+CMPim 20
+BCS 08
+CMPim 08
+BCC 0A
+CMPim 0D
+BCS 06
+INCz 54
+JSR 2463
+RTS
+CMPim 1D
+BNE 08
+LDYz 99
+BNE F4
+JSR 45BF
+RTS
+JMP 4900
+
+
+
+JSR 4157
+ROLz 48
+LDAz 2E
+LDXz 2F
+STAz 60
+STXz 61
+JSR 246F
+JSR 4858
+JSR 2469
+JSR 4157
+CPXim 41
+LDAim 20
+STA 0800
+JSR 2364
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+ADCzx 63
+
+ADCz 72
+
+
+BCS 69
+ADCz 20
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 0303
+
+
+
+LDAz 60
+CMPz E8
+LDAz 61
+SBCz E9
+PHP
+JSR 23FE
+PLP
+RTS
+
+
+JSR 4848
+BCC 01
+RTS
+CMPim 40
+BEQ 06
+JSR 2463
+JMP 4858
+JSR 4848
+BCS 53
+CMPim 27
+BEQ 0D
+PHA
+LDAim 40
+JSR 2463
+PLA
+JSR 2463
+JMP 4858
+JSR 4848
+BCS 43
+CMPim 20
+BEQ F7
+CMPim 1D
+BEQ F3
+CMPim 27
+BEQ C9
+JSR 44C0
+BCS 20
+STAz 33
+JSR 4848
+BCS 36
+CMPim 27
+BEQ B9
+JSR 44C0
+BCS 10
+ASLz 33
+ASLz 33
+ASLz 33
+ASLz 33
+ORAz 33
+JSR 205C
+JMP 487E
+JSR 4848
+BCC 01
+RTS
+CMPim 27
+BNE F6
+BEQ 98
+LDAim 40
+JSR 2463
+RTS
+LDAim 40
+JSR 2463
+LDAim 27
+JSR 2463
+RTS
+JSR 48C6
+LDAz 33
+JSR 24E2
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CMPim 05
+BEQ 1A
+CMPim 06
+BEQ 37
+CMPim 11
+BEQ 51
+CMPim 12
+BNE 03
+JMP 49F1
+RTS
+
+
+
+
+
+
+
+
+
+
+LDAz 4C
+CLC
+SBCz 98
+TAY
+DEY
+BMI 0B
+JSR 1F91
+TXAa
+INY
+STAiy 9A
+DEY
+DEY
+BPL F5
+LDAim 20
+INY
+STAiy 9A
+RTS
+
+
+
+
+
+
+
+LDAz 4C
+SEC
+SBCz 98
+STAz 2C
+LDYim 01
+JSR 1F91
+TXAa
+DEY
+STAiy 9A
+INY
+INY
+CPYz 2C
+BCC F3
+LDAim 20
+DEY
+STAiy 9A
+RTS
+
+
+LDAz 99
+PHA
+LDAz 2B
+PHA
+LDAz 2A
+PHA
+LDAz 99
+BEQ 09
+SEC
+SBCim 01
+CMPim 0A
+BCC 02
+ADCim 05
+NOP
+NOP
+PHA
+NOP
+NOP
+NOP
+NOP
+JSR 4440
+LDAz 24
+BEQ 05
+PLA
+PLA
+PLA
+PLA
+RTS
+PLA
+SED
+CLC
+ADCz 2A
+STAz 2C
+LDAim 00
+ADCz 2B
+STAz 2D
+CLD
+JSR 4550
+LDAim 01
+LDXim 00
+STAz 4D
+STXz 4E
+JSR 4270
+JSR 42B9
+LDAz 24
+BNE 30
+LDAz 2E
+LDXz 2F
+STAz CA
+STXz CB
+LDAz E8
+CMPz CA
+LDAz E9
+SBCz CB
+BCC 1E
+JSR 429B
+LDAim 1D
+LDYim 00
+STAiy 2E
+SED
+CLC
+LDAz 22
+ADCim 01
+STAz 22
+LDAz 23
+ADCim 00
+STAz 23
+CLD
+INCz E8
+BNE 02
+INCz E9
+PLA
+STAz 2C
+PLA
+STAz 2D
+JSR 4550
+JSR 4060
+PLA
+STAz 99
+JSR 22FD
+RTS
+
+
+
+
+
+LDAz 9B
+PHA
+LDAz 9A
+PHA
+SEC
+SBCz 98
+STAz 9A
+BCS 02
+DECz 9B
+LDYz 4C
+DEY
+LDAim 20
+STAiy 9A
+DEY
+BPL FB
+PLA
+STAz 9A
+PLA
+STAz 9B
+LDAz 99
+PHA
+LDAz 2B
+PHA
+LDAz 2A
+PHA
+LDAz 99
+CMPim 00
+BEQ 09
+SEC
+SBCim 01
+CMPim 0A
+BCC 02
+ADCim 05
+PHA
+NOP
+NOP
+NOP
+NOP
+JSR 4440
+LDAz 24
+BEQ 05
+PLA
+PLA
+PLA
+PLA
+RTS
+PLA
+SED
+CLC
+ADCz 2A
+STAz 2C
+LDAim 00
+ADCz 2B
+STAz 2D
+CLD
+JSR 4550
+LDXz 2E
+LDYz 2F
+STXz CE
+STYz CF
+INX
+BNE 01
+INY
+STXz CA
+STYz CB
+LDAz E8
+LDXz E9
+STAz CC
+STXz CD
+CMPz CA
+TXAa
+SBCz CB
+BCC 1A
+JSR 1F86
+SED
+SEC
+LDAz 22
+SBCim 01
+STAz 22
+LDAz 23
+SBCim 00
+STAz 23
+CLD
+LDAz E8
+BNE 02
+DECz E9
+DECz E8
+PLA
+STAz 2C
+PLA
+STAz 2D
+JSR 4550
+JSR 4060
+PLA
+STAz 99
+JSR 22FD
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 07
+JSR 1FE0
+LDAim 01
+STA 1A08
+JMP D3F0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 00
+STAz 24
+LDAim 01
+STAz 4D
+JSR 44FF
+LDAz 2C
+LDXz 2D
+STAz 26
+STXz 27
+LDYz 4D
+LDAy 0800
+CMPim 2D
+BEQ 03
+INCz 24
+RTS
+INCz 4D
+JSR 44FF
+SED
+CLC
+LDAz 2C
+ADCim 01
+STAz 28
+LDAz 2D
+ADCim 00
+STAz 29
+CLD
+LDYz 4D
+LDAy 0800
+CMPim 2D
+BEQ 03
+INCz 24
+RTS
+INCz 4D
+JSR 44FF
+RTS
+
+
+
+
+
+INCx 3322
+LDAim 00
+STAz 24
+LDXz 26
+LDAz 27
+CPXz 28
+SBCz 29
+BCC 03
+INCz 24
+RTS
+LDAz 27
+CPXz 2C
+SBCz 2D
+BCS 0D
+LDXz 2C
+LDAz 2D
+CPXz 28
+SBCz 29
+BCS 03
+INCz 24
+RTS
+SED
+CLC
+LDAz 22
+ADCim 01
+TAX
+LDAz 23
+ADCim 00
+CLD
+PHA
+CPXz 28
+SBCz 29
+PLA
+BCS 03
+INCz 24
+RTS
+CPXz 2C
+SBCz 2D
+BCS 02
+INCz 24
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JMP 4D6D
+JMP 4E2B
+
+
+
+
+
+ANDim 0F
+PHA
+LDAim FF
+STA 1402
+PLA
+STA 1400
+ORAim 90
+STA 1400
+ANDim 1F
+STA 1400
+RTS
+
+
+
+
+JSR 4C0B
+PHA
+LDXim F0
+STX 1402
+PLA
+ORAim 50
+STA 1400
+LDA 1400
+ANDim 0F
+STA 1400
+RTS
+
+JSR 4C0B
+TXAa
+ANDim 0F
+ORAim 10
+STA 1400
+ORAim 30
+STA 1400
+ANDim 0F
+STA 1400
+LDXim F0
+STX 1402
+RTS
+
+LDYim 00
+TYA
+JSR 4C26
+STAy 1A50
+INY
+CPYim 0D
+BNE F4
+LDAim 00
+JSR 4C26
+CMP 1A50
+BNE E8
+RTS
+
+
+
+
+
+
+PHP
+SEI
+LDAim 0D
+JSR 4C0B
+LDYim 00
+LDXy 1A50
+TYA
+JSR 4C3F
+INY
+CPYim 0D
+BNE F4
+PLP
+RTS
+
+
+
+
+
+
+
+
+JSR 4C5B
+LDXim 00
+LDYim 00
+LDAx 1A51
+ASLa
+ASLa
+ASLa
+ASLa
+ORAx 1A50
+STAy 1A50
+INY
+INX
+INX
+CPXim 06
+BNE 01
+INX
+CPXim 0D
+BNE E7
+LDA 1A52
+ANDim 7F
+STA 1A52
+RTS
+
+
+
+
+
+
+
+
+
+
+LDX 1A56
+LDAx 4DE4
+JSR 2463
+LDX 1A56
+LDAx 4DDD
+JSR 2463
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 06
+JSR 4C26
+STAz FB
+LDAim 01
+STAz F6
+JSR 1D8E
+RTS
+
+
+
+LDAim 05
+LDXz EC
+BEQ 02
+LDAim 0C
+STAz EE
+LDYim 02
+JSR 4C26
+ASLa
+ASLa
+ASLa
+ASLa
+STAy 00F9
+DECz EE
+LDAz EE
+JSR 4C26
+ORAy 00F9
+STAy 00F9
+DECz EE
+LDAz EE
+DEY
+BPL E2
+LDAim 03
+STAz F6
+JSR 1D8E
+RTS
+
+
+
+
+
+
+LDAz EC
+CMPim 01
+BNE 03
+JMP 4CEE
+JMP 4D00
+
+
+
+
+
+
+JSR 4D38
+BNE FB
+JSR 4D38
+BEQ FB
+JSR 4D38
+BEQ F6
+JSR 1DF9
+RTS
+
+
+
+
+
+
+
+
+
+
+ORAz 06
+
+
+
+
+LDAim 03
+STA 1A08
+JSR 1FDD
+LDAim 00
+STA 1402
+STA 1400
+STAz EC
+LDAim F0
+STA 1402
+JSR 4D4A
+CMPim 10
+BEQ 04
+BCS F7
+BCC 11
+LDXz EC
+DEX
+BPL 02
+LDXim 02
+STXz EC
+LDAx 4D67
+STAz ED
+CLC
+BCC E4
+TAX
+LDAz ED
+JSR 4C3F
+LDXz ED
+LDAx 4DC0
+STAz ED
+CLC
+BCC D4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORAz 00
+ORAix 02
+
+
+ASLz 0C
+
+PHP
+ORAim 0A
+
+
+
+ADC 034D
+
+ADCz 69
+
+JSR FFFF
+
+
+
+
+
+ADCim 69
+
+
+ADCix 6F
+EOR 4D44
+
+LSRz 53
+
+
+
+
+LDA 1A53
+JSR 24EF
+LDAim 2E
+JSR 2463
+LDA 1A54
+JSR 24EF
+LDAim 2E
+JSR 2463
+LDA 1A55
+JSR 24EF
+RTS
+LDA 1A52
+JSR 24EF
+LDAim 3A
+JSR 2463
+LDA 1A51
+JSR 24EF
+LDAim 3A
+JSR 2463
+LDA 1A50
+JSR 24EF
+RTS
+
+
+
+LDAim 03
+STA 1A08
+JSR 1FDD
+JSR 2466
+JSR 4C99
+LDA 1A50
+PHA
+JSR 4DEE
+JSR 24C9
+JSR 4CCC
+JSR 24C9
+JSR 4E0B
+JSR 24D4
+JSR 4C99
+PLA
+PHA
+CMP 1A50
+BEQ F6
+PLA
+CLC
+BCC DC
+
+
+
+
+
+
+LDXim F6
+LDAim FF
+STXz 60
+STAz 61
+JSR 4EDF
+BCC 01
+RTS
+LDYim 05
+STYz EA
+JSR 1FBE
+TXAa
+CMPim 20
+BEQ 09
+JSR 2463
+LDYz EA
+INY
+CLC
+BCC ED
+JSR 24CE
+LDAz 98
+ANDim 0F
+BNE F7
+BEQ DA
+
+
+
+
+
+LDXim F6
+LDAim FF
+STXz 60
+STAz 61
+JSR 4EDF
+BCC 01
+RTS
+LDYim 05
+JSR 1FBE
+TXAa
+CMPy 02D3
+BNE EF
+CMPim 20
+BEQ 05
+INY
+CPYim 25
+BNE EE
+LDYim 04
+JSR 4FEA
+TXAa
+PHA
+DEY
+JSR 1FBE
+LDAz EA
+STA 1A08
+PLA
+NOP
+NOP
+DEX
+CPXim FF
+BNE 03
+SEC
+SBCim 01
+PHA
+TXAa
+PHA
+JMP 1FC4
+
+
+
+
+
+
+LDYim 01
+JSR 1FBE
+TXAa
+PHA
+DEY
+JSR 1FBE
+PLA
+STXz 60
+STAz 61
+CPXim F0
+SBCim FF
+RTS
+
+
+
+
+
+
+LDXim 00
+STXz EA
+JSR 2460
+PHA
+JSR 2463
+PLA
+CMPim 80
+BCS 10
+CMPim 20
+BCC 0C
+LDXz EA
+STAx 02D8
+INX
+CPXim 20
+BCC E4
+BCS 04
+LDXz EA
+BEQ 0A
+LDAim 20
+STAx 02D8
+INX
+CPXim 20
+BCC F8
+RTS
+
+
+
+
+
+
+
+LDAim 07
+STA 1A08
+JSR 1FDD
+JSR 2466
+JSR 38D0
+JSR 248B
+LDAim 07
+STA 1A09
+JSR 4E63
+LDAim 87
+STA 1A09
+JSR 4E63
+JSR 2138
+
+ORAx 614E
+ADC 3A65
+JSR EAEA
+JSR 4EFA
+LDAim 07
+STA 1A09
+JSR 4E96
+LDAim 87
+STA 1A09
+JSR 4E96
+LDAim 03
+STA 1A08
+JSR 1FC4
+JSR 5934
+JSR 5BFE
+LDA 031C
+BNE 20
+JSR 2138
+BPL 20
+ROR 6369
+PLA
+
+JSR 6567
+RORz 75
+ROR 6564
+ROR EA20
+NOP
+LDAim 01
+STA 1620
+LDAim 01
+JMP 4F51
+JSR 6575
+LDYim 02
+JSR 560D
+JSR 5CA1
+PHA
+LDYim 20
+LDAiy EA
+TAX
+PLA
+STA 1A08
+STA FFF8
+CPXim 0A
+BNE 0C
+LDAim 00
+STA 1A08
+LDXz E2
+LDAz E3
+JMP 4ECB
+JSR 2138
+
+JSR 6567
+JMPi 6461
+ADCz 6E
+BIT 5320
+
+
+BVC 1D
+NOP
+NOP
+JMP 1C1D
+
+
+
+
+
+
+JSR 1FBE
+STXz EA
+DEY
+JSR 1FBE
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+JMP 63AD
+
+
+
+
+
+
+
+
+
+
+
+
+BIT 1600
+BPL FB
+STA 1601
+RTS
+
+
+
+ORA 0368
+JSR 500F
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR 500F
+LDXim 6D
+LDYim 07
+LDAx 0300
+BIT 1600
+BPL FB
+STA 1601
+INX
+DEY
+BNE F1
+RTS
+
+
+
+
+
+
+LDXim 00
+LDYim 07
+BIT 1600
+BPL FB
+BVC 17
+LDA 1601
+STAx 036A
+INX
+DEY
+BNE EF
+BIT 1600
+BPL FB
+BVC 06
+LDA 1601
+CLC
+BCC F3
+RTS
+
+
+
+
+
+LDAzx 00
+PHA
+LDAzx 01
+JSR 24EF
+PLA
+JSR 24EF
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDA 037A
+LDX 037B
+STAz EA
+STXz EB
+LDAim 00
+STAz EC
+STAz ED
+STAz EE
+RTS
+
+
+
+JSR 5105
+LDA 1A08
+ORAim 02
+STA 1A08
+LDX 0363
+BEQ 13
+LDAim 06
+DEX
+BEQ 07
+JSR 501B
+JSR 1CEE
+RTS
+JSR 501B
+JSR 1E23
+RTS
+LDAim 05
+JSR 501B
+JSR 1CBB
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 5105
+LDA 0374
+STA 0371
+LDAim 02
+PHP
+SEI
+JSR 501B
+JSR 506C
+JSR 5046
+PLP
+RTS
+
+
+
+LDAim 0A
+ORA 0368
+JSR 500F
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+PHP
+SEI
+JSR 500F
+JSR 5046
+PLP
+RTS
+
+
+
+LDAim 0D
+ORA 0368
+JSR 500F
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR 500F
+LDA 0370
+JSR 500F
+PHP
+SEI
+LDXim 74
+LDYim 03
+JSR 5030
+LDAim 01
+STA 036F
+LDXim 6D
+LDYim 04
+LDAim 20
+BIT 1600
+BPL FB
+BEQ 09
+JSR 5030
+INC 036F
+CLC
+BCC EA
+LDX 036F
+DEX
+CPX 0374
+BEQ 02
+INCz EE
+LDXim 00
+LDYim 03
+JSR 504A
+LDXim 07
+PLP
+RTS
+
+
+
+LDAim 08
+JSR 500F
+LDXim 00
+LDYim 02
+JSR 504A
+RTS
+
+
+
+
+
+
+LDAim 04
+JSR 500F
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR 500F
+LDXim 00
+LDYim 01
+JSR 504A
+RTS
+
+
+
+
+
+
+LDAim 03
+JSR 500F
+LDA 0378
+JSR 500F
+LDA 0379
+JSR 500F
+LDXim 00
+RTS
+
+
+
+
+
+
+JSR 5230
+LDAim 07
+JSR 500F
+LDA 0369
+PHP
+SEI
+JSR 500F
+JSR 51E2
+DEX
+BEQ FA
+INX
+LDA 036A
+ANDim 20
+BEQ F2
+PLP
+RTS
+LDAim 0F
+JSR 500F
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR 500F
+LDA 036D
+JMP 5238
+
+
+
+
+
+
+
+
+
+
+LDAim 00
+STAz EE
+JSR 51F5
+LDA 036A
+ANDim E0
+CMPim 20
+BEQ 03
+INCz EE
+RTS
+JSR 522D
+LDXim 00
+STX 036D
+JSR 524D
+LDAim 00
+STA 036E
+JSR 52AE
+LDAz EE
+BEQ 01
+RTS
+INC 036E
+JSR 52AE
+LDX 036D
+INX
+CPX 0377
+BNE DE
+JSR 522D
+RTS
+
+
+
+JSR 518C
+LDA 036A
+ANDim C0
+BEQ 02
+INCz EE
+RTS
+
+
+
+
+
+
+LDXim 11
+LDAx 52D3
+STAx 0368
+DEX
+BPL F7
+JSR 5213
+RTS
+
+
+
+RTI
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+ORAix 01
+BPL 20
+
+BPL 32
+RTI
+BVC EF
+
+
+
+
+
+
+
+
+LDA 0317
+BEQ 10
+LDXim 1E
+LDAx 02F8
+STAx 0F98
+DEX
+BPL F7
+LDXim 00
+STX 0317
+RTS
+
+
+
+LDAim 4F
+LDXim 53
+BNE 04
+LDAim 6F
+LDXim 53
+STAz EA
+STXz EB
+LDA 0317
+BEQ 01
+RTS
+LDXim 1E
+LDAx 0F98
+STAx 02F8
+DEX
+BPL F7
+INC 0317
+LDYim 1E
+LDAiy EA
+STAy 0F98
+DEY
+BPL F8
+RTS
+
+LDAim 00
+STA 1620
+JSR 51F5
+LDA 036A
+ANDim 20
+BNE 06
+JSR 5305
+CLC
+BCC F0
+JSR 52EC
+RTS
+
+
+
+JSR 2020
+JSR 2020
+JSR 4620
+JMPi 706F
+BCS 79
+JSR 6F6E
+
+JSR 6572
+ADCix 64
+ADCy 2020
+JSR 2020
+JSR 1D20
+JSR 6C46
+
+BCS 70
+ADCy 4C20
+ADCz 73
+ADCz 2F
+
+
+PLA
+
+AND 6546
+PLA
+JMPi 7265
+BIT 5320
+
+
+BVC 2E
+JSR 6461
+
+ORAx 2203
+
+RTS
+NOP
+NOP
+NOP
+NOP
+LDAim 28
+JSR 2463
+LDA 0363
+JSR 24E2
+JSR 24CE
+LDA 032B
+JSR 24E2
+LDA 032A
+JSR 24EF
+JSR 24CE
+LDA 037B
+JSR 24EF
+LDA 037A
+JSR 24EF
+LDAim 29
+JSR 2463
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+PHP
+SEI
+NOP
+NOP
+NOP
+NOP
+JSR 5333
+JSR 5396
+LDA 032A
+BNE 03
+DEC 032B
+SEC
+SBCim 01
+STA 032A
+ANDim 0F
+TAX
+INX
+STX 036F
+STX 0371
+LDA 032B
+ASL 032A
+ROLa
+ASL 032A
+ROLa
+ASL 032A
+ROLa
+ANDim 7F
+STA 036D
+LDAim 03
+PHA
+LDAim 01
+STA 0370
+LDA 032A
+ASLa
+LDAim 00
+ROLa
+STA 036E
+JSR 524D
+LDA 0363
+CMPim 03
+BCS 21
+JSR 511B
+JSR 5046
+LDAz EE
+BNE 1A
+LDA 036A
+ANDim FB
+CMPim 40
+BNE 11
+LDA 036B
+ANDim 37
+BNE 0A
+LDA 036C
+ANDim 73
+BNE 03
+PLA
+PLP
+RTS
+PLA
+SEC
+SBCim 01
+PHA
+BEQ 06
+JSR 522D
+CLC
+BCC B6
+NOP
+NOP
+NOP
+LDAim 01
+STA FFF8
+JSR 2503
+
+
+
+
+LDXim EA
+JSR 506E
+JSR 24C9
+JSR 5483
+LDAim 01
+STA 1620
+LDAim 01
+JMP 1C1D
+
+
+
+
+LDXim 00
+STXz EA
+JSR 24CE
+LDXz EA
+LDAx 036A
+JSR 24EF
+LDXz EA
+INX
+CPXim 07
+BNE EC
+JSR 24C9
+LDA 1600
+JSR 24EF
+JSR 24CE
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+LDA 0323
+ASLa
+TAY
+LDAy 034F
+BMI 01
+RTS
+ANDim 7F
+STA 032B
+LDX 0363
+BEQ 03
+STAy 034F
+LDAy 034E
+STA 032A
+LDXim 00
+STX 037A
+JSR 53D6
+LDX 0363
+BEQ 04
+LDXz EE
+BNE 04
+RTS
+
+
+
+LDAim 01
+STA FFF8
+JSR 2503
+
+EORzx 3E
+EORzx EA
+JSR 5483
+JMP 1C1D
+LDY 0323
+LDAy 0339
+STA 037B
+CMPim 20
+BNE AD
+JSR 54B2
+INC 0323
+JSR 54F8
+DEC 0323
+RTS
+
+
+
+
+
+
+
+
+
+JSR 2121
+ANDix 20
+LSRz 6C
+
+BCS 70
+ADCy 562D
+ADCz 72
+ADCim 66
+ADCy 6620
+ADCz 68
+JMPi 7265
+PLA
+ADCix 66
+
+BIT 5320
+
+
+BVC 20
+ORAx FF03
+
+
+LDAim 00
+STA 0363
+JSR 5557
+LDAim 02
+STA 0363
+JSR 5557
+JMP 563F
+LDXim 00
+STX 0323
+JSR 54F8
+LDX 0323
+BNE 01
+INX
+INX
+CPXim 08
+BNE EF
+RTS
+LDA 0323
+NOP
+NOP
+NOP
+ASLa
+TAX
+LDAx 034E
+CMP 0318
+BNE 0B
+LDAx 034F
+ANDim 7F
+CMP 0319
+BNE 01
+RTS
+LDAim 00
+STA 0363
+JSR 54F8
+LDAim 02
+STA 0363
+JSR 54F8
+LDA 0323
+ASLa
+TAX
+LDA 0318
+STAx 034E
+LDA 0319
+ORAim 80
+STAx 034F
+LDAim 01
+STA 0363
+JSR 54F8
+RTS
+
+
+
+
+
+
+
+
+
+
+LDA 0323
+NOP
+NOP
+NOP
+ASLa
+PHA
+TAX
+LDAx 034E
+CMP 0318
+BNE 0A
+LDAx 034F
+ANDim 7F
+CMP 0319
+BEQ 10
+LDAim 00
+STA 0363
+JSR 54F8
+LDAim 02
+STA 0363
+JSR 54F8
+JSR 560A
+LDAim 00
+LDYim 00
+STAiy EA
+INY
+BNE FB
+PLA
+TAX
+LDA 0318
+STAx 034E
+LDA 0319
+ORAim 80
+STAx 034F
+RTS
+
+
+
+
+
+
+LDY 0323
+LDAy 0339
+LDXim 00
+STXz EA
+STAz EB
+RTS
+
+
+
+
+
+
+
+
+LDA 0323
+ASLa
+TAX
+BNE 0D
+JSR 5633
+LDA 0351
+ORAim 80
+STA 0351
+RTS
+
+LDAx 034F
+ORAim 80
+STAx 034F
+RTS
+
+
+
+LDAim 01
+STA 1620
+LDAim 01
+RTS
+
+
+
+
+
+
+
+
+
+STA 032A
+STX 032B
+JSR 53D6
+INC 037B
+RTS
+
+
+
+
+
+
+
+
+
+LDYim 02
+JSR 560D
+LDYim 24
+LDXim 03
+CLC
+LDAiy EA
+SBCim 00
+STAy 0312
+INY
+DEX
+BNE F5
+BCS 01
+RTS
+JSR 5CC6
+LDA 0324
+LDX 0325
+STA 0326
+STX 0327
+LDAim 38
+STA 0324
+JSR 5F81
+INC 037B
+LDA 0324
+CMP 0326
+BNE 01
+RTS
+CLC
+ADCim 02
+CMPim D8
+BCC E7
+STA 0324
+LDAim 00
+STA 0325
+JSR 5F81
+CLC
+BCC 06
+JSR 5D1D
+JSR 5F84
+INC 037B
+LDY 0325
+LDX 0324
+CPX 0326
+BCC 05
+CPY 0327
+BCS 0E
+INY
+INY
+STY 0325
+BNE E0
+INX
+INX
+STX 0324
+BNE CE
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PHP
+SEI
+JSR 5CA1
+PHA
+JSR 5666
+PLA
+STA 1A08
+STA FFF8
+PLP
+RTS
+
+
+
+
+
+
+
+
+
+LDAim 00
+LDX 3FFF
+INC 3FFF
+CPX 3FFF
+BEQ 08
+ORAim 01
+CPXim 33
+BEQ 02
+ORAim 80
+DEC 3FFF
+LDX 9FFF
+INC 9FFF
+CPX 9FFF
+BEQ 02
+ORAim 02
+DEC 9FFF
+LDX FFF7
+INC FFF7
+CPX FFF7
+BEQ 02
+ORAim 04
+DEC FFF7
+STA 1A08
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2466
+JSR 52C1
+JSR 2503
+
+CLI
+
+CLI
+NOP
+NOP
+JSR 2460
+PHA
+JSR 2463
+PLA
+CMPim 31
+BNE 0B
+JSR 5333
+JSR 526D
+LDAim 01
+STA 1620
+LDAim 01
+JSR 2503
+TYA
+CLI
+TAY
+CLI
+LDXim 00
+STXz EA
+JSR 2460
+PHA
+JSR 2463
+PLA
+LDXz EA
+CMPim 21
+BCC 08
+STAx 2000
+INX
+CPXim 20
+BNE E8
+LDAim 20
+STAx 2000
+JSR 2503
+LDAim 58
+
+CLI
+JSR 5900
+STA 2020
+JSR 4C99
+LDXim 02
+LDAx 1A53
+STAx 2022
+DEX
+BPL F7
+BMI 0B
+
+
+
+
+
+
+
+
+
+
+
+LDXim 08
+LDAx 5852
+STAx 2025
+DEX
+BPL F7
+LDAim 3F
+STA 2040
+LDAim FF
+LDXim 3E
+STAx 2041
+DEX
+BPL FA
+STAx 2080
+DEX
+BNE FA
+STA 2080
+LDAim 00
+LDXim 7F
+STAx 2180
+DEX
+BPL FA
+LDXim 01
+LDAim 80
+STX 034E
+STA 034F
+INX
+STX 0350
+STA 0351
+LDAim 00
+LDXim 0B
+STAx 0352
+DEX
+BPL FA
+NOP
+JSR 5333
+JSR 522D
+JSR 5544
+LDAim 01
+STA 1620
+LDAim 01
+JSR 2503
+DEX
+CLI
+INX
+CLI
+RTS
+
+
+
+
+LDAix 50
+BPL 20
+INCx 0009
+BRK
+BRK
+
+
+
+
+
+
+
+
+
+JSR 2020
+JSR 2020
+JSR 7250
+
+
+
+ADCix 6D
+ADC 3A20
+JSR 656E
+ADCzx 65
+JSR 6C46
+
+BCS 70
+ADCy 1D1D
+LSRz 6F
+
+ADC 7461
+ADCim 65
+
+ADCz 6E
+JSR 203F
+PLP
+BMI 2F
+ANDiy 29
+
+JSR 1D1D
+LSR 6D61
+ADCz 20
+PLP
+ADC 7861
+JSR 3233
+ANDim 3A
+JSR 1D1D
+LSR 2072
+PLP
+BMI 30
+ROL 392E
+ANDy 3A29
+JSR 1D1D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORAx 1D1D
+JSR 2020
+JSR 2020
+JSR 6546
+
+
+ADCim 67
+ROL 5020
+
+
+
+
+ADCix 6D
+ADC 6E65
+
+ADCz 1D
+
+
+
+
+
+
+
+
+
+
+JSR 5934
+JMP 563F
+
+
+
+
+
+
+
+JSR 2460
+CMPim 30
+BCC F9
+CMPim 3A
+BCS F5
+PHA
+JSR 2463
+PLA
+ASLa
+ASLa
+ASLa
+ASLa
+STAz EA
+JSR 2460
+CMPim 30
+BCC F9
+CMPim 3A
+BCS F5
+PHA
+JSR 2463
+PLA
+ANDim 0F
+ORAz EA
+STAz EA
+RTS
+
+
+
+
+
+
+
+LDAim 00
+STA 0317
+JSR 52C1
+JSR 5333
+LDXim 03
+LDAx 599B
+STAx 034E
+DEX
+BPL F7
+LDXim 0B
+LDAim 00
+STAx 0352
+DEX
+BPL FA
+LDXim 0E
+LDAx 599F
+STAx 0332
+DEX
+BPL F7
+LDAim 00
+STA 0344
+STA 0323
+LDAim 01
+STA 0363
+JSR 54F8
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+LDA 031E
+ASLa
+TAX
+LDAx 2180
+STA 0318
+LDAx 2181
+STA 0319
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORAix 80
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+JSR 2221
+
+BITz 25
+ROLz 27
+
+
+
+
+
+
+LDXim 05
+LDAx 0352
+LDYx 0358
+STAx 0358
+TYA
+STAx 0352
+DEX
+BPL F0
+RTS
+
+
+
+
+
+
+
+
+
+
+
+JSR 2521
+ROLz 27
+
+
+BITz FF
+
+
+
+
+
+
+
+ANDim 01
+CMP 0332
+BNE 01
+RTS
+STA 0332
+PHA
+LDXim 03
+LDAx 0335
+LDYx 0344
+STAx 0344
+TYA
+STAx 0335
+DEX
+BPL F0
+LDXim 07
+PLA
+BEQ 02
+LDXim 33
+LDYim 07
+LDAx 59A6
+STAy 0339
+DEX
+DEY
+BPL F6
+JMP 59B4
+
+
+
+
+
+
+
+JSR 5544
+LDAim 00
+STA 0335
+RTS
+
+JSR 5CA1
+PHA
+LDXim 00
+BEQ 04
+LDX 031E
+INX
+STX 031E
+CPX 202B
+BEQ 2E
+JSR 597C
+LDAim 02
+STA 0323
+JSR 556B
+LDYim 02
+JSR 560D
+LDYim 00
+LDAiy EA
+CMPy 02D8
+BNE DB
+CMPim 20
+BEQ 23
+INY
+CPYim 20
+BNE F0
+BEQ 1C
+
+
+
+
+
+
+
+
+
+
+LDAim 01
+STA 031C
+LDAim 00
+STA 0335
+PLA
+STA 1A08
+STA FFF8
+RTS
+LDAim 01
+STA 0335
+JSR 4C99
+LDXim 02
+LDYim 2C
+LDAx 1A53
+STAiy EA
+DEY
+DEX
+BPL F7
+LDAim 02
+STA 0323
+JSR 561F
+LDAim 00
+STA 0336
+STA 0337
+STA 0338
+STA 031C
+JMP 5CB4
+
+
+JSR 5CA1
+PHA
+JMP 5A7B
+
+JSR 5CA1
+PHA
+LDA 2029
+ORA 202A
+BNE 0D
+LDAim 01
+STA 031C
+PLA
+LDA 1A08
+STA FFF8
+RTS
+LDXim 40
+LDA 202D
+ORAim 20
+STXz EA
+STAz EB
+LDY 202C
+LDAiy EA
+BEQ 0A
+LDXim 00
+ASLa
+BCS 4B
+INX
+CPXim 08
+BNE F8
+INY
+BNE 02
+INCz EB
+CPYim 40
+BNE E9
+LDAz EB
+CMPim 21
+BNE E3
+LDAim 01
+STA FFF8
+JSR 2503
+
+
+ROLz 5B
+NOP
+NOP
+JMP 1C1D
+
+
+
+JSR 2121
+ANDix 20
+LSRz 6C
+
+BCS 70
+ADCy 422D
+EORix 4D
+JSR 6166
+JMPi 6373
+PLA
+BIT 5320
+
+
+BVC 03
+
+
+
+
+
+
+LDAiy EA
+ORAx 5B7D
+STAiy EA
+STY 202C
+LDAz EB
+ANDim 01
+STA 202D
+STA 0319
+TYA
+ASLa
+ROL 0319
+ASLa
+ROL 0319
+ASLa
+ROL 0319
+STAz EA
+TXAa
+SEC
+ADCz EA
+STA 0318
+BCC 03
+INC 0319
+LDX 2029
+BNE 03
+DEC 202A
+DEC 2029
+LDAim 00
+STA 0323
+JSR 561F
+LDAim 00
+STA 031C
+PLA
+STA FFF8
+STA 1A08
+RTS
+
+
+
+
+
+
+SBCx 80FE
+RTI
+JSR 0810
+
+
+ORAix FF
+
+
+
+
+
+
+JSR 5CA1
+PHA
+NOP
+LDX 0318
+BNE 03
+DEC 0319
+DEX
+TXAa
+TAY
+ANDim 07
+TAX
+TYA
+LSR 0319
+RORa
+LSR 0319
+RORa
+LSR 0319
+RORa
+TAY
+LDAx 5B85
+LSR 0319
+BCS 08
+ORAy 2040
+STAy 2040
+BCC 06
+ORAy 2140
+STAy 2140
+LDAim 00
+ROLa
+TAX
+CPY 202C
+SBC 202D
+BCS 06
+STY 202C
+STX 202D
+INC 2029
+BNE 03
+INC 202A
+LDAim 00
+STA 0323
+JSR 561F
+PLA
+STA 1A08
+STA FFF8
+RTS
+
+
+
+
+
+
+
+
+
+JSR 5A27
+LDA 031C
+EORim 01
+STA 031C
+BEQ 01
+RTS
+JSR 5CA1
+PHA
+LDA 202B
+CMPim 40
+BNE 0B
+PLA
+STA 1A08
+STA FFF8
+INC 031C
+RTS
+LDA 202B
+PHA
+JSR 5AB3
+LDA 031C
+BEQ 09
+PLA
+PLA
+STA 1A08
+STA FFF8
+RTS
+PLA
+TAX
+INX
+STX 202B
+ASLa
+TAX
+LDA 0318
+STAx 2180
+LDA 0319
+STAx 2181
+LDAim 02
+STA 0323
+JSR 55BC
+LDA 033B
+NOP
+NOP
+LDXim 00
+STXz EA
+STAz EB
+JMP 5C65
+
+
+
+
+LDYim 1F
+LDAy 02D8
+STAiy EA
+DEY
+BPL F8
+JSR 4C99
+LDYim 29
+LDXim 02
+LDAx 1A53
+STAiy EA
+DEY
+DEX
+BPL F7
+JSR 5AAB
+LDAim 00
+STA 0323
+JSR 561F
+LDAim 02
+STA 0323
+JSR 561F
+PLA
+STA 1A08
+STA FFF8
+RTS
+
+
+
+
+
+
+
+LDAim 00
+STA FFF8
+LDA 1A08
+TAX
+ANDim FE
+STA 1A08
+TXAa
+RTS
+
+
+
+PLA
+STA 1A08
+STA FFF8
+RTS
+PLA
+STA 1A08
+STA FFF8
+PLP
+RTS
+
+JSR 5CA1
+PHA
+LDYim 02
+JSR 560D
+LDYim 24
+LDA 0336
+CMPiy EA
+INY
+LDA 0337
+SBCiy EA
+INY
+LDA 0338
+SBCiy EA
+LDAim 00
+ROLa
+STA 031C
+LDA 0337
+LDX 0338
+BNE 09
+CMPim 50
+BCS 05
+ASLa
+ADCim 38
+BNE 10
+SEC
+SBCim 50
+BCS 01
+DEX
+ASLa
+STA 0325
+TXAa
+ROLa
+ASLa
+CLC
+ADCim D8
+STA 0324
+PLA
+STA FFF8
+STA 1A08
+RTS
+
+
+
+
+
+
+
+
+
+JSR 5CA1
+PHA
+JMP 5D72
+
+
+
+
+
+JSR 5CA1
+PHA
+LDYim 02
+JSR 560D
+LDY 0324
+LDAiy EA
+STA 0318
+INY
+LDAiy EA
+STA 0319
+BNE 05
+LDA 0318
+BEQ 55
+LDA 0324
+CMPim D8
+BCS 03
+JMP 5CB4
+LDA 0363
+PHA
+LDA 037B
+PHA
+LDA 037A
+PHA
+LDAim 03
+STA 0323
+JSR 556B
+PLA
+STA 037A
+PLA
+STA 037B
+PLA
+STA 0363
+NOP
+LDYim 03
+JSR 560D
+LDY 0325
+LDAiy EA
+STA 0318
+INY
+LDAiy EA
+STA 0319
+BNE 05
+LDA 0318
+BEQ 03
+JMP 5CB4
+LDA 0363
+ANDim 03
+BEQ 58
+JMP 5F61
+
+
+
+LDA 0363
+ANDim 03
+BEQ 03
+JMP 5F61
+JSR 5AB3
+LDYim 02
+JSR 560D
+LDY 0324
+LDA 0318
+STAiy EA
+INY
+LDA 0319
+STAiy EA
+LDXim 04
+JSR 5633
+LDA 0324
+CMPim D8
+BCS 06
+JMP 5CB4
+
+
+
+LDA 0363
+PHA
+LDA 037B
+PHA
+LDA 037A
+PHA
+LDAim 03
+STA 0323
+JSR 55BC
+PLA
+STA 037A
+PLA
+STA 037B
+PLA
+STA 0363
+JSR 5AB3
+LDYim 03
+JSR 560D
+LDY 0325
+LDA 0318
+STAiy EA
+INY
+LDA 0319
+STAiy EA
+LDXim 06
+JSR 5633
+JMP 5CB4
+
+
+
+
+LDAiy EA
+STA 0318
+INY
+LDAiy EA
+STA 0319
+RTS
+
+
+
+
+
+JSR 5CA1
+PHA
+LDA 0335
+BNE 03
+JMP 5EF6
+LDYim 02
+JSR 560D
+LDYim 24
+LDAiy EA
+SEC
+SBCim 01
+INY
+LDAiy EA
+SBCim 00
+STA 0337
+INY
+LDAiy EA
+SBCim 00
+STA 0338
+JSR 5CC6
+LDA 031C
+BEQ 03
+JMP 5CB4
+LDA 0324
+CMPim D8
+BCC 4E
+LDYim 02
+JSR 560D
+LDY 0324
+LDAiy EA
+STA 0318
+PHA
+INY
+LDAiy EA
+STA 0319
+PHA
+LDAim 03
+STA 0323
+JSR 556B
+LDYim 03
+JSR 560D
+LDY 0325
+STYz EC
+JSR 5E10
+JSR 5B94
+LDYz EC
+BEQ 05
+DEY
+DEY
+CLC
+BCC EF
+LDYim FE
+STY 0325
+PLA
+STA 0319
+PLA
+STA 0318
+JSR 5B94
+DEC 0324
+DEC 0324
+BNE AB
+LDYim 02
+JSR 560D
+LDY 0324
+STYz EC
+JSR 5E10
+JSR 5B94
+LDYz EC
+DEY
+DEY
+CPYim 38
+BCS F0
+LDAim 00
+LDYim 38
+STAiy EA
+INY
+BNE FB
+LDYim 26
+STAiy EA
+DEY
+CPYim 24
+BCS F9
+STA 0336
+STA 0337
+STA 0338
+LDXim 04
+JSR 5633
+LDAim 00
+LDXim 03
+STAx 0354
+DEX
+BPL FA
+JMP 5CB4
+
+
+
+
+
+
+
+
+LDAim 01
+STA FFF8
+JSR 2503
+
+
+ROLz 5F
+NOP
+NOP
+NOP
+JMP 1C1D
+
+
+
+JSR 2121
+ANDix 20
+LSRz 69
+JMPi 2065
+ROR 6369
+PLA
+
+JSR 666F
+RORz 65
+ROR 2C20
+JSR 5453
+
+BVC 1D
+JSR 2121
+ANDix 20
+JMP 7365
+ADCz 7A
+ADCzx 67
+
+ADCim 66
+RORz 20
+ADCix 75
+RORz 20
+ADCzx 6E
+
+ADCz 6B
+ROL 7220
+ADCz 63
+
+
+
+BIT 5320
+
+
+BVC 1D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 01
+STA 1A08
+STA FFF8
+JSR 2503
+PLP
+
+
+
+NOP
+NOP
+JMP 1C1D
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 5D29
+LDA 0363
+CMPim 04
+BNE 01
+RTS
+LDA 0318
+LDX 0319
+STA 032A
+STX 032B
+JSR 5CA1
+PHA
+JSR 53D6
+JMP 5CB4
+
+
+
+
+
+
+
+
+
+
+LDYim 01
+JSR 560D
+LDXim 00
+LDYim 80
+LDAiy EA
+CMP 0352
+BEQ 03
+INY
+BNE 0A
+INY
+LDAiy EA
+EOR 0353
+ANDim 7F
+BEQ 0A
+INY
+INX
+CPX 202B
+BCC E5
+JMP 5EF6
+INX
+CPX 202B
+BCS 14
+INY
+LDAiy EA
+DEY
+DEY
+STAiy EA
+INY
+INY
+INY
+LDAiy EA
+DEY
+DEY
+STAiy EA
+INY
+INY
+BNE E6
+LDAim 00
+STAiy EA
+DEY
+STAiy EA
+DEC 202B
+LDX 0352
+LDA 0353
+ANDim 07
+STX 0318
+STA 0319
+JSR 5B94
+LDAim 00
+STA 0352
+STA 0353
+LDAim 00
+STA 0335
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 5E21
+JSR 5CA1
+PHA
+JSR 5FAC
+JSR 5544
+JMP 5CB4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 01
+BNE 02
+LDAim 02
+STA 0363
+LDA 0335
+BNE 03
+JMP 5EF6
+LDAim 00
+STA 1620
+JSR 5CA1
+PHA
+LDYim 02
+JSR 560D
+LDYim 21
+LDAiy EA
+STA 037A
+STAz E2
+INY
+LDAiy EA
+STA 037B
+STAz E3
+JSR 5711
+LDAim 01
+STA 1620
+LDAim 01
+LDYim 02
+JSR 560D
+LDYim 24
+LDAiy EA
+CLC
+ADCz E2
+STAz E8
+INY
+LDAiy EA
+ADCz E3
+STAz E9
+JMP 5CB4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDA 0335
+BNE 03
+JMP 5EF6
+LDAim 00
+STA 1620
+JSR 5E21
+LDYim 02
+JSR 560D
+LDYim 24
+SEC
+LDAz E8
+SBCz E2
+STAiy EA
+INY
+LDAz E9
+SBCz E3
+STAiy EA
+INY
+LDAim 00
+STAiy EA
+LDYim 02
+JSR 560D
+LDAz E2
+STA 037A
+LDYim 21
+STAiy EA
+INY
+LDAz E3
+STA 037B
+STAiy EA
+INY
+LDA 1A08
+STAiy EA
+LDAim 04
+STA 0363
+JSR 5711
+LDAz E2
+LDXz E3
+STA 037A
+STX 037B
+LDAim 00
+STA 0363
+JSR 5711
+LDAz E2
+LDXz E3
+STA 037A
+STX 037B
+LDAim 02
+STA 0363
+JSR 5711
+JSR 5544
+LDAim 01
+STA 1620
+LDAim 01
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 5CC6
+LDA 031C
+BEQ 01
+RTS
+LDAim 01
+STA 0363
+JSR 5D29
+LDAim 04
+STA 0323
+JSR 556B
+LDYim 04
+JSR 560D
+LDY 0336
+JSR 61DF
+INC 0336
+BNE 08
+INC 0337
+BNE 03
+INC 0338
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDYim 00
+PHP
+SEI
+LDAim 00
+STA FFF8
+LDAiy EA
+LDX 1A08
+STX FFF8
+PLP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+PHA
+JSR 5CC6
+LDA 031C
+BEQ 1F
+LDYim 02
+JSR 560D
+LDYim 24
+CLC
+LDA 0336
+ADCim 01
+STAiy EA
+INY
+LDA 0337
+ADCim 00
+STAiy EA
+INY
+LDA 0338
+ADCim 00
+STAiy EA
+LDAim 04
+STA 0363
+JSR 5D29
+LDA 0318
+CMP 0356
+BNE 08
+LDA 0319
+EOR 0357
+ANDim 7F
+BEQ 03
+JSR 55BC
+JMP 626B
+
+
+
+
+
+
+
+
+
+
+
+
+PHA
+JSR 5CC6
+LDA 031C
+BEQ 02
+PLA
+RTS
+LDAim 04
+STA 0363
+JSR 5D29
+LDAim 04
+STA 0323
+JSR 556B
+LDYim 04
+JSR 560D
+PLA
+LDY 0336
+STAiy EA
+INC 0336
+BNE 08
+INC 0337
+BNE 03
+INC 0338
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CPXim 07
+BEQ 0E
+CPXim 02
+BEQ 4E
+CPXim 01
+BEQ 2F
+BNE 1A
+
+
+
+
+LDXim 00
+STXz EA
+JSR 24CE
+LDXz EA
+LDAx 036A
+JSR 24EF
+LDXz EA
+INX
+CPXim 07
+BNE EC
+JSR 24C9
+LDA 1600
+JSR 24EF
+JSR 24C9
+RTS
+
+
+
+
+
+
+JSR 24CE
+LDA 036A
+JSR 24EF
+CLC
+BCC E1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOP
+JSR 24CE
+LDA 036A
+JSR 24EF
+JSR 24CE
+LDA 036B
+JSR 24EF
+CLC
+BCC BC
+
+
+
+
+BCS 64
+RTS
+
+ANDy F365
+CLI
+ADCim 65
+
+ADCz A9
+ADCz C9
+ADCz 2D
+
+SBCim 65
+
+EORiy 77
+
+PLP
+RORz 1B
+PLA
+
+EORzx 7E
+PLA
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 03
+STA 1A08
+JSR 1FDD
+JSR 2466
+JSR 38D0
+JSR 248B
+JSR 2460
+CMPim 3A
+BCC 02
+SBCim 07
+ANDim 0F
+ASLa
+TAX
+LDAx 6380
+STA 1A00
+LDAx 6381
+STA 1A01
+LDAim 00
+STAz EE
+JSR 63F4
+PHA
+TXAa
+PHA
+LDAz EE
+ORAim 5E
+JSR 2463
+PLA
+TAX
+PLA
+JSR 6310
+JSR 24D4
+CLC
+BCC CA
+JMPi 1A00
+
+
+
+
+
+
+
+
+
+JSR 2460
+CMPim 3A
+BCC 02
+SBCim 07
+ANDim 0F
+RTS
+
+
+
+
+JSR 6400
+ASLa
+ASLa
+ASLa
+ASLa
+STAz EA
+JSR 6400
+ORAz EA
+STAz EA
+JSR 24EF
+LDAz EA
+RTS
+
+
+
+
+
+
+
+
+
+
+JSR 6410
+LDXim 00
+STX 037A
+STA 037B
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 01
+BNE 02
+LDAim 00
+STA 1620
+LDAim 4D
+JSR 2463
+RTS
+
+JSR 6400
+ANDim 07
+STA 0323
+JSR 2466
+JSR 24C9
+LDA 0323
+JSR 24E2
+JSR 24C9
+LDY 0323
+JSR 560D
+LDAz EB
+JSR 24EF
+LDAz EA
+JSR 24EF
+JSR 24C9
+LDA 0323
+ASLa
+TAX
+PHA
+LDAx 034F
+PHA
+ASLa
+LDAim 18
+ROLa
+JSR 2463
+JSR 24CE
+PLA
+ANDim 7F
+JSR 24EF
+PLA
+TAX
+LDAx 034E
+JSR 24EF
+JSR 24C9
+LDA 0332
+JSR 24E2
+JSR 24CE
+JSR 560A
+LDAim FF
+STAz EC
+JSR 24D4
+INCz EC
+JSR 24D4
+LDAz EC
+JSR 24E2
+LDAim 3A
+JSR 2463
+JSR 24C9
+JSR 61DD
+JSR 24EF
+JSR 24CE
+INCz EA
+LDAz EA
+NOP
+NOP
+ANDim 0F
+BEQ 0A
+ANDim 07
+BNE E9
+JSR 24CE
+CLC
+BCC E3
+JSR 24C9
+JSR 24C9
+SEC
+LDAz EA
+SBCim 10
+STAz EA
+JSR 61DD
+CMPim 20
+BCS 02
+LDAim 2E
+JSR 2463
+INCz EA
+LDAz EA
+BEQ 0E
+ANDim 0F
+BEQ AE
+ANDim 07
+BNE 03
+JSR 24CE
+CLC
+BCC E0
+JSR 24D4
+RTS
+
+
+
+
+
+
+
+JSR 2138
+ASLz 20
+PLA
+
+JMPi EA20
+NOP
+JSR 6400
+ANDim 07
+STA 0323
+JSR 24E2
+JSR 24CE
+JSR 6400
+ANDim 0F
+STA 0319
+JSR 24E2
+JSR 6410
+STA 0318
+JSR 556B
+LDXim 07
+RTS
+JSR 2138
+ASLz 20
+JMPi 616F
+
+JSR EAEA
+JSR 604E
+LDAim 00
+STA 0356
+STA 0357
+LDXim 07
+RTS
+
+
+
+
+
+
+JSR 2138
+ASLz 20
+
+ADCix 76
+ADCz 20
+NOP
+NOP
+LDYim 02
+JSR 560D
+JSR 6100
+LDA 031C
+STAz EE
+LDXim 07
+RTS
+
+
+
+
+JSR 2138
+PHP
+JSR 6576
+
+ADCim 66
+ADCy EA20
+NOP
+JSR 6052
+LDAim 00
+STA 0356
+STA 0357
+LDXim 07
+RTS
+
+
+
+
+JSR 2138
+
+JSR 6C63
+ADCz 61
+
+JSR EAEA
+JSR 6027
+LDAim 01
+STA 1620
+LDAim 01
+LDXim 07
+RTS
+
+
+
+
+
+
+JSR 2138
+PHP
+JSR 7473
+ADCix 74
+ADCzx 73
+JSR EAEA
+JSR 6400
+ANDim 07
+STA 0323
+PHA
+JSR 24E2
+JSR 6410
+TAY
+PLA
+ASLa
+PHA
+TAX
+TYA
+STAx 034F
+JSR 6410
+TAY
+PLA
+TAX
+TYA
+STAx 034E
+JSR 24CE
+LDXim 01
+RTS
+
+
+
+
+
+
+
+
+
+JSR 2138
+ORAim 20
+ROR 7765
+RORz 69
+JMPi 2065
+NOP
+NOP
+LDXim 00
+STXz EA
+JSR 2460
+PHA
+JSR 2463
+PLA
+CMPim 80
+BCS 10
+CMPim 20
+BCC 0C
+LDXz EA
+STAx 02D8
+INX
+CPXim 20
+BCC E4
+BCS 04
+LDXz EA
+BEQ 0D
+LDAim 20
+STAx 02D8
+INX
+CPXim 20
+BCC F8
+NOP
+NOP
+NOP
+JSR 5BFE
+LDYim 02
+JSR 560D
+JSR 61DD
+JSR 2463
+INCz EA
+LDYz EA
+CPYim 20
+BCC F2
+LDA 031C
+STAz EE
+LDXim 07
+LDAim 01
+STA 1620
+LDAim 01
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDXim 20
+STXz EC
+JSR 61DD
+CMPim 20
+BEQ 09
+JSR 2463
+INCz EA
+DECz EC
+BNE F0
+JSR 24CE
+LDAz 98
+CMPim 23
+BNE F7
+LDAim 00
+STAz EA
+RTS
+
+
+
+LDYim 03
+STYz EC
+STXz EA
+NOP
+NOP
+JSR 61DD
+JSR 24EF
+LDXz EA
+INX
+DECz EC
+BNE EF
+JSR 24C9
+LDAim 00
+STAz EA
+RTS
+
+
+
+
+
+
+
+
+LDYim 03
+STYz EC
+STXz EA
+NOP
+NOP
+JSR 61DD
+JSR 24EF
+LDXz EA
+DEX
+DECz EC
+BNE EF
+JSR 24C9
+LDAim 00
+STAz EA
+RTS
+
+
+
+
+
+JSR 24D4
+NOP
+NOP
+NOP
+NOP
+JSR 68FD
+LDYim 02
+JSR 560D
+JSR 669B
+LDYim 20
+JSR 61DF
+JSR 24E2
+JSR 24C9
+LDXim 22
+LDYim 02
+JSR 66E7
+LDXim 26
+JSR 66E5
+LDXim 27
+JSR 66C0
+LDXim 2A
+JSR 66C0
+LDA 0353
+ANDim 7F
+JSR 24EF
+LDA 0352
+JSR 24EF
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+
+JSR 2020
+JSR 6966
+JMPi 6E65
+ADCix 6D
+ADCz 20
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+JSR 2020
+
+ADCy 2070
+ADCix 62
+
+
+JMPi 6C20
+ADCix 65
+ROR 6567
+JSR 6520
+
+
+ADCz 75
+
+
+JSR 6562
+ROR 7475
+
+
+JSR 6573
+
+ORAx 2020
+JSR 2D20
+AND 2D2D
+JSR 6E45
+
+ADCz 20
+AND 2D2D
+AND 031D
+
+
+
+
+
+
+
+
+
+
+JSR 2466
+LDYim 00
+JSR 560D
+JSR 669B
+LDYim 20
+JSR 61DF
+JSR 24E2
+JSR 24C9
+LDXim 22
+JSR 66C0
+LDXim 2A
+LDYim 02
+JSR 66E7
+JSR 2138
+
+RORz 72
+ADCz 69
+
+JSR EA20
+NOP
+LDYim 2B
+JSR 61DF
+JSR 68DA
+JSR 24EF
+JSR 2138
+ASLz 20
+RORz 69
+JMPi 7365
+NOP
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 67C5
+JSR 2503
+
+
+LDAz 67
+PHP
+SEI
+JSR 5CA1
+PHA
+LDXim 00
+BEQ 04
+LDX 031E
+INX
+STX 031E
+CPX 202B
+BEQ 1C
+JSR 597C
+LDAim 02
+STA 0323
+JSR 556B
+PLA
+STA 1A08
+STA FFF8
+JSR 6707
+JSR 5CA1
+PHA
+CLC
+BCC D8
+PLA
+STA 1A08
+STA FFF8
+PLP
+JSR 24D4
+JSR 68FD
+JSR 2506
+TAY
+
+LDAy EA67
+NOP
+LDAim 01
+STA 1620
+LDAim 01
+JSR 68FD
+LDXim 07
+RTS
+
+
+
+JSR 2138
+ORAim 20
+RORz 69
+JMPi 6165
+
+
+JSR EAEA
+LDAz E3
+JSR 24EF
+LDAz E2
+JSR 24EF
+JSR 24CE
+LDAz E9
+JSR 24EF
+LDAz E8
+JSR 24EF
+JSR 24C9
+JSR 2460
+CMPim 30
+BCS 01
+RTS
+JSR 6403
+JSR 6413
+STAz E3
+JSR 6410
+STAz E2
+JSR 24CE
+JSR 6410
+STAz E9
+JSR 6410
+STAz E8
+LDXim 00
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PHA
+LSRa
+LSRa
+LSRa
+LSRa
+TAX
+PLA
+ANDim 0F
+CMPim 0A
+BCC 02
+ADCim 05
+SED
+ADCx 68EF
+CLD
+RTS
+BRK
+ASLzx 32
+PHA
+
+
+STXzy FF
+
+
+
+
+
+
+LDAz 99
+BNE 0D
+LDAim 01
+STA 1620
+LDAim 01
+PHP
+CLI
+JSR 2460
+PLP
+RTS
+
+
+LDAim 00
+STAz 24
+LDAz 2D
+PHA
+LDAz 2C
+PHA
+SED
+SEC
+LDAz 28
+SBCz 26
+STAz 4F
+LDAz 29
+SBCz 27
+STAz 50
+CLD
+LDAz 26
+LDXz 27
+STAz 2C
+STXz 2D
+JSR 4550
+LDAz 2E
+LDXz 2F
+STAz 26
+STXz 27
+LDAz 28
+LDXz 29
+STAz 2C
+STXz 2D
+JSR 4550
+LDAz 2E
+LDXz 2F
+STAz 28
+STXz 29
+PLA
+STAz 2C
+PLA
+STAz 2D
+JSR 4550
+LDAz 2E
+LDXz 2F
+STAz 2C
+STXz 2D
+SEC
+LDAz 28
+SBCz 26
+STAz 4D
+LDAz 29
+SBCz 27
+STAz 4E
+NOP
+CLC
+LDAz 4D
+ADCz E8
+TAX
+LDAz 4E
+ADCz E9
+CPXz 64
+SBCz 65
+BCC 03
+INCz 24
+RTS
+LDAz 2C
+LDXz 2D
+STAz CA
+STXz CB
+JSR 429B
+CLC
+LDAz 4D
+ADCz E8
+STAz E8
+LDAz 4E
+ADCz E9
+STAz E9
+SED
+CLC
+LDAz 4F
+ADCz 22
+STAz 22
+LDAz 50
+ADCz 23
+STAz 23
+CLD
+NOP
+LDXz 26
+LDAz 27
+CPXz 2C
+SBCz 2D
+BCC 11
+CLC
+LDAz 28
+STAz 26
+ADCz 4D
+STAz 28
+LDAz 29
+STAz 27
+ADCz 4E
+STAz 29
+LDAz 26
+LDXz 27
+STAz CA
+STXz CB
+SEC
+LDAz 28
+SBCim 01
+STAz CC
+LDAz 29
+SBCim 00
+STAz CD
+LDAz 2C
+LDXz 2D
+STAz CE
+STXz CF
+JSR 1F86
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 4B00
+LDAz 24
+BNE 38
+NOP
+JSR 4B4D
+LDAz 24
+BNE 30
+NOP
+LDAz 54
+BEQ 08
+JSR 4440
+LDAz 24
+BEQ 01
+RTS
+LDAz 2B
+PHA
+LDAz 2A
+PHA
+JSR 6911
+PLA
+STAz 2C
+PLA
+STAz 2D
+LDAz 24
+PHA
+JSR 4550
+JSR 4060
+PLA
+BEQ 07
+JSR 4157
+LSRa
+RORa
+NOP
+NOP
+RTS
+JSR 4157
+ANDz 46
+NOP
+NOP
+RTS
+
+
+
+
+EORix 62
+
+
+PLA
+ROR 7469
+
+JSR 757A
+JSR 616C
+ROR 2067
+RORz 20
+
+ADCix 74
+ADCz 69
+
+
+ORAx FF03
+
+
+
+
+
+
+
+JSR 4B00
+LDAz 24
+BNE C8
+NOP
+JSR 4B4D
+LDAz 24
+BNE C0
+NOP
+LDAz 54
+BEQ 08
+JSR 4440
+LDAz 24
+BEQ 01
+RTS
+LDAz 2B
+PHA
+LDAz 2A
+PHA
+JSR 6911
+JSR EAAA
+JMP 6A25
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 28
+LDXz 29
+STAz CA
+STXz CB
+LDAz E8
+LDXz E9
+STAz CC
+STXz CD
+LDAz 26
+LDXz 27
+STAz CE
+STXz CF
+JSR 1F86
+SEC
+LDAz E8
+SBCz 4D
+STAz E8
+LDAz E9
+SBCz 4E
+STAz E9
+SED
+SEC
+LDAz 22
+SBCz 4F
+STAz 22
+LDAz 23
+SBCz 50
+STAz 23
+CLD
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 01
+STA FFF8
+STA FFFA
+LDAim 00
+LDXim 09
+STAz CC
+STXz CD
+LDXim 40
+JSR 8350
+LDAim 00
+LDXim 1D
+STAz CC
+STXz CD
+LDXim 83
+JSR 8350
+LDAim F0
+LDXim 41
+STAz CC
+STXz CD
+LDAim 00
+LDXim BE
+JSR 8350
+LDAim 00
+STA FFF9
+STA FFFA
+JSR 38D0
+JSR 248B
+JMP D3F3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STAz CA
+STXz CB
+STAz CE
+STXz CF
+JSR E4A0
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR DB11
+LDAim 14
+JSR 9160
+LDAim 00
+STAz 50
+JSR 849A
+LDAz 50
+BEQ 06
+JSR D9E4
+
+BRK
+NOP
+RTS
+
+
+
+
+
+
+JSR 8830
+STXz D0
+RTS
+BRK
+JSR 8830
+STXz DA
+CPXz D0
+BCC 01
+RTS
+NOP
+NOP
+JSR DB7C
+ORAix 22
+
+LDAz 41
+STAz 8B
+LDAz 42
+STAz 8C
+LDYim 00
+LDAiy 41
+BNE 01
+RTS
+JSR DB7C
+
+
+
+
+LDAz D0
+NOP
+STAz 43
+LDAim 00
+STAz 44
+RTS
+
+JSR 8839
+STXz D6
+STAz D7
+RTS
+
+
+JSR 8839
+STXz D8
+STAz D9
+CPXz D6
+SBCz D7
+BCC 01
+RTS
+JSR DB7C
+
+
+
+
+
+LDAz C1
+LDXz C2
+STAz 54
+STXz 55
+LDAz 54
+CMPz 45
+LDAz 55
+SBCz 46
+BCC 01
+RTS
+NOP
+LDYim 00
+LDAiy 54
+CMPim 03
+BCC 11
+JSR 9CCD
+LDAz 54
+CLC
+ADCim 0E
+STAz 54
+BCC 02
+INCz 55
+JMP 84A2
+JSR DB7C
+
+
+
+LDAz C1
+LDXz C2
+STAz 54
+STXz 55
+NOP
+NOP
+LDAz 54
+CMPz 45
+LDAz 55
+SBCz 46
+BCS 1D
+NOP
+LDYim 00
+LDAiy 54
+CMPim 08
+BCC 0E
+LDAz 54
+CLC
+ADCim 0E
+STAz 54
+BCC 02
+INCz 55
+JMP 84D7
+JSR DB7C
+ORAz EA
+RTS
+JSR D9E4
+
+JMP 1C1D
+JSR 91C2
+RTS
+
+
+
+BRK
+BRK
+LDAz 90
+BNE 04
+LDAz 8F
+BEQ 04
+JSR DB7C
+BRK
+LDAim 02
+LDYim 00
+STAiy 8B
+INY
+LDAz 8D
+STAiy 8B
+INY
+LDAz 8E
+STAiy 8B
+RTS
+LDYim 00
+LDAiy 41
+BEQ 04
+JSR DB7C
+
+LDAim 01
+STAiy 41
+RTS
+LDAz 5A
+SEC
+SBCim 4A
+ORAim 80
+STAz A0
+LDAim 00
+LDXim 07
+STAzx A3
+DEX
+BPL FB
+INCz A5
+INCz A9
+RTS
+
+
+
+
+BRK
+BRK
+LDAz A0
+ANDim 30
+BNE 0D
+STAz 1F
+STAz 15
+LDAim 01
+STAz 1E
+STAz 14
+JMP 85A3
+LDAz A5
+STAz 1E
+LDAz A6
+STAz 1F
+LDAz A0
+ANDim 07
+CMPim 07
+BNE 03
+JSR E290
+LDAz 1E
+STAz 14
+LDAz 1F
+STAz 15
+LDAz A0
+ANDim 06
+CMPim 06
+BNE 0B
+LDAz 14
+CLC
+ADCim 02
+STAz 14
+BCC 02
+INCz 15
+LDAz A0
+ANDim 30
+CMPim 30
+BNE 03
+JSR 85C6
+LDAz A0
+ANDim 06
+CMPim 02
+BEQ 0D
+CMPim 04
+BEQ 01
+RTS
+ASLz 1E
+ROLz 1F
+ASLz 14
+ROLz 15
+ASLz 1E
+ROLz 1F
+ASLz 14
+ROLz 15
+RTS
+
+
+
+BRK
+BRK
+LDAz A9
+STAz 18
+LDAz AA
+STAz 19
+LDAim 00
+STAz 1A
+STAz 1B
+LDAz 1E
+STAz 14
+LDAz 1F
+STAz 15
+JSR E38B
+LDAz 17
+BNE 04
+LDAz 16
+BEQ 04
+JSR DB7C
+PHP
+LDAz 14
+STAz 1E
+LDAz 15
+STAz 1F
+LDAz A0
+ANDim 06
+CMPim 06
+BNE 12
+JSR E36C
+JSR E36C
+LDAz 17
+BNE 04
+LDAz 16
+BEQ 04
+JSR DB7C
+PHP
+RTS
+
+
+
+
+
+
+
+BRK
+BRK
+LDYim 00
+LDAiy 41
+BNE 2C
+LDAz 1F
+BPL 05
+JSR DB7C
+ORAim EA
+LDAz 1C
+INY
+STAiy 41
+LDAz 1D
+INY
+STAiy 41
+LDAz 1C
+CLC
+ADCz 14
+STAz 1C
+LDAz 1D
+ADCz 15
+STAz 1D
+BCS 05
+CMPz D5
+NOP
+BCC 04
+JSR DB7C
+ASLa
+RTS
+CMPim 01
+BNE 2A
+LDAz 1F
+BNE 04
+LDAz 1E
+BPL 05
+JSR DB7C
+ORAim EA
+LDAz 43
+INY
+STAiy 41
+LDAim 00
+INY
+STAiy 41
+LDAz 43
+CLC
+ADCz 14
+STAz 43
+BCS 05
+CMPz DA
+NOP
+BCC 04
+JSR DB7C
+
+RTS
+LDYim 02
+LDAiy 41
+BNE 11
+LDAz 1F
+BNE D6
+LDAz 1E
+BMI D0
+CLC
+DEY
+LDAiy 41
+ADCz 14
+BCS E5
+RTS
+LDAz 1F
+BMI C5
+CLC
+DEY
+LDAiy 41
+ADCz 14
+INY
+LDAiy 41
+ADCz 15
+BCS A5
+RTS
+
+
+
+BRK
+BRK
+LDYim 00
+LDAiy 41
+CMPim 03
+BCC 04
+JSR DB7C
+
+JSR 8557
+JSR 8617
+LDYim 0A
+LDXim 07
+LDAzx A3
+STAiy 41
+DEY
+DEX
+BPL F8
+LDAz A0
+LDYim 00
+STAiy 41
+RTS
+
+
+
+
+BRK
+BRK
+LDAz A0
+ORAim 20
+STAz A0
+LDAz 8A
+ANDim 07
+CMPim 03
+BCC 06
+JSR DB7C
+
+NOP
+NOP
+LDAz 8D
+STAz A3
+LDAz 8E
+STAz A4
+RTS
+LDAz 8A
+ANDim 07
+CMPim 03
+BCC 06
+JSR DB7C
+
+NOP
+NOP
+SEC
+LDAz 8D
+SBCz A3
+STAz A5
+LDAz 8E
+SBCz A4
+STAz A6
+BCC EB
+INCz A5
+BNE 04
+INCz A6
+BEQ E3
+RTS
+
+BRK
+BRK
+LDXim 03
+LDAzx A3
+STAzx A7
+DEX
+BPL F9
+LDAz A0
+ORAim 30
+STAz A0
+BNE A9
+BRK
+BRK
+LDYim 00
+LDAiy 20
+STAz 8A
+LDYim 06
+LDXim 03
+LDAiy 20
+STAzx 8D
+DEY
+DEX
+BPL F8
+RTS
+
+BRK
+BRK
+LDXim 44
+LDAz 90
+BPL 04
+JSR DB7C
+ORA 8F05
+BNE 0F
+DEX
+LDAz 8E
+BMI 0A
+BNE 07
+NOP
+DEX
+DEX
+LDAz 8D
+BMI 01
+DEX
+STXz 8A
+RTS
+LDXim 44
+LDYz 90
+INY
+BNE 14
+LDYz 8F
+INY
+BNE 0F
+LDYz 8E
+BPL 0B
+LDXim 42
+INY
+BNE 06
+LDYz 8D
+BPL 02
+LDXim 40
+STXz 8A
+RTS
+
+
+
+
+BRK
+BRK
+LDYim 00
+LDAiy 20
+BMI 11
+LDAim 40
+STAz 8A
+STYz 8E
+STYz 8F
+STYz 90
+LDYim 03
+LDAiy 20
+STAz 8D
+RTS
+LDYim 06
+LDAiy 20
+BNE 09
+DEY
+LDAiy 20
+BEQ 04
+CMPim 21
+BCC 04
+JSR DB7C
+ORA EAEA
+PHA
+LDYim 01
+LDAiy 20
+TAX
+INY
+LDAiy 20
+STAz 21
+STXz 20
+PLA
+SEC
+SBCim 01
+LSRa
+LSRa
+LSRa
+TAX
+TAY
+INY
+INY
+NOP
+PHA
+LDAiy 20
+STAzx 8D
+DEY
+DEX
+BPL F8
+PLA
+TAX
+INX
+LDAim 00
+CPXim 04
+BEQ 05
+STAzx 8D
+INX
+BNE F7
+JSR 873F
+RTS
+
+
+
+
+BRK
+BRK
+LDYim 03
+LDXim 00
+SEC
+LDAim 00
+SBCiy 20
+STAzx 8D
+INY
+INX
+CPXim 04
+BNE F4
+JSR 875F
+RTS
+BRK
+BRK
+JSR 2466
+JSR CD74
+JSR D0BE
+JMP 1C1D
+
+BRK
+BRK
+LDYim 00
+LDAiy 20
+BMI 0A
+LDYim 03
+LDAiy 20
+TAX
+PLA
+PLA
+LDAim 00
+RTS
+LDYim 06
+LDAiy 20
+BNE 06
+DEY
+LDAiy 20
+BEQ 01
+RTS
+JSR DB7C
+BRK
+BRK
+JSR 880F
+CMPim 09
+BCC 0D
+BCS 07
+JSR 880F
+CMPim 11
+BCC 04
+JSR DB7C
+BRK
+LDYim 01
+LDAiy 20
+TAX
+INY
+LDAiy 20
+STAz 21
+STXz 20
+LDAiy 20
+TAX
+LDYim 00
+LDAiy 20
+CMPim 09
+BCS 03
+LDAim 00
+RTS
+LDYim 03
+LDAiy 20
+RTS
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+
+JSR E002
+BRK
+PHP
+JSR E041
+BRK
+
+JSR E041
+BRK
+ORAix A9
+
+STA 0100
+LDAim 80
+STA 8503
+
+LDAim 80
+STX 0000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORAix A5
+
+
+BRK
+ORAix AD
+
+
+BRK
+ORAix A5
+
+
+
+STAz 14
+LDAz 81
+
+BRK
+ORAix AD
+
+
+
+STAz 14
+LDA 8B83
+BRK
+
+LDXim 03
+LDAzx 80
+
+ORAz 95
+
+DEX
+BPL F9
+BRK
+
+LDXim 03
+LDAx 8B82
+ORAz 95
+
+DEX
+BPL F8
+BRK
+
+LDYim 00
+LDAiy 54
+BRK
+
+JSR E09A
+BRK
+
+JSR E084
+BRK
+ORAix A9
+
+STA 8503
+
+LDAim 80
+STX 8503
+ORAzx A9
+
+
+
+STAz 16
+LDAim 80
+BCC 02
+STAz 17
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+
+LDYim 00
+LDAiy 80
+
+BRK
+
+LDYim 00
+LDAiy 80
+
+
+STAz 14
+INY
+LDAiy 80
+
+BRK
+
+LDYim 03
+LDAiy 80
+
+ASLz 99
+
+BRK
+DEY
+BPL F7
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+
+LDYim 02
+LDAiy 54
+BRK
+
+JSR EC74
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR DAC0
+ROR EA88
+RTS
+JSR DAC0
+
+DEY
+RTS
+JSR DAC0
+SEI
+DEY
+RTS
+JSR DAC0
+ADCx EA88
+RTS
+JSR DAC0
+
+DEY
+RTS
+JSR DAC0
+SBCiy 88
+NOP
+RTS
+JSR DB7C
+ASLz A5
+STY 06D0
+JSR DAC0
+
+DEY
+RTS
+JSR DAC0
+LDY EA88
+RTS
+LDAz 8C
+BNE 06
+JSR DAC0
+LDAiy 88
+RTS
+JSR DAC0
+LDYx EA88
+RTS
+LDAz 8C
+BNE 06
+JSR DAC0
+
+DEY
+RTS
+JSR DAC0
+
+DEY
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 8A
+LSRa
+BCS 07
+JSR DAC0
+TYA
+
+NOP
+RTS
+JSR DAC0
+
+
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR DAC0
+
+
+RTS
+JSR DAC0
+
+
+RTS
+JSR DAC0
+EORim 89
+RTS
+JSR DAC0
+SBCix 88
+RTS
+
+
+
+
+
+
+
+
+
+
+
+JSR DAC0
+
+DEY
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR DAC0
+CPX EA88
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORAix A9
+
+
+ORAix A2
+
+STY 8504
+
+STXz 55
+BRK
+ORAix A5
+
+
+ORAix A6
+STAix 8B
+
+STAz 54
+STXz 55
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 8A
+ASLa
+BCC 0D
+ASLa
+BCS 11
+ASLa
+ASLa
+ASLa
+BCS 06
+JSR DA4D
+DEC 608A
+JSR DB7C
+ASLz EA
+RTS
+ASLa
+ASLa
+ASLa
+BCS 06
+JSR DA4D
+
+TXAa
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DECz 89
+DECz 89
+DECz 89
+DECz 89
+CPYim 89
+
+
+CMP C089
+
+
+
+
+
+CPXim 89
+
+
+
+
+
+
+
+
+
+
+SBCim 89
+
+
+ORA EB8A
+
+
+
+
+
+
+
+
+
+ADC 738A
+TXAa
+ADCy 6D8A
+TXAa
+
+TXAa
+BCC 8A
+LDYz 8A
+ORAx 008A
+BRK
+BRK
+LDAim 00
+LDXim 00
+STAz 0F
+STXz 10
+LDAz 8A
+ASLa
+PHP
+ASLa
+PHP
+ASLa
+ASLa
+PLP
+RORa
+PLP
+RORa
+RORa
+RORa
+ANDim 3E
+TAX
+LDAx 8B60
+STA 1A00
+LDAx 8B61
+STA 1A01
+JMPi 1A00
+
+
+BRK
+
+
+
+
+
+
+
+
+
+LDAim 92
+LDXim 09
+BNE CA
+
+LDAz A0
+ANDim 30
+PHA
+BNE 05
+LDAim 48
+JSR D98D
+JSR 8BA3
+JSR D9E4
+
+STAz 18
+PLA
+BNE 05
+LDAim 68
+JSR D98D
+LDXim 0A
+LDAzx A0
+STAzx 8A
+DEX
+BPL F9
+LDAim 01
+BNE 0A
+
+
+
+
+
+
+
+
+LDAim 00
+STAz AB
+LDAz 8A
+ANDim 30
+BNE 11
+JSR 8BA3
+LDAz 8A
+ANDim 07
+LDXz AB
+BEQ 02
+ORAim 08
+JSR DA33
+RTS
+LDAz 8A
+ANDim 36
+CMPim 26
+BEQ 06
+JSR DB7C
+ASLzx EA
+RTS
+JSR 8B24
+LDAim 04
+ORAz AB
+ASLa
+TAX
+LDAz 8A
+ANDim C8
+CMPim 08
+BEQ 01
+INX
+LDAz 8A
+LSRa
+TXAa
+ROLa
+JSR DA33
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CMPz E2
+
+
+CMPiy E2
+
+
+ORA 63E3
+BITz E0
+
+SBCz E2
+SBCim E2
+SBCiy E2
+
+
+SBCx 0DE2
+
+ORAiy E3
+
+
+
+
+
+
+
+
+ANDzx E3
+
+
+LSRa
+
+EORy 62E3
+
+
+INCz 5F
+INCz 5F
+INCz 5F
+INCz 5F
+INCz 0D
+
+LDXzy E6
+LDYim E6
+CLC
+
+CLC
+
+CLC
+
+CLC
+
+CLC
+
+ORA 59E3
+
+STY 15E7
+NOP
+
+NOP
+ROLz EA
+
+NOP
+ANDim EA
+ORA 0DE3
+
+ORA E3E3
+SBCim E3
+SBCim F5
+SBCim F5
+SBCim 09
+CPX E30D
+
+CPX EC57
+INCx 01E3
+CPXz F6
+
+SBC E5E3
+
+ORA 0DE3
+
+ORA 00E3
+SBCiy 0A
+SBCiy 1A
+SBCiy FF
+
+
+
+
+
+
+
+
+
+CPX E6EA
+NOP
+SBC E0E3
+NOP
+
+NOP
+
+
+
+
+
+
+
+SBCiy 6B
+SBCiy 6F
+SBCiy FF
+
+
+
+
+
+
+
+
+
+CPX F5FA
+
+
+
+BITz FB
+EORzx FB
+RORz FB
+CPYim FA
+DECz FA
+
+SBCy F9F2
+ORAz FA
+ORA 0DE3
+
+
+SBCy F9FE
+
+
+LDXz F9
+DEY
+SBCy F9BA
+BCC F9
+CMPiy F9
+ORA FFE3
+
+
+
+EORzx FA
+JSR 69FA
+
+
+
+TXAa
+
+
+
+ROLa
+
+
+
+
+
+
+
+
+
+ROLz FA
+
+
+ASLx 98FA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 8A
+ANDim 36
+BEQ 04
+JSR DB7C
+
+NOP
+NOP
+RTS
+
+
+
+JSR 8E10
+JSR 8BA3
+JSR D9E4
+
+JSR E3B5
+RTS
+JSR 8E10
+JSR 8BA3
+JSR D9E4
+
+JSR E3CA
+RTS
+
+
+
+
+
+
+LDYim 0A
+LDAiy 41
+STAy 008A
+DEY
+BPL F8
+LDAz 8A
+ANDim C0
+BEQ 09
+LDAz 8A
+ANDim 30
+CMPim 10
+BEQ 0D
+RTS
+LDAz 8A
+ANDim F8
+CMPim 10
+BEQ 0A
+CMPim 20
+BEQ 06
+JSR DB7C
+
+NOP
+NOP
+RTS
+
+JSR 9559
+JSR 8E10
+JSR 8BDE
+RTS
+
+
+
+
+
+
+JSR 9559
+JSR 8C10
+RTS
+JSR D9E4
+
+JSR 24D4
+RTS
+JSR 8E10
+JSR 8BA3
+JSR D9E4
+
+JSR E208
+RTS
+
+
+
+
+
+
+LDYim 06
+LDAiy 20
+STAy 008A
+DEY
+BPL F8
+LDAim 01
+LDXim 00
+STAz 93
+STXz 94
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+JSR D9E4
+
+JSR 2466
+RTS
+
+
+
+
+
+
+
+LDAim 00
+STAz B8
+LDXz 3A
+STAz B6
+INX
+STXz B7
+STAz B0
+INX
+STXz B1
+LDAim 40
+STAz AE
+STXz AF
+STAz B2
+STXz B3
+STAz AD
+LDAim FC
+STAz AC
+RTS
+BRK
+LDYz B8
+STAiy B6
+INCz B8
+BEQ 01
+RTS
+JSR DB7C
+BPL FF
+
+
+
+LDYz B8
+BEQ 06
+DECz B8
+DEY
+LDAiy B6
+RTS
+JSR DB7C
+ASLz FF
+
+
+
+LDAz BD
+JSR 8EF2
+LDAz BE
+JSR 8EF2
+LDAz B2
+STAz BD
+LDAz B3
+STAz BE
+LDYim 00
+TYA
+STAiy B2
+INCz B2
+BNE 02
+INCz B3
+RTS
+
+
+
+LDAz BD
+STAz B2
+LDAz BE
+STAz B3
+JSR 8F03
+STAz BE
+JSR 8F03
+STAz BD
+RTS
+
+
+
+LDYim 00
+LDAiy BD
+BEQ 0B
+INY
+INY
+INY
+CPYim FF
+BNE F5
+JSR DB7C
+ORAiy EA
+LDXim 00
+LDAzx BA
+STAiy BD
+INY
+INX
+CPXim 03
+BNE F6
+LDAim 00
+STAiy BD
+CLC
+LDAim 03
+ADCz B2
+STAz B2
+BCC 02
+INCz B3
+LDAz B2
+CMPz B4
+LDAz B3
+SBCz B5
+BCS 01
+RTS
+JSR DB7C
+
+
+
+
+LDYim 00
+LDAiy BD
+BEQ 18
+CMPz BA
+BEQ 05
+INY
+INY
+INY
+BNE F3
+LDAim 10
+STAiy BD
+INY
+LDAiy BD
+STAz BB
+INY
+LDAiy BD
+STAz BC
+RTS
+STAz BA
+RTS
+
+
+
+LDAz AC
+CLC
+ADCim 04
+STAz AC
+CMPz AD
+BEQ 01
+RTS
+JSR DB7C
+
+NOP
+
+
+
+LDYz AC
+LDAz BA
+BEQ 02
+INY
+INY
+LDAz BB
+STAiy B0
+INY
+LDAz BC
+STAiy B0
+RTS
+
+
+
+LDYz AC
+LDAz BA
+BEQ 02
+INY
+INY
+LDAiy B0
+STAz BB
+INY
+LDAiy B0
+STAz BC
+RTS
+
+
+
+SEC
+LDAz AC
+SBCim 04
+STAz AC
+RTS
+
+
+
+
+
+
+STAz BA
+LDAz 12
+LDXz 13
+STAz BB
+STXz BC
+JSR 8F4C
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 41
+JSR 8EF2
+LDAz 42
+JSR 8EF2
+RTS
+JSR 8F03
+STAz 42
+JSR 8F03
+STAz 41
+RTS
+
+
+
+LDYim 00
+LDAiy 41
+ANDim BE
+CMPim A6
+BEQ 04
+JSR DB7C
+
+NOP
+NOP
+JSR 9066
+NOP
+NOP
+NOP
+NOP
+LDYim 02
+LDAiy 41
+STAz 51
+DEY
+LDAiy 41
+STAz 50
+DEY
+LDAiy 41
+ASLa
+BMI 07
+JSR DA4D
+LDAzx 90
+NOP
+RTS
+JSR DA4D
+
+BCC EA
+RTS
+ORAix A9
+
+BVC 01
+LDXim 80
+EORiy 03
+JSR E620
+BRK
+BRK
+ORAix A5
+
+BVC 01
+LDXz 81
+BVC 03
+JSR E620
+BRK
+
+
+
+
+
+
+
+
+
+JSR 90F0
+JSR 8BA3
+LDAz 8A
+ANDim 07
+ORAim 48
+JSR DA33
+RTS
+
+
+
+
+
+
+
+LDAz 8A
+ANDim 3F
+BCC 06
+JSR DB7C
+
+NOP
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 9071
+JSR 90F0
+JSR 8BA3
+LDAz 8A
+ANDim 07
+ORAim 38
+JSR DA33
+LDYim 00
+LDAiy 41
+ANDim 37
+ORAim 08
+STAz 8A
+LDYim 05
+LDAiy 41
+STAz 8F
+INY
+LDAiy 41
+STAz 90
+RTS
+
+
+
+
+
+
+
+
+
+
+LDAz 8A
+ANDim 01
+BNE 08
+JSR D9E4
+
+JSR E471
+RTS
+JSR D9E4
+
+JSR E547
+RTS
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+PHA
+LDAz 12
+JSR 8EF2
+LDAz 13
+JSR 8EF2
+PLA
+JSR D9C9
+STAz 12
+STXz 13
+RTS
+
+
+
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz 09
+PLA
+STAz 08
+LDAz 12
+PHA
+LDAz 13
+PHA
+JSR 8F03
+STAz 13
+JSR 8F03
+STAz 12
+JSR DA58
+PLA
+STAz 13
+PLA
+STAz 12
+RTS
+
+BRK
+BRK
+ORAim 85
+BITz 85
+ROLz 86
+ANDz 86
+
+LDAim 80
+
+ORAix A2
+
+ORAx 8504
+PLP
+STXz 29
+BRK
+
+
+
+
+
+
+
+
+
+
+LDAz 12
+PHA
+LDAz 13
+PHA
+JSR 8F03
+STAz 13
+JSR 8F03
+STAz 12
+LDAim A9
+JSR D98D
+LDAz D4
+SEC
+SBCim 01
+PHP
+JSR D98D
+LDAim A2
+JSR D98D
+LDAz D5
+PLP
+SBCim 00
+JSR D98D
+JSR DA4D
+LDXim 91
+PLA
+STAz 13
+PLA
+STAz 12
+RTS
+
+
+
+
+
+
+
+
+JSR E020
+BRK
+
+JSR E3ED
+BRK
+
+JSR E643
+BRK
+
+JSR E30D
+BRK
+
+JSR E30D
+BRK
+
+
+
+
+
+BRK
+BRK
+
+JSR E30D
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+ORAix 85
+
+
+BRK
+ORAix 8D
+
+
+BRK
+ORAix 85
+STAix 8B
+
+LDAz 14
+STAz 80
+
+BRK
+ORAix 8D
+
+
+
+LDAz 14
+STA 8B82
+BRK
+ORAz A2
+
+LDAzx 14
+STAzx 80
+
+
+DEX
+BPL F9
+BRK
+ORAz A2
+
+LDAzx 14
+STAx 8B82
+
+DEX
+BPL F8
+BRK
+
+LDYim 00
+STAiy 54
+BRK
+
+JSR E0A4
+BRK
+
+JSR E08F
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+
+LDYim 00
+STAiy 80
+
+BRK
+
+LDYim 01
+STAiy 80
+
+
+LDAz 14
+DEY
+STAiy 80
+
+BRK
+ASLz A0
+
+LDAy 0014
+STAiy 80
+
+
+DEY
+BPL F7
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+
+LDYim 02
+STAiy 54
+BRK
+
+JSR EC88
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAz 8A
+ANDim 06
+BEQ 18
+CMPim 02
+BNE 08
+JSR D9E4
+
+JSR E3ED
+RTS
+CMPim 04
+BNE 08
+JSR D9E4
+
+JSR E643
+RTS
+JSR D9E4
+
+JSR E020
+RTS
+
+BRK
+BRK
+LDAim 01
+PHA
+BNE 03
+LDAim 00
+PHA
+NOP
+NOP
+NOP
+LDAz 8A
+ANDim 30
+BNE 0A
+JSR 8BA3
+PLA
+BNE 03
+JSR 934B
+RTS
+PLA
+LDAz 8A
+BMI 01
+RTS
+ANDim 30
+CMPim 20
+BNE 1C
+JSR 8B24
+LDAz 8A
+ANDim 07
+PHA
+ORAim 18
+JSR DA33
+PLA
+CMPim 06
+BMI 01
+RTS
+JSR 97E9
+JSR DA4D
+
+
+RTS
+CMPim 10
+BNE 04
+JSR DB7C
+
+NOP
+NOP
+JSR 8B24
+LDAz 8A
+ANDim 08
+BEQ 04
+JSR DB7C
+ASLz EA
+LDXim 0A
+LDAzx 8A
+STAzx A0
+DEX
+BPL F9
+JSR 8557
+JSR DA4D
+CPX EA93
+RTS
+
+
+
+
+
+
+
+
+BRK
+BRK
+
+JSR E65F
+
+
+
+NOP
+NOP
+BRK
+
+
+
+
+
+
+LDAz 8A
+CMPim 04
+BCS 23
+LDAz A0
+ANDim 07
+CMPim 06
+BCS 1B
+CMPz 8A
+BCC 17
+BEQ 15
+STAz 50
+LDAz 8A
+ASLa
+ASLa
+ASLa
+ORAz 50
+JSR 99E8
+RTS
+
+
+
+
+
+
+
+
+JSR DB7C
+
+
+
+
+LDXim 0A
+LDAzx A0
+STAzx 8A
+DEX
+BPL F9
+RTS
+
+BRK
+BRK
+JSR 942C
+JSR 8B24
+LDAz A0
+ANDim 27
+JSR DA33
+LDAz A0
+ANDim 06
+CMPim 06
+BEQ 03
+JMP 9524
+JMP 9535
+
+LDAz 8A
+EORz A0
+ANDim 07
+BEQ 06
+JSR 93FC
+NOP
+NOP
+NOP
+LDAz A0
+ANDim 30
+BNE 29
+LDAz 8A
+ANDim 30
+BEQ 06
+JSR DB7C
+
+NOP
+NOP
+JSR 942C
+JSR 8BD7
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+CMPim 20
+BNE 2E
+LDAz 8A
+ANDim 30
+CMPim 20
+BEQ 1C
+ASLa
+BNE 10
+LDAz 8A
+ANDim 07
+CMPim 06
+BMI 08
+LDAz A5
+BNE 0A
+LDAz A6
+BNE 06
+JSR DB7C
+
+NOP
+NOP
+JSR 94E0
+JSR 9665
+JSR 9439
+RTS
+BRK
+BRK
+BRK
+CMPim 30
+BEQ 05
+JSR DB7C
+ASLz EA
+JSR 9657
+JSR 9501
+RTS
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR D9E4
+
+JSR E7C9
+LDAz 8A
+ORAim 28
+STAz 8A
+LDAz 8A
+ORAim 28
+STAz 8A
+LDXim 01
+STXz 8F
+DEX
+STXz 90
+RTS
+
+
+
+
+BRK
+BRK
+JSR 942C
+JSR 8B24
+JSR 8557
+JSR DA4D
+
+STAzx EA
+NOP
+RTS
+BRK
+BRK
+
+JSR E718
+
+
+
+NOP
+NOP
+BRK
+
+
+
+
+
+
+JSR 8557
+JSR DA4D
+
+STAzx EA
+RTS
+
+
+
+
+NOP
+NOP
+BRK
+JSR DA4D
+ORAx EA95
+RTS
+
+
+LDAz 02
+NOP
+NOP
+BRK
+
+
+
+
+LDAz 8A
+ANDim 37
+TAX
+LDAz 8A
+ANDim 30
+BEQ 04
+TXAa
+ORAim 08
+TAX
+STXz 8A
+RTS
+LDXim 00
+JSR 8F03
+STAzx A0
+INX
+CPXim 0B
+BNE F6
+RTS
+
+
+
+LDXim 0A
+LDAzx 8A
+JSR 8EF2
+DEX
+BPL F8
+RTS
+LDXim 00
+JSR 8F03
+STAzx 8A
+INX
+CPXim 0B
+BNE F6
+RTS
+LDXim 0A
+LDAzx A0
+JSR 8EF2
+DEX
+BPL F8
+RTS
+
+
+
+
+
+JSR 9569
+JSR D9E4
+
+JSR E7DD
+RTS
+
+
+
+JSR 9379
+JSR 9559
+LDAz 8A
+EORz A0
+ANDim 07
+BNE 06
+LDAz 8A
+ANDim 10
+BEQ 04
+JSR DB7C
+
+NOP
+NOP
+JSR D9E4
+
+JSR E7F3
+NOP
+NOP
+NOP
+LDAz 8A
+ANDim 30
+BNE 16
+LDAz 8A
+ANDim 01
+BNE 08
+JSR D9E4
+
+JSR E841
+RTS
+JSR D9E4
+
+JSR E952
+RTS
+LDAz 8A
+ANDim 01
+BNE 08
+JSR D9E4
+
+JSR E87A
+RTS
+JSR D9E4
+
+JSR E95B
+RTS
+
+
+
+LDYim 00
+LDAiy 41
+ANDim C0
+BNE 08
+LDAiy 41
+ANDim 38
+CMPim 20
+BNE 08
+LDAiy 41
+ANDim 30
+CMPim 10
+BNE 04
+JSR DB7C
+
+NOP
+NOP
+JSR 8E42
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 9374
+JSR 9547
+JSR 96CD
+JSR 9455
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 8A
+CMPz A0
+BNE 30
+LDAz 8A
+ANDim 30
+CMPim 30
+BEQ 05
+CMPim 20
+BEQ 0F
+RTS
+LDAz 93
+CMPz A9
+BNE 1D
+LDAz 94
+CMPz AA
+BNE 17
+BEQ 08
+LDAz 8A
+ANDim 07
+CMPim 06
+BPL 13
+NOP
+LDAz 8F
+CMPz A5
+BNE 06
+LDAz 90
+CMPz A6
+BEQ 04
+JSR DB7C
+
+NOP
+NOP
+RTS
+
+
+
+
+
+
+JSR 9569
+LDAz 8A
+ANDim 08
+BEQ 06
+LDAz 8A
+ANDim C0
+BNE 01
+RTS
+LDAz 8A
+ANDim 30
+BNE 1A
+LDAz 8A
+ANDim 07
+CMPim 07
+BNE 08
+JSR D9E4
+
+JSR EAA7
+RTS
+NOP
+NOP
+JSR D9E4
+
+JSR EAAE
+RTS
+JSR D9E4
+
+JSR EA91
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 9559
+LDAz A0
+ANDim 08
+BEQ 06
+LDAz A0
+ANDim C0
+BNE 01
+RTS
+LDAz A0
+ANDim 30
+BNE 1D
+LDAz A0
+ANDim 07
+CMPim 07
+BNE 08
+JSR D9E4
+
+JSR EAC5
+RTS
+NOP
+NOP
+JSR D9E4
+
+JSR EAB6
+RTS
+
+
+
+JSR D9E4
+
+JSR EA7C
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 8A
+ANDim 20
+BNE 04
+JSR DB7C
+
+NOP
+JSR 9569
+RTS
+
+
+
+LDAz 8A
+ANDim 37
+CMPim 06
+BMI 04
+JSR DB7C
+
+NOP
+NOP
+PHA
+JSR 8BA3
+PLA
+ORAim 28
+JSR DA33
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STA EA02
+NOP
+BRK
+
+JSR EBB5
+
+
+
+STAiy 00
+
+
+BRK
+BRK
+LDAz 8A
+ANDim 07
+CMPim 07
+BEQ 53
+CMPim 06
+BEQ 3A
+CMPim 04
+BPL 1E
+CMPim 02
+BPL 08
+JSR DA4D
+CMPy EA97
+RTS
+
+LDAz 8F
+ASLa
+PHP
+JSR D98D
+LDAz 90
+PLP
+ROLa
+JSR D98D
+RTS
+
+
+
+LDAz 8F
+ASLa
+PHP
+ASLa
+PHP
+JSR D98D
+LDAz 90
+ASLa
+PLP
+RORa
+PLP
+ROLa
+ROLa
+JSR D98D
+RTS
+
+
+
+LDAz 8F
+CLC
+ADCim 02
+PHP
+JSR D98D
+PLP
+LDAz 90
+ADCim 00
+JSR D98D
+RTS
+
+
+
+LDAz 8F
+PHA
+CLC
+ADCim 17
+STAz 8F
+LDAz 90
+ADCim 00
+LSRa
+RORz 8F
+LSRa
+RORz 8F
+LSRa
+RORz 8F
+PHA
+LDAz 8F
+JSR D98D
+PLA
+JSR D98D
+PLA
+STAz 8F
+RTS
+BRK
+LDAz 8A
+ANDim 07
+ORAim 30
+JSR DA33
+JSR DA4D
+INY
+
+NOP
+LDAz 8A
+ANDim 07
+ORAim C8
+STAz 8A
+LDAim 54
+LDXim 00
+STAz 8B
+STXz 8C
+RTS
+JSR 9574
+JSR 8B24
+LDAz 8A
+ANDim 10
+BNE 04
+JSR 985C
+RTS
+JSR DA4D
+BNE 97
+JSR 97DD
+JSR D9E4
+
+NOP
+NOP
+NOP
+NOP
+LDAz 8A
+ANDim 27
+JMP 986F
+
+
+
+
+
+JSR 9728
+JSR D9E4
+
+JSR EAB6
+JSR 9574
+JSR 985C
+RTS
+
+
+
+JSR 9574
+LDAz 8A
+ANDim 10
+BNE 04
+JSR DB7C
+
+NOP
+JSR 987F
+JSR D9E4
+
+JSR EAAE
+JSR 9569
+RTS
+
+
+
+
+
+
+
+
+
+LDAz 8A
+ANDim 07
+CMPim 05
+BCS 17
+RTS
+LDAz 8A
+ANDim 07
+CMPim 05
+BCS 0E
+LSRa
+BCS 0B
+JSR 9374
+JSR 9547
+JMP 9906
+
+
+JSR DB7C
+
+BRK
+BRK
+LDAz 8A
+ANDim 26
+LSRa
+ORAim 40
+JSR DA33
+JSR 99A7
+RTS
+
+LDAz 8A
+ANDim 30
+BEQ 2A
+CMPim 20
+BNE DF
+LDAz 8A
+ANDim 06
+CMPim 06
+BNE D9
+BEQ 1C
+LDAz 8A
+ANDim 07
+CMPim 06
+BCC 14
+BCS CD
+LDAz 8A
+ANDim 07
+CMPim 07
+BEQ 0A
+BNE C3
+LDAz 8A
+ANDim 07
+CMPim 06
+BNE BB
+JSR 9379
+JSR 9547
+JSR 9569
+LDAz 5A
+JSR 8EF2
+LDAz 8A
+ANDim 20
+BEQ 07
+JSR D9E4
+
+JSR F7D0
+RTS
+
+
+
+JSR 9374
+JSR 9547
+JSR 8F03
+STAz 51
+JSR 9559
+JSR 9644
+RTS
+
+
+
+
+
+
+JSR 9964
+LDAz 8A
+ANDim 07
+STAz 50
+LDAz 51
+CMPim 6F
+BNE 01
+LSRa
+SEC
+SBCim 07
+ANDim 0E
+STAz 51
+ASLa
+ADCz 50
+PHA
+LDAz 8A
+ASLa
+ASLa
+ASLa
+PLA
+ROLa
+CLC
+ADCz 51
+CLC
+ADCim 48
+JSR 99E8
+LDAz 8A
+ANDim 30
+BEQ 14
+CMPim 20
+BNE 08
+JSR DA4D
+CPYz 99
+NOP
+NOP
+RTS
+JSR 9CB0
+JSR DA4D
+DEX
+STAy EAEA
+RTS
+
+LDAz 02
+NOP
+NOP
+BRK
+
+
+
+NOP
+NOP
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR DB7C
+
+BRK
+BRK
+ASLa
+TAX
+LDAim 20
+JSR D98D
+LDAx 9A00
+JSR D98D
+LDAx 9A01
+BEQ E8
+JSR D98D
+RTS
+
+
+SBC EBED
+CPX ED3E
+ANDzx ED
+ADCim ED
+ROL B6EE
+SBC EDD2
+SBCim EC
+SBC 38ED
+SBC ED38
+BCS ED
+PLP
+INC EDB9
+CMPzx ED
+
+CPX ECF9
+
+SBC ECEB
+
+SBC EE22
+BCS ED
+CPY F4ED
+CPX ED05
+SBCim EC
+
+SBC ED84
+
+INC EDAA
+DECz ED
+PHP
+SBC ED27
+EORz ED
+EORx 05ED
+INC EE16
+LDYz ED
+CPYim ED
+ORAix 00
+ORAix 00
+ORAix 00
+ORAix 00
+ORAix 00
+ORAix 00
+BRK
+BRK
+BRK
+BRK
+STA 8DED
+SBC ED97
+
+SBC ED9C
+CMPim E7
+SBC 00ED
+BRK
+ORAix 00
+ORAix 00
+SEC
+SBC ED38
+BCS ED
+BRK
+BRK
+BRK
+BRK
+CMPim E7
+ORAix 00
+ORAix 00
+ORAix 00
+ORAix 00
+ORAix 00
+ORAix 00
+
+SBC 0000
+CLD
+SBCzx 6D
+SED
+SBCim F5
+SBCiy F8
+
+SBCzx 75
+SED
+
+INCzx 79
+SED
+ASL 7DF6
+SED
+ORAix F4
+LDYz F8
+JSR ABF4
+SED
+
+
+
+SED
+EOR B3F4
+SED
+
+
+
+SED
+
+SBCiy 25
+SED
+
+SBCiy 29
+SED
+
+
+
+SED
+ASLz F2
+ROLzx F8
+ASLx 3FF2
+SED
+
+
+EORim F8
+ASLx 4DF2
+SED
+EOR 56F2
+SED
+EORiy F2
+
+SED
+ADCim F2
+
+SED
+
+INCzx 87
+SED
+ROLzx F6
+
+SED
+
+INCzx 8F
+SED
+
+INCzx 96
+SED
+RORa
+INCzx 9A
+SED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 9964
+LDAz 8A
+ANDim 20
+BNE 14
+LDAz 8A
+ANDim 07
+CMPim 06
+BCC 02
+LDAim 01
+CLC
+BCC 0B
+
+
+
+
+
+
+
+LDAz 8A
+ANDim 07
+ORAim 68
+JSR DA33
+NOP
+NOP
+LDXz 51
+INX
+TXAa
+ANDim 07
+NOP
+ORAim 60
+JSR DA33
+LDAim 07
+STAz 8A
+RTS
+
+
+BRK
+BRK
+LDAz 50
+ASLa
+ASLa
+ASLa
+ORAz 5A
+TAX
+JSR 99E8
+RTS
+
+BRK
+BRK
+LDAz 8A
+ANDim 30
+BNE 07
+LDAz 8A
+ANDim 07
+STAz 50
+RTS
+CMPim 30
+BEQ 14
+LDAz 8A
+ANDim 07
+CMPim 06
+BCC 0C
+BNE 04
+LDAim 05
+BNE 02
+LDAim 08
+STAz 50
+RTS
+
+JSR DB7C
+
+BRK
+BRK
+
+BRK
+BRK
+LDAz 5A
+JSR 8EF2
+RTS
+
+BRK
+BRK
+JSR 8F03
+SEC
+SBCim 4A
+STAz 5A
+JSR 9B54
+CMPz 5A
+BNE 01
+RTS
+CMPim 07
+BNE 07
+LDAz 5A
+CMPim 02
+BCS 01
+RTS
+JSR 9374
+NOP
+NOP
+NOP
+JSR 9B45
+LDAz 5A
+STAz 8A
+RTS
+
+
+JSR 9B54
+CMPim 05
+BNE 01
+RTS
+JSR 9374
+NOP
+NOP
+NOP
+LDAim 05
+STAz 5A
+JSR 9B45
+LDAz 50
+CMPim 08
+BEQ 12
+LSRa
+ANDim 03
+TAX
+LDAx 9C02
+LDXim 00
+LDYim 2E
+STAz 8F
+STXz 90
+STYz 8A
+RTS
+LDAz 8F
+CLC
+ADCim 07
+BCC 02
+INCz 90
+LSRz 90
+RORa
+LSRz 90
+RORa
+LSRz 90
+RORa
+STAz 8F
+LDAim 2E
+STAz 8A
+RTS
+
+
+
+
+
+
+
+ORAz 0B
+ORAix 00
+PHP
+PHP
+BPL 10
+JSR 0820
+ORAix 00
+
+
+
+JSR 9B54
+CMPim 08
+BNE 01
+RTS
+JSR 9374
+NOP
+NOP
+NOP
+LDAz 50
+STAz 5A
+JSR 9B45
+LDAz 50
+CMPim 05
+BNE 11
+LDAim 2F
+STAz 8A
+ASLz 8F
+ROLz 90
+ASLz 8F
+ROLz 90
+ASLz 8F
+ROLz 90
+RTS
+LDAz 8A
+ANDim 07
+TAX
+LDAx 9C07
+LDXim 00
+LDYim 2F
+JMP 9BDC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz A5
+LDXz A6
+STAz 14
+STXz 15
+LDAz A9
+LDXz AA
+STAz 18
+STXz 19
+JSR E38B
+RTS
+
+
+
+
+
+
+
+
+
+LDYim 00
+LDAiy 54
+ANDim E0
+CMPim A0
+BEQ 01
+RTS
+LDAz 50
+BNE 09
+INCz 50
+JSR D9E4
+
+JSR F8D0
+LDYim 0D
+LDAiy 54
+STAy 00A0
+DEY
+BPL F8
+LDAz A0
+ANDim 06
+CMPim 06
+BEQ 12
+JSR 8557
+JSR DA4D
+
+STAx EAEA
+RTS
+ORAix 20
+
+LDAix 82
+ASLx A500
+LDYim 29
+
+JSR D98D
+JSR DA4D
+ANDiy 9D
+NOP
+NOP
+LDAz A0
+ANDim 10
+BEQ 07
+JSR DA4D
+ROLzx 9D
+NOP
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAix 82
+LDAz 00
+
+LDAim 00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 9559
+JSR 9581
+LDAz 8A
+EORz A0
+ANDim 37
+BEQ 04
+JSR DB7C
+
+NOP
+NOP
+JSR 9379
+RTS
+
+
+
+JSR 9D48
+LDAim 01
+JSR 8EF2
+RTS
+
+
+
+LDAim 00
+JSR 8EF2
+RTS
+
+
+
+JSR 8F03
+STAz 50
+JSR 9D48
+LDXim 0A
+LDAzx A0
+STAzx 8A
+DEX
+BPL F9
+JSR 8BA3
+LDAim 01
+JSR 8FFB
+JSR 9DD9
+JSR D9E4
+
+BCC 03
+JMP EAEA
+LDAim 02
+JSR 8FFB
+JSR D9E4
+
+BRK
+BRK
+LDAz 50
+JSR 8EF2
+LDAim 01
+JSR 8EF2
+RTS
+
+
+
+
+
+
+
+
+
+LDAz 8A
+ANDim 07
+LDXz 50
+BEQ 09
+CLC
+ADCim 05
+LDXz 51
+BEQ 02
+ADCim 05
+ORAim 70
+JSR DA33
+RTS
+
+
+
+
+
+
+LDAz 8A
+ANDim 07
+LSRa
+BCS 05
+ASLa
+ORAz 50
+BPL 02
+ORAim 06
+ORAim 58
+JSR DA33
+RTS
+
+
+
+LDAz 8A
+ANDim 37
+CMPim 07
+BEQ 04
+JSR DB7C
+
+NOP
+NOP
+JSR 8BA3
+JSR D9E4
+
+BEQ 03
+JMP EAEA
+LDAim 02
+JSR 8FFB
+JSR D9E4
+
+BRK
+BRK
+RTS
+
+
+
+LDAz 8A
+ANDim 37
+CMPim 07
+BEQ 04
+JSR DB7C
+
+NOP
+NOP
+JSR 8BA3
+JSR D9E4
+
+BNE 03
+JMP EAEA
+JMP 9E0A
+
+
+
+
+
+
+JSR 8E42
+LDAz 8A
+ANDim 37
+CMPim 05
+BCC 04
+JSR DB7C
+
+NOP
+NOP
+JSR 8F15
+JSR 9569
+RTS
+
+
+
+LDAz 8A
+ANDim 37
+CMPim 05
+BCC 04
+JSR DB7C
+
+NOP
+NOP
+JSR 8BA3
+JSR 9559
+JSR 9455
+JSR 9581
+RTS
+
+
+
+LDAz 8A
+ANDim 07
+CMPim 02
+BCC 1A
+CMPim 04
+BCC 08
+BEQ 14
+JSR DB7C
+
+NOP
+NOP
+LDAim 48
+JSR D98D
+JSR 8BD7
+LDAim 68
+JSR D98D
+RTS
+JSR 8BD7
+RTS
+
+
+
+JSR 8F03
+STAz 51
+JSR 8F03
+STAz 50
+JSR 9574
+JSR 8BA3
+JSR 9DBC
+JSR 9E75
+JSR 9EE0
+LDAz 50
+BEQ 03
+JSR 9EC2
+LDAz 51
+BEQ 0B
+LDAz 8A
+ANDim 07
+ORAim 08
+STAz 8A
+JSR 8BA3
+RTS
+
+
+
+
+
+
+JSR 8F15
+LDAim 01
+JSR 8FFB
+RTS
+
+
+
+LDAim 01
+STAz BA
+JSR 8F8B
+LDAz BA
+BNE 04
+JSR DB7C
+ASLz EA
+JSR DA4D
+ORAzx 9F
+NOP
+NOP
+INCz BA
+JSR 8F8B
+LDAz BA
+BEQ 0E
+LDYim 00
+LDAz 12
+STAiy BB
+LDAz 13
+INY
+STAiy BB
+CLC
+BCC EB
+JSR 8F36
+RTS
+
+
+
+ORAix 4C
+
+
+BRK
+
+
+
+LDAim 00
+JSR 8EF2
+LDAim 01
+JSR 8FFB
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOP
+NOP
+NOP
+LDAim 01
+STA FFF8
+STA FFF9
+LDAim 00
+LDXim 50
+STAz CA
+STXz CB
+STAz CE
+STXz CF
+LDAim FF
+LDXim 61
+STAz CC
+STXz CD
+JSR 3E40
+LDAim 00
+LDXim AA
+STAz CA
+STXz CB
+STAz CE
+STXz CF
+LDAim FF
+LDXim B7
+STAz CC
+STXz CD
+JSR 3E40
+LDAim 00
+STA FFF9
+STA FFFA
+LDAim 01
+STA 1A08
+CLI
+JMP AD22
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDXim 00
+LDYim 07
+BIT 1600
+BPL FB
+BVC 17
+LDA 1601
+STAx 036A
+INX
+DEY
+BNE EF
+BIT 1600
+BPL FB
+BVC 06
+LDA 1601
+CLC
+BCC F3
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CPXim 07
+BEQ 16
+CPXim 02
+BEQ 56
+CPXim 01
+BEQ 37
+JMP AB41
+
+
+
+
+
+
+
+
+
+
+
+LDXim 00
+STXz EA
+JSR 24CE
+LDXz EA
+LDAx 036A
+JSR 24EF
+LDXz EA
+INX
+CPXim 07
+BNE EC
+JSR 24C9
+LDA 1600
+JSR 24EF
+JSR 24C9
+JSR ADDD
+RTS
+
+
+
+JSR 24CE
+LDA 036A
+JSR 24EF
+JMP AB41
+
+
+
+
+
+
+JMP AB66
+
+
+
+
+
+
+NOP
+JSR 24CE
+LDA 036A
+JSR 24EF
+JSR 24CE
+LDA 036B
+JSR 24EF
+JMP AB41
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RTS
+
+
+
+
+LDAim 07
+JSR 24EF
+LDAim 07
+JSR AC69
+LDA 0369
+JSR AC69
+JSR AC1B
+DEX
+BEQ FA
+INX
+TAY
+LDA 036A
+ANDim 20
+BEQ F1
+TYA
+RTS
+LDAim 07
+JSR 24EF
+JSR AB9E
+JSR AB9E
+RTS
+
+
+
+
+
+
+LDAim 03
+JSR 24EF
+LDAim 03
+JSR AC69
+LDA 0378
+JSR AC69
+LDA 0379
+JSR AC69
+LDXim FF
+RTS
+
+
+
+
+
+
+LDAim 04
+JSR 24EF
+LDAim 04
+JSR AC69
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR AC69
+LDXim 00
+BIT 1600
+BPL FB
+BVC 07
+LDA 1601
+STA 036A
+INX
+RTS
+LDAim 08
+JSR 24EF
+LDAim 3A
+JSR 2463
+LDAim 08
+JSR AC69
+LDXim 00
+BIT 1600
+BPL FB
+BVC 12
+LDA 1601
+STA 036A
+INX
+BIT 1600
+BPL FB
+BVC 04
+LDA 1601
+INX
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOP
+NOP
+BIT 1600
+BPL FB
+STA 1601
+RTS
+
+
+
+LDAim 0D
+JSR 24EF
+LDAim 3A
+JSR 2463
+LDAim 0D
+ORA 0368
+JSR AC69
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR AC69
+LDA 0370
+JSR AC69
+LDXim 74
+LDYim 03
+JSR AD00
+NOP
+NOP
+NOP
+LDAim 01
+STA 036F
+LDXim 6D
+LDYim 04
+LDAim 20
+BIT 1600
+BPL FB
+BEQ 09
+JSR AD00
+INC 036F
+JMP ACA9
+LDX 036F
+DEX
+CPX 0374
+BEQ 02
+INCz EE
+LDXim 00
+LDYim 03
+JSR AAE1
+LDXim 07
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAx 0300
+BIT 1600
+BPL FB
+STA 1601
+INX
+DEY
+BNE F1
+RTS
+
+
+
+PHA
+TXAa
+PHA
+LDAz EE
+ORAim 5E
+JSR 2463
+PLA
+TAX
+PLA
+RTS
+
+JSR 2466
+NOP
+NOP
+JSR AD13
+JSR AB11
+JSR 24D4
+JSR 2460
+PHA
+JSR 2463
+PLA
+CMPim 3A
+BCC 03
+SEC
+SBCim 07
+ANDim 0F
+ASLa
+TAX
+LDAx AD60
+STA 1A00
+LDAx AD61
+STA 1A01
+JSR AD55
+JMP AD25
+LDAim 00
+STAz EE
+JMPi 1A00
+
+
+
+
+CPXim B2
+
+
+PLA
+LDYz 34
+EORy B52F
+
+LDAzx 5B
+LDAzx 8C
+LDAzx 2D
+
+ROLa
+LDYz 6F
+EORiy 77
+
+STAy 88B4
+
+
+EORzx BB
+LDAiy FF
+
+
+
+
+
+
+
+LDA 037A
+LDX 037B
+STAz EA
+STXz EB
+LDAim 00
+STAz EC
+STAz ED
+LDAim 06
+JSR 24EF
+LDAim 3A
+JSR 2463
+JSR 24CE
+LDAim 06
+JSR AEBB
+JMP ADBF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOP
+JSR AF16
+JSR 24C9
+LDAz ED
+JSR 24EF
+LDAz EC
+JSR 24EF
+LDAim 21
+JSR 2463
+JSR AADD
+RTS
+
+
+
+
+JSR 24C9
+JSR 24C9
+LDAz ED
+JSR 24EF
+LDAz EC
+JSR 24EF
+LDAim 21
+JSR 2463
+JSR 24C9
+RTS
+
+
+
+
+
+
+
+
+
+
+LDAim 05
+JSR 24EF
+LDAim 3A
+JSR 2463
+JSR 24CE
+LDXim 03
+LDAx 037A
+STAzx EA
+DEX
+BPL F8
+LDAim 00
+STAz EC
+STAz ED
+LDAim 05
+JSR AEBB
+JSR AE3D
+JMP ADC3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 20
+LDYim 00
+BIT 1600
+BPL FB
+BEQ 18
+BCS 16
+LDAiy EA
+STA 1601
+INY
+BEQ 12
+LDAim 20
+BIT 1600
+BPL FB
+BNE EF
+STYz EC
+NOP
+RTS
+
+INCz EE
+RTS
+
+INCz ED
+INCz EB
+JMP AE52
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORA 0368
+JSR AC69
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR AC69
+LDXim 6D
+LDYim 07
+JSR AD00
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 00
+STAz EC
+STAz ED
+RTS
+
+
+
+
+LDAim 02
+JSR 24EF
+LDAim 3A
+JSR 2463
+JSR 24CE
+LDXim 03
+LDAx 037A
+STAzx EA
+DEX
+BPL F8
+JSR AEE3
+LDA 0374
+STA 0371
+LDAim 02
+JSR AEBB
+RTS
+
+
+LDAim 20
+LDYim 00
+BIT 1600
+BPL FB
+BEQ 21
+BVC 1F
+LDA 1601
+STAiy EA
+INY
+BEQ 1A
+LDAim 20
+BIT 1600
+BPL FB
+BNE EF
+STYz EC
+RTS
+
+
+
+
+
+
+
+
+
+
+
+INCz EE
+RTS
+INCz ED
+INCz EB
+JMP AF2B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR AEEE
+JSR AF16
+JSR 24C9
+LDAz ED
+JSR 24EF
+LDAz EC
+JSR 24EF
+LDAim 21
+JSR 2463
+JSR 24C9
+JSR AADD
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2466
+LDA 037A
+LDX 037B
+STAz EA
+STXz EB
+JSR 24C9
+LDAz ED
+JSR 24EF
+LDAz EC
+JSR 24EF
+JSR 24D4
+LDAim 00
+STAz 07
+LDAz EB
+STAz 09
+LDAz 07
+JSR 24EF
+LDAim 3A
+JSR 2463
+JSR 24CE
+LDYim 00
+STYz 08
+JSR B055
+INCz 08
+LDYz 08
+CPYim 10
+BNE F5
+JSR 24CE
+LDYim F8
+STYz 08
+JSR B055
+INCz 08
+LDYz 08
+BNE F7
+JSR 24D4
+INCz 07
+INCz 09
+LDAz 07
+CMPz ED
+BNE C7
+LDAim 2A
+JSR 2463
+RTS
+
+
+
+JSR 2466
+JSR 5154
+JSR AB11
+JSR 24D4
+JSR AFBE
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDYim 00
+LDAiy 08
+CMPim 40
+BNE 10
+JSR 24CE
+LDAim 2E
+JSR 2463
+JSR 24CE
+RTS
+
+
+
+
+JSR 24EF
+JSR 24CE
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 0A
+JSR 24EF
+LDAim 0A
+ORA 0368
+JSR AC69
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR AC69
+JSR AADD
+RTS
+
+
+
+
+
+
+LDAim 0F
+JSR 24EF
+LDAim 2E
+JSR 2463
+LDAim 0F
+JSR AC69
+LDA 036E
+ASLa
+ASLa
+ORA 0369
+JSR AC69
+LDA 036D
+JSR AC69
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+
+
+JSR 2138
+
+LSRz 6F
+
+ADC 7461
+JSR EAEA
+JSR ABF0
+BIT 1600
+BPL FB
+LDA 1601
+ANDim E0
+CMPim 20
+BEQ 03
+INCz EE
+RTS
+JSR ABBA
+LDAim 00
+STA 036D
+JSR B1FA
+LDAim 00
+STA 036E
+JSR AC81
+JSR B158
+INC 036E
+JSR AC81
+JSR B158
+INC 036D
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+LDX 036D
+NOP
+CPX 0377
+BNE D7
+JSR ABBA
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDA 036A
+ANDim C0
+BEQ 07
+JSR AB2B
+INCz EE
+PLA
+PLA
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR B0B4
+LDAim 20
+BIT 1600
+BNE FB
+LDAim 08
+JSR AC69
+BIT 1600
+BPL FB
+BVC 09
+LDA 1601
+JSR 24EF
+CLC
+BCC F0
+JSR 24CE
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2138
+ORAz 53
+ADCz 65
+
+JSR EAEA
+JSR 2460
+CMPim 3A
+BCC 02
+SBCim 07
+ANDim 0F
+ASLa
+ASLa
+ASLa
+ASLa
+STAz EA
+JSR 2460
+CMPim 3A
+BCC 02
+SBCim 07
+ANDim 0F
+ORAz EA
+STA 036D
+JSR 24EF
+JSR 2460
+ANDim 01
+STA 036E
+JSR 24E2
+LDAim 3A
+JSR 2463
+JMP 524D
+JSR AC1B
+DEX
+BEQ FA
+INX
+TAY
+LDA 036A
+ANDim 20
+BEQ F1
+TYA
+RTS
+
+
+
+
+
+
+
+
+
+
+RTI
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+ORAix 01
+BPL 20
+
+BPL 32
+RTI
+BVC EF
+
+BRK
+BCC 00
+BPL FF
+
+
+
+
+LDXim 15
+LDAx B218
+STAx 0368
+DEX
+BPL F7
+RTS
+
+
+
+
+
+LDAim 01
+BNE 02
+LDAim 00
+STA 1620
+LDAim 4D
+JSR 2463
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2460
+CMPim 3A
+BCC 02
+SBCim 07
+ANDim 0F
+RTS
+JSR B260
+ASLa
+ASLa
+ASLa
+ASLa
+STAz EA
+JSR B260
+ORAz EA
+STAz EA
+JSR 24EF
+LDAz EA
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR B26C
+LDXim 00
+STX 037A
+STA 037B
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 01
+BNE 02
+LDAim 00
+STA 0363
+JSR 24CE
+JSR B260
+STA 032B
+JSR 24E2
+JSR B26C
+STA 032A
+JSR 53D6
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR B260
+ANDim 07
+STA 0323
+JSR 2466
+JSR 24C9
+LDA 0323
+JSR 24E2
+JSR 24C9
+LDY 0323
+JSR 560D
+LDAz EB
+JSR 24EF
+LDAz EA
+JSR 24EF
+JSR 24C9
+LDA 0323
+ASLa
+TAX
+PHA
+LDAx 034F
+PHA
+ASLa
+LDAim 18
+ROLa
+JSR 2463
+JSR 24CE
+PLA
+ANDim 7F
+JSR 24EF
+PLA
+TAX
+LDAx 034E
+JSR 24EF
+JSR 24C9
+LDA 0332
+JSR 24E2
+JSR 24CE
+JSR 560A
+JSR 5CA1
+PHA
+LDYim 00
+LDAiy EA
+STAy A900
+INY
+BNE F8
+PLA
+STA FFF8
+STA 1A08
+JSR B36F
+JSR 24D4
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 00
+LDXim A9
+STAz EA
+STXz EB
+LDAim FF
+STAz EC
+JSR 24D4
+INCz EC
+JSR 24D4
+LDAz EC
+JSR 24E2
+LDAim 3A
+JSR 2463
+JSR 24C9
+LDYim 00
+LDAiy EA
+JSR 24EF
+JSR 24CE
+INCz EA
+LDAz EA
+NOP
+NOP
+ANDim 0F
+BEQ 1A
+ANDim 07
+BNE E8
+JSR 24CE
+CLC
+BCC E2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 24C9
+JSR 24C9
+SEC
+LDAz EA
+SBCim 10
+STAz EA
+NOP
+NOP
+NOP
+NOP
+LDYim 00
+LDAiy EA
+CMPim 20
+BCS 02
+LDAim 2E
+JSR 2463
+INCz EA
+LDAz EA
+BEQ 0E
+ANDim 0F
+BEQ 98
+ANDim 07
+BNE 03
+JSR 24CE
+CLC
+BCC DF
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2138
+PHP
+JSR 7473
+ADCix 74
+ADCzx 73
+JSR EAEA
+JSR B260
+ANDim 07
+STA 0323
+PHA
+JSR 24E2
+JSR B26C
+TAY
+PLA
+ASLa
+PHA
+TAX
+TYA
+STAx 034F
+JSR B26C
+TAY
+PLA
+TAX
+TYA
+STAx 034E
+JSR 24CE
+LDXim 01
+RTS
+
+
+
+
+
+
+
+
+JSR 2138
+ASLz 20
+PLA
+
+JMPi EA20
+NOP
+JSR B260
+ANDim 07
+STA 0323
+JSR 24E2
+JSR 24CE
+JSR B260
+ANDim 0F
+STA 0319
+JSR B26C
+STA 0318
+JSR 556B
+LDXim 07
+RTS
+
+
+
+
+JSR 2138
+ORAim 20
+ROR 7765
+RORz 69
+JMPi 2065
+NOP
+NOP
+LDXim 00
+STXz EA
+JSR 2460
+PHA
+JSR 2463
+PLA
+CMPim 80
+BCS 10
+CMPim 20
+BCC 0C
+LDXz EA
+STAx 02D8
+INX
+CPXim 20
+BCC E4
+BCS 04
+LDXz EA
+BEQ 0D
+LDAim 20
+STAx 02D8
+INX
+CPXim 20
+BCC F8
+NOP
+NOP
+NOP
+JSR 5BFE
+LDYim 02
+JSR 560D
+JSR 5CA1
+PHA
+LDYim 00
+LDAiy EA
+TAX
+PLA
+STA 1A08
+STA FFF8
+TXAa
+JSR 2463
+INCz EA
+LDYz EA
+CPYim 20
+BCC E4
+LDA 031C
+STAz EE
+LDXim 07
+RTS
+
+
+JSR 2138
+ASLz 20
+
+ADCix 76
+ADCz 20
+NOP
+NOP
+LDYim 02
+JSR 560D
+JSR 6100
+LDA 031C
+STAz EE
+LDXim 07
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2138
+ASLz 20
+JMPi 616F
+
+JSR EAEA
+JSR 604E
+LDAim 00
+STA 0356
+STA 0357
+LDXim 07
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2138
+PHP
+JSR 6576
+
+ADCim 66
+ADCy EA20
+NOP
+JSR 6052
+LDAim 00
+STA 0356
+STA 0357
+LDXim 07
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2138
+
+JSR 6C63
+ADCz 61
+
+JSR EAEA
+JSR 5E21
+LDXim 07
+RTS
+
+
+
+
+
+
+
+
+
+
+LDXim 20
+STXz EC
+LDYim 00
+JSR B65B
+CMPim 20
+BEQ 0A
+JSR 2463
+INCz EA
+DECz EC
+BNE EE
+NOP
+LDAim 23
+STAz 98
+JSR 22FD
+LDAim 00
+STAz EA
+RTS
+
+
+
+
+LDYim 03
+STYz EC
+STXz EA
+LDYim 00
+JSR B65B
+JSR 24EF
+LDXz EA
+INX
+DECz EC
+BNE EF
+JSR 24C9
+LDAim 00
+STAz EA
+RTS
+
+
+
+
+
+
+
+
+LDYim 03
+STYz EC
+STXz EA
+LDYim 00
+JSR B65B
+JSR 24EF
+LDXz EA
+DEX
+DECz EC
+BNE EF
+JSR 24C9
+LDAim 00
+STAz EA
+RTS
+
+
+
+
+
+JSR 24D4
+LDAz 99
+BNE 03
+JSR 2460
+LDYim 02
+JSR 560D
+JSR B5A9
+LDYim 20
+JSR B65B
+JSR 24E2
+JSR 24C9
+LDXim 23
+JSR B5F5
+LDXim 26
+JSR B5F5
+LDXim 27
+JSR B5D0
+LDXim 2A
+JSR B5D0
+LDXim 2E
+LDYim 02
+JSR B5F7
+RTS
+
+
+
+
+
+
+
+
+
+
+
+LDAim 00
+STA FFF8
+LDAiy EA
+LDX 1A08
+STX FFF8
+RTS
+
+
+BRK
+
+JSR 2020
+JSR 6966
+JMPi 6E65
+ADCix 6D
+ADCz 00
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+ADCy 0070
+ADCix 62
+
+
+JMPi 7475
+JSR 616C
+ADCz 6E
+
+ADCz 20
+JSR 7265
+
+ADCz 75
+
+
+JSR 6562
+ROR 7475
+
+
+JSR 6573
+
+JSR 2020
+AND 2D2D
+AND 4520
+ROR 6564
+JSR 2D2D
+AND 1D2D
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 2466
+LDYim 00
+JSR 560D
+JSR B5A9
+LDYim 20
+JSR B65B
+JSR 24E2
+JSR 24C9
+LDXim 22
+JSR B5D0
+LDXim 2A
+LDYim 02
+JSR B5F7
+JSR 2138
+
+RORz 72
+ADCz 69
+
+JSR EA20
+NOP
+LDYim 2B
+JSR B65B
+JSR 24EF
+JSR 2138
+ASLz 20
+RORz 69
+JMPi 7365
+NOP
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR B6D5
+JSR 2503
+ADC B5B6
+LDXzy EA
+NOP
+JSR 5CA1
+PHA
+LDXim 00
+BEQ 04
+LDX 031E
+INX
+STX 031E
+CPX 202B
+BEQ 1C
+JSR 597C
+LDAim 02
+STA 0323
+JSR 556B
+PLA
+STA 1A08
+STA FFF8
+JSR B617
+JSR 5CA1
+PHA
+CLC
+BCC D8
+PLA
+STA 1A08
+STA FFF8
+JSR 2503
+LDXzy B6
+DECz B6
+NOP
+NOP
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim 01
+STA 1A08
+JSR B72B
+LDAim 01
+STA 1620
+LDXim 07
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RTI
+
+
+
+LSRz 45
+
+
+
+
+
+PHA
+PHA
+STA 8010
+
+
+BPL 80
+
+
+AND FFFF
+BCC 80
+
+
+
+
+
+
+
+
+BPL 6E
+CLI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BIT 4A80
+
+JMP 4E4D
+BVC 51
+
+
+BIT 2C80
+
+RORa
+
+
+
+
+BIT 3A3B
+BIT 973B
+LDXz 1B
+
+
+
+BIT FF80
+
+
+
+
+
+
+
+
+
+ORAiy 10
+PLP
+ROR 7574
+BCC 7F
+
+ROL 8028
+
+PLP
+BIT 2B80
+AND 9C1F
+LDXim 3E
+
+CLC
+
+ORAx 8019
+
+
+ROLa
+
+ROLz 1A
+
+
+
+AND 8021
+
+EORy 6280
+
+STX 805A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+
+
+ORAzx 18
+
+
+
+BIT 3534
+ANDzx 35
+ROLzx 39
+
+
+
+
+
+LSRz 48
+
+BRK
+JMP 5453
+
+
+
+
+
+
+
+LSRzx 61
+RORa
+SEI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CPXim E4
+SBCz E5
+SBCz E5
+SBCz E5
+SBCz E5
+INC F6EF
+
+SED
+SED
+SBCy 01FD
+
+
+ASLa
+
+BPL 13
+ORAzx 18
+ORAy 1E1D
+PLP
+
+BMI 31
+
+
+
+
+
+
+
+RTI
+
+
+LSRz 49
+
+LSR 5853
+
+ADC 7771
+
+STAix 81
+STA 9291
+STAzx 98
+
+
+
+STAx 9F9E
+LDYim A1
+LDXim A3
+
+TAY
+LDX BAB4
+CPYim C6
+
+CMP D9D3
+
+CPXim E3
+CPXz E4
+SBCim EA
+SBC FFEE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+ORAix 01
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+ORAix 02
+
+ORAz 0B
+ORA 110F
+
+ORAzx 18
+BRK
+
+
+
+ANDy 4240
+
+LSRz 4B
+LSR 5251
+
+
+
+RTS
+ADCim 6A
+ROR 706F
+
+RORzx 77
+RORx 807F
+STXz 8A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+BPL 80
+ORAix 80
+BRK
+
+EORix 80
+
+STYz 47
+
+PHP
+STXz 80
+
+STX 8049
+
+BRK
+
+
+STYz 89
+
+STYz 12
+
+ORAz 12
+
+ASLz 83
+STYz 12
+
+ORAim 12
+
+ASLa
+
+STYz 00
+
+
+
+
+
+
+
+
+STXz 85
+
+
+
+BRK
+
+BRK
+
+ORA 8A3D
+
+ASL 0088
+
+ORAzx 80
+ASLzx 13
+
+
+
+
+BPL 91
+BPL 80
+ORAiy 8F
+BRK
+STYz 8E
+
+PLP
+TYA
+ORAx 2980
+
+
+
+ROLa
+STX 3DA0
+
+ROLz 97
+
+
+
+STX 3D10
+
+EORzx 97
+
+LSRzx A9
+
+RTS
+TAX
+
+
+STX 5880
+
+
+
+RTS
+TAX
+
+EORy 008E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BPL 80
+ORAiy 8F
+BRK
+TXAa
+
+
+
+TXAa
+
+
+
+ORAx 8A00
+
+
+
+TXAa
+
+
+BRK
+STYz 96
+
+
+CLC
+
+
+
+ORAy 8093
+ANDix 93
+
+
+STAzx 80
+
+STYz 80
+
+
+
+
+
+
+ORAx 8094
+ORAx 1E80
+
+TAY
+
+
+STAy 001D
+
+
+
+
+
+
+
+
+
+
+
+BMI 9A
+
+
+
+
+ANDiy 32
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 979E
+ANDim A0
+
+ANDz 28
+
+ANDim 80
+
+PLP
+
+ANDim 80
+
+
+RTI
+PLP
+
+ANDim 80
+EORix FF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STAy 801D
+BRK
+BPL 80
+BRK
+
+
+BRK
+BPL 80
+BRK
+LDAix 29
+
+BRK
+BRK
+BPL 2C
+
+
+
+BIT 2380
+
+ANDim 80
+BITz 10
+
+BRK
+LDAix 00
+
+
+
+
+
+ANDzx 9C
+
+ORAx A5A4
+LDAz A5
+LDAz A5
+LDAz 00
+
+LDXim 80
+SEC
+
+
+ANDy 80A3
+
+
+
+ANDy 80A3
+
+
+
+
+
+
+
+
+
+ASLx 80A3
+
+
+
+ANDy 80A3
+
+
+BRK
+
+ANDy 80A6
+
+TAY
+
+ANDy 80A6
+
+TAY
+
+
+LDXz 80
+
+TAY
+BRK
+BRK
+
+
+
+
+
+
+
+BVC 51
+
+
+
+
+TAX
+TAX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+ORAix 02
+
+ORAz 0B
+ORA 110F
+
+ORAzx 18
+BRK
+
+
+
+ANDy 4240
+
+LSRz 4B
+LSR 5251
+EORzx 56
+CLI
+RTS
+ADCim 6A
+ROR 706F
+
+RORzx 77
+RORx 807F
+STXz 8B
+STA 9290
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+
+
+BRK
+
+BRK
+
+BRK
+LDXz 80
+BRK
+TAY
+
+BRK
+LDXz 80
+BRK
+TAY
+
+BRK
+LDXz 80
+BRK
+TAY
+BRK
+BRK
+LDYz A5
+LDAz A5
+LDAz A5
+LDAz 00
+BRK
+LDXim 80
+BRK
+
+
+BRK
+
+
+BRK
+
+
+BRK
+
+
+BRK
+
+
+BRK
+
+
+BRK
+
+
+BRK
+
+
+BRK
+
+PHA
+BRK
+ORAix 11
+BRK
+BRK
+ORA 110F
+ASLzx 19
+
+
+
+BITz 26
+PLP
+ROLa
+BIT 342F
+ANDy 5239
+
+
+CLI
+RORx 3C3E
+AND F27F
+
+
+
+EORz FF
+EOR 7FFF
+ORAx F3F2
+
+
+ORAx 27FF
+ORAx 27FF
+ORAx F2FF
+
+
+
+
+ORAx 3DFF
+
+ORAx 2DFF
+
+
+
+
+
+BMI 31
+
+ORAx 7F27
+ORAx F3F1
+
+
+
+
+
+
+BRK
+RTS
+ANDix 60
+RTS
+RTS
+RTS
+RTS
+RTS
+
+RTS
+RTS
+
+JSR 0020
+JSR 5300
+JSR 2020
+JSR 2053
+JSR 0021
+BRK
+ANDix 00
+BRK
+JSR 1620
+JSR 3517
+
+ANDzx 14
+ANDzx 14
+ANDzx 14
+PLP
+
+BMI 2A
+BMI 30
+
+
+ANDim 02
+
+BMI 30
+
+
+
+
+
+
+BRK
+
+ASL 0706
+ASLa
+
+
+ORA 0811
+ORAim 11
+ORAix 03
+PHP
+
+PHP
+ORAiy 01
+PHP
+PHP
+ORAz 11
+ORAix 05
+
+PHP
+PHP
+BPL 08
+PHP
+PHP
+PHP
+ORAiy 09
+ORAiy 11
+ORAiy 11
+ORAiy 11
+ORAiy 11
+ORAiy 11
+ORAiy 0E
+ORAiy 0F
+
+ORAiy 0F
+ORAiy 11
+BPL 10
+BPL FF
+
+
+
+BRK
+BRK
+BRK
+BRK
+
+ASL 1612
+
+
+
+ROLa
+
+ANDy 413D
+LSRz 4B
+BVC 56
+
+EORx 6360
+
+
+BCS 75
+SEI
+
+
+RORx 8682
+DEY
+STA 948F
+STXzy 9A
+
+LDXz A8
+
+
+LDYz B8
+LDYx C5BF
+
+DEC D7D2
+
+
+INCz EC
+
+
+
+
+
+BRK
+
+
+
+BVC 52
+
+
+
+EORix 4D
+EOR 4341
+PHA
+EORim 4E
+EORz 43
+
+
+EORz 4C
+EORim 4E
+EORz 5A
+EORz 52
+
+EORim 44
+EORz 4E
+
+
+EORz 52
+
+BVC 41
+
+EORz 44
+
+JMP 4542
+
+EORim 4E
+EORz 4E
+
+BVC 52
+
+
+
+EORix 4D
+EORim 4E
+
+
+EORim 4E
+
+SEC
+EORim 4E
+
+ANDiy 35
+EORim 4E
+
+ANDiy 36
+EORim 4E
+
+
+ANDiy 20
+JSR 2020
+JSR 4320
+PHA
+EORix 52
+
+EORim 54
+BVC 55
+
+
+EORz 54
+BVC 52
+
+
+LSRz 55
+LSR 5343
+
+EORix 43
+
+
+
+
+EORzx 43
+LSRz 4F
+
+
+EORy 4F54
+EORim 46
+
+PHA
+EORz 4E
+EORz 4C
+
+EORz 46
+EORim 57
+PHA
+EORim 4C
+EORz 44
+
+EORzx 4E
+
+EORim 4C
+
+
+
+PHA
+EORz 4E
+
+
+EORz 41
+
+EORz 4E
+
+BVC 52
+
+
+EORim 4E
+
+EORzx 54
+
+EORz 41
+
+
+
+EORim 54
+EORz 53
+
+EORim 50
+BVC 55
+
+PHA
+BVC 4F
+BVC 52
+EORz 54
+EORzx 52
+LSR 5553
+
+
+
+
+EOR 444F
+
+
+EORzx 45
+LSRz 41
+JMP 4553
+
+
+JMP 4C43
+EORz 41
+
+
+PHA
+EORix 52
+
+
+
+
+EORim 54
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CMPim F1
+BNE 15
+NOP
+NOP
+NOP
+NOP
+LDAz 56
+CMPim 41
+BCS 01
+RTS
+CMPim 47
+BCS 03
+LDAim 00
+RTS
+LDAim 01
+RTS
+CMPim F2
+BNE 23
+NOP
+NOP
+LDAz 56
+CMPim 41
+BCC 0C
+NOP
+NOP
+CMPim 5B
+BCS 03
+LDAim 00
+RTS
+LDAim 01
+RTS
+CMPim 40
+BEQ 0A
+CMPim 23
+BEQ 06
+CMPim 24
+BEQ 02
+CMPim 25
+RTS
+CMPim F3
+BNE 13
+NOP
+NOP
+LDAz 56
+CMPim 30
+BCS 01
+RTS
+CMPim 3A
+BCS 03
+LDAim 00
+RTS
+LDAim 01
+RTS
+CMPim F4
+BNE 2A
+NOP
+NOP
+LDAz 56
+CMPim 21
+BEQ 1C
+CMPim 26
+BCC 1B
+CMPim 30
+BCC 14
+CMPim 3A
+BCC 13
+CMPim 3F
+BCC 0C
+CMPim 5B
+BCC 0B
+CMPim 5F
+BCC 04
+CMPim 7E
+BNE 03
+LDAim 00
+RTS
+LDAim 01
+RTS
+CMPim FF
+RTS
+
+
+
+
+
+BRK
+BRK
+BRK
+NOP
+NOP
+NOP
+LDX C402
+STXz 5F
+LDAz 60
+STAz 5D
+LDAz 61
+STAz 5E
+LDXz 5F
+LDAx C404
+STAz 57
+LDXz 5F
+LDAz 57
+CMPx C405
+BEQ 39
+TAX
+LDAx C417
+BMI 0A
+NOP
+NOP
+CMPz 56
+BEQ 0D
+INCz 57
+BNE E7
+JSR C630
+BEQ 04
+INCz 57
+BNE DE
+LDAx C497
+PHA
+JSR C7B5
+JMP C710
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+PLA
+STAz 5F
+CMP C403
+BNE B8
+RTS
+JSR 2503
+
+
+ADCix C7
+NOP
+NOP
+LDAz 61
+JSR 24EF
+LDAz 60
+JSR 24EF
+JSR 24CE
+NOP
+NOP
+LDAz 56
+JSR 24EF
+JSR 24CE
+LDAz 5F
+JSR 24EF
+JMP C73E
+
+
+
+RORz 65
+PLA
+JMPi 7265
+
+JSR 6E75
+ADCz 72
+
+ADCix 72
+
+ADCz 74
+ADCz 73
+JSR 657A
+ADCim 63
+PLA
+ADCz 6E
+
+JSR FF03
+
+
+BRK
+BRK
+LDYim 00
+LDAiy 5D
+JSR 2463
+INCz 5D
+BNE 02
+INCz 5E
+LDAz 5D
+CMPz 5B
+NOP
+NOP
+LDAz 5E
+SBCz 5C
+BCC E7
+LDAim BB
+JSR 2463
+RTS
+
+BRK
+BRK
+NOP
+ASLa
+BNE 01
+RTS
+TAX
+LDAx C79D
+STA C79D
+LDAx C79E
+STA C79E
+JMP C8BA
+STAy 30CB
+INY
+TSX
+INY
+CPYim C8
+BNE C8
+ADCy 2FCB
+BNE C3
+CPY CE3E
+BMI CE
+BRK
+CMPim BD
+
+CPYz 48
+ANDim 40
+BEQ 03
+JSR CB99
+PLA
+PHA
+ANDim 20
+BEQ 03
+JSR C7FE
+PLA
+PHA
+ANDim 10
+BEQ 08
+LDYz 60
+STYz 5B
+LDYz 61
+STYz 5C
+PLA
+ANDim 0F
+JMP C78A
+
+
+
+BRK
+BRK
+LDAx C457
+PHA
+JSR 24CE
+LDAz 5F
+JSR 24EF
+LDYim 00
+LDAiy 60
+JSR 2463
+LDAz 57
+JSR 24EF
+PLA
+RTS
+BRK
+BRK
+NOP
+NOP
+JSR C916
+PHA
+JSR 23A1
+BCC 04
+LDAim 7F
+BNE 14
+LDYim 00
+LDAiy 60
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+CMPim 61
+BCC 06
+CMPim 7B
+BCS 02
+ANDim 5F
+STAz 56
+PLA
+RTS
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR 2503
+BVC C8
+
+INY
+NOP
+LDXim 52
+JSR C880
+JSR 2506
+BCS C8
+
+INY
+JSR C768
+JMP C847
+
+
+
+
+
+
+ADCzx 6E
+ADCz 72
+
+ADCix 72
+
+ADCz 74
+ADCz 73
+JSR 6144
+
+ADCz 69
+ADCz 6E
+
+ADCz 20
+ADCim 6E
+JSR 655A
+ADCim 6C
+ADCz 20
+JSR 6968
+ROR 6574
+
+
+
+TXAa
+PHA
+JSR 24D4
+PLA
+TAX
+LDAim 00
+STAz 54
+STAz 55
+LDAzx 00
+PHA
+LDAzx 01
+PHA
+TXAa
+PHA
+SED
+LDYim 10
+ASLzx 00
+ROLzx 01
+LDAz 54
+ADCz 54
+STAz 54
+LDAz 55
+ADCz 55
+STAz 55
+DEY
+BNE ED
+CLD
+JSR 24EF
+LDAz 54
+JSR 24EF
+PLA
+TAX
+PLA
+STAzx 01
+PLA
+STAzx 00
+RTS
+
+
+BRK
+BRK
+LDAim 14
+STAz 5A
+RTS
+BRK
+LDYim 00
+LDAiy 5D
+CMPim 7E
+BNE 02
+LDAim 1F
+ANDim 3F
+STAz 5A
+RTS
+BRK
+LDYim 00
+LDAiy 5D
+LDYim 1A
+CMPim 7E
+BEQ 0B
+DEY
+CMPim 2D
+BEQ 06
+DEY
+CMPim 3E
+BEQ 01
+DEY
+STYz 5A
+RTS
+LDAim 10
+STAz 5A
+RTS
+LDAim 13
+STAz 5A
+RTS
+LDAim 11
+STAz 5A
+RTS
+LDAim 12
+BNE 02
+LDAim 15
+STAz 5A
+RTS
+LDAz 58
+CMP C400
+BEQ 05
+LDAim 20
+STAz 56
+RTS
+LDAim 20
+JSR C7B8
+RTS
+
+
+BRK
+BRK
+JSR 23DB
+LDAz 56
+CMPim 1D
+BNE 0B
+INCz 52
+BNE 02
+INCz 53
+LDAim 00
+STAz 58
+RTS
+INCz 58
+RTS
+
+
+
+RTI
+JSR 2041
+
+JSR 2023
+
+JSR 2058
+
+JSR 3D3C
+ASLx 2D3D
+AND 3D7E
+
+JSR 205C
+EORx 5E20
+JSR 207E
+
+
+ANDix 20
+
+
+
+
+
+
+
+
+ROLz 20
+
+JSR 2028
+PLP
+JSR 202A
+
+JSR 202C
+AND 2E20
+JSR 202F
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR 203B
+
+JSR 203D
+ASLx 3F20
+
+LDAz 5A
+CMPim 40
+BCC 02
+LDAim 16
+ASLa
+TAX
+LDAx C910
+JSR 2463
+LDAz 5A
+CMPim 40
+BCC 02
+LDAim 16
+ASLa
+TAX
+LDAx C911
+JSR 2463
+JMP C775
+BRK
+BRK
+JSR 23E9
+JSR C803
+JSR 2466
+JSR CA49
+JSR C9DA
+JSR CCB2
+JSR C6C3
+JSR C990
+LDAz 5A
+CMPim 14
+BNE F4
+JSR CD74
+JMP 1C1D
+BRK
+LDAim 00
+STAz 58
+STAz 53
+LDAim 01
+STAz 52
+RTS
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAim 10
+STAz 5A
+SEC
+LDAz 5B
+SBCz 5D
+STAz 51
+LDAz 5C
+SBCz 5E
+BEQ 01
+RTS
+LDAz 51
+CMPim 0B
+BCC 01
+RTS
+LDXim 00
+STXz 50
+SEC
+LDAx C4D8
+SBCx C4D7
+CMPz 51
+BNE 24
+LDYim 00
+LDAx C4D7
+TAX
+LDAiy 5D
+CMPim 61
+BCC 06
+CMPim 7B
+BCS 02
+ANDim 5F
+CMPx C517
+BNE 0D
+INX
+INY
+CPYz 51
+BNE E9
+LDAz 50
+EORim 40
+STAz 5A
+RTS
+INCz 50
+LDXz 50
+CPXim 36
+BNE C9
+RTS
+
+
+
+BRK
+LDAim 00
+LDXz DD
+STAz 47
+STXz 48
+LDXz C2
+STAz 45
+STXz 46
+RTS
+
+
+BRK
+BRK
+NOP
+NOP
+NOP
+SEC
+LDAz 5B
+SBCz 5D
+STAz 51
+LDAim 00
+STAz 41
+LDAz C2
+NOP
+STAz 42
+LDAz 41
+CMPz 45
+BNE 07
+LDAz 42
+CMPz 46
+BNE 01
+RTS
+LDYim 0D
+LDAiy 41
+CMPz 51
+BNE 22
+LDYim 0B
+LDAiy 41
+STAz 3F
+INY
+LDAiy 41
+STAz 40
+LDYz 51
+DEY
+LDAiy 5D
+CMPim 61
+BCC 06
+CMPim 7B
+BCS 02
+ANDim 5F
+CMPiy 3F
+BNE 04
+DEY
+BPL ED
+RTS
+CLC
+LDAz 41
+ADCim 0E
+STAz 41
+BCC 02
+INCz 42
+JMP CA6F
+NOP
+CLC
+LDAz 47
+STAz 3F
+ADCz 51
+STAz 47
+LDAz 48
+STAz 40
+ADCim 00
+STAz 48
+CMPz C0
+NOP
+BCC 0F
+JSR 2503
+
+
+
+
+LDXim 52
+JSR C880
+JMP CAD7
+CLC
+LDAz 45
+NOP
+ADCim 0E
+STAz 45
+LDAz 46
+NOP
+NOP
+ADCim 00
+STAz 46
+CMPz C4
+NOP
+BCC 0B
+JSR 2503
+JMP 6BCB
+
+NOP
+JMP CAD2
+LDYz 51
+DEY
+LDAiy 5D
+CMPim 61
+BCC 06
+CMPim 7F
+BCS 02
+ANDim 5F
+STAiy 3F
+DEY
+BPL EF
+LDYim 00
+LDAim 00
+STAiy 41
+LDYim 0B
+LDAz 3F
+STAiy 41
+INY
+LDAz 40
+STAiy 41
+INY
+LDAz 51
+STAiy 41
+RTS
+
+
+
+
+
+
+LSRz 65
+PLA
+JMPi 7265
+
+LSR 6D61
+ADCz 6E
+JMPi 7369
+
+ADCz 20
+
+ADCzx 20
+
+ADCzx 72
+
+ROL 5A20
+ADCz 69
+JMPi 2065
+LSRz 65
+PLA
+JMPi 7265
+
+
+ADCz 6B
+JMPi 696C
+
+
+ADCz 20
+
+ADCzx 20
+
+ADCzx 72
+
+ROL 5A20
+ADCz 69
+JMPi 2065
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR C9F0
+LDAz 5A
+CMPim 10
+BEQ 01
+RTS
+JSR CA5C
+BEQ 01
+RTS
+JSR CAB4
+RTS
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAz 60
+STAz 5D
+LDAz 61
+STAz 5E
+LDAz 58
+STAz 59
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+NOP
+NOP
+NOP
+NOP
+NOP
+JSR CCF0
+LDAz 5D
+STAz 54
+LDAz 5E
+STAz 55
+LDAz 59
+STAz 50
+LDAim 00
+STAz 1E
+STAz 1F
+LDAz 54
+CMPz 5B
+BNE 07
+LDAz 55
+CMPz 5C
+BNE 01
+RTS
+LDYim 00
+LDAiy 54
+CMPim 1D
+BNE 14
+LDAz 50
+CMP C400
+BEQ 07
+LDAim 20
+JSR CC0A
+BNE F2
+LDAim 00
+STAz 50
+BEQ 03
+JSR CC0A
+INCz 54
+BNE 02
+INCz 55
+JMP CBCF
+
+
+
+
+BRK
+BRK
+STAiy 1C
+INCz 1C
+BNE 02
+INCz 1D
+INCz 1E
+BNE 02
+INCz 1F
+INCz 50
+LDAz 1D
+CMPz D5
+NOP
+BCC 0C
+JSR 2503
+ANDiy CC
+
+CPY EAEA
+JMP CAD2
+RTS
+
+
+
+LSRz 65
+PLA
+JMPi 7265
+
+
+
+ROR 7473
+
+ADCix 74
+ADCix 20
+JSR 757A
+JSR 756B
+
+
+ROL 5A20
+ADCz 69
+JMPi 2065
+
+BRK
+BRK
+PHA
+JSR CE51
+NOP
+LDXz 1F
+BNE 25
+LDXz 1E
+CPXim 01
+BNE 1F
+LDYim 02
+LDAiy 3F
+INY
+STAiy 49
+LDAim 00
+INY
+STAiy 49
+INY
+STAiy 49
+INY
+STAiy 49
+LDAz 3F
+STAz 1C
+LDAz 40
+STAz 1D
+PLA
+ORAim 40
+BNE 17
+LDAz 1F
+LDYim 06
+STAiy 49
+LDYim 01
+STAiy 3F
+LDAz 1E
+LDYim 05
+STAiy 49
+LDYim 00
+STAiy 3F
+PLA
+ORAim A0
+LDYim 00
+STAiy 49
+INY
+LDAz 3F
+STAiy 49
+INY
+LDAz 40
+STAiy 49
+RTS
+
+
+
+
+
+
+
+BRK
+BRK
+LDAim 00
+LDXz C6
+STAz 49
+STXz 4A
+LDXz D3
+STAz 1C
+STXz 1D
+RTS
+BRK
+BRK
+LDAim 11
+STAz 5A
+JSR CBB5
+LDAim 06
+JSR CC55
+JSR CE9B
+BCS 09
+LDAz 3F
+STAz 1C
+LDAz 40
+STAz 1D
+RTS
+CLC
+LDAz 49
+ADCim 07
+STAz 49
+BCC 02
+INCz 4A
+RTS
+
+
+
+
+
+BRK
+BRK
+LDAz 1C
+STAz 3F
+LDAz 1D
+STAz 40
+CLC
+LDAim 02
+ADCz 1C
+STAz 1C
+BCC 02
+INCz 1D
+RTS
+
+
+
+
+BRK
+BRK
+CLC
+ADCz 1E
+STAz 1E
+BCC 02
+INCz 1F
+RTS
+
+
+
+
+BRK
+BRK
+LDAz 51
+ANDim 07
+CMPim 07
+BNE 0E
+LDAim 07
+JSR CD0A
+LDYim 03
+LSRz 1F
+RORz 1E
+DEY
+BNE F9
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDYim 00
+LDAiy 5D
+CMPim 1D
+BEQ 0B
+LDAz 5D
+BNE 02
+DECz 5E
+DECz 5D
+JMP CD55
+INCz 5D
+BNE 02
+INCz 5E
+RTS
+
+
+
+BRK
+BRK
+LDAim 00
+LDXz C6
+STAz 20
+STXz 21
+NOP
+JSR 24D4
+JSR D927
+CLC
+LDAz 20
+ADCim 07
+STAz 20
+LDAz 21
+ADCim 00
+STAz 21
+LDAz 20
+CMPz 49
+LDAz 21
+SBCz 4A
+BCC E3
+RTS
+
+
+
+
+
+
+
+
+BRK
+BRK
+NOP
+NOP
+NOP
+NOP
+NOP
+JSR CCF0
+LDAz 5B
+STAz 54
+LDAz 5C
+STAz 55
+LDAim 00
+STAz 1E
+STAz 1F
+STAz 50
+LDAz 54
+CMPz 5D
+BNE 06
+LDAz 55
+CMPz 5E
+BEQ 2F
+LDAz 54
+BNE 02
+DECz 55
+DECz 54
+LDYim 00
+LDAiy 54
+CMPim 1D
+BEQ 1C
+LDAz 50
+BNE 06
+STAz 51
+LDAim 08
+STAz 50
+LDAiy 54
+LSRa
+RORz 51
+INCz 1E
+BNE 02
+INCz 1F
+DECz 50
+BNE 03
+JSR CE0F
+JMP CDBD
+DECz 50
+BMI 0A
+CLC
+RORz 51
+DECz 50
+BPL F9
+JSR CE0F
+RTS
+
+
+
+
+
+
+BRK
+BRK
+LDAz 51
+LDYim 00
+STAiy 1C
+INCz 1C
+BNE 02
+INCz 1D
+LDAz 1D
+CMPz D5
+NOP
+BCC 03
+JMP CC21
+RTS
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAim 12
+STAz 5A
+JSR CDA5
+LDAim 07
+JMP CCCC
+BRK
+BRK
+LDAim 12
+STAz 5A
+JSR CF35
+LDAim 07
+JMP CCCC
+
+
+
+
+
+BRK
+BRK
+CLC
+LDAz 49
+ADCim 07
+LDAz 4A
+ADCim 00
+CMPz C8
+NOP
+BCC 31
+JSR 2503
+ROR 8ECE
+DEC EAEA
+JMP CAD2
+
+
+
+LSRz 65
+PLA
+JMPi 7265
+
+
+
+ROR 7473
+JMPi 7369
+
+ADCz 20
+
+ADCzx 20
+
+ADCzx 72
+
+ROL 5A20
+ADCz 69
+JMPi 2065
+
+RTS
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAim 00
+LDXz C6
+STAz 20
+STXz 21
+NOP
+LDAz 20
+CMPz 49
+LDAz 21
+SBCz 4A
+BCC 01
+RTS
+LDYim 00
+LDAiy 49
+CMPiy 20
+STAz 51
+BNE 6A
+LDYim 06
+LDAiy 49
+CMPiy 20
+STAz 1F
+BNE 60
+DEY
+LDAiy 49
+CMPiy 20
+STAz 1E
+BNE 57
+LDAz 51
+BMI 10
+DEY
+LDAiy 49
+CMPiy 20
+BNE 4C
+DEY
+LDAiy 49
+CMPiy 20
+BNE 45
+CLC
+RTS
+LDYim 02
+LDAiy 20
+STAz 55
+DEY
+LDAiy 20
+STAz 54
+LDAz 3F
+STAz 41
+LDAz 40
+STAz 42
+JSR CD1A
+LDAim 02
+JSR CD0A
+NOP
+NOP
+NOP
+NOP
+NOP
+LDYim 00
+LDAz 1E
+BNE 06
+DECz 1F
+BPL 02
+CLC
+RTS
+DECz 1E
+LDAiy 54
+CMPiy 41
+BNE 0F
+INCz 54
+BNE 02
+INCz 55
+INCz 41
+BNE 02
+INCz 42
+JMP CF02
+CLC
+LDAz 20
+ADCim 07
+STAz 20
+BCC 02
+INCz 21
+JMP CEA4
+
+
+BRK
+BRK
+NOP
+NOP
+NOP
+NOP
+NOP
+JSR CCF0
+LDAz 5B
+STAz 54
+LDAz 5C
+STAz 55
+LDAim 00
+STAz 1E
+STAz 1F
+LDAim 02
+STAz 50
+LDAz 54
+CMPz 5D
+BNE 06
+LDAz 55
+CMPz 5E
+BEQ 31
+LDAz 54
+BNE 02
+DECz 55
+DECz 54
+LDYim 00
+LDAiy 54
+CMPim 1D
+BEQ E4
+JSR CFA6
+DECz 50
+BNE 0F
+LDXim 02
+STXz 50
+ASLa
+ASLa
+ASLa
+ASLa
+ORAz 51
+JSR CE11
+BCC 02
+STAz 51
+INCz 1E
+BNE 02
+INCz 1F
+JMP CF4F
+DECz 50
+BNE 03
+JSR CE0F
+ASLz 1E
+ROLz 1F
+ASLz 1E
+ROLz 1F
+RTS
+
+
+
+
+
+
+
+
+BRK
+BRK
+CMPim 3A
+BCC 03
+SEC
+SBCim 07
+ANDim 0F
+RTS
+BRK
+
+
+
+
+
+
+BRK
+BRK
+
+
+
+LSRz 65
+PLA
+JMPi 7265
+
+
+ADCix 68
+JMPi 7A20
+ADCzx 20
+
+
+
+
+
+ROL 5A20
+ADCz 69
+JMPi 2065
+
+JSR 2503
+LDYx D7CF
+
+NOP
+NOP
+JMP CAD2
+
+
+
+
+
+
+BRK
+BRK
+LDXim 03
+LDAzx 18
+STAzx 14
+DEX
+BPL F9
+RTS
+CLC
+LDXim 00
+LDYim 04
+LDAzx 18
+ADCzx 14
+STAzx 18
+INX
+DEY
+BNE F6
+BCC 03
+JSR CFD9
+RTS
+ASLz 18
+ROLz 19
+ROLz 1A
+ROLz 1B
+BCC 03
+JSR CFD9
+RTS
+JSR D00C
+JSR CFED
+JSR D00C
+JSR D00C
+JSR CFF7
+RTS
+
+
+
+BRK
+BRK
+LDAz 1C
+STAz 3F
+LDAz 1D
+STAz 40
+LDAz 5D
+STAz 54
+LDAz 5E
+STAz 55
+LDAim 00
+STAz 18
+STAz 19
+STAz 1A
+STAz 1B
+LDYim 00
+LDAiy 54
+ANDim 0F
+CLC
+ADCz 18
+STAz 18
+BCC 0F
+INCz 19
+BNE 0B
+INCz 1A
+BNE 07
+INCz 1B
+BNE 03
+JSR CFD9
+INCz 54
+BNE 02
+INCz 55
+LDAz 54
+CMPz 5B
+BNE 06
+LDAz 55
+CMPz 5C
+BEQ 06
+JSR D01A
+JMP D049
+JSR CE51
+LDYim 06
+LDXim 03
+LDAzx 18
+STAiy 49
+DEY
+DEX
+BPL F8
+LDXim 44
+LDAz 1B
+BPL 05
+JSR CFD9
+RTS
+NOP
+ORAz 1A
+BNE 0F
+DEX
+LDAz 19
+BMI 0A
+DEX
+ASLa
+BNE 06
+DEX
+LDAz 18
+BMI 01
+DEX
+TXAa
+JSR CC9A
+NOP
+NOP
+NOP
+LDAim 13
+STAz 5A
+JMP CCCF
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+LDAim 00
+LDXz C2
+STAz 20
+STXz 21
+NOP
+JSR 24D4
+JSR D927
+JSR 24C9
+LDYim 0B
+LDAiy 20
+STAz 3F
+INY
+LDAiy 20
+STAz 40
+INY
+LDAiy 20
+STAz 51
+LDYim 00
+STYz 50
+LDAiy 3F
+JSR 2463
+LDYz 50
+INY
+CPYz 51
+BNE F2
+CLC
+LDAz 20
+ADCim 0E
+STAz 20
+BCC 02
+INCz 21
+LDAz 20
+CMPz 45
+LDAz 21
+SBCz 46
+BCC C2
+RTS
+
+
+
+
+
+
+
+
+BRK
+BRK
+
+
+ORAiy 07
+
+ORAim 11
+ORAim 0C
+
+ORAiy 0B
+
+ORA 0D11
+
+
+ORAiy 0F
+
+ORAiy 11
+ORAiy 0C
+
+ORAiy 13
+
+ORAzx 11
+ORAzx 16
+
+ASLzx 09
+ASLzx 0B
+ASLzx 0D
+ASLzx 0F
+ASLzx 11
+ASLzx 13
+ASLzx 15
+
+BRK
+
+BRK
+DECzx 00
+CLD
+BRK
+
+BRK
+
+BRK
+BNE 00
+
+BRK
+ANDy B400
+BRK
+
+BRK
+
+BRK
+CMPix 00
+
+BRK
+CMPz 00
+
+BRK
+RTS
+BRK
+
+BRK
+
+BRK
+
+BRK
+
+BRK
+
+BRK
+EORz 00
+EORim 00
+BRK
+BRK
+
+
+
+
+
+EOR 4950
+JMP 5245
+ORAx 201D
+JSR 4B28
+
+ADC 616D
+ROR 6F64
+
+JSR 2063
+
+JSR 2061
+ADCz 20
+JMPi 7320
+ANDim 1D
+ORAx 0000
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+JSR 2020
+JSR 2020
+RORzx 6F
+ROR 2020
+
+ADCim 73
+JSR 6120
+
+
+JSR 1D1D
+ORAx 6F53
+ADCzx 72
+
+ADCz 1D
+ORAx 6F43
+
+ADCz 1D
+ORAx 6144
+
+ADCix 1D
+ORAx 655A
+
+
+ORAx 4D1D
+ADCz 72
+
+ADCz 1D
+ORAx 614E
+ADC 6E65
+JMPi 7369
+
+ORAx 031D
+
+
+
+
+BRK
+BRK
+JSR 2466
+JSR 2339
+BITz 00
+JSR 2506
+ADCzx D1
+CPXz D1
+NOP
+LDXim 2E
+STXz 06
+LDAx D140
+STAz 04
+LDAx D141
+STAz 05
+LDAx D110
+STAz 98
+LDAx D111
+STAz 99
+JSR 22FD
+LDYim 01
+LDAiy 04
+JSR 24EF
+LDYim 00
+LDAiy 04
+JSR 24EF
+DECz 06
+DECz 06
+LDXz 06
+BPL D3
+JSR 2364
+RTS
+BRK
+BRK
+JSR D1EC
+JMP 1C1D
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+LDAz 27
+BNE 09
+JSR D1EC
+JSR 2339
+BRK
+ASLzx EA
+JSR D593
+LDXim 52
+JSR C880
+JSR 24C9
+LDYim 04
+JSR 25A5
+LDYim 03
+PLA
+STAy 0031
+DEY
+BPL F9
+JSR 2514
+JSR 2364
+JSR 38D0
+JSR 248B
+JMP D3F6
+
+LDAim 00
+STAz 00
+BEQ 04
+INCz 00
+INCz 00
+LDXz 00
+CPXim 20
+BCC 04
+JSR 2364
+RTS
+LDAx D110
+STAz 98
+LDAx D111
+STAz 99
+JSR 22FD
+RTS
+
+
+
+
+
+
+
+
+LDXim 1E
+STXz 01
+LDAx D140
+STAz 04
+LDAx D141
+STAz 05
+LDAx D110
+STAz 98
+LDAx D111
+STAz 99
+JSR 22FD
+LDYim 00
+JSR D341
+BCS 23
+LDYim 01
+STAiy 04
+LDYim 02
+JSR D341
+BCS 18
+LDYim 00
+STAiy 04
+DECz 01
+DECz 01
+LDXz 01
+BPL CB
+JSR D1EC
+LDAim 41
+STA 0800
+JSR D27C
+RTS
+JSR D1EC
+LDAim 41
+STA 0800
+JSR 2910
+
+
+
+
+BRK
+ASLzx A6
+ORAix 86
+BRK
+JSR D280
+RTS
+BRK
+BRK
+
+
+
+LSRz 61
+JMPi 6373
+PLA
+ADCz 20
+EORix 64
+
+ADCz 73
+
+ADCz 2C
+BRK
+ROR 636F
+PLA
+ADC 6C61
+BRK
+
+
+
+BRK
+
+BRK
+BRK
+JSR 2599
+CMPim 30
+BCC 12
+CMPim 47
+BCS 0E
+CMPim 3A
+BCC 06
+CMPim 41
+BCC 06
+SBCim 07
+ANDim 0F
+CLC
+RTS
+SEC
+RTS
+
+BRK
+BRK
+LDAiy 9A
+JSR D323
+BCC 01
+RTS
+ASLa
+ASLa
+ASLa
+ASLa
+STAz 06
+INY
+LDAiy 9A
+JSR D323
+BCC 01
+RTS
+ORAz 06
+RTS
+BRK
+
+
+
+
+
+
+BRK
+BRK
+JSR 2460
+PHA
+JSR 2463
+PLA
+CMPim 1D
+BNE F4
+RTS
+
+BRK
+BRK
+JSR D364
+LDA 0800
+JSR 2599
+CMPim 43
+BNE 07
+JSR D530
+JSR D1EC
+RTS
+CMPim 4C
+BNE 0D
+LDAz D6
+LDXz D7
+STAz FA
+STXz FB
+JMP 2F00
+NOP
+NOP
+CMPim 47
+BNE 0B
+JSR 2506
+ROLz D5
+
+CMPzx EA
+JMPi 00D6
+CMPim 45
+BNE 03
+JMP 4000
+CMPim 41
+BNE 12
+LDAz 99
+CMPim 01
+BNE 06
+JSR D276
+JMP D374
+JSR D2A0
+JMP D374
+CMPim 53
+BNE 05
+JSR D7F2
+
+CLD
+NOP
+NOP
+JSR D1EC
+JMP D374
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JMP 8300
+JSR D1EC
+LDXim FF
+TXS
+JSR D374
+JMP D3F6
+BRK
+DECz 4B
+BEQ 12
+LDYz 4B
+LDAiy 39
+STAz 24
+RTS
+LDYz 4B
+CPYz 36
+BCS 05
+STAiy 39
+INCz 4B
+RTS
+JSR DB7C
+ORAzx 00
+
+
+
+
+
+LDYz 25
+NOP
+NOP
+CLC
+LDAiy 2D
+ADCz 2F
+STAz 3B
+NOP
+LDAiy 37
+ADCz 30
+STAz 3C
+INY
+SEC
+LDAiy 2D
+NOP
+DEY
+SBCiy 2D
+TAY
+BEQ 0C
+DEY
+STYz 35
+LDAiy 3B
+JSR D40B
+LDYz 35
+BNE F4
+RTS
+
+
+
+BRK
+
+BRK
+LDXy BF00
+BRK
+CMPix 00
+BRK
+BRK
+BRK
+BRK
+INCx C000
+
+
+LDXim 0F
+LDAx D44D
+STAzx 29
+DEX
+BPL F8
+LDAim 02
+STAz 4B
+LDAim 00
+JSR D40B
+LDAim 81
+JSR D40B
+NOP
+NOP
+NOP
+LDAim 80
+STAz 23
+JSR D400
+NOP
+NOP
+NOP
+LDAz 24
+BPL 35
+CMPim 80
+BNE 0C
+JSR D400
+JSR D580
+JSR D400
+CLC
+BCC E9
+LDYz 24
+LDAiy 29
+STAz 25
+LDYz 24
+INY
+CMPiy 29
+BNE 01
+RTS
+TAY
+LDAiy 2B
+BMI 0B
+JSR D4D0
+BEQ 06
+INCz 25
+LDAz 25
+BNE E8
+STAz 24
+JSR D420
+BEQ C4
+JSR D4D0
+BEQ 03
+LDAim 00
+RTS
+TAX
+BNE B2
+INX
+RTS
+
+
+
+
+
+
+LDXz 23
+BPL 16
+PHA
+JSR C6C3
+LDAz 5A
+CMPim 14
+BNE 02
+LDAim 00
+STAz 23
+LDAz 27
+BEQ 03
+JSR D5BC
+PLA
+CMPz 23
+RTS
+
+
+
+
+
+
+
+
+
+
+ADC 6970
+JMPi 6E69
+
+ORAx 5323
+ADCy 746E
+ADCix 6B
+
+ADCim 73
+
+PLA
+JSR 6965
+ROR 6177
+ROR 6664
+
+ADCz 69
+ORAx 5323
+ADCy 746E
+ADCix 78
+RORz 65
+PLA
+JMPi 7265
+ORAx 6F47
+ADCim 6E
+
+ORAx FF03
+BRK
+BRK
+JSR 2466
+JSR 2506
+
+
+SBCx EAD4
+JSR 23E9
+JSR C803
+JSR CA49
+JSR C9DA
+JSR CCB2
+JSR 8ED0
+NOP
+NOP
+NOP
+JSR D45F
+BEQ 0B
+JSR D240
+
+
+ASLzx D5
+NOP
+JMP 1C1D
+JSR D240
+CLC
+CMPzx 24
+CMPzx EA
+JMP 1C1D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ASLa
+BNE 01
+RTS
+TAX
+LDAx D600
+STAz 3B
+LDAx D601
+STAz 3C
+JMPi 003B
+
+JSR 24D4
+LDYim 4F
+LDAim 20
+STAiy 9A
+DEY
+BPL FB
+RTS
+LDYim 02
+CPYz 4B
+BEQ 0F
+LDAiy 39
+STYz 50
+JSR 24EF
+JSR 24CE
+LDYz 50
+INY
+BNE ED
+LDAz 24
+JSR 24EF
+RTS
+
+LDAz 99
+CMPim 1B
+BNE 03
+JSR 2460
+JSR D593
+JSR D5A0
+LDAim 40
+STAz 98
+JSR 22FD
+LDAz 23
+JSR 24EF
+JSR 24CE
+JSR C990
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RTS
+BRK
+SBCix DA
+BRK
+DECzx 00
+DECzx 00
+DECzx 40
+STYz 47
+STYz 00
+DECzx 6F
+STYz 7A
+STYz 84
+STYz 20
+STYz CD
+STYz 59
+STYz 0E
+STAz 2B
+STAz 3A
+STAz A5
+STXz D0
+STXz ED
+STXz 16
+
+ANDim 87
+
+
+SBCim 87
+JSR 2E8E
+STX 9569
+
+STX 8E7F
+STXz 8E
+STX A28E
+STX 8E42
+CMPix 8E
+
+BCC D9
+BCC 0C
+STAiy 3E
+STAiy 91
+STAzx 9F
+STAzx F8
+STAzx 87
+STXzy 26
+STXzy 16
+
+BRK
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 28
+
+TAY
+TYA
+
+TYA
+LDYx E198
+TYA
+NOP
+TYA
+BRK
+DECzx 15
+STAy 9B08
+ANDim 99
+
+STAy 9933
+BRK
+DECzx 00
+DECzx 3D
+STAy D600
+
+
+
+
+LDXzy 9B
+
+
+BRK
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 63
+STAx 9D6F
+SEI
+STAx 9DF0
+ORAy 3C9E
+
+
+
+
+
+
+
+CPXz 9E
+ORAx 009F
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+DECzx 00
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+
+
+JSR 2023
+LSRx 6B73
+ADCix 6C
+
+
+
+JSR 313F
+BMI 3F
+
+ANDiy 38
+
+ADCix 31
+JSR 6120
+ANDiy 64
+
+ADCix 32
+JSR 6120
+
+
+
+ADCim 37
+JSR 6920
+SEC
+JSR 6920
+ANDiy 35
+JSR 3169
+ROLzx 20
+ADCim 33
+ANDiy 20
+ADCim 33
+
+
+
+PLA
+
+JSR 6962
+
+JSR 753F
+RORzx 3F
+BCS 72
+
+
+RORz 75
+ROR 7063
+
+
+
+
+
+
+ADCzx 3F
+
+SEC
+
+
+
+BMI 3F
+
+
+SEC
+
+ADCix 6C
+
+JSR 6469
+BCS 63
+RORz 75
+
+
+
+
+
+
+
+LDAim 03
+STAz 50
+LDXz 51
+LDAx D70A
+JSR 2463
+INCz 51
+DECz 50
+BPL F2
+RTS
+BRK
+BRK
+BRK
+PHA
+ANDim C0
+BEQ 27
+PHA
+LSRa
+LSRa
+LSRa
+LSRa
+LSRa
+LSRa
+TAX
+LDAx D706
+JSR 2463
+PLA
+PLA
+PHA
+ANDim 38
+LSRa
+STAz 51
+JSR D77B
+PLA
+ANDim 07
+ASLa
+ASLa
+ORAim 20
+STAz 51
+JSR D77B
+RTS
+BRK
+PLA
+PHA
+ANDim 38
+BEQ 0A
+LSRa
+ORAim 40
+STAz 51
+JSR D77B
+PLA
+RTS
+LDAim 75
+JSR 2463
+LDAim 76
+JSR 2463
+JSR 24C9
+PLA
+ANDim 07
+ASLa
+NOP
+ORAim 60
+STAz 51
+LDAim 01
+STAz 50
+JSR D77F
+JSR 24CE
+RTS
+
+
+
+BRK
+NOP
+LDYim 02
+JSR 25A5
+PLA
+STAz 09
+PLA
+STAz 08
+LDYim 00
+LDAiy 08
+BNE 01
+RTS
+STAz 07
+INY
+LDAiy 08
+TAX
+INY
+LDAiy 08
+STAzx 00
+INX
+INY
+DECz 07
+BNE F6
+BEQ E8
+RTS
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDYim 06
+LDXim 03
+LDAiy 20
+STAzx 14
+DEY
+DEX
+BPL F8
+LDAim 00
+STAz 11
+JSR E0DF
+RTS
+
+
+ORAix 27
+BRK
+
+ANDy 6800
+
+
+
+
+
+LDYz 00
+JMPi BF0A
+BRK
+BCS 00
+BCS 00
+
+BRK
+
+BRK
+
+ASL A1D0
+BRK
+BRK
+LDYim 00
+TAY
+BRK
+TAY
+BRK
+LDXy 00C9
+BRK
+JMPi 0000
+LDYim 03
+STYz 51
+LDAiy 20
+JSR 24EF
+LDYz 51
+INY
+CPYim 07
+BNE F2
+JSR 24CE
+JSR D824
+JSR E0B1
+RTS
+
+
+
+
+BRK
+BRK
+LDYim 01
+LDAiy 54
+STAz 1F
+JSR 24EF
+LDYim 00
+LDAiy 54
+STAz 1E
+JSR 24EF
+LDAim 27
+JSR 2463
+RTS
+
+
+
+
+BRK
+BRK
+BRK
+BRK
+JSR D887
+JSR E14A
+LDAim 27
+JSR 2463
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR D887
+JSR E290
+JSR E118
+LDAim 27
+JSR 2463
+RTS
+
+
+
+
+
+
+
+BRK
+BRK
+STAz 07
+INCz 0D
+CLC
+LDAz 0D
+JSR D904
+LDAim 00
+STAz 0D
+JSR DA1D
+CLC
+LDAz 07
+ADCz 08
+STAz 08
+BCC 02
+INCz 09
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDYim 02
+LDAiy 20
+STAz 55
+JSR 24EF
+LDYim 01
+LDAiy 20
+STAz 54
+JSR 24EF
+JSR 24CE
+LDYim 00
+LDAiy 20
+PHA
+JSR D791
+PLA
+PHA
+ANDim F8
+CMPim 40
+BNE 05
+PLA
+JSR D867
+RTS
+ANDim E0
+CMPim A0
+BNE 13
+PLA
+ANDim 07
+CMPim 06
+BNE 04
+JSR D8A7
+RTS
+CMPim 07
+BNE 05
+JSR D8D8
+RTS
+PLA
+LDAim 3F
+JSR 2463
+LDAim 3F
+JSR 2463
+RTS
+
+
+
+
+
+
+
+BRK
+BRK
+LDAz D6
+LDXz D7
+STAz 12
+STXz 13
+RTS
+
+
+
+BRK
+BRK
+LDYz 12
+CPYz D8
+NOP
+BNE 07
+LDYz 13
+CPYz D9
+NOP
+BEQ 0B
+LDYim 00
+STAiy 12
+INCz 12
+BNE 02
+INCz 13
+RTS
+JSR D240
+
+CMPy D9C4
+JMP 1C1D
+
+
+
+
+
+
+ADCz 20
+AND 6542
+
+ADCz 69
+
+PLA
+JSR 6F76
+JMPi 036C
+
+
+
+CLC
+ADCz 12
+LDXz 13
+BCC 01
+INX
+CPXz D9
+NOP
+BEQ 03
+BCS CE
+RTS
+CMPz D8
+NOP
+BEQ 02
+BCS C6
+RTS
+
+BRK
+BRK
+LDYim 01
+JSR 25A5
+PLA
+STAz 07
+JSR D9C9
+LDYz 07
+JSR 25A5
+LDYz 07
+DEY
+PLA
+STAiy 12
+DEY
+BPL FA
+CLC
+LDAz 12
+ADCz 07
+STAz 12
+BCC 02
+INCz 13
+RTS
+
+BRK
+BRK
+
+BRK
+BRK
+LDYim 03
+JSR 25A5
+PLA
+STAz 09
+PLA
+STAz 08
+PLA
+STAz 07
+JSR D9C9
+LDYz 07
+DEY
+LDAiy 08
+STAiy 12
+DEY
+BPL F9
+BMI D1
+BRK
+
+BRK
+BRK
+
+BRK
+BRK
+ASLa
+TAX
+LDAim 20
+JSR D98D
+LDAx 8D00
+JSR D98D
+LDAx 8D01
+JSR D98D
+RTS
+
+BRK
+BRK
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz 09
+PLA
+STAz 08
+LDYim FF
+STYz 0D
+INCz 0D
+LDYz 0D
+LDAiy 08
+BMI 09
+BNE 01
+RTS
+JSR D8F0
+JMP DA5E
+NOP
+TAX
+STAz 0E
+INY
+LDAiy 08
+CPXim 84
+BNE 25
+STAz 0B
+INY
+LDAiy 08
+STAz 0C
+LDAim 4C
+STAz 0A
+STYz 0D
+LDAz 08
+PHA
+LDAz 09
+PHA
+LDAz 0D
+PHA
+JSR 000A
+PLA
+STAz 0D
+PLA
+STAz 09
+PLA
+STAz 08
+JMP DA5C
+STYz 0D
+TAX
+LSRz 0E
+LDAzx 00
+ADCim 00
+PHP
+JSR D98D
+LSRz 0E
+BCS 04
+PLP
+JMP DA5C
+PLP
+LDAzx 01
+ADCim 00
+JSR D98D
+JMP DA5C
+
+
+BRK
+LDYim 02
+JSR 25A5
+PLA
+TAX
+PLA
+CLC
+ADCz 0F
+STAz 08
+TXAa
+ADCz 10
+STAz 09
+JMP DA58
+
+BRK
+BRK
+
+BRK
+BRK
+
+BRK
+BRK
+
+BRK
+BRK
+JSR 24C9
+LDYim 0B
+LDAiy 41
+STAz 3F
+INY
+LDAiy 41
+STAz 40
+INY
+LDAiy 41
+STAz 51
+BEQ 10
+LDYim 00
+STYz 50
+LDAiy 3F
+JSR 2463
+LDYz 50
+INY
+CPYz 51
+BNE F2
+JSR 24D4
+NOP
+LDYim 00
+LDAim 08
+STAiy 41
+RTS
+JSR D97F
+JSR D9E4
+
+CLC
+BCC EA
+LDAim 00
+STAz 41
+LDAz C2
+NOP
+STAz 42
+LDYim 0D
+LDAiy 41
+CLC
+ADCim 04
+NOP
+NOP
+NOP
+JSR D98D
+JSR D9E4
+
+
+
+
+LDYim 03
+LDYim 0B
+LDAiy 41
+STAz 08
+INY
+LDAiy 41
+STAz 09
+INY
+LDAiy 41
+JSR DA1B
+LDAim 03
+JSR D98D
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 27
+BNE 09
+JSR D1EC
+JSR 2339
+BRK
+ASLzx EA
+LDXim 52
+JSR C879
+JSR 24CE
+JSR CD55
+JSR C768
+JSR 24C9
+LDYim 01
+JSR 25A5
+PLA
+ASLa
+TAY
+LDXim FC
+LDAy DBB0
+STAzx 35
+INY
+INX
+BNE F7
+JMP D266
+ORAzx DC
+BIT 3EDC
+
+BVC DC
+
+
+
+
+DEY
+
+TXS
+
+LDY C1DC
+
+
+
+CPXz DC
+SBCzx DC
+
+CMPx DD23
+SEC
+CMPx DD45
+
+CMPx DD73
+ADCx 96DD
+CMPx DDA9
+LDXzy DD
+DECzx DD
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+
+BRK
+INCx FFB7
+BRK
+INCx FF07
+BRK
+INCx FF03
+BRK
+INCx 00FE
+BRK
+BRK
+INCx 0000
+BRK
+INCx 0000
+BRK
+INCx 0000
+BRK
+BRK
+BRK
+
+
+
+ADCix 6C
+
+JSR 6441
+
+ADCz 73
+
+ADCz 20
+ADCzx 6E
+
+ADCz 65
+ADCim 67
+ROR 7465
+ORAx 655A
+
+
+AND 6542
+
+ADCz 69
+
+PLA
+JSR 656C
+ADCz 72
+ORAx 6144
+
+ADCix 2D
+
+ADCz 72
+ADCz 69
+
+PLA
+JSR 656C
+ADCz 72
+ORAx 6F43
+
+ADCz 2D
+
+ADCz 72
+ADCz 69
+
+PLA
+JSR 656C
+ADCz 72
+ORAx 6544
+
+JMPi 7261
+ADCix 74
+ADCim 6F
+ROR 6620
+ADCz 68
+JMPi 1D74
+BVC 72
+
+
+ADCz 64
+ADCzx 72
+
+ADCzx 6D
+BCS 66
+JSR 6566
+PLA
+JMPi 1D74
+
+
+ADC 6970
+JMPi 7265
+RORz 65
+PLA
+JMPi 7265
+JSR 2121
+ORAx 6542
+
+JSR 656D
+PLA
+
+RORz 61
+
+PLA
+JSR 6564
+
+JMPi 4D1D
+ADCix 74
+
+ADCim 78
+JSR 6976
+ADCz 6C
+JSR 757A
+BRK
+
+
+
+
+
+ORAx 6546
+JMPi 2064
+
+ADCzx 20
+
+
+
+
+
+ORAx 6542
+
+ADCz 69
+
+PLA
+JSR 6144
+
+ADCix 20
+
+ADCzx 20
+
+ADCzx 72
+
+ORAx 6542
+
+ADCz 69
+
+PLA
+JSR 655A
+
+
+JSR 757A
+JSR 756B
+
+
+ORAx 6E49
+
+ADCz 78
+
+ADCz 72
+ADCz 69
+
+PLA
+JSR 6E75
+
+ADCzx 6C
+ADCix 65
+
+
+ADCim 67
+ORAx 6E49
+
+ADCz 67
+ADCz 72
+JSR 757A
+JSR 7267
+
+
+
+ORAx 6542
+
+ADCz 69
+
+PLA
+JSR 6F43
+
+ADCz 20
+
+ADCzx 20
+
+ADCzx 72
+
+ORAx 6146
+JMPi 6373
+PLA
+ADCz 72
+JSR 7954
+BCS 1D
+EORix 75
+
+
+
+ADCzx 63
+
+JSR 757A
+JSR 6974
+ADCz 66
+JSR 6567
+
+
+PLA
+ADCix 63
+PLA
+
+ADCz 6C
+
+ORAx 757A
+JSR 6976
+ADCz 6C
+ADCz 20
+
+
+EORz 41
+
+
+ORAx 756E
+
+JSR 3631
+JSR 4649
+ORAx 757A
+JSR 6976
+ADCz 6C
+ADCz 20
+LSRz 4F
+
+JSR 4857
+EORim 4C
+EORz 20
+
+
+EORz 41
+
+ORAx 6166
+JMPi 6373
+PLA
+ADCz 20
+
+
+ADCzx 66
+ADCz 6E
+
+ADCix 68
+JMPi 501D
+ADCix 72
+
+ADCz 72
+AND 7453
+ADCix 63
+
+ORAx 656B
+ADCim 6E
+JSR 7541
+
+
+ADCix 62
+ADCz 74
+ADCy 1D70
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+INCx FFFF
+
+INCx FFFF
+INCx FFFF
+
+INCx FFFF
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+INCx FFFE
+
+INCx FFFF
+
+INCx FFFF
+
+INCx FFFF
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+INCx FFFF
+
+INCx FFFF
+INCx FFFF
+
+INCx FFFF
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+INCx FFFF
+
+INCx FFFF
+
+INCx FFFF
+
+INCx FFFF
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+
+
+
+
+
+
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+BRK
+BRK
+
+BRK
+
+
+
+BRK
+BRK
+LDAz 24
+CMPz 26
+BNE 0A
+LDAz 25
+CMPz 27
+BNE 04
+JSR EEE1
+
+INCz 24
+BNE 02
+INCz 25
+LDYim 00
+LDAiy 24
+RTS
+
+
+
+LDXz 24
+CPXz 28
+BNE 0A
+LDXz 25
+CPXz 29
+BNE 04
+JSR EEE1
+
+NOP
+LDYim 00
+STAiy 24
+LDXz 24
+BNE 02
+DECz 25
+DECz 24
+RTS
+
+
+
+LDYim 04
+LDAiy 24
+STAy 0013
+DEY
+BNE F8
+CLC
+LDAz 24
+ADCim 04
+STAz 24
+BCC 02
+INCz 25
+BNE 16
+JSR EEE1
+
+
+
+
+CLC
+LDAz 24
+ADCz 1E
+STAz 24
+LDAz 25
+ADCz 1F
+STAz 25
+BCS 0B
+CLC
+LDAz 24
+SBCz 26
+LDAz 25
+SBCz 27
+BCC 04
+JSR EEE1
+
+RTS
+
+
+
+
+BRK
+BRK
+LDYim 03
+LDAiy 54
+STAy 0014
+DEY
+BPL F8
+RTS
+LDYim 03
+LDAy 0014
+STAiy 54
+DEY
+BPL F8
+RTS
+LDYim 00
+LDAiy 54
+STAz 14
+INY
+LDAiy 54
+RTS
+LDYim 01
+STAiy 54
+DEY
+LDAz 14
+STAiy 54
+RTS
+JSR E24F
+LDAz 11
+BEQ 05
+LDAim 2D
+JSR 2463
+LDXim 09
+LDAzx 07
+BNE 03
+DEX
+BNE F9
+LDAzx 07
+ORAim 30
+STXz 51
+JSR 2463
+LDXz 51
+DEX
+BPL F2
+RTS
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDXim 09
+LDAim 00
+STAzx 07
+DEX
+BPL FB
+PHP
+LDYim 20
+LDXim 00
+PLP
+ROLzx 14
+PHP
+INX
+CPXim 04
+BNE F7
+LDXim 00
+PLP
+ROLzx 07
+LDAzx 07
+SEC
+SBCim 0A
+BCC 02
+STAzx 07
+PHP
+INX
+CPXim 0A
+BNE EE
+DEY
+BNE DE
+PLP
+RTS
+
+
+
+
+
+
+
+BRK
+BRK
+LDYim 00
+LDAiy 54
+ANDim 07
+TAX
+JSR EC9F
+NOP
+NOP
+NOP
+LDAz 1E
+BNE 06
+LDAz 1F
+BEQ 16
+DECz 1F
+DECz 1E
+LDYim 01
+LDAiy 54
+JSR 24EF
+LDAz 54
+BNE 02
+DECz 55
+DECz 54
+CLC
+BCC E2
+RTS
+
+
+
+
+
+
+LDAz 1E
+BEQ 17
+LDYim 02
+LDAiy 54
+JSR 2463
+INCz 54
+BNE 02
+INCz 55
+LDAz 1E
+BNE 02
+DECz 1F
+DECz 1E
+BNE E9
+LDAz 1F
+BNE E5
+RTS
+
+
+
+
+
+
+LDAz 17
+BPL 14
+SEC
+LDXim FC
+LDAzx 18
+EORim FF
+ADCim 00
+STAzx 18
+INX
+NOP
+NOP
+BNE F3
+LDXim 01
+BNE 3D
+LDXim 00
+BEQ 39
+TAX
+BPL 15
+EORim FF
+STAz 15
+LDAz 14
+EORim FF
+CLC
+ADCim 01
+STAz 14
+BCC 02
+INCz 15
+LDXim 01
+BNE 04
+STAz 15
+LDXim 00
+LDAim 00
+BEQ 15
+TAX
+BPL 0A
+EORim FF
+STAz 14
+INCz 14
+LDXim 01
+BNE 04
+STAz 14
+LDXim 00
+LDAim 00
+STAz 15
+STAz 16
+STAz 17
+STXz 11
+JMP E0DF
+
+LDYim 00
+LDAiy 54
+STAz 1E
+INY
+LDAiy 54
+STAz 1F
+RTS
+
+
+
+
+
+
+CLC
+LDAz 24
+ADCim 01
+STAz 54
+LDAz 25
+ADCim 00
+STAz 55
+RTS
+
+
+
+STAz 54
+TXAa
+CLC
+ADCz 13
+STAz 55
+RTS
+
+
+
+CLC
+ADCz 12
+STAz 54
+TXAa
+ADCz 13
+STAz 55
+RTS
+
+
+
+STAz 18
+BEQ 09
+LDAim 1D
+JSR 2463
+DECz 18
+BNE F7
+RTS
+
+
+
+LDAz 1E
+ASLa
+STAz 50
+LDAz 1F
+ROLa
+STAz 51
+JMP E232
+
+
+
+
+
+
+
+JSR E14A
+LDAz 51
+BNE 08
+LDAz 18
+SEC
+SBCz 50
+BCS 06
+NOP
+JSR EEE1
+ORAz EA
+STAz 18
+BNE 29
+RTS
+
+
+LDAz 18
+BNE 27
+BEQ EE
+BRK
+LDXim 09
+LDAzx 07
+BNE 03
+DEX
+BNE F9
+LDAz 11
+BEQ 01
+INX
+TXAa
+SEC
+SBCz 18
+EORim FF
+BCC 04
+JSR EEE1
+ORAz EA
+BEQ 0B
+STAz 18
+LDAim 20
+JSR 2463
+DECz 18
+BNE F7
+RTS
+
+
+
+
+
+
+
+
+
+LDAz 1E
+STAz 50
+LDAz 1F
+STAz 51
+RTS
+
+
+
+JSR E1CB
+CLC
+LDAz 1E
+ADCim 07
+STAz 1E
+BCC 02
+INCz 1F
+LDXim 03
+LSRz 1F
+RORz 1E
+DEX
+BNE F9
+RTS
+
+
+
+CLC
+LDAz 24
+ADCim 02
+STAz 24
+BCC 02
+INCz 25
+JMP E05F
+
+
+
+
+
+
+
+
+
+JSR E1AC
+JMP E0B1
+JSR E1B9
+JMP E0B1
+JSR E18C
+JMP E0B1
+JSR E1A4
+JMP E0B1
+JSR E170
+JMP E0B1
+
+
+
+ORAim 30
+JMP 2463
+JSR E1AC
+JMP E0AE
+JSR E1B9
+JMP E0AE
+JSR E18C
+JMP E0AE
+JSR E1A4
+JMP E0AE
+JSR E170
+JMP E0AE
+ORAim 30
+PHA
+JSR E248
+PLA
+JMP 2463
+JSR EEE1
+
+JSR 2463
+JMP E248
+JSR E1DD
+JSR E1CB
+JSR E2A8
+JMP E14A
+JSR E1DD
+JSR E28D
+JSR E2A8
+JMP E118
+JSR E1CB
+JMP E14A
+JSR E28D
+JMP E118
+JSR E1DD
+JSR E1CB
+JSR E281
+JSR E2A8
+JMP E22D
+JSR E1DD
+JSR E28D
+JSR E219
+JSR E2A8
+JMP E118
+JSR E1CB
+JSR E281
+JMP E22D
+JSR E28D
+JSR E219
+JMP E118
+BRK
+CLC
+LDAz 14
+ADCz 18
+STAz 14
+LDAz 15
+ADCz 19
+STAz 15
+BCC 0C
+INCz 16
+BNE 08
+INCz 17
+BNE 04
+JSR EEE1
+ORAix 60
+
+BRK
+BRK
+LDAz 14
+STAz 16
+LDAz 15
+STAz 17
+LDAim 00
+STAz 14
+STAz 15
+LDYim 10
+ASLz 14
+ROLz 15
+ROLz 16
+ROLz 17
+BCC 03
+JSR E36C
+DEY
+BNE F0
+RTS
+LDXz 14
+STXz 16
+JMP E391
+
+
+PHA
+SEC
+SBCz 98
+BEQ 0A
+BCS 05
+JSR 24D4
+PLA
+PHA
+JSR E26A
+PLA
+RTS
+
+
+
+PHA
+SEC
+SBCz 99
+BEQ 0A
+BCS 05
+JSR 2370
+PLA
+PHA
+JSR E208
+PLA
+RTS
+
+
+
+
+
+
+
+
+
+LDAz 17
+ORAz 16
+BNE 0E
+LDAz 15
+JSR E020
+LDAz 14
+JSR E020
+RTS
+TAX
+BPL F4
+JSR EEE1
+
+NOP
+TAX
+BMI F7
+STAz 14
+LDAim 00
+BEQ E6
+
+
+
+
+
+
+
+
+JSR E002
+STAz 1E
+JSR E002
+STAz 1F
+JSR E002
+STAz 12
+JSR E002
+STAz 13
+JSR E002
+STAz 54
+JSR E002
+STAz 55
+NOP
+NOP
+NOP
+LDYim 00
+LDAiy 54
+SEC
+SBCz 12
+PHP
+SEC
+SBCz 1E
+PHP
+CLC
+ADCim 01
+STAz 14
+INY
+LDAiy 54
+ADCim 00
+PLP
+SBCz 1F
+BCC 10
+PLP
+SBCz 13
+STAz 15
+BCC 09
+LDAz 12
+BNE 04
+LDAz 13
+BEQ 01
+RTS
+JSR EEE1
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR E40F
+LDAz 1E
+LDXz 1F
+STAz CC
+STXz CD
+NOP
+LDAz 54
+SEC
+ADCz 12
+STAz CA
+LDAz 55
+ADCz 13
+NOP
+NOP
+NOP
+STAz CB
+JSR E602
+LDAz 1F
+JSR E020
+LDAz 1E
+JSR E020
+RTS
+
+
+
+BRK
+BRK
+LDAz CD
+BEQ 1B
+LDAz CC
+PHA
+LDAim 00
+STAz CC
+LDYim 00
+LDAiy CA
+STAiy CE
+INY
+BNE F9
+INCz CB
+INCz CF
+DECz CD
+BNE EF
+PLA
+STAz CC
+LDYz CC
+BEQ 08
+DEY
+LDAiy CA
+STAiy CE
+TYA
+BNE F8
+RTS
+BRK
+LDAz 18
+BNE 02
+DECz 19
+DECz 19
+BNE 05
+LDAz 19
+BNE 01
+RTS
+LDAz 20
+BNE 02
+DECz 21
+DECz 20
+LDYim 00
+LDAiy 20
+INY
+STAiy 20
+JMP E4CD
+
+
+
+
+
+
+BRK
+BRK
+CLC
+LDAz 16
+PHA
+LDAz 17
+PHA
+LDAz 1A
+PHA
+LDAz 1B
+PHA
+LDYim 00
+LDAz 16
+BNE 06
+LDAz 17
+BEQ 14
+DECz 17
+DECz 16
+LDAiy 1A
+RORa
+STAiy 1A
+LDAz 1A
+BNE 02
+DECz 1B
+DECz 1A
+JMP E505
+PLA
+STAz 1B
+PLA
+STAz 1A
+PLA
+STAz 17
+PLA
+STAz 16
+RTS
+
+
+
+BRK
+BRK
+TAX
+BEQ 06
+JSR E4F6
+DEX
+BNE FA
+RTS
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR E40F
+LDAz 14
+ANDim 07
+PHA
+CLC
+ADCim 07
+ADCz 1E
+STAz CC
+LDAz 1F
+ADCim 00
+LSRa
+RORz CC
+LSRa
+RORz CC
+LSRa
+RORz CC
+STAz CD
+STAz 17
+STAz 19
+LDAz CC
+STAz 16
+STAz 18
+NOP
+NOP
+NOP
+NOP
+NOP
+LDAz 14
+STAz CA
+NOP
+NOP
+NOP
+LDAz 15
+LSRa
+RORz CA
+LSRa
+RORz CA
+LSRa
+RORz CA
+TAX
+CLC
+LDAz CA
+ADCz 54
+PHP
+CLC
+ADCim 02
+STAz CA
+TXAa
+ADCim 00
+PLP
+ADCz 55
+STAz CB
+LDAz 24
+STAz 1A
+STAz 20
+LDAz 25
+STAz 1B
+STAz 21
+JSR E602
+PLA
+JSR E533
+LDAz 1E
+CLC
+ADCim 07
+LSRa
+LSRa
+LSRa
+EORz 16
+ANDim 01
+BEQ 06
+JSR E4CD
+JSR E002
+LDAz 1F
+JSR E020
+LDAz 1E
+JSR E020
+JSR E5E3
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAz 1E
+ANDim 07
+TAX
+LDYim 00
+LDAiy 1A
+ORAx E5F2
+STAiy 1A
+RTS
+
+ORAix 03
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDAz 24
+SEC
+SBCz CC
+STAz 24
+LDAz 25
+SBCz CD
+STAz 25
+TAX
+LDYz 24
+INY
+BNE 01
+INX
+STYz CE
+STXz CF
+JSR E630
+JMP E4A0
+PHA
+TXAa
+JSR E020
+PLA
+JSR E020
+RTS
+
+
+
+
+BRK
+BRK
+LDAz 24
+CMPz 28
+LDAz 25
+SBCz 29
+BCC 01
+RTS
+JSR EEE1
+
+
+
+BRK
+BRK
+SEC
+LDAz 24
+SBCim 04
+STAz 24
+BCS 02
+DECz 25
+JSR E630
+LDYim 04
+LDAy 0013
+STAiy 24
+DEY
+BNE F8
+RTS
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz CD
+PLA
+STAz CC
+LDAz 54
+LDXz 55
+STAz CA
+STXz CB
+JSR E602
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+JSR E28D
+LDAz 1E
+CLC
+ADCim 02
+STAz CC
+LDAz 1F
+ADCim 00
+STAz CD
+JMP E66A
+
+BRK
+BRK
+LDYim 00
+LDAiy 54
+CLC
+ADCim 02
+STAz CC
+INY
+LDAiy 54
+ADCim 00
+STAz CD
+JMP E66A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+LDXz 24
+LDYz 25
+INX
+BNE 01
+INY
+STXz CA
+STYz CB
+LDAz 24
+CLC
+ADCz CC
+STAz 24
+LDAz 25
+ADCz CD
+STAz 25
+JSR E06E
+JSR E4A0
+RTS
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz CD
+PLA
+STAz CC
+LDAz 54
+LDXz 55
+STAz CE
+STXz CF
+JSR E6F5
+RTS
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz CD
+PLA
+ASLa
+ROLz CD
+JMP E721
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz CD
+PLA
+ASLa
+ROLz CD
+ASLa
+ROLz CD
+JMP E721
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz 51
+PLA
+STAz 50
+LDYim 01
+LDAiy 24
+CLC
+ADCim 02
+STAz CC
+INY
+LDAiy 24
+ADCim 00
+STAz CD
+LDYim 01
+LDAiy 24
+CLC
+SBCz 50
+INY
+LDAiy 24
+SBCz 51
+BCC 04
+JSR EEE1
+BRK
+JMP E723
+
+BRK
+BRK
+LDYim 02
+JSR 25A5
+PLA
+STAz 51
+PLA
+STAz 50
+JSR E9F2
+JMP E772
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR E020
+LDAim 00
+JSR E020
+LDAim 01
+JSR E020
+RTS
+
+
+
+
+BRK
+BRK
+PLA
+STAz 50
+PLA
+STAz 51
+LDXim 06
+JSR E002
+PHA
+DEX
+BNE F9
+LDAz 51
+PHA
+LDAz 50
+PHA
+RTS
+PLA
+STAz 50
+PLA
+STAz 51
+PLA
+STAz 55
+PLA
+STAz 54
+PLA
+STAz 13
+PLA
+STAz 12
+PLA
+STAz 1F
+PLA
+STAz 1E
+LDAz 51
+PHA
+LDAz 50
+PHA
+RTS
+PLA
+STAz 50
+PLA
+STAz 51
+JSR E002
+PHA
+JSR E002
+PHA
+LDAz 51
+PHA
+LDAz 50
+PHA
+RTS
+STAz 18
+PLA
+STAz 50
+PLA
+STAz 51
+PLA
+STAz 13
+PLA
+STAz 12
+LDAz 51
+PHA
+LDAz 50
+PHA
+LDAz 18
+RTS
+
+BRK
+BRK
+JSR E866
+JMP E883
+
+BRK
+BRK
+JSR E002
+CMPz 1E
+BNE 07
+JSR E002
+CMPz 1F
+BEQ 04
+JSR EEE1
+BRK
+LDAz 1E
+BNE 02
+LDAz 1F
+RTS
+
+BRK
+BRK
+JSR E430
+LDAz 1E
+CMPim 01
+BNE 04
+LDAz 1F
+BEQ 04
+JSR EEE1
+BRK
+RTS
+BRK
+BRK
+JSR E430
+JSR E84A
+BNE 01
+RTS
+LDAz 1E
+LDXz 1F
+STAz CC
+STXz CD
+LDAz 54
+SEC
+ADCz 12
+STAz CE
+LDAz 55
+ADCz 13
+STAz CF
+JSR E6F5
+RTS
+
+
+
+
+BRK
+BRK
+LDAz 18
+BNE 01
+RTS
+JSR E9D8
+JSR E020
+LDAz 24
+CLC
+ADCz 16
+STAz 1A
+LDAz 25
+ADCz 17
+STAz 1B
+LDAim 08
+SEC
+SBCz 18
+JSR E533
+RTS
+
+BRK
+BRK
+LDAz 18
+BNE 01
+RTS
+TAX
+LDAx E5F2
+EORim FF
+LDYim 01
+ANDiy 24
+STAz 19
+LDAx E5F2
+INY
+ANDiy 20
+ORAz 19
+DEY
+STAiy 24
+RTS
+
+BRK
+BRK
+LDAz 18
+CLC
+ADCz 1E
+ANDim 07
+BNE 01
+RTS
+TAX
+LDAz 24
+CLC
+ADCz 16
+STAz 22
+LDAz 25
+ADCz 17
+STAz 23
+LDAz 20
+CLC
+ADCz 16
+STAz 50
+LDAz 21
+ADCz 17
+STAz 51
+LDAx E5F2
+EORim FF
+LDYim 01
+ANDiy 50
+STAz 19
+LDAx E5F2
+DEY
+ANDiy 22
+ORAz 19
+NOP
+STAiy 22
+RTS
+
+BRK
+BRK
+LDAz 18
+BNE 01
+RTS
+LDAz 1E
+CLC
+ADCim 07
+STAz 1A
+LDAz 1F
+ADCim 00
+LSRa
+RORz 1A
+LSRa
+RORz 1A
+LSRa
+RORz 1A
+CMPz 17
+BNE 09
+LDAz 1A
+CMPz 16
+BNE 03
+JSR E002
+RTS
+
+
+
+
+BRK
+BRK
+JSR E866
+JMP E964
+
+BRK
+BRK
+JSR E430
+JSR E84A
+BNE 01
+RTS
+LDAz 14
+ANDim 07
+STAz 18
+JSR E8A2
+LDAz 18
+CLC
+ADCz 1E
+PHP
+CLC
+ADCim 07
+STAz 16
+LDAz 1F
+ADCim 00
+PLP
+ADCim 00
+LSRa
+RORz 16
+LSRa
+RORz 16
+LSRa
+RORz 16
+STAz 17
+CLC
+LDAz 14
+NOP
+NOP
+STAz 20
+LDAz 15
+ADCim 00
+LSRa
+RORz 20
+LSRa
+RORz 20
+LSRa
+RORz 20
+TAX
+LDAz 20
+CLC
+ADCz 54
+STAz 20
+TXAa
+ADCz 55
+STAz 21
+JSR E8C6
+JSR E8E6
+LDAz 16
+LDXz 17
+STAz CC
+STXz CD
+LDAz 20
+NOP
+NOP
+CLC
+ADCim 02
+STAz CE
+LDAz 21
+ADCim 00
+NOP
+NOP
+NOP
+STAz CF
+JSR E6F5
+JSR E925
+RTS
+
+
+
+
+BRK
+BRK
+LDAz 1E
+CLC
+ADCim 0F
+STAz 16
+LDAz 1F
+ADCim 00
+LSRa
+RORz 16
+LSRa
+RORz 16
+LSRa
+RORz 16
+STAz 17
+RTS
+
+BRK
+BRK
+CLC
+LDYim 01
+LDAiy 24
+ADCim 17
+STAz CC
+INY
+LDAiy 24
+ADCim 00
+LSRa
+RORz CC
+LSRa
+RORz CC
+LSRa
+RORz CC
+STAz CD
+RTS
+
+
+
+
+
+
+
+BRK
+BRK
+TAX
+BPL 04
+LDXim FF
+BNE 02
+LDXim 00
+STAz 14
+STXz 15
+RTS
+TAX
+BMI 1F
+STAz 15
+RTS
+LDAz 17
+BEQ 0F
+CMPim FF
+BNE 14
+LDAz 16
+CMPim FF
+BNE 0E
+LDAz 15
+BPL 0A
+RTS
+LDAz 16
+BNE 05
+LDAz 15
+BMI 01
+RTS
+JSR EEE1
+
+
+
+
+
+
+BRK
+BRK
+JSR E002
+STAz 14
+JSR E002
+STAz 15
+RTS
+
+BRK
+BRK
+SEC
+LDAz 14
+SBCz 18
+STAz 14
+LDAz 15
+SBCz 19
+STAz 15
+RTS
+SEC
+LDAz 14
+CMPz 18
+LDAz 15
+SBCz 19
+RTS
+
+
+
+
+BRK
+BRK
+PLA
+STAz 18
+PLA
+STAz 19
+PLA
+STAz 54
+PLA
+STAz 55
+LDAz 19
+PHA
+LDAz 18
+PHA
+RTS
+BRK
+BRK
+PLA
+STAz 18
+PLA
+STAz 19
+LDAz 55
+PHA
+LDAz 54
+PHA
+LDAz 19
+PHA
+LDAz 18
+PHA
+RTS
+
+BRK
+BRK
+LDAz 12
+LDXz 13
+JSR E620
+LDAz 54
+LDXz 55
+JSR E620
+RTS
+STAz 16
+JSR E002
+STAz 54
+JSR E002
+STAz 55
+LDAz 16
+RTS
+PHA
+NOP
+JSR EAB8
+JSR E002
+STAz 12
+JSR E002
+STAz 13
+PLA
+RTS
+
+
+
+
+JSR ED45
+JMP E3ED
+JSR ECEB
+JMP E3ED
+JSR ED38
+JMP E3ED
+JSR ED3E
+JMP E3ED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PLA
+STAz 17
+PLA
+STAz 16
+LDYim 04
+JSR 25A5
+PLA
+STAz 19
+PLA
+STAz 18
+JSR EA5E
+BMI 12
+PLA
+STAz 19
+PLA
+STAz 18
+JSR EA6C
+BCS 07
+LDAz 16
+PHA
+LDAz 17
+PHA
+RTS
+JSR EEE1
+BRK
+
+BRK
+BRK
+LDAz 14
+LDYim 00
+CMPiy 54
+LDAz 15
+INY
+SBCiy 54
+BCS 01
+RTS
+JSR EEE1
+BRK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR EB0A
+LDYim 02
+JSR 25A5
+PLA
+STAz 19
+PLA
+STAz 18
+JSR E38B
+LDAz 14
+CLC
+ADCz 54
+STAz 54
+LDAz 15
+ADCz 55
+STAz 55
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR EB0A
+JMP EBC6
+BRK
+JSR E002
+STAz 54
+JSR E002
+STAz 55
+RTS
+JSR EB0A
+ASLz 14
+ROLz 15
+JMP EBC6
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR EB0A
+ASLz 14
+ROLz 15
+ASLz 14
+ROLz 15
+JMP EBC6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR EB0A
+JSR EB39
+JMP EBC6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+JSR EB0A
+LDXz 14
+LDYz 15
+INX
+BNE 01
+INY
+STXz 12
+STYz 13
+LDXim 01
+STXz 1E
+DEX
+STXz 1F
+JSR E430
+RTS
+
+BRK
+BRK
+LDXim 01
+STXz 1E
+DEX
+STXz 1F
+JSR E54A
+JSR EA50
+JSR E002
+RTS
+
+BRK
+BRK
+JSR E020
+LDXim 01
+STXz 1E
+DEX
+STXz 1F
+JSR E430
+JSR E964
+RTS
+
+
+
+
+BRK
+BRK
+LDAz 1E
+BNE 05
+LDAz 1F
+BNE 01
+RTS
+LDAz 54
+CLC
+ADCz 1E
+STAz 54
+LDAz 55
+ADCz 1F
+STAz 55
+LDYim 01
+LDAiy 54
+ORAx E5F2
+STAiy 54
+CPXim 05
+BPL 1F
+TXAa
+BEQ 1C
+LDAz 1E
+BNE 02
+DECz 1F
+DECz 1E
+JSR 24CE
+LDYim 01
+LDAiy 54
+ANDim 0F
+JSR 24E2
+LDAz 54
+BNE 02
+DECz 55
+DECz 54
+RTS
+
+
+
+
+
+
+
+
+
+TAX
+BMI 12
+RTS
+TAX
+BNE 21
+BEQ 2E
+TAX
+BNE 09
+BEQ 29
+TAX
+BNE 04
+LDAz 14
+RTS
+BRK
+JSR EEE1
+
+BRK
+TAX
+BNE F8
+LDAz 14
+RTS
+LDAz 17
+BEQ 0D
+ANDz 16
+ANDz 15
+CMPim FF
+BNE E9
+LDAz 14
+BPL E5
+RTS
+LDAz 16
+ORAz 15
+BNE DE
+LDAz 14
+BMI DA
+RTS
+LDAz 17
+ORAz 16
+ORAz 15
+BNE D1
+LDAz 14
+RTS
+
+BRK
+BRK
+TAX
+BMI C8
+LDXim 00
+STAz 14
+TXAa
+RTS
+TAX
+BPL F7
+LDXim FF
+BMI F5
+LDAz 17
+BEQ 0B
+ANDz 16
+CMPim FF
+BNE B1
+LDAz 15
+BPL AD
+RTS
+LDAz 16
+BNE A8
+LDAz 15
+BMI A4
+RTS
+LDAz 17
+ORAz 16
+BNE 9D
+LDAz 15
+RTS
+
+BRK
+BRK
+TAX
+BPL 04
+LDXim FF
+BNE 02
+LDXim 00
+STAz 14
+STXz 15
+STXz 16
+STXz 17
+RTS
+TAX
+BPL 06
+STAz 15
+LDXim FF
+BNE F2
+STAz 15
+LDXim 00
+BEQ EC
+
+BRK
+BRK
+SEC
+SBCim 30
+BCC 6E
+CMPim 0A
+BCS 6A
+RTS
+JSR ED8D
+BCC 9C
+JSR ED8D
+BCC CF
+
+BRK
+BRK
+JSR ED27
+JMP EDB9
+JSR ED05
+JMP EDB9
+JSR ECF9
+JMP EDB9
+JSR ECEB
+CMPim 0A
+BCS 43
+ORAim 30
+RTS
+JSR ED27
+JMP EDD5
+JSR ED05
+JMP EDD5
+JSR ECF9
+JMP EDD5
+JSR ECEB
+CMPim 02
+BCS 27
+RTS
+JSR E002
+CMPim 08
+BNE 1F
+JSR E002
+BNE 1A
+JSR E002
+RTS
+
+
+
+JSR E020
+LDAim 08
+BNE 16
+JSR E3ED
+LDAim 10
+BNE 0F
+
+
+
+
+
+JSR EEE1
+
+BRK
+JSR E643
+LDAim 20
+LDXim 00
+JSR E620
+RTS
+
+
+
+
+
+
+JSR E170
+JMP EE31
+JSR E1A4
+JMP EE31
+JSR E18C
+JMP EE31
+JSR E1B9
+JMP EE31
+JSR E1AC
+LDXim 09
+LDAzx 07
+BNE 03
+DEX
+BNE F9
+STXz 50
+LDXim 00
+STXz 51
+LDAzx 07
+ORAim 30
+JSR E020
+LDXz 51
+CPXz 50
+BEQ 03
+INX
+BNE EE
+LDAz 11
+BEQ 07
+LDAim 2D
+JSR E020
+INCz 50
+INCz 50
+LDAim 00
+JSR E020
+LDAz 50
+JSR E020
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDYim 01
+JSR 25A5
+JSR 2503
+LSRx 6DEF
+
+PLA
+ASLa
+ASLa
+TAY
+LDXim 00
+LDAy EF10
+STAzx 31
+INY
+INX
+CPXim 04
+BNE F5
+JSR 2514
+JSR 2506
+LSRx 64EF
+
+NOP
+NOP
+JMP 1C1D
+
+BRK
+BRK
+STAz EF
+BCC EF
+
+
+LDXim EF
+LDYz EF
+CLV
+
+TSX
+
+
+
+CMPz EF
+DEC D0EF
+
+CMPzx EF
+
+
+CMPx DFEF
+
+INCz EF
+INX
+
+
+
+SBCzx EF
+BRK
+BEQ 02
+BEQ 13
+BEQ FF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BRK
+BRK
+
+
+
+JSR 2A2A
+ROLa
+ROLa
+ROLa
+JSR 6546
+PLA
+JMPi 7265
+JSR 203A
+ORAx FFFF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORAx 6E49
+
+ADCz 78
+
+ADCz 72
+ADCz 69
+
+PLA
+ORAx 6E49
+
+ADCz 67
+ADCz 72
+JSR 6555
+
+ADCz 72
+JMPi 7561
+RORz 1D
+ADCzx 6E
+ADC 656F
+
+JMPi 6369
+PLA
+ADCz 20
+EORix 6E
+BCS 61
+
+
+ADCzx 6E
+
+ORAx 7453
+ADCix 63
+
+JSR 656C
+ADCz 72
+ORAx 7453
+ADCix 63
+
+JSR 6F76
+JMPi 1D6C
+LSRz 6F
+
+ADC 7461
+ORAx 6945
+ROR 6167
+
+ADCz 1D
+
+
+ADC 6970
+JMPi 7265
+ORAx 6166
+JMPi 6373
+PLA
+ADCz 72
+JSR 7954
+BCS 1D
+LSR 6C75
+JMPi 6964
+RORzx 69
+
+ADCim 6F
+ROR 661D
+ADCix 6C
+
+
+PLA
+ADCz 20
+LSRz 65
+JMPi 6C64
+ADCix 65
+ROR 6567
+ORAx FFFF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STAz 14
+LDAim 00
+SEC
+SBCz 14
+BCS 97
+RTS
+STAz 15
+LDAim 00
+SEC
+SBCz 14
+STAz 14
+LDAim 00
+SBCz 15
+BCS 87
+RTS
+LDXim 14
+LDYim 04
+SEC
+LDAim 00
+SBCzx 00
+STAzx 00
+INX
+DEY
+BNE F6
+BCS 75
+RTS
+BRK
+BRK
+LDAim 00
+SBCiy 24
+STAiy 24
+INY
+BNE 02
+INCz 25
+RTS
+BRK
+BRK
+BCS 62
+RTS
+JSR F12E
+BCS 5C
+RTS
+JSR F12E
+JSR F12E
+JSR F12E
+BCS 50
+RTS
+
+BRK
+BRK
+JMPi 1A00
+LDAz 1E
+BNE 02
+DECz 1F
+DECz 1E
+BNE 02
+LDAz 1F
+RTS
+
+BRK
+BRK
+LDAim 3C
+BNE 06
+LDAim 3F
+BNE 02
+LDAim 45
+LDXim F1
+STA 1A00
+STX 1A01
+LDYim 02
+JSR 25A5
+PLA
+STAz 1F
+PLA
+STAz 1E
+LDAz 25
+PHA
+LDYim 01
+SEC
+JSR F12E
+JSR F154
+JSR F157
+BNE F4
+PLA
+STAz 25
+RTS
+
+
+
+
+BRK
+BNE 00
+JSR EEE1
+ORAix 00
+BCC F9
+RTS
+LDXz 10
+BNE 03
+BCS F2
+RTS
+DEX
+BNE F3
+BCS EC
+RTS
+CLC
+LDYim 01
+LDAiy 22
+ADCiy 24
+STAiy 22
+JSR F1A8
+LDAim 01
+RTS
+CLC
+LDYim 01
+LDAiy 22
+ADCiy 24
+STAiy 22
+INY
+LDAiy 22
+ADCiy 24
+STAiy 22
+JSR F1A8
+LDAim 02
+RTS
+CLC
+LDYim 01
+LDXim 04
+LDAiy 22
+ADCiy 24
+STAiy 22
+INX
+DEX
+BNE F6
+BCS B5
+LDAim 04
+RTS
+
+LDXim 00
+BEQ 02
+LDXim 01
+STXz 10
+STAz 14
+JSR E002
+CLC
+ADCz 14
+JMP F1A8
+LDXim 00
+BEQ 02
+LDXim 01
+STXz 10
+STAz 15
+JSR E002
+CLC
+ADCz 14
+STAz 14
+PHP
+JSR E002
+PLP
+ADCz 15
+JMP F1A8
+LDXim 00
+CLC
+PHP
+JSR E002
+PLP
+ADCzx 14
+STAzx 14
+PHP
+INX
+CPXim 04
+BNE F2
+PLP
+BCS 01
+RTS
+JSR EEE1
+ORAix 22
+
+LDXim 00
+BEQ 02
+LDXim 02
+STXz 10
+STAz 14
+JSR E002
+SEC
+SBCz 14
+JMP F1A8
+LDXim 00
+BEQ 02
+LDXim 02
+STXz 10
+STAz 15
+JSR E002
+SEC
+SBCz 14
+STAz 14
+PHP
+JSR E002
+PLP
+SBCz 15
+JMP F1A8
+LDXim 00
+SEC
+PHP
+JSR E002
+PLP
+SBCzx 14
+STAzx 14
+PHP
+INX
+CPXim 04
+BNE F2
+PLP
+BCS B6
+RTS
+
+BRK
+BRK
+SEC
+LDYim 01
+LDAiy 22
+SBCiy 24
+STAiy 22
+JSR F1A8
+LDAim 01
+RTS
+SEC
+LDYim 01
+LDAiy 22
+SBCiy 24
+STAiy 22
+INY
+LDAiy 22
+SBCiy 24
+STAiy 22
+JSR F1A8
+LDAim 02
+RTS
+SEC
+LDYim 01
+LDXim 04
+LDAiy 22
+SBCiy 24
+STAiy 22
+INX
+DEX
+BNE F6
+BVC 03
+JMP F234
+LDAim 04
+RTS
+STAz 18
+JSR E002
+RTS
+
+
+LDXz 14
+STXz 18
+STAz 19
+JMP EA50
+LDXim 03
+LDAzx 14
+STAzx 18
+DEX
+BPL F9
+JMP E041
+
+
+
+LDXim 00
+STXz 11
+STXz 12
+NOP
+PHA
+LDAz 18
+BPL 08
+EORim FF
+STAz 18
+INCz 18
+INCz 11
+PLA
+BPL 07
+EORim FF
+CLC
+ADCim 01
+INCz 12
+RTS
+
+
+
+LDXim 00
+STXz 11
+STXz 12
+STAz 15
+TAX
+BPL 09
+LDYim 02
+LDXim 14
+JSR F11E
+INCz 12
+LDAz 19
+BPL 09
+LDYim 02
+LDXim 18
+JSR F11E
+INCz 11
+LDAz 15
+RTS
+
+
+
+
+LDAim 00
+STAz 11
+STAz 12
+LDAz 17
+BPL 09
+LDYim 04
+LDXim 14
+JSR F11E
+INCz 12
+LDAz 1B
+BPL 09
+LDYim 04
+LDXim 18
+JSR F11E
+INCz 11
+RTS
+NOP
+NOP
+STAz 15
+LDAim 00
+LDYim 08
+ASLa
+ROLz 15
+BCC 07
+CLC
+ADCz 18
+BCC 02
+INCz 15
+DEY
+BNE F1
+STAz 14
+LDAz 15
+RTS
+
+LDXim 00
+CLC
+LDYim 04
+LDAzx 14
+ADCzx 18
+STAzx 14
+INX
+DEY
+BNE F6
+RTS
+
+
+JSR EEE1
+ORAix 00
+LDXim 03
+LDAzx 14
+STAzx 08
+LDAim 00
+STAzx 14
+DEX
+BPL F5
+LDAim 20
+STAz 07
+ASLz 14
+ROLz 15
+ROLz 16
+ROLz 17
+BCS E0
+ASLz 08
+ROLz 09
+ROLz 0A
+ROLz 0B
+BCC 05
+JSR F366
+BCS D1
+DECz 07
+BNE E3
+RTS
+LSRz 12
+BCS 01
+RTS
+JMP F100
+
+
+
+
+LSRz 12
+BCS 01
+RTS
+JMP F10A
+
+LSRz 12
+BCS 01
+RTS
+JMP F11A
+
+
+
+
+
+
+
+LDYim 01
+LDAiy 24
+STAz 18
+LDAiy 22
+RTS
+
+
+LDYim 02
+LDXim 01
+BNE 04
+LDYim 04
+LDXim 03
+LDAiy 24
+STAzx 18
+LDAiy 22
+STAzx 14
+DEY
+DEX
+BPL F4
+LDAz 15
+RTS
+
+
+
+
+JSR F3D0
+JSR F404
+JMP F691
+JSR F2BE
+JSR F2DE
+JSR F349
+JSR ECF4
+JSR F800
+BCC 03
+JSR F100
+RTS
+
+JSR F3D0
+JSR F423
+JMP F691
+JSR F2BE
+JSR F349
+JSR ED05
+RTS
+
+JSR F3DB
+JSR F437
+JMP F6AD
+JSR F2C6
+JSR F300
+JSR E3AC
+JSR ED45
+JMP F55A
+
+JSR F3DB
+JSR F450
+JMP F6AD
+JSR F2C6
+JSR E3AC
+JSR ED5D
+RTS
+
+
+
+JSR F3E1
+JSR F466
+JMP F6CE
+JSR F2CF
+JSR F328
+JSR F37D
+LDAz 17
+BMI 32
+JSR F800
+BCC 03
+JSR F11A
+RTS
+
+NOP
+STAz 08
+LDAim 00
+LDXim 08
+STXz 07
+ASLz 08
+ROLa
+BCC 06
+CLC
+ADCz 18
+JMP F491
+SEC
+SBCz 18
+BMI 02
+INCz 08
+DECz 07
+BNE EA
+TAX
+BPL 03
+CLC
+ADCz 18
+RTS
+
+
+JSR EEE1
+ORAix 00
+BRK
+STAz 15
+LDXim 01
+LDAzx 14
+STAzx 08
+LDAim 00
+STAzx 14
+DEX
+BPL F5
+LDAim 10
+STAz 07
+ASLz 08
+ROLz 09
+ROLz 14
+ROLz 15
+BCC 06
+JSR F4F0
+CLC
+BCC 03
+JSR F4E2
+LDAz 15
+BMI 02
+INCz 08
+DECz 07
+BNE E3
+TAX
+BMI 03
+JSR F4F0
+RTS
+
+BRK
+BRK
+SEC
+LDAz 14
+SBCz 18
+STAz 14
+LDAz 15
+SBCz 19
+STAz 15
+RTS
+CLC
+LDAz 14
+ADCz 18
+STAz 14
+LDAz 15
+ADCz 19
+STAz 15
+RTS
+
+
+
+
+BRK
+BRK
+SEC
+LDXim 00
+LDYim 04
+LDAzx 14
+SBCzx 18
+STAzx 14
+INX
+DEY
+BNE F6
+RTS
+
+BRK
+BRK
+LDXim 03
+LDAzx 14
+STAzx 08
+LDAim 00
+STAzx 14
+DEX
+BPL F5
+LDAim 20
+STAz 07
+ASLz 08
+ROLz 09
+ROLz 0A
+ROLz 0B
+ROLz 14
+ROLz 15
+ROLz 16
+ROLz 17
+BCC 06
+JSR F366
+CLC
+BCC 03
+JSR F504
+LDAz 17
+BMI 02
+INCz 08
+DECz 07
+BNE DB
+TAX
+BPL 03
+JSR F366
+RTS
+
+
+
+
+BRK
+BRK
+JSR F800
+BCC 03
+JSR F10A
+RTS
+
+
+
+LDXz 18
+BEQ 0D
+JSR F2DE
+JSR F47A
+RTS
+
+
+
+
+
+
+JSR EEE1
+ORAim FF
+
+
+LDXz 18
+BEQ F5
+STAz 14
+LDAim 00
+STAz 19
+JSR F4A8
+LDAz 14
+RTS
+
+
+
+LDXz 18
+BNE 04
+LDXz 19
+BEQ DE
+JSR F300
+JSR F4A8
+RTS
+
+
+
+STAz 15
+LDAz 18
+ORAz 19
+BEQ CC
+LDAim 00
+STAz 16
+STAz 17
+STAz 1A
+STAz 1B
+JSR F517
+LDAz 15
+RTS
+
+
+
+LDAz 18
+ORAz 19
+ORAz 1A
+ORAz 1B
+BEQ AF
+JSR F328
+JSR F517
+RTS
+
+
+
+
+
+
+
+
+
+JSR F2BE
+JSR F566
+LDXz 12
+BEQ 03
+JSR F100
+RTS
+
+
+
+JSR F2BE
+JSR F57E
+RTS
+
+
+
+JSR F2C6
+JSR F591
+LDXz 12
+BEQ 03
+JSR F10A
+RTS
+
+
+
+JSR F2C6
+JSR F5A3
+RTS
+
+
+
+JSR F2CF
+JSR F5BE
+LDXz 12
+BEQ 03
+JSR F11A
+RTS
+
+
+
+
+
+
+JSR F2BE
+JSR F566
+LDAz 08
+JSR F800
+BCC 03
+JSR F100
+RTS
+
+
+
+JSR F2BE
+JSR F57E
+LDAz 08
+RTS
+
+
+
+JSR F2C6
+JSR F591
+LDAz 08
+STAz 14
+LDAz 09
+JSR F800
+BCC 03
+JSR F10A
+RTS
+
+
+
+JSR F2C6
+JSR F5A3
+LDAz 08
+STAz 14
+LDAz 09
+RTS
+
+
+
+JSR F2CF
+JSR F5BE
+LDXim 03
+LDAzx 08
+STAzx 14
+DEX
+BPL F9
+JSR F800
+BCC 03
+JSR F11A
+RTS
+
+
+
+
+
+
+
+
+
+JSR F3D0
+JSR F5DB
+LDYim 01
+STAiy 22
+LDAim 01
+RTS
+
+
+
+JSR F3D0
+JSR F5EC
+JMP F691
+
+
+
+JSR F3DB
+JSR F5F6
+LDYim 02
+STAiy 22
+DEY
+LDAz 14
+STAiy 22
+LDAim 02
+RTS
+
+
+
+JSR F3DB
+JSR F607
+JMP F6AD
+
+
+
+JSR F3E1
+JSR F611
+LDYim 04
+LDXim 03
+LDAzx 14
+STAiy 22
+DEY
+DEX
+BPL F8
+LDAim 04
+RTS
+
+
+
+
+
+
+
+
+
+JSR F3D0
+JSR F625
+JMP F691
+
+
+
+JSR F3D0
+JSR F639
+JMP F691
+
+
+
+JSR F3DB
+JSR F645
+JMP F6AD
+
+
+
+JSR F3DB
+JSR F65D
+JMP F6AD
+
+
+
+JSR F3E1
+JSR F66D
+JMP F6CE
+
+
+
+
+
+
+
+
+
+STYz 10
+STA 1A00
+STX 1A01
+LDYim 02
+JSR 25A5
+PLA
+STAz 1F
+PLA
+STAz 1E
+LDAz 22
+LDXz 23
+STAz 1C
+STXz 1D
+JSR F755
+JSR F7DF
+JSR F157
+BNE F5
+JSR F80B
+RTS
+
+
+
+JMPi 1A00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAz 24
+LDXz 25
+STAz 22
+STXz 23
+RTS
+
+
+
+
+
+
+TAX
+CLC
+ADCz 22
+STAz 22
+BCC 02
+INCz 23
+TXAa
+CLC
+ADCz 24
+STAz 24
+BCC 02
+INCz 25
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+TAX
+LDAz 11
+EORz 12
+LSRa
+TXAa
+RTS
+
+
+
+LDAz 24
+CMPz 1C
+BNE 07
+LDAz 25
+CMPz 1D
+BNE 01
+RTS
+JSR EEE1
+
+
+
+
+
+
+
+
+
+
+LDYim 00
+BEQ 02
+LDYim 01
+LDAim B5
+LDXim F1
+JMP F728
+LDYim 00
+BEQ 02
+LDYim 01
+LDAim C4
+LDXim F1
+JMP F728
+LDAim DA
+LDXim F1
+JMP F72A
+
+
+
+LDYim 00
+BEQ 02
+LDYim 02
+LDAim 82
+LDXim F2
+JMP F728
+LDYim 00
+BEQ 02
+LDYim 02
+LDAim 91
+LDXim F2
+JMP F728
+LDAim A7
+LDXim F2
+JMP F72A
+
+
+
+LDAim 8B
+BNE 0E
+LDAim 9B
+BNE 0A
+LDAim A7
+BNE 06
+LDAim BC
+BNE 02
+LDAim C8
+LDXim F6
+JMP F72A
+
+
+
+LDAim E6
+BNE 06
+LDAim F2
+BNE 02
+LDAim FE
+LDXim F6
+JMP F72A
+LDAim 0A
+BNE 02
+LDAim 16
+LDXim F7
+JMP F72A
+
+
+
+LDAim F8
+LDXim F3
+JMP F72A
+LDAim 17
+BNE 0A
+LDAim 2B
+BNE 06
+LDAim 44
+BNE 02
+LDAim 5A
+LDXim F4
+JMP F72A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDYim 01
+JSR 25A5
+PLA
+BNE 01
+RTS
+STAz 50
+LDYim 04
+JSR 25A5
+PLA
+STAz 1F
+STAz 19
+PLA
+STAz 1E
+STAz 18
+PLA
+STAz 17
+PLA
+STAz 16
+LDAz 50
+ANDim 07
+CMPim 07
+BNE 03
+JSR E290
+LDAz 50
+ANDim 10
+BEQ 0B
+LDYim 02
+JSR 25A5
+PLA
+STAz 15
+PLA
+STAz 14
+LDAz 50
+ANDim 10
+BNE 06
+JSR F92A
+JMP F8D0
+JSR F92A
+LDAz 14
+BNE 06
+LDAz 15
+BEQ AD
+DECz 15
+DECz 14
+CLC
+BCC EE
+LDAz 50
+ANDim 06
+CMPim 06
+BNE 16
+LDAz 18
+LDYim 00
+STAiy 16
+LDAz 19
+INY
+STAiy 16
+LDAz 16
+CLC
+ADCim 02
+STAz 16
+BCC 02
+INCz 17
+LDAz 1F
+STAz 51
+LDXim 00
+LDAz 50
+ANDim 07
+CMPim 06
+BNE 02
+LDXim 20
+TXAa
+LDXz 51
+BEQ 0D
+LDYim 00
+STAiy 16
+INY
+BNE FB
+INCz 17
+DECz 51
+BNE F3
+LDYz 1E
+BEQ 13
+LDYim 00
+STAiy 16
+INY
+CPYz 1E
+BNE F9
+TYA
+CLC
+ADCz 16
+STAz 16
+BCC 02
+INCz 17
+RTS
+
+
+
+
+
+
+STAz 14
+JSR E002
+CMPz 14
+RTS
+STAz 15
+JSR E002
+TAX
+CMPz 14
+PHP
+JSR E002
+PLP
+SBCz 15
+BEQ 01
+RTS
+CPXz 14
+SEC
+RTS
+STAz 14
+JSR E002
+SEC
+SBCz 14
+BCS 04
+BMI 04
+SEC
+RTS
+BMI FC
+CLC
+RTS
+
+
+STAz 15
+JSR E002
+TAX
+CMPz 14
+PHP
+JSR E002
+SBCz 15
+BNE E4
+CPXz 14
+SEC
+RTS
+
+
+
+
+LDXim 00
+SEC
+PHP
+JSR E002
+PLP
+SBCzx 14
+STAzx 14
+INX
+CPXim 04
+BNE F2
+PLP
+BNE C8
+LDAz 16
+ORAz 15
+ORAz 14
+SEC
+RTS
+
+
+
+
+BCC 13
+LDAim 01
+RTS
+BCS 0E
+LDAim 01
+RTS
+BCC 02
+BNE 07
+LDAim 01
+RTS
+BCC 02
+BNE F9
+LDAim 00
+RTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CLC
+ADCim 01
+BCS 8E
+RTS
+LDYim 02
+BNE 02
+LDYim 01
+CLC
+ADCiy 24
+BCS 82
+RTS
+
+
+INCz 14
+BNE 05
+CLC
+ADCim 01
+BCS 76
+RTS
+LDYim 03
+BNE 02
+LDYim 01
+PHA
+LDAz 14
+CLC
+ADCiy 24
+STAz 14
+PLA
+INY
+ADCiy 24
+BCS 61
+RTS
+
+
+CLC
+ADCim 01
+BCS 59
+RTS
+LDYim 02
+BNE 02
+LDYim 01
+CLC
+ADCiy 24
+BCS 4D
+RTS
+
+
+INCz 14
+BNE 05
+CLC
+ADCim 01
+BCS 41
+RTS
+LDYim 03
+BNE 02
+LDYim 01
+PHA
+LDAz 14
+CLC
+ADCiy 24
+STAz 14
+PLA
+INY
+ADCiy 24
+BCS 2C
+RTS
+
+
+LDXim 00
+INCzx 14
+BNE 07
+INX
+CPXim 04
+BNE F7
+BEQ 1C
+RTS
+LDYim 05
+BNE 02
+LDYim 01
+LDXim 00
+CLC
+LDAzx 14
+ADCiy 24
+STAzx 14
+INY
+INX
+CPXim 04
+BNE F4
+BCS 04
+RTS
+
+
+
+JSR EEE1
+ORAix FF
+
+
+
+
+
+
+
+
+LDYim 01
+CLC
+SBCiy 24
+RTS
+TAX
+LDAz 14
+LDYim 01
+CLC
+SBCiy 24
+TXAa
+INY
+SBCiy 24
+RTS
+
+
+
+LDAiy 24
+BMI 07
+PLP
+BCS 07
+BMI 07
+SEC
+RTS
+PLP
+BCS F9
+BMI F9
+CLC
+RTS
+
+
+
+
+LDYim 01
+SEC
+SBCiy 24
+BNE E8
+CLC
+RTS
+LDYim 01
+SEC
+SBCiy 24
+BNE 02
+CLC
+RTS
+PHP
+LDYim 02
+BNE D3
+
+
+TAX
+LDAz 14
+LDYim 01
+SEC
+SBCiy 24
+STAz 14
+TXAa
+INY
+SBCiy 24
+RTS
+JSR FB05
+BNE C2
+LDAz 14
+BNE 02
+CLC
+RTS
+SEC
+RTS
+
+
+
+JSR FB05
+BNE 0D
+LDAz 14
+BNE 02
+CLC
+RTS
+LDAim 01
+PHP
+LDYim 04
+BNE A0
+PHP
+LDYim 04
+BNE 9B
+
+
+
+
+LDYim 01
+LDXim 00
+SEC
+PHP
+PLP
+LDAzx 14
+SBCiy 24
+STAzx 14
+PHP
+INY
+INX
+CPXim 04
+BNE F2
+PLP
+RTS
+JSR FB3F
+BNE 81
+LDAz 16
+ORAz 15
+ORAz 14
+BNE 02
+CLC
+RTS
+SEC
+RTS
+JSR FB3F
+BNE 11
+LDAz 16
+ORAz 15
+ORAz 14
+BNE 02
+CLC
+RTS
+LDAim 01
+PHP
+LDYim 08
+BNE 03
+PHP
+LDYim 08
+JMP FAD6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LDAim FF
+STA 6C19
+STA 6C1A
+LDAim 60
+STA 6C1B
+LDAim 83
+STA 1A08
+LDXim 00
+LDAim 68
+JMP 4ECB
+
+
+
+
+
+
+
+DEX
+
+LDYim FF
+
+PLA
+ADCim 72
+ROR D320
+
+EORzx 56
+
+BCS 61
+
+JSR FFDE
+BRK
+JMP 6583
+BCS 72
+
+ADC F020
+
+TAX
+ROLa
+
+
+ADCz 76
+ADCz 72
+
+ADCim 20
+
+
+
+
+
+
+
+
+
+
+
+CPYim FF
+
+RTS
+
+
+ORAx 321C
+
