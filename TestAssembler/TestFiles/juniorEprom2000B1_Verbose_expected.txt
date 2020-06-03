@@ -1,17 +1,18 @@
-﻿2000: C920   CMPim 20
+2000: ------ drucker.writeStarTty
+2000: C920   CMPim 20
 2002: 901A   BCC +26>1E
 2004: C97F   CMPim 7F
 2006: 9004   BCC +4>0C
 2008: AA     TAX
-2009: BD0020 LDAx 2000
-200C: 205C20 JSR 205C
-200F: E66D   INCz 6D
-2011: A56D   LDAz 6D
+2009: BD0020 LDAx 2000 drucker.writeStarTty
+200C: 205C20 JSR 205C drucker.outStar
+200F: E66D   INCz 6D hexedit.spaTty
+2011: A56D   LDAz 6D hexedit.spaTty
 2013: C949   CMPim 49
 2015: 9006   BCC +6>1D
 2017: A901   LDAim 01
-2019: 856D   STAz 6D
-201B: E66E   INCz 6E
+2019: 856D   STAz 6D hexedit.spaTty
+201B: E66E   INCz 6E hexedit.zeiTty
 201D: 60     RTS
 201E: C91D   CMPim 1D
 2020: F01C   BEQ +28>3E
@@ -25,24 +26,25 @@
 2030: F019   BEQ +25>4B
 2032: A9A8   LDAim A8
 2034: D0D6   BNE -42>0C
-2036: 205C20 JSR 205C
+2036: 205C20 JSR 205C drucker.outStar
 2039: A901   LDAim 01
-203B: 856D   STAz 6D
+203B: 856D   STAz 6D hexedit.spaTty
 203D: 60     RTS
 203E: A90D   LDAim 0D
 2040: 203620 JSR 2036
 2043: A90A   LDAim 0A
-2045: 205C20 JSR 205C
-2048: E66E   INCz 6E
+2045: 205C20 JSR 205C drucker.outStar
+2048: E66E   INCz 6E hexedit.zeiTty
 204A: 60     RTS
 204B: A91B   LDAim 1B
-204D: 205C20 JSR 205C
+204D: 205C20 JSR 205C drucker.outStar
 2050: A90C   LDAim 0C
-2052: 205C20 JSR 205C
+2052: 205C20 JSR 205C drucker.outStar
 2055: A901   LDAim 01
-2057: 856D   STAz 6D
-2059: 856E   STAz 6E
+2057: 856D   STAz 6D hexedit.spaTty
+2059: 856E   STAz 6E hexedit.zeiTty
 205B: 60     RTS
+205C: ------ drucker.outStar
 205C: 48     PHA
 205D: A902   LDAim 02
 205F: 2C0D14 BIT 140D VIA.IFR
@@ -50,6 +52,7 @@
 2064: 68     PLA
 2065: 8D0114 STA 1401 VIA.ORA/IRA
 2068: 60     RTS
+2069: ------ drucker.initStar
 2069: A9FF   LDAim FF
 206B: 8D0314 STA 1403 VIA.DDRA
 206E: AD0C14 LDA 140C VIA.PCR
@@ -63,6 +66,7 @@
 207C: FF     
 207D: 22     
 207E: 33     
+207F: ------ drucker.UmsetzTabelle
 207F: B1A8   LDAiy A8
 2081: A8     TAY
 2082: A8     TAY
@@ -182,10 +186,11 @@
 20FD: A8     TAY
 20FE: A8     TAY
 20FF: A8     TAY
-2100: 201821 JSR 2118
+2100: ------ drucker.initStarTtyMode
+2100: 201821 JSR 2118 drucker.initStarNotTty
 2103: A901   LDAim 01
-2105: 856D   STAz 6D
-2107: 856E   STAz 6E
+2105: 856D   STAz 6D hexedit.spaTty
+2107: 856E   STAz 6E hexedit.zeiTty
 2109: 60     RTS
 210A: FF     
 210B: FF     
@@ -201,12 +206,13 @@
 2115: FF     
 2116: 22     
 2117: 33     
-2118: 206920 JSR 2069
+2118: ------ drucker.initStarNotTty
+2118: 206920 JSR 2069 drucker.initStar
 211B: A95C   LDAim 5C
 211D: A220   LDXim 20
 211F: 8D061A STA 1A06 bs.currentOutput
 2122: 8E071A STX 1A07
-2125: 203821 JSR 2138
+2125: 203821 JSR 2138 drucker.writeplus
 2128: 02     
 2129: 1B     
 212A: 40     RTI
@@ -223,44 +229,49 @@
 2135: FF     
 2136: 22     
 2137: 33     
+2138: ------ drucker.writeplus
 2138: A001   LDYim 01
-213A: 20A525 JSR 25A5
+213A: 20A525 JSR 25A5 bs.KPUe
 213D: 68     PLA
 213E: 8584   STAz 84
 2140: A001   LDYim 01
-2142: 20A525 JSR 25A5
+2142: 20A525 JSR 25A5 bs.KPUe
 2145: 68     PLA
-2146: 206324 JSR 2463
+2146: 206324 JSR 2463 hexedit.write
 2149: C684   DECz 84
 214B: D0F3   BNE -13>40
 214D: 60     RTS
+214E: ------ drucker.delay
 214E: F008   BEQ +8>58
 2150: CA     DEX
-2151: 204E21 JSR 214E
-2154: 204E21 JSR 214E
+2151: 204E21 JSR 214E drucker.delay
+2154: 204E21 JSR 214E drucker.delay
 2157: E8     INX
 2158: 60     RTS
+2159: ------ drucker.pieps
 2159: A900   LDAim 00
 215B: 8D821A STA 1A82 PBD
 215E: A99E   LDAim 9E
 2160: 8D831A STA 1A83 PBDD
 2163: A204   LDXim 04
-2165: 204E21 JSR 214E
+2165: 204E21 JSR 214E drucker.delay
 2168: A91E   LDAim 1E
 216A: 8D831A STA 1A83 PBDD
 216D: A204   LDXim 04
-216F: 204E21 JSR 214E
+216F: 204E21 JSR 214E drucker.delay
 2172: 88     DEY
 2173: D0E9   BNE -23>5E
 2175: 60     RTS
-2176: 200021 JSR 2100
-2179: 200325 JSR 2503
+2176: ------ drucker.druckeVideoSchirm
+2176: 200021 JSR 2100 drucker.initStarTtyMode
+2179: 200325 JSR 2503 hexedit.lwriteVonBis
 217C: 00     BRK
 217D: 08     PHP
 217E: CF     
 217F: 0F     
 2180: 60     RTS
-2181: 207621 JSR 2176
+2181: ------ drucker.manuellDruckeVideoSchirm
+2181: 207621 JSR 2176 drucker.druckeVideoSchirm
 2184: 4C1D1C JMP 1C1D monitor.RESET
 2187: FF     
 2188: FF     
@@ -388,6 +399,7 @@
 2202: FF     
 2203: 22     
 2204: 33     
+2205: ------ hexedit.writeMoni
 2205: EA     NOP
 2206: EA     NOP
 2207: EA     NOP
@@ -401,19 +413,19 @@
 2216: D00D   BNE +13>25
 2218: A9F1   LDAim F1
 221A: A000   LDYim 00
-221C: 919A   STAiy 9A
-221E: 208422 JSR 2284
-2221: 201D23 JSR 231D
+221C: 919A   STAiy 9A hexedit.video3
+221E: 208422 JSR 2284 hexedit.cursInc
+2221: 201D23 JSR 231D hexedit.setCursSql
 2224: 60     RTS
 2225: C908   CMPim 08
 2227: D007   BNE +7>30
-2229: 20CF22 JSR 22CF
-222C: 201D23 JSR 231D
+2229: 20CF22 JSR 22CF hexedit.cursDec
+222C: 201D23 JSR 231D hexedit.setCursSql
 222F: 60     RTS
 2230: C90A   CMPim 0A
 2232: D007   BNE +7>3B
-2234: 209722 JSR 2297
-2237: 201D23 JSR 231D
+2234: 209722 JSR 2297 hexedit.cursDown
+2237: 201D23 JSR 231D hexedit.setCursSql
 223A: 60     RTS
 223B: 4CD125 JMP 25D1
 223E: 22     
@@ -429,28 +441,30 @@
 224D: 00     BRK
 224E: 00     BRK
 224F: 00     BRK
+2250: ------ hexedit.initVideo
 2250: A20F   LDXim 0F
 2252: 8E0004 STX 0400
 2255: BD4022 LDAx 2240
 2258: 8D0104 STA 0401
 225B: CA     DEX
 225C: 10F4   BPL -12>52
+225E: ------ hexedit.blankVideo
 225E: A208   LDXim 08
-2260: 869B   STXz 9B
+2260: 869B   STXz 9B hexedit.video4
 2262: A000   LDYim 00
-2264: 8498   STYz 98
-2266: 8499   STYz 99
-2268: 849A   STYz 9A
+2264: 8498   STYz 98 hexedit.videoSpa
+2266: 8499   STYz 99 hexedit.video2
+2268: 849A   STYz 9A hexedit.video3
 226A: A920   LDAim 20
-226C: 919A   STAiy 9A
+226C: 919A   STAiy 9A hexedit.video3
 226E: C8     INY
 226F: D0FB   BNE -5>6C
-2271: E69B   INCz 9B
-2273: A69B   LDXz 9B
+2271: E69B   INCz 9B hexedit.video4
+2273: A69B   LDXz 9B hexedit.video4
 2275: E010   CPXim 10
 2277: D0F1   BNE -15>6A
 2279: A208   LDXim 08
-227B: 869B   STXz 9B
+227B: 869B   STXz 9B hexedit.video4
 227D: 60     RTS
 227E: FF     
 227F: FF     
@@ -458,40 +472,42 @@
 2281: FF     
 2282: 22     
 2283: 33     
-2284: E698   INCz 98
-2286: A598   LDAz 98
+2284: ------ hexedit.cursInc
+2284: E698   INCz 98 hexedit.videoSpa
+2286: A598   LDAz 98 hexedit.videoSpa
 2288: C950   CMPim 50
 228A: D018   BNE +24>A4
 228C: A900   LDAim 00
-228E: 8598   STAz 98
-2290: E699   INCz 99
+228E: 8598   STAz 98 hexedit.videoSpa
+2290: E699   INCz 99 hexedit.video2
 2292: D010   BNE +16>A4
 2294: FF     
 2295: 22     
 2296: 33     
-2297: E699   INCz 99
+2297: ------ hexedit.cursDown
+2297: E699   INCz 99 hexedit.video2
 2299: 18     CLC
-229A: A59A   LDAz 9A
+229A: A59A   LDAz 9A hexedit.video3
 229C: 6950   ADCim 50
-229E: 859A   STAz 9A
+229E: 859A   STAz 9A hexedit.video3
 22A0: 9008   BCC +8>AA
 22A2: B004   BCS +4>A8
-22A4: E69A   INCz 9A
+22A4: E69A   INCz 9A hexedit.video3
 22A6: D002   BNE +2>AA
-22A8: E69B   INCz 9B
-22AA: A599   LDAz 99
+22A8: E69B   INCz 9B hexedit.video4
+22AA: A599   LDAz 99 hexedit.video2
 22AC: C919   CMPim 19
 22AE: F001   BEQ +1>B1
 22B0: 60     RTS
 22B1: A900   LDAim 00
-22B3: 8599   STAz 99
-22B5: A59A   LDAz 9A
+22B3: 8599   STAz 99 hexedit.video2
+22B5: A59A   LDAz 9A hexedit.video3
 22B7: 38     SEC
 22B8: E9D0   SBCim D0
-22BA: 859A   STAz 9A
-22BC: A59B   LDAz 9B
+22BA: 859A   STAz 9A hexedit.video3
+22BC: A59B   LDAz 9B hexedit.video4
 22BE: E907   SBCim 07
-22C0: 859B   STAz 9B
+22C0: 859B   STAz 9B hexedit.video4
 22C2: 60     RTS
 22C3: FF     
 22C4: FF     
@@ -499,63 +515,67 @@
 22C6: FF     
 22C7: 22     
 22C8: 33     
-22C9: C699   DECz 99
+22C9: ------ hexedit.cursUp
+22C9: C699   DECz 99 hexedit.video2
 22CB: A9B0   LDAim B0
 22CD: D00C   BNE +12>DB
-22CF: C698   DECz 98
+22CF: ------ hexedit.cursDec
+22CF: C698   DECz 98 hexedit.videoSpa
 22D1: 1006   BPL +6>D9
 22D3: A94F   LDAim 4F
-22D5: 8598   STAz 98
-22D7: C699   DECz 99
+22D5: 8598   STAz 98 hexedit.videoSpa
+22D7: C699   DECz 99 hexedit.video2
 22D9: A9FF   LDAim FF
 22DB: 18     CLC
-22DC: 659A   ADCz 9A
-22DE: 859A   STAz 9A
+22DC: 659A   ADCz 9A hexedit.video3
+22DE: 859A   STAz 9A hexedit.video3
 22E0: 9001   BCC +1>E3
 22E2: 60     RTS
-22E3: C69B   DECz 9B
-22E5: A599   LDAz 99
+22E3: C69B   DECz 9B hexedit.video4
+22E5: A599   LDAz 99 hexedit.video2
 22E7: 3001   BMI +1>EA
 22E9: 60     RTS
 22EA: 18     CLC
-22EB: A59A   LDAz 9A
+22EB: A59A   LDAz 9A hexedit.video3
 22ED: 69D0   ADCim D0
-22EF: 859A   STAz 9A
-22F1: A59B   LDAz 9B
+22EF: 859A   STAz 9A hexedit.video3
+22F1: A59B   LDAz 9B hexedit.video4
 22F3: 6907   ADCim 07
-22F5: 859B   STAz 9B
+22F5: 859B   STAz 9B hexedit.video4
 22F7: A918   LDAim 18
-22F9: 8599   STAz 99
+22F9: 8599   STAz 99 hexedit.video2
 22FB: 60     RTS
 22FC: 33     
+22FD: ------ hexedit.cursAdrSql
 22FD: A901   LDAim 01
-22FF: 859B   STAz 9B
-2301: A599   LDAz 99
+22FF: 859B   STAz 9B hexedit.video4
+2301: A599   LDAz 99 hexedit.video2
 2303: 0A     ASLa
 2304: 0A     ASLa
 2305: 18     CLC
-2306: 6599   ADCz 99
+2306: 6599   ADCz 99 hexedit.video2
 2308: 0A     ASLa
 2309: 0A     ASLa
-230A: 269B   ROLz 9B
+230A: 269B   ROLz 9B hexedit.video4
 230C: 0A     ASLa
-230D: 269B   ROLz 9B
+230D: 269B   ROLz 9B hexedit.video4
 230F: 0A     ASLa
-2310: 269B   ROLz 9B
+2310: 269B   ROLz 9B hexedit.video4
 2312: 18     CLC
-2313: 6598   ADCz 98
-2315: 859A   STAz 9A
+2313: 6598   ADCz 98 hexedit.videoSpa
+2315: 859A   STAz 9A hexedit.video3
 2317: 9002   BCC +2>1B
-2319: E69B   INCz 9B
+2319: E69B   INCz 9B hexedit.video4
 231B: EA     NOP
 231C: EA     NOP
+231D: ------ hexedit.setCursSql
 231D: A20F   LDXim 0F
 231F: 8E0004 STX 0400
-2322: A59A   LDAz 9A
+2322: A59A   LDAz 9A hexedit.video3
 2324: 8D0104 STA 0401
 2327: CA     DEX
 2328: 8E0004 STX 0400
-232B: A59B   LDAz 9B
+232B: A59B   LDAz 9B hexedit.video4
 232D: 2907   ANDim 07
 232F: 8D0104 STA 0401
 2332: 60     RTS
@@ -565,13 +585,14 @@
 2336: FF     
 2337: 22     
 2338: 33     
+2339: ------ hexedit.setCurs
 2339: A002   LDYim 02
-233B: 20A525 JSR 25A5
+233B: 20A525 JSR 25A5 bs.KPUe
 233E: 68     PLA
-233F: 8599   STAz 99
+233F: 8599   STAz 99 hexedit.video2
 2341: 68     PLA
-2342: 8598   STAz 98
-2344: 20FD22 JSR 22FD
+2342: 8598   STAz 98 hexedit.videoSpa
+2344: 20FD22 JSR 22FD hexedit.cursAdrSql
 2347: 60     RTS
 2348: FF     
 2349: FF     
@@ -579,33 +600,36 @@
 234B: FF     
 234C: 22     
 234D: 33     
+234E: ------ hexedit.WRVideo
 234E: 38     SEC
-234F: A59A   LDAz 9A
-2351: E598   SBCz 98
-2353: 859A   STAz 9A
+234F: A59A   LDAz 9A hexedit.video3
+2351: E598   SBCz 98 hexedit.videoSpa
+2353: 859A   STAz 9A hexedit.video3
 2355: B002   BCS +2>59
-2357: C69B   DECz 9B
+2357: C69B   DECz 9B hexedit.video4
 2359: A900   LDAim 00
-235B: 8598   STAz 98
-235D: 201D23 JSR 231D
+235B: 8598   STAz 98 hexedit.videoSpa
+235D: 201D23 JSR 231D hexedit.setCursSql
 2360: 60     RTS
 2361: FF     
 2362: 22     
 2363: 33     
+2364: ------ hexedit.Home
 2364: A900   LDAim 00
-2366: 8598   STAz 98
-2368: 8599   STAz 99
-236A: 4CFD22 JMP 22FD
+2366: 8598   STAz 98 hexedit.videoSpa
+2368: 8599   STAz 99 hexedit.video2
+236A: 4CFD22 JMP 22FD hexedit.cursAdrSql
 236D: FF     
 236E: 22     
 236F: 33     
-2370: 205E22 JSR 225E
-2373: 201D23 JSR 231D
+2370: ------ hexedit.clear
+2370: 205E22 JSR 225E hexedit.blankVideo
+2373: 201D23 JSR 231D hexedit.setCursSql
 2376: 60     RTS
 2377: 22     
 2378: 33     
 2379: A002   LDYim 02
-237B: 20A525 JSR 25A5
+237B: 20A525 JSR 25A5 bs.KPUe
 237E: 68     PLA
 237F: 8561   STAz 61
 2381: 68     PLA
@@ -618,7 +642,7 @@
 238B: 33     
 238C: 48     PHA
 238D: A002   LDYim 02
-238F: 20A525 JSR 25A5
+238F: 20A525 JSR 25A5 bs.KPUe
 2392: 68     PLA
 2393: 8567   STAz 67
 2395: 68     PLA
@@ -630,6 +654,7 @@
 239E: FF     
 239F: 22     
 23A0: 33     
+23A1: ------ hexedit.block.rangeIn
 23A1: A561   LDAz 61
 23A3: C565   CMPz 65
 23A5: D004   BNE +4>AB
@@ -639,6 +664,7 @@
 23AC: FF     
 23AD: 22     
 23AE: 33     
+23AF: ------ hexedit.block.rangeOut
 23AF: A567   LDAz 67
 23B1: C56B   CMPz 6B
 23B3: D004   BNE +4>B9
@@ -648,8 +674,9 @@
 23BA: FF     
 23BB: 22     
 23BC: 33     
+23BD: ------ hexedit.block.setCursIn
 23BD: A002   LDYim 02
-23BF: 20A525 JSR 25A5
+23BF: 20A525 JSR 25A5 bs.KPUe
 23C2: 68     PLA
 23C3: 8561   STAz 61
 23C5: 68     PLA
@@ -658,8 +685,9 @@
 23C9: FF     
 23CA: 22     
 23CB: 33     
+23CC: ------ hexedit.block.setCursOut
 23CC: A002   LDYim 02
-23CE: 20A525 JSR 25A5
+23CE: 20A525 JSR 25A5 bs.KPUe
 23D1: 68     PLA
 23D2: 8567   STAz 67
 23D4: 68     PLA
@@ -668,19 +696,23 @@
 23D8: FF     
 23D9: 22     
 23DA: 33     
+23DB: ------ hexedit.block.incCursIn
 23DB: E660   INCz 60
 23DD: D002   BNE +2>E1
 23DF: E661   INCz 61
 23E1: 60     RTS
+23E2: ------ hexedit.block.incCursOut
 23E2: E666   INCz 66
 23E4: D002   BNE +2>E8
 23E6: E667   INCz 67
 23E8: 60     RTS
+23E9: ------ hexedit.block.initInFile
 23E9: A562   LDAz 62
 23EB: 8560   STAz 60
 23ED: A563   LDAz 63
 23EF: 8561   STAz 61
 23F1: 60     RTS
+23F2: ------ hexedit.block.initOutFile
 23F2: A568   LDAz 68
 23F4: 8566   STAz 66
 23F6: A569   LDAz 69
@@ -689,11 +721,13 @@
 23FB: FF     
 23FC: 22     
 23FD: 33     
+23FE: ------ hexedit.block.readFile
 23FE: A000   LDYim 00
 2400: 209C1F JSR 1F9C bios.readfileSameBank
 2403: E660   INCz 60
 2405: D00F   BNE +15>16
 2407: F00B   BEQ +11>14
+2409: ------ hexedit.block.writeFile
 2409: A000   LDYim 00
 240B: 9166   STAiy 66
 240D: E666   INCz 66
@@ -708,16 +742,19 @@
 241A: FF     
 241B: 22     
 241C: 33     
+241D: ------ hexedit.InMoni
 241D: A000   LDYim 00
-241F: B19A   LDAiy 9A
+241F: B19A   LDAiy 9A hexedit.video3
 2421: 48     PHA
-2422: 208422 JSR 2284
-2425: 201D23 JSR 231D
+2422: 208422 JSR 2284 hexedit.cursInc
+2425: 201D23 JSR 231D hexedit.setCursSql
 2428: 68     PLA
 2429: 60     RTS
 242A: 33     
-242B: 203124 JSR 2431
+242B: ------ hexedit.getHex
+242B: 203124 JSR 2431 hexedit.TasteMitWdh
 242E: 4C611D JMP 1D61 editor.SCANB
+2431: ------ hexedit.TasteMitWdh
 2431: 20881D JSR 1D88 monitor.SCAND
 2434: F00D   BEQ +13>43
 2436: A000   LDYim 00
@@ -731,7 +768,8 @@
 2445: 8596   STAz 96
 2447: 60     RTS
 2448: 33     
-2449: 202B24 JSR 242B
+2449: ------ hexedit.readHex
+2449: 202B24 JSR 242B hexedit.getHex
 244C: EA     NOP
 244D: EA     NOP
 244E: EA     NOP
@@ -748,17 +786,23 @@
 245D: FF     
 245E: 22     
 245F: 33     
+2460: ------ hexedit.read
 2460: 6C041A JMPi 1A04 bs.currentInput
+2463: ------ hexedit.write
 2463: 6C061A JMPi 1A06 bs.currentOutput
-2466: 205022 JSR 2250
+2466: ------ hexedit.openOutVideo
+2466: 205022 JSR 2250 hexedit.initVideo
+2469: ------ hexedit.openOutVideo2
 2469: A905   LDAim 05
 246B: A222   LDXim 22
 246D: D010   BNE +16>7F
-246F: 200021 JSR 2100
+246F: ------ hexedit.openOutStarTty
+246F: 200021 JSR 2100 drucker.initStarTtyMode
 2472: A900   LDAim 00
 2474: A220   LDXim 20
 2476: D007   BNE +7>7F
-2478: 20F223 JSR 23F2
+2478: ------ hexedit.openOutFile
+2478: 20F223 JSR 23F2 hexedit.block.initOutFile
 247B: A909   LDAim 09
 247D: A224   LDXim 24
 247F: 8D061A STA 1A06 bs.currentOutput
@@ -769,7 +813,8 @@
 2488: FF     
 2489: 22     
 248A: 33     
-248B: 20DD35 JSR 35DD
+248B: ------ hexedit.openInHexKb
+248B: 20DD35 JSR 35DD keyb2.initTastatur2AndHex
 248E: A9A7   LDAim A7
 2490: A235   LDXim 35
 2492: D017   BNE +23>AB
@@ -789,7 +834,8 @@
 24A1: FF     
 24A2: 22     
 24A3: 33     
-24A4: 20E923 JSR 23E9
+24A4: ------ hexedit.openInFile
+24A4: 20E923 JSR 23E9 hexedit.block.initInFile
 24A7: A9FE   LDAim FE
 24A9: A223   LDXim 23
 24AB: 8D041A STA 1A04 bs.currentInput
@@ -800,24 +846,28 @@
 24B4: FF     
 24B5: 22     
 24B6: 33     
+24B7: ------ hexedit.loescheRestZeileUCursDown
 24B7: A94F   LDAim 4F
 24B9: 38     SEC
-24BA: E598   SBCz 98
+24BA: E598   SBCz 98 hexedit.videoSpa
 24BC: A8     TAY
 24BD: A920   LDAim 20
-24BF: 919A   STAiy 9A
+24BF: 919A   STAiy 9A hexedit.video3
 24C1: 88     DEY
 24C2: 10FB   BPL -5>BF
-24C4: 209722 JSR 2297
+24C4: 209722 JSR 2297 hexedit.cursDown
 24C7: 60     RTS
 24C8: 33     
+24C9: ------ hexedit.2Blanks
 24C9: A920   LDAim 20
-24CB: 206324 JSR 2463
+24CB: 206324 JSR 2463 hexedit.write
+24CE: ------ hexedit.Blank
 24CE: A920   LDAim 20
-24D0: 4C6324 JMP 2463
+24D0: 4C6324 JMP 2463 hexedit.write
 24D3: 33     
+24D4: ------ hexedit.CR
 24D4: A91D   LDAim 1D
-24D6: 4C6324 JMP 2463
+24D6: 4C6324 JMP 2463 hexedit.write
 24D9: FF     
 24DA: FF     
 24DB: FF     
@@ -827,39 +877,44 @@
 24DF: FF     
 24E0: 22     
 24E1: 33     
+24E2: ------ hexedit.Nibble
 24E2: 0930   ORAim 30
 24E4: C93A   CMPim 3A
 24E6: 3003   BMI +3>EB
 24E8: 18     CLC
 24E9: 6907   ADCim 07
-24EB: 206324 JSR 2463
+24EB: 206324 JSR 2463 hexedit.write
 24EE: 60     RTS
+24EF: ------ hexedit.byteDru
 24EF: 48     PHA
 24F0: 18     CLC
 24F1: 4A     LSRa
 24F2: 4A     LSRa
 24F3: 4A     LSRa
 24F4: 4A     LSRa
-24F5: 20E224 JSR 24E2
+24F5: 20E224 JSR 24E2 hexedit.Nibble
 24F8: 68     PLA
 24F9: 290F   ANDim 0F
-24FB: 20E224 JSR 24E2
+24FB: 20E224 JSR 24E2 hexedit.Nibble
 24FE: 60     RTS
 24FF: FF     
 2500: FF     
 2501: 22     
 2502: 33     
-2503: 20D424 JSR 24D4
+2503: ------ hexedit.lwriteVonBis
+2503: 20D424 JSR 24D4 hexedit.CR
+2506: ------ hexedit.writeVonBis
 2506: A004   LDYim 04
-2508: 20A525 JSR 25A5
+2508: 20A525 JSR 25A5 bs.KPUe
 250B: A003   LDYim 03
 250D: 68     PLA
 250E: 993100 STAy 0031
 2511: 88     DEY
 2512: 10F9   BPL -7>0D
+2514: ------ hexedit.writeBlock
 2514: A000   LDYim 00
 2516: B131   LDAiy 31
-2518: 206324 JSR 2463
+2518: 206324 JSR 2463 hexedit.write
 251B: A531   LDAz 31
 251D: C533   CMPz 33
 251F: D006   BNE +6>27
@@ -874,14 +929,15 @@
 2530: FF     
 2531: 22     
 2532: 33     
+2533: ------ hexedit.readVonBis
 2533: A004   LDYim 04
-2535: 20A525 JSR 25A5
+2535: 20A525 JSR 25A5 bs.KPUe
 2538: A003   LDYim 03
 253A: 68     PLA
 253B: 993100 STAy 0031
 253E: 88     DEY
 253F: 10F9   BPL -7>3A
-2541: 206024 JSR 2460
+2541: 206024 JSR 2460 hexedit.read
 2544: A000   LDYim 00
 2546: 9131   STAiy 31
 2548: A531   LDAz 31
@@ -898,22 +954,23 @@
 255D: FF     
 255E: 22     
 255F: 33     
-2560: 206B3A JSR 3A6B
-2563: 206F24 JSR 246F
+2560: ------ dump.dump(unused)
+2560: 206B3A JSR 3A6B rkv.initUB
+2563: 206F24 JSR 246F hexedit.openOutStarTty
 2566: A900   LDAim 00
-2568: 8595   STAz 95
-256A: A56E   LDAz 6E
+2568: 8595   STAz 95 hexedit.Prosa
+256A: A56E   LDAz 6E hexedit.zeiTty
 256C: C93D   CMPim 3D
 256E: F0FE   BEQ -2>6E
 2570: 20051F JSR 1F05
 2573: B0FE   BCS -2>73
 2575: A5E7   LDAz E7 editor.CURADH
-2577: 20EF24 JSR 24EF
+2577: 20EF24 JSR 24EF hexedit.byteDru
 257A: A5E6   LDAz E6 editor.CURADL
-257C: 20EF24 JSR 24EF
-257F: 20C924 JSR 24C9
+257C: 20EF24 JSR 24EF hexedit.byteDru
+257F: 20C924 JSR 24C9 hexedit.2Blanks
 2582: 209035 JSR 3590
-2585: 20D424 JSR 24D4
+2585: 20D424 JSR 24D4 hexedit.CR
 2588: 4C6A25 JMP 256A
 258B: FF     
 258C: FF     
@@ -929,6 +986,7 @@
 2596: FF     
 2597: 22     
 2598: 33     
+2599: ------ hexedit.Grossbuchstaben
 2599: C961   CMPim 61
 259B: 9006   BCC +6>A3
 259D: C97B   CMPim 7B
@@ -936,6 +994,7 @@
 25A1: 29DF   ANDim DF
 25A3: 60     RTS
 25A4: 33     
+25A5: ------ bs.KPUe
 25A5: 847F   STYz 7F bs.??
 25A7: 68     PLA
 25A8: 8580   STAz 80
@@ -965,82 +1024,84 @@
 25D0: 60     RTS
 25D1: C90D   CMPim 0D
 25D3: D003   BNE +3>D8
-25D5: 4C4E23 JMP 234E
+25D5: 4C4E23 JMP 234E hexedit.WRVideo
 25D8: C90B   CMPim 0B
 25DA: D007   BNE +7>E3
-25DC: 20C922 JSR 22C9
-25DF: 201D23 JSR 231D
+25DC: 20C922 JSR 22C9 hexedit.cursUp
+25DF: 201D23 JSR 231D hexedit.setCursSql
 25E2: 60     RTS
 25E3: C90C   CMPim 0C
 25E5: D006   BNE +6>ED
-25E7: 203923 JSR 2339
+25E7: 203923 JSR 2339 hexedit.setCurs
 25EA: 00     BRK
 25EB: 00     BRK
 25EC: 60     RTS
 25ED: C90E   CMPim 0E
 25EF: D004   BNE +4>F5
-25F1: 207023 JSR 2370
+25F1: 207023 JSR 2370 hexedit.clear
 25F4: 60     RTS
 25F5: C91D   CMPim 1D
 25F7: D006   BNE +6>FF
-25F9: 20B724 JSR 24B7
-25FC: 204E23 JSR 234E
+25F9: 20B724 JSR 24B7 hexedit.loescheRestZeileUCursDown
+25FC: 204E23 JSR 234E hexedit.WRVideo
 25FF: 60     RTS
+2600: ------ hexedit.decoder
 2600: A001   LDYim 01
-2602: B148   LDAiy 48
-2604: 8542   STAz 42
+2602: B148   LDAiy 48 hexedit.da.adrL
+2604: 8542   STAz 42 hexedit.da.laenge
 2606: A000   LDYim 00
-2608: B148   LDAiy 48
-260A: 2544   ANDz 44
-260C: C642   DECz 42
+2608: B148   LDAiy 48 hexedit.da.adrL
+260A: 2544   ANDz 44 hexedit.da.opcode
+260C: C642   DECz 42 hexedit.da.laenge
 260E: 3004   BMI +4>14
 2610: 4A     LSRa
 2611: 4C0C26 JMP 260C
-2614: 8541   STAz 41
+2614: 8541   STAz 41 hexedit.da.nr
 2616: EA     NOP
 2617: EA     NOP
 2618: EA     NOP
 2619: A002   LDYim 02
-261B: B148   LDAiy 48
-261D: 8542   STAz 42
+261B: B148   LDAiy 48 hexedit.da.adrL
+261D: 8542   STAz 42 hexedit.da.laenge
 261F: A906   LDAim 06
 2621: 18     CLC
-2622: 6541   ADCz 41
-2624: C642   DECz 42
+2622: 6541   ADCz 41 hexedit.da.nr
+2624: C642   DECz 42 hexedit.da.laenge
 2626: D0F9   BNE -7>21
 2628: A8     TAY
-2629: B148   LDAiy 48
+2629: B148   LDAiy 48 hexedit.da.adrL
 262B: C9FF   CMPim FF
 262D: D003   BNE +3>32
-262F: 8543   STAz 43
+262F: 8543   STAz 43 hexedit.da.fehler
 2631: 60     RTS
-2632: 8545   STAz 45
+2632: 8545   STAz 45 hexedit.da.erstes
 2634: C8     INY
-2635: B148   LDAiy 48
-2637: 8546   STAz 46
+2635: B148   LDAiy 48 hexedit.da.adrL
+2637: 8546   STAz 46 hexedit.da.zweites
 2639: C8     INY
-263A: B148   LDAiy 48
-263C: 8547   STAz 47
+263A: B148   LDAiy 48 hexedit.da.adrL
+263C: 8547   STAz 47 hexedit.da.drittes
 263E: 60     RTS
 263F: 33     
+2640: ------ hexedit.sucheInET
 2640: A000   LDYim 00
-2642: B148   LDAiy 48
-2644: 8542   STAz 42
+2642: B148   LDAiy 48 hexedit.da.adrL
+2644: 8542   STAz 42 hexedit.da.laenge
 2646: C8     INY
-2647: B148   LDAiy 48
-2649: 2544   ANDz 44
+2647: B148   LDAiy 48 hexedit.da.adrL
+2649: 2544   ANDz 44 hexedit.da.opcode
 264B: C8     INY
-264C: D148   CMPiy 48
+264C: D148   CMPiy 48 hexedit.da.adrL
 264E: F00A   BEQ +10>5A
 2650: C8     INY
-2651: C442   CPYz 42
+2651: C442   CPYz 42 hexedit.da.laenge
 2653: 30F1   BMI -15>46
 2655: A900   LDAim 00
-2657: 8541   STAz 41
+2657: 8541   STAz 41 hexedit.da.nr
 2659: 60     RTS
 265A: C8     INY
-265B: B148   LDAiy 48
-265D: 8541   STAz 41
+265B: B148   LDAiy 48 hexedit.da.adrL
+265D: 8541   STAz 41 hexedit.da.nr
 265F: 60     RTS
 2660: FF     
 2661: FF     
@@ -1050,33 +1111,34 @@
 2665: FF     
 2666: 22     
 2667: 33     
+2668: ------ hexedit.suche
 2668: A900   LDAim 00
-266A: 8543   STAz 43
-266C: 204026 JSR 2640
-266F: A541   LDAz 41
+266A: 8543   STAz 43 hexedit.da.fehler
+266C: 204026 JSR 2640 hexedit.sucheInET
+266F: A541   LDAz 41 hexedit.da.nr
 2671: D005   BNE +5>78
 2673: A9FF   LDAim FF
-2675: 8543   STAz 43
+2675: 8543   STAz 43 hexedit.da.fehler
 2677: 60     RTS
 2678: 0A     ASLa
 2679: 18     CLC
-267A: 6541   ADCz 41
+267A: 6541   ADCz 41 hexedit.da.nr
 267C: AA     TAX
-267D: A541   LDAz 41
+267D: A541   LDAz 41 hexedit.da.nr
 267F: C90A   CMPim 0A
 2681: 1010   BPL +16>93
 2683: BD3030 LDAx 3030
-2686: 8545   STAz 45
+2686: 8545   STAz 45 hexedit.da.erstes
 2688: BD3130 LDAx 3031
-268B: 8546   STAz 46
+268B: 8546   STAz 46 hexedit.da.zweites
 268D: BD3230 LDAx 3032
-2690: 8547   STAz 47
+2690: 8547   STAz 47 hexedit.da.drittes
 2692: 60     RTS
 2693: BD3030 LDAx 3030
-2696: 8548   STAz 48
+2696: 8548   STAz 48 hexedit.da.adrL
 2698: BD3130 LDAx 3031
-269B: 8549   STAz 49
-269D: 200026 JSR 2600
+269B: 8549   STAz 49 hexedit.da.adrH
+269D: 200026 JSR 2600 hexedit.decoder
 26A0: 60     RTS
 26A1: FF     
 26A2: FF     
@@ -1085,56 +1147,58 @@
 26A5: FF     
 26A6: 22     
 26A7: 33     
-26A8: 20CE24 JSR 24CE
-26AB: A598   LDAz 98
+26A8: ------ hexedit.disAssembler
+26A8: 20CE24 JSR 24CE hexedit.Blank
+26AB: A598   LDAz 98 hexedit.videoSpa
 26AD: C90D   CMPim 0D
 26AF: F006   BEQ +6>B7
-26B1: A56D   LDAz 6D
+26B1: A56D   LDAz 6D hexedit.spaTty
 26B3: C90E   CMPim 0E
 26B5: D0F1   BNE -15>A8
 26B7: A9B8   LDAim B8
-26B9: 8548   STAz 48
+26B9: 8548   STAz 48 hexedit.da.adrL
 26BB: A931   LDAim 31
-26BD: 8549   STAz 49
-26BF: 206826 JSR 2668
-26C2: A543   LDAz 43
+26BD: 8549   STAz 49 hexedit.da.adrH
+26BF: 206826 JSR 2668 hexedit.suche
+26C2: A543   LDAz 43 hexedit.da.fehler
 26C4: F001   BEQ +1>C7
 26C6: 60     RTS
-26C7: A545   LDAz 45
-26C9: 206324 JSR 2463
-26CC: A546   LDAz 46
-26CE: 206324 JSR 2463
-26D1: A547   LDAz 47
-26D3: 206324 JSR 2463
+26C7: A545   LDAz 45 hexedit.da.erstes
+26C9: 206324 JSR 2463 hexedit.write
+26CC: A546   LDAz 46 hexedit.da.zweites
+26CE: 206324 JSR 2463 hexedit.write
+26D1: A547   LDAz 47 hexedit.da.drittes
+26D3: 206324 JSR 2463 hexedit.write
 26D6: A9D0   LDAim D0
-26D8: 8548   STAz 48
+26D8: 8548   STAz 48 hexedit.da.adrL
 26DA: A931   LDAim 31
-26DC: 8549   STAz 49
-26DE: 206826 JSR 2668
-26E1: A545   LDAz 45
+26DC: 8549   STAz 49 hexedit.da.adrH
+26DE: 206826 JSR 2668 hexedit.suche
+26E1: A545   LDAz 45 hexedit.da.erstes
 26E3: C920   CMPim 20
 26E5: F00F   BEQ +15>F6
-26E7: 206324 JSR 2463
-26EA: A546   LDAz 46
+26E7: 206324 JSR 2463 hexedit.write
+26EA: A546   LDAz 46 hexedit.da.zweites
 26EC: C920   CMPim 20
 26EE: F003   BEQ +3>F3
-26F0: 206324 JSR 2463
+26F0: 206324 JSR 2463 hexedit.write
 26F3: 60     RTS
 26F4: 22     
 26F5: 33     
-26F6: A544   LDAz 44
+26F6: ------ hexedit.testDisAssembler
+26F6: A544   LDAz 44 hexedit.da.opcode
 26F8: 291F   ANDim 1F
 26FA: C910   CMPim 10
 26FC: F001   BEQ +1>FF
 26FE: 60     RTS
-26FF: 20CE24 JSR 24CE
+26FF: 20CE24 JSR 24CE hexedit.Blank
 2702: C6E7   DECz E7 editor.CURADH
 2704: A0FF   LDYim FF
 2706: B1E6   LDAiy E6 editor.CURADL
 2708: E6E7   INCz E7 editor.CURADH
 270A: 18     CLC
 270B: 65E6   ADCz E6 editor.CURADL
-270D: 20EF24 JSR 24EF
+270D: 20EF24 JSR 24EF hexedit.byteDru
 2710: 60     RTS
 2711: FF     
 2712: FF     
@@ -1183,22 +1247,22 @@
 273D: FF     
 273E: 00     BRK
 273F: 00     BRK
-2740: 203923 JSR 2339
+2740: 203923 JSR 2339 hexedit.setCurs
 2743: 3000   BMI +0>45
 2745: A5CB   LDAz CB bs.Transfer3.vonH
-2747: 20EF24 JSR 24EF
+2747: 20EF24 JSR 24EF hexedit.byteDru
 274A: A5CA   LDAz CA bs.Transfer3.vonL
-274C: 20EF24 JSR 24EF
-274F: 20CE24 JSR 24CE
+274C: 20EF24 JSR 24EF hexedit.byteDru
+274F: 20CE24 JSR 24CE hexedit.Blank
 2752: A5CD   LDAz CD bs.Transfer3.bisH
-2754: 20EF24 JSR 24EF
+2754: 20EF24 JSR 24EF hexedit.byteDru
 2757: A5CC   LDAz CC bs.Transfer3.bisL
-2759: 20EF24 JSR 24EF
-275C: 20CE24 JSR 24CE
+2759: 20EF24 JSR 24EF hexedit.byteDru
+275C: 20CE24 JSR 24CE hexedit.Blank
 275F: A5CF   LDAz CF bs.Transfer3.nachH
-2761: 20EF24 JSR 24EF
+2761: 20EF24 JSR 24EF hexedit.byteDru
 2764: A5CE   LDAz CE bs.Transfer3.nachL
-2766: 20EF24 JSR 24EF
+2766: 20EF24 JSR 24EF hexedit.byteDru
 2769: 60     RTS
 276A: 00     BRK
 276B: 00     BRK
@@ -1206,27 +1270,29 @@
 276D: 00     BRK
 276E: 00     BRK
 276F: 00     BRK
+2770: ------ hexedit.TestUndTransfer
 2770: A5CA   LDAz CA bs.Transfer3.vonL
 2772: C5CC   CMPz CC bs.Transfer3.bisL
 2774: A5CB   LDAz CB bs.Transfer3.vonH
 2776: E5CD   SBCz CD bs.Transfer3.bisH
 2778: B003   BCS +3>7D
-277A: 20403E JSR 3E40
+277A: 20403E JSR 3E40 hexedit.Transfer2
 277D: 60     RTS
 277E: 33     
-277F: 207027 JSR 2770
+277F: 207027 JSR 2770 hexedit.TestUndTransfer
 2782: A65B   LDXz 5B bs.neueZeitH
-2784: BDB003 LDAx 03B0
+2784: BDB003 LDAx 03B0 hexedit.arrProsa
 2787: 9009   BCC +9>92
 2789: A048   LDYim 48
 278B: A900   LDAim 00
 278D: 91CE   STAiy CE bs.Transfer3.nachL
 278F: 88     DEY
 2790: D0FB   BNE -5>8D
-2792: 20452D JSR 2D45
+2792: 20452D JSR 2D45 hexedit.BerechneUDisplay
 2795: 60     RTS
 2796: 22     
 2797: 33     
+2798: ------ hexedit.LineDel
 2798: A557   LDAz 57 bs.topWait
 279A: F001   BEQ +1>9D
 279C: 60     RTS
@@ -1248,6 +1314,7 @@
 27B8: FF     
 27B9: 22     
 27BA: 33     
+27BB: ------ hexedit.LineIns
 27BB: A557   LDAz 57 bs.topWait
 27BD: F001   BEQ +1>C0
 27BF: 60     RTS
@@ -1267,16 +1334,16 @@
 27D9: 85CB   STAz CB bs.Transfer3.vonH
 27DB: 6900   ADCim 00
 27DD: 85CF   STAz CF bs.Transfer3.nachH
-27DF: 207027 JSR 2770
+27DF: 207027 JSR 2770 hexedit.TestUndTransfer
 27E2: A65B   LDXz 5B bs.neueZeitH
-27E4: BDB003 LDAx 03B0
+27E4: BDB003 LDAx 03B0 hexedit.arrProsa
 27E7: 9009   BCC +9>F2
 27E9: A047   LDYim 47
 27EB: A900   LDAim 00
 27ED: 91CA   STAiy CA bs.Transfer3.vonL
 27EF: 88     DEY
 27F0: 10FB   BPL -5>ED
-27F2: 20452D JSR 2D45
+27F2: 20452D JSR 2D45 hexedit.BerechneUDisplay
 27F5: 60     RTS
 27F6: FF     
 27F7: FF     
@@ -1306,21 +1373,22 @@
 280F: 33     
 2810: A018   LDYim 18
 2812: D002   BNE +2>16
-2814: A499   LDYz 99
+2814: ------ hexedit.berechneBis
+2814: A499   LDYz 99 hexedit.video2
 2816: C8     INY
-2817: A699   LDXz 99
-2819: BDB003 LDAx 03B0
+2817: A699   LDXz 99 hexedit.video2
+2819: BDB003 LDAx 03B0 hexedit.arrProsa
 281C: F01C   BEQ +28>3A
 281E: A55E   LDAz 5E bs.breakZeitL
-2820: D97E03 CMPy 037E
+2820: D97E03 CMPy 037E hexedit.arrZeiNrL
 2823: A55F   LDAz 5F bs.breakZeitH
-2825: F99703 SBCy 0397
+2825: F99703 SBCy 0397 hexedit.arrZeiNrH
 2828: 9010   BCC +16>3A
-282A: B97E03 LDAy 037E
+282A: B97E03 LDAy 037E hexedit.arrZeiNrL
 282D: 38     SEC
 282E: E901   SBCim 01
 2830: 85CC   STAz CC bs.Transfer3.bisL
-2832: B99703 LDAy 0397
+2832: B99703 LDAy 0397 hexedit.arrZeiNrH
 2835: E900   SBCim 00
 2837: 85CD   STAz CD bs.Transfer3.bisH
 2839: 60     RTS
@@ -1337,6 +1405,7 @@
 2848: FF     
 2849: 22     
 284A: 33     
+284B: ------ hexedit.INS
 284B: A557   LDAz 57 bs.topWait
 284D: F001   BEQ +1>50
 284F: 60     RTS
@@ -1354,8 +1423,8 @@
 2866: C8     INY
 2867: 86CE   STXz CE bs.Transfer3.nachL
 2869: 84CF   STYz CF bs.Transfer3.nachH
-286B: 207027 JSR 2770
-286E: 20452D JSR 2D45
+286B: 207027 JSR 2770 hexedit.TestUndTransfer
+286E: 20452D JSR 2D45 hexedit.BerechneUDisplay
 2871: 60     RTS
 2872: FF     
 2873: FF     
@@ -1376,6 +1445,7 @@
 2882: FF     
 2883: 22     
 2884: 33     
+2885: ------ hexedit.Delete
 2885: A557   LDAz 57 bs.topWait
 2887: F001   BEQ +1>8A
 2889: 60     RTS
@@ -1390,12 +1460,13 @@
 2899: 86CA   STXz CA bs.Transfer3.vonL
 289B: 84CB   STYz CB bs.Transfer3.vonH
 289D: 4C6B28 JMP 286B
+28A0: ------ hexedit.zeigeAusser
 28A0: A557   LDAz 57 bs.topWait
 28A2: F013   BEQ +19>B7
 28A4: ADA00F LDA 0FA0
 28A7: C941   CMPim 41
 28A9: F00C   BEQ +12>B7
-28AB: 201029 JSR 2910
+28AB: 201029 JSR 2910 hexedit.copy
 28AE: 4B     
 28AF: 2954   ANDim 54
 28B1: 291A   ANDim 1A
@@ -1404,7 +1475,7 @@
 28B7: ADA00F LDA 0FA0
 28BA: C920   CMPim 20
 28BC: F007   BEQ +7>C5
-28BE: 201029 JSR 2910
+28BE: 201029 JSR 2910 hexedit.copy
 28C1: D00F   BNE +15>D2
 28C3: D90F1A CMPy 1A0F
 28C6: 18     CLC
@@ -1417,20 +1488,21 @@
 28CD: FF     
 28CE: 22     
 28CF: 33     
-28D0: 201029 JSR 2910
+28D0: ------ hexedit.grenzeAendern
+28D0: 201029 JSR 2910 hexedit.copy
 28D3: 57     
 28D4: 295E   ANDim 5E
 28D6: 2930   ANDim 30
 28D8: 18     CLC
-28D9: 20D82B JSR 2BD8
+28D9: 20D82B JSR 2BD8 hexedit.GetByte
 28DC: B00D   BCS +13>EB
 28DE: 858B   STAz 8B bs.RXSave
-28E0: 20D82B JSR 2BD8
+28E0: 20D82B JSR 2BD8 hexedit.GetByte
 28E3: B006   BCS +6>EB
 28E5: 855E   STAz 5E bs.breakZeitL
 28E7: A58B   LDAz 8B bs.RXSave
 28E9: 855F   STAz 5F bs.breakZeitH
-28EB: 20482D JSR 2D48
+28EB: 20482D JSR 2D48 hexedit.displayuC
 28EE: 60     RTS
 28EF: FF     
 28F0: FF     
@@ -1465,8 +1537,9 @@
 290D: FF     
 290E: 22     
 290F: 33     
+2910: ------ hexedit.copy
 2910: A006   LDYim 06
-2912: 20A525 JSR 25A5
+2912: 20A525 JSR 25A5 bs.KPUe
 2915: A901   LDAim 01
 2917: 85CF   STAz CF bs.Transfer3.nachH
 2919: 68     PLA
@@ -1494,7 +1567,7 @@
 293A: 99CA00 STAy 00CA bs.Transfer3.vonL
 293D: 88     DEY
 293E: 10F9   BPL -7>39
-2940: 20403E JSR 3E40
+2940: 20403E JSR 3E40 hexedit.Transfer2
 2943: 60     RTS
 2944: FF     
 2945: FF     
@@ -1511,7 +1584,7 @@
 2952: 616C   ADCix 6C
 2954: 62     
 2955: 202061 JSR 6120
-2958: 656E   ADCz 6E
+2958: 656E   ADCz 6E hexedit.zeiTty
 295A: 64     
 295B: 6572   ADCz 72
 295D: 6520   ADCz 20
@@ -1535,7 +1608,8 @@
 2975: FF     
 2976: 22     
 2977: 33     
-2978: 201029 JSR 2910
+2978: ------ hexedit.hardcopy
+2978: 201029 JSR 2910 hexedit.copy
 297B: 67     
 297C: 296E   ANDim 6E
 297E: 2930   ANDim 30
@@ -1543,7 +1617,7 @@
 2981: EA     NOP
 2982: EA     NOP
 2983: EA     NOP
-2984: 206F24 JSR 246F
+2984: 206F24 JSR 246F hexedit.openOutStarTty
 2987: A900   LDAim 00
 2989: 85E6   STAz E6 editor.CURADL
 298B: A908   LDAim 08
@@ -1556,17 +1630,17 @@
 2998: D0F7   BNE -9>91
 299A: C8     INY
 299B: EA     NOP
-299C: 8456   STYz 56
+299C: 8456   STYz 56 hexedit.helpH
 299E: A000   LDYim 00
-29A0: 8455   STYz 55
-29A2: A455   LDYz 55
-29A4: C456   CPYz 56
+29A0: 8455   STYz 55 hexedit.helpL
+29A2: A455   LDYz 55 hexedit.helpL
+29A4: C456   CPYz 56 hexedit.helpH
 29A6: F00A   BEQ +10>B2
 29A8: B1E6   LDAiy E6 editor.CURADL
-29AA: 206324 JSR 2463
-29AD: E655   INCz 55
+29AA: 206324 JSR 2463 hexedit.write
+29AD: E655   INCz 55 hexedit.helpL
 29AF: 4CA229 JMP 29A2
-29B2: 20D424 JSR 24D4
+29B2: 20D424 JSR 24D4 hexedit.CR
 29B5: A5E6   LDAz E6 editor.CURADL
 29B7: 18     CLC
 29B8: 6950   ADCim 50
@@ -1578,8 +1652,8 @@
 29C4: A5E7   LDAz E7 editor.CURADH
 29C6: C90F   CMPim 0F
 29C8: D0C5   BNE -59>8F
-29CA: 206924 JSR 2469
-29CD: 201029 JSR 2910
+29CA: 206924 JSR 2469 hexedit.openOutVideo2
+29CD: 201029 JSR 2910 hexedit.copy
 29D0: D00F   BNE +15>E1
 29D2: D7     
 29D3: 0F     
@@ -1592,6 +1666,7 @@
 29DB: FF     
 29DC: FF     
 29DD: FF     
+29DE: ------ hexedit.CTRL?
 29DE: FF     
 29DF: FF     
 29E0: FF     
@@ -1770,39 +1845,40 @@
 2A8D: FF     
 2A8E: 22     
 2A8F: 33     
-2A90: 201029 JSR 2910
+2A90: ------ hexedit.Adr
+2A90: 201029 JSR 2910 hexedit.copy
 2A93: 5F     
 2A94: 2966   ANDim 66
 2A96: 2930   ANDim 30
 2A98: 18     CLC
-2A99: 20D82B JSR 2BD8
+2A99: 20D82B JSR 2BD8 hexedit.GetByte
 2A9C: B020   BCS +32>BE
 2A9E: 48     PHA
-2A9F: 20D82B JSR 2BD8
+2A9F: 20D82B JSR 2BD8 hexedit.GetByte
 2AA2: B02E   BCS +46>D2
 2AA4: EA     NOP
 2AA5: EA     NOP
-2AA6: 8D7E03 STA 037E
+2AA6: 8D7E03 STA 037E hexedit.arrZeiNrL
 2AA9: EA     NOP
 2AAA: 68     PLA
-2AAB: 8D9703 STA 0397
+2AAB: 8D9703 STA 0397 hexedit.arrZeiNrH
 2AAE: A900   LDAim 00
-2AB0: 8DB003 STA 03B0
-2AB3: 20042C JSR 2C04
-2AB6: 20502D JSR 2D50
-2AB9: 20E82A JSR 2AE8
+2AB0: 8DB003 STA 03B0 hexedit.arrProsa
+2AB3: 20042C JSR 2C04 hexedit.berechneZeiNrAb0
+2AB6: 20502D JSR 2D50 hexedit.display
+2AB9: 20E82A JSR 2AE8 hexedit.home
 2ABC: 18     CLC
 2ABD: 60     RTS
 2ABE: C912   CMPim 12
 2AC0: D006   BNE +6>C8
-2AC2: 20002B JSR 2B00
+2AC2: 20002B JSR 2B00 hexedit.Blaettern
 2AC5: 4CB92A JMP 2AB9
 2AC8: C911   CMPim 11
 2ACA: D007   BNE +7>D3
-2ACC: 20602B JSR 2B60
+2ACC: 20602B JSR 2B60 hexedit.reBlaettern
 2ACF: 4CB92A JMP 2AB9
 2AD2: 68     PLA
-2AD3: 201029 JSR 2910
+2AD3: 201029 JSR 2910 hexedit.copy
 2AD6: D00F   BNE +15>E7
 2AD8: D7     
 2AD9: 0F     
@@ -1819,24 +1895,26 @@
 2AE5: FF     
 2AE6: 22     
 2AE7: 33     
-2AE8: 203923 JSR 2339
+2AE8: ------ hexedit.home
+2AE8: 203923 JSR 2339 hexedit.setCurs
 2AEB: 0600   ASLz 00
-2AED: AD7E03 LDA 037E
+2AED: AD7E03 LDA 037E hexedit.arrZeiNrL
 2AF0: 85FA   STAz FA monitor.POINTL
-2AF2: AD9703 LDA 0397
+2AF2: AD9703 LDA 0397 hexedit.arrZeiNrH
 2AF5: 85FB   STAz FB monitor.POINTH
 2AF7: A900   LDAim 00
 2AF9: 8557   STAz 57 bs.topWait
-2AFB: 20A028 JSR 28A0
+2AFB: 20A028 JSR 28A0 hexedit.zeigeAusser
 2AFE: 60     RTS
 2AFF: 33     
+2B00: ------ hexedit.Blaettern
 2B00: AD9503 LDA 0395
-2B03: 8D7E03 STA 037E
+2B03: 8D7E03 STA 037E hexedit.arrZeiNrL
 2B06: ADAE03 LDA 03AE
-2B09: 8D9703 STA 0397
+2B09: 8D9703 STA 0397 hexedit.arrZeiNrH
 2B0C: ADC703 LDA 03C7
-2B0F: 8DB003 STA 03B0
-2B12: 20452D JSR 2D45
+2B0F: 8DB003 STA 03B0 hexedit.arrProsa
+2B12: 20452D JSR 2D45 hexedit.BerechneUDisplay
 2B15: 60     RTS
 2B16: FF     
 2B17: FF     
@@ -1848,16 +1926,17 @@
 2B1D: FF     
 2B1E: 22     
 2B1F: 33     
+2B20: ------ hexedit.PlusmBl
 2B20: A557   LDAz 57 bs.topWait
 2B22: F001   BEQ +1>25
 2B24: 60     RTS
 2B25: E6FA   INCz FA monitor.POINTL
 2B27: D002   BNE +2>2B
 2B29: E6FB   INCz FB monitor.POINTH
-2B2B: 20E02C JSR 2CE0
+2B2B: 20E02C JSR 2CE0 hexedit.cursFromPointPlusZeige
 2B2E: A557   LDAz 57 bs.topWait
 2B30: F003   BEQ +3>35
-2B32: 20002B JSR 2B00
+2B32: 20002B JSR 2B00 hexedit.Blaettern
 2B35: 60     RTS
 2B36: FF     
 2B37: FF     
@@ -1872,6 +1951,7 @@
 2B40: FF     
 2B41: 22     
 2B42: 33     
+2B43: ------ hexedit.MinusmBl
 2B43: A557   LDAz 57 bs.topWait
 2B45: F001   BEQ +1>48
 2B47: 60     RTS
@@ -1879,17 +1959,18 @@
 2B4A: D002   BNE +2>4E
 2B4C: C6FB   DECz FB monitor.POINTH
 2B4E: C6FA   DECz FA monitor.POINTL
-2B50: 20E02C JSR 2CE0
+2B50: 20E02C JSR 2CE0 hexedit.cursFromPointPlusZeige
 2B53: A557   LDAz 57 bs.topWait
 2B55: F003   BEQ +3>5A
-2B57: 20602B JSR 2B60
+2B57: 20602B JSR 2B60 hexedit.reBlaettern
 2B5A: 60     RTS
 2B5B: FF     
 2B5C: FF     
 2B5D: FF     
 2B5E: 22     
 2B5F: 33     
-2B60: AD7E03 LDA 037E
+2B60: ------ hexedit.reBlaettern
+2B60: AD7E03 LDA 037E hexedit.arrZeiNrL
 2B63: 8558   STAz 58 bs.aktZeitL
 2B65: EA     NOP
 2B66: EA     NOP
@@ -1897,13 +1978,13 @@
 2B68: EA     NOP
 2B69: EA     NOP
 2B6A: 38     SEC
-2B6B: AD9703 LDA 0397
+2B6B: AD9703 LDA 0397 hexedit.arrZeiNrH
 2B6E: 8559   STAz 59 bs.aktZeitH
 2B70: E902   SBCim 02
-2B72: 8D9703 STA 0397
+2B72: 8D9703 STA 0397 hexedit.arrZeiNrH
 2B75: A900   LDAim 00
-2B77: 8595   STAz 95
-2B79: 20042C JSR 2C04
+2B77: 8595   STAz 95 hexedit.Prosa
+2B79: 20042C JSR 2C04 hexedit.berechneZeiNrAb0
 2B7C: EA     NOP
 2B7D: EA     NOP
 2B7E: EA     NOP
@@ -1916,17 +1997,17 @@
 2B8D: 901F   BCC +31>AE
 2B8F: A200   LDXim 00
 2B91: BD7F03 LDAx 037F
-2B94: 9D7E03 STAx 037E
+2B94: 9D7E03 STAx 037E hexedit.arrZeiNrL
 2B97: BD9803 LDAx 0398
-2B9A: 9D9703 STAx 0397
+2B9A: 9D9703 STAx 0397 hexedit.arrZeiNrH
 2B9D: BDB103 LDAx 03B1
-2BA0: 9DB003 STAx 03B0
+2BA0: 9DB003 STAx 03B0 hexedit.arrProsa
 2BA3: E8     INX
 2BA4: E018   CPXim 18
 2BA6: D0E9   BNE -23>91
-2BA8: 20002C JSR 2C00
+2BA8: 20002C JSR 2C00 hexedit.berechneZeiNrAb23
 2BAB: 4C7C2B JMP 2B7C
-2BAE: 20482D JSR 2D48
+2BAE: 20482D JSR 2D48 hexedit.displayuC
 2BB1: 60     RTS
 2BB2: FF     
 2BB3: FF     
@@ -1942,9 +2023,11 @@
 2BBD: FF     
 2BBE: 22     
 2BBF: 33     
-2BC0: 206024 JSR 2460
+2BC0: ------ hexedit.nibble
+2BC0: 206024 JSR 2460 hexedit.read
 2BC3: 9001   BCC +1>C6
 2BC5: 60     RTS
+2BC6: ------ hexedit.wandle
 2BC6: C941   CMPim 41
 2BC8: 9002   BCC +2>CC
 2BCA: E907   SBCim 07
@@ -1959,18 +2042,20 @@
 2BD5: FF     
 2BD6: 22     
 2BD7: 33     
-2BD8: 20C02B JSR 2BC0
+2BD8: ------ hexedit.GetByte
+2BD8: 20C02B JSR 2BC0 hexedit.nibble
 2BDB: 9001   BCC +1>DE
 2BDD: 60     RTS
 2BDE: C910   CMPim 10
 2BE0: 9001   BCC +1>E3
 2BE2: 60     RTS
+2BE3: ------ hexedit.RestByte
 2BE3: 0A     ASLa
 2BE4: 0A     ASLa
 2BE5: 0A     ASLa
 2BE6: 0A     ASLa
 2BE7: 85FE   STAz FE editor.NIBBLE
-2BE9: 20C02B JSR 2BC0
+2BE9: 20C02B JSR 2BC0 hexedit.nibble
 2BEC: 9001   BCC +1>EF
 2BEE: 60     RTS
 2BEF: C910   CMPim 10
@@ -1987,17 +2072,20 @@
 2BFD: FF     
 2BFE: 22     
 2BFF: 33     
+2C00: ------ hexedit.berechneZeiNrAb23
 2C00: A217   LDXim 17
 2C02: D002   BNE +2>06
+2C04: ------ hexedit.berechneZeiNrAb0
 2C04: A200   LDXim 00
+2C06: ------ hexedit.berechneZeiNrAbRx
 2C06: 865B   STXz 5B bs.neueZeitH
-2C08: BD7E03 LDAx 037E
+2C08: BD7E03 LDAx 037E hexedit.arrZeiNrL
 2C0B: 855C   STAz 5C bs.uhrZeitL
-2C0D: BD9703 LDAx 0397
+2C0D: BD9703 LDAx 0397 hexedit.arrZeiNrH
 2C10: 855D   STAz 5D bs.uhrZeitH
-2C12: BDB003 LDAx 03B0
-2C15: 8595   STAz 95
-2C17: A595   LDAz 95
+2C12: BDB003 LDAx 03B0 hexedit.arrProsa
+2C15: 8595   STAz 95 hexedit.Prosa
+2C17: A595   LDAz 95 hexedit.Prosa
 2C19: F02B   BEQ +43>46
 2C1B: A948   LDAim 48
 2C1D: 85F6   STAz F6 monitor.BYTES
@@ -2015,7 +2103,7 @@
 2C34: E65D   INCz 5D bs.uhrZeitH
 2C36: 4C1F2C JMP 2C1F
 2C39: A900   LDAim 00
-2C3B: 8595   STAz 95
+2C3B: 8595   STAz 95 hexedit.Prosa
 2C3D: E65C   INCz 5C bs.uhrZeitL
 2C3F: D002   BNE +2>43
 2C41: E65D   INCz 5D bs.uhrZeitH
@@ -2028,10 +2116,10 @@
 2C50: B15C   LDAiy 5C bs.uhrZeitL
 2C52: C902   CMPim 02
 2C54: D002   BNE +2>58
-2C56: E695   INCz 95
+2C56: E695   INCz 95 hexedit.Prosa
 2C58: A200   LDXim 00
 2C5A: A15C   LDAix 5C bs.uhrZeitL
-2C5C: 20601E JSR 1E60
+2C5C: 20601E JSR 1E60 editor.OPLEN2
 2C5F: A55C   LDAz 5C bs.uhrZeitL
 2C61: 18     CLC
 2C62: 65F6   ADCz F6 monitor.BYTES
@@ -2041,11 +2129,11 @@
 2C6A: E65B   INCz 5B bs.neueZeitH
 2C6C: A65B   LDXz 5B bs.neueZeitH
 2C6E: A55C   LDAz 5C bs.uhrZeitL
-2C70: 9D7E03 STAx 037E
+2C70: 9D7E03 STAx 037E hexedit.arrZeiNrL
 2C73: A55D   LDAz 5D bs.uhrZeitH
-2C75: 9D9703 STAx 0397
-2C78: A595   LDAz 95
-2C7A: 9DB003 STAx 03B0
+2C75: 9D9703 STAx 0397 hexedit.arrZeiNrH
+2C78: A595   LDAz 95 hexedit.Prosa
+2C7A: 9DB003 STAx 03B0 hexedit.arrProsa
 2C7D: E018   CPXim 18
 2C7F: D096   BNE -106>17
 2C81: 60     RTS
@@ -2079,31 +2167,32 @@
 2C9D: FF     
 2C9E: 22     
 2C9F: 33     
+2CA0: ------ hexedit.restZeile
 2CA0: A65B   LDXz 5B bs.neueZeitH
-2CA2: BDB003 LDAx 03B0
-2CA5: 8595   STAz 95
+2CA2: BDB003 LDAx 03B0 hexedit.arrProsa
+2CA5: 8595   STAz 95 hexedit.Prosa
 2CA7: A200   LDXim 00
 2CA9: A1E6   LDAix E6 editor.CURADL
-2CAB: 8544   STAz 44
+2CAB: 8544   STAz 44 hexedit.da.opcode
 2CAD: A200   LDXim 00
 2CAF: A1E6   LDAix E6 editor.CURADL
-2CB1: A695   LDXz 95
+2CB1: A695   LDXz 95 hexedit.Prosa
 2CB3: D006   BNE +6>BB
-2CB5: 20EF24 JSR 24EF
+2CB5: 20EF24 JSR 24EF hexedit.byteDru
 2CB8: 4CBE2C JMP 2CBE
-2CBB: 206324 JSR 2463
-2CBE: 20903C JSR 3C90
+2CBB: 206324 JSR 2463 hexedit.write
+2CBE: 20903C JSR 3C90 hexedit.nextCurAd
 2CC1: A65B   LDXz 5B bs.neueZeitH
 2CC3: E8     INX
 2CC4: A5E6   LDAz E6 editor.CURADL
-2CC6: DD7E03 CMPx 037E
+2CC6: DD7E03 CMPx 037E hexedit.arrZeiNrL
 2CC9: D0E2   BNE -30>AD
 2CCB: A5E7   LDAz E7 editor.CURADH
-2CCD: DD9703 CMPx 0397
+2CCD: DD9703 CMPx 0397 hexedit.arrZeiNrH
 2CD0: D0DB   BNE -37>AD
-2CD2: A595   LDAz 95
+2CD2: A595   LDAz 95 hexedit.Prosa
 2CD4: D003   BNE +3>D9
-2CD6: 20A826 JSR 26A8
+2CD6: 20A826 JSR 26A8 hexedit.disAssembler
 2CD9: 60     RTS
 2CDA: FF     
 2CDB: FF     
@@ -2111,20 +2200,22 @@
 2CDD: FF     
 2CDE: 22     
 2CDF: 33     
-2CE0: 20E82C JSR 2CE8
-2CE3: 20A028 JSR 28A0
+2CE0: ------ hexedit.cursFromPointPlusZeige
+2CE0: 20E82C JSR 2CE8 hexedit.cursFromPoint
+2CE3: 20A028 JSR 28A0 hexedit.zeigeAusser
 2CE6: 60     RTS
 2CE7: 00     BRK
+2CE8: ------ hexedit.cursFromPoint
 2CE8: A900   LDAim 00
 2CEA: 8557   STAz 57 bs.topWait
 2CEC: A200   LDXim 00
-2CEE: BD9703 LDAx 0397
+2CEE: BD9703 LDAx 0397 hexedit.arrZeiNrH
 2CF1: C5FB   CMPz FB monitor.POINTH
 2CF3: 900E   BCC +14>03
 2CF5: F003   BEQ +3>FA
 2CF7: E657   INCz 57 bs.topWait
 2CF9: 60     RTS
-2CFA: BD7E03 LDAx 037E
+2CFA: BD7E03 LDAx 037E hexedit.arrZeiNrL
 2CFD: C5FA   CMPz FA monitor.POINTL
 2CFF: 9002   BCC +2>03
 2D01: D0F4   BNE -12>F7
@@ -2133,31 +2224,31 @@
 2D07: E657   INCz 57 bs.topWait
 2D09: 60     RTS
 2D0A: E8     INX
-2D0B: BD9703 LDAx 0397
+2D0B: BD9703 LDAx 0397 hexedit.arrZeiNrH
 2D0E: C5FB   CMPz FB monitor.POINTH
 2D10: 90F1   BCC -15>03
 2D12: D009   BNE +9>1D
-2D14: BD7E03 LDAx 037E
+2D14: BD7E03 LDAx 037E hexedit.arrZeiNrL
 2D17: C5FA   CMPz FA monitor.POINTL
 2D19: 90E8   BCC -24>03
 2D1B: F0E6   BEQ -26>03
 2D1D: CA     DEX
-2D1E: 8699   STXz 99
+2D1E: 8699   STXz 99 hexedit.video2
 2D20: 38     SEC
 2D21: A5FA   LDAz FA monitor.POINTL
-2D23: FD7E03 SBCx 037E
+2D23: FD7E03 SBCx 037E hexedit.arrZeiNrL
 2D26: 48     PHA
 2D27: A5FB   LDAz FB monitor.POINTH
-2D29: FD9703 SBCx 0397
+2D29: FD9703 SBCx 0397 hexedit.arrZeiNrH
 2D2C: D0FE   BNE -2>2C
 2D2E: 68     PLA
-2D2F: BCB003 LDYx 03B0
+2D2F: BCB003 LDYx 03B0 hexedit.arrProsa
 2D32: D001   BNE +1>35
 2D34: 0A     ASLa
 2D35: 18     CLC
 2D36: 6906   ADCim 06
-2D38: 8598   STAz 98
-2D3A: 20FD22 JSR 22FD
+2D38: 8598   STAz 98 hexedit.videoSpa
+2D3A: 20FD22 JSR 22FD hexedit.cursAdrSql
 2D3D: 60     RTS
 2D3E: FF     
 2D3F: FF     
@@ -2166,42 +2257,45 @@
 2D42: FF     
 2D43: 22     
 2D44: 33     
-2D45: 20042C JSR 2C04
-2D48: 20502D JSR 2D50
-2D4B: 20E02C JSR 2CE0
+2D45: ------ hexedit.BerechneUDisplay
+2D45: 20042C JSR 2C04 hexedit.berechneZeiNrAb0
+2D48: ------ hexedit.displayuC
+2D48: 20502D JSR 2D50 hexedit.display
+2D4B: 20E02C JSR 2CE0 hexedit.cursFromPointPlusZeige
 2D4E: 60     RTS
 2D4F: 33     
-2D50: 206423 JSR 2364
-2D53: AD7E03 LDA 037E
+2D50: ------ hexedit.display
+2D50: 206423 JSR 2364 hexedit.Home
+2D53: AD7E03 LDA 037E hexedit.arrZeiNrL
 2D56: 85E6   STAz E6 editor.CURADL
-2D58: AD9703 LDA 0397
+2D58: AD9703 LDA 0397 hexedit.arrZeiNrH
 2D5B: 85E7   STAz E7 editor.CURADH
 2D5D: A200   LDXim 00
 2D5F: 865B   STXz 5B bs.neueZeitH
 2D61: A65B   LDXz 5B bs.neueZeitH
 2D63: A5E7   LDAz E7 editor.CURADH
-2D65: 20EF24 JSR 24EF
+2D65: 20EF24 JSR 24EF hexedit.byteDru
 2D68: A65B   LDXz 5B bs.neueZeitH
 2D6A: A5E6   LDAz E6 editor.CURADL
-2D6C: 20EF24 JSR 24EF
-2D6F: 20C924 JSR 24C9
-2D72: 20A02C JSR 2CA0
+2D6C: 20EF24 JSR 24EF hexedit.byteDru
+2D6F: 20C924 JSR 24C9 hexedit.2Blanks
+2D72: 20A02C JSR 2CA0 hexedit.restZeile
 2D75: A65B   LDXz 5B bs.neueZeitH
-2D77: E499   CPXz 99
+2D77: E499   CPXz 99 hexedit.video2
 2D79: 3003   BMI +3>7E
-2D7B: 20D424 JSR 24D4
+2D7B: 20D424 JSR 24D4 hexedit.CR
 2D7E: E65B   INCz 5B bs.neueZeitH
-2D80: A699   LDXz 99
+2D80: A699   LDXz 99 hexedit.video2
 2D82: E018   CPXim 18
 2D84: D0DB   BNE -37>61
-2D86: 20D424 JSR 24D4
-2D89: 203923 JSR 2339
+2D86: 20D424 JSR 24D4 hexedit.CR
+2D89: 203923 JSR 2339 hexedit.setCurs
 2D8C: 28     PLP
 2D8D: 18     CLC
 2D8E: A55F   LDAz 5F bs.breakZeitH
-2D90: 20EF24 JSR 24EF
+2D90: 20EF24 JSR 24EF hexedit.byteDru
 2D93: A55E   LDAz 5E bs.breakZeitL
-2D95: 20EF24 JSR 24EF
+2D95: 20EF24 JSR 24EF hexedit.byteDru
 2D98: 60     RTS
 2D99: FF     
 2D9A: FF     
@@ -2220,17 +2314,18 @@
 2DA7: FF     
 2DA8: 22     
 2DA9: 33     
-2DAA: 206624 JSR 2466
-2DAD: 208B24 JSR 248B
+2DAA: ------ hexedit.Vorlauf
+2DAA: 206624 JSR 2466 hexedit.openOutVideo
+2DAD: 208B24 JSR 248B hexedit.openInHexKb
 2DB0: A5E2   LDAz E2 editor.BEGADL
 2DB2: A6E3   LDXz E3 editor.BEGADH
 2DB4: 85FA   STAz FA monitor.POINTL
 2DB6: 86FB   STXz FB monitor.POINTH
-2DB8: 8D7E03 STA 037E
-2DBB: 8E9703 STX 0397
+2DB8: 8D7E03 STA 037E hexedit.arrZeiNrL
+2DBB: 8E9703 STX 0397 hexedit.arrZeiNrH
 2DBE: A900   LDAim 00
-2DC0: 8DB003 STA 03B0
-2DC3: 20452D JSR 2D45
+2DC0: 8DB003 STA 03B0 hexedit.arrProsa
+2DC3: 20452D JSR 2D45 hexedit.BerechneUDisplay
 2DC6: 60     RTS
 2DC7: FF     
 2DC8: FF     
@@ -2241,86 +2336,90 @@
 2DCD: FF     
 2DCE: 22     
 2DCF: 33     
-2DD0: 20E32B JSR 2BE3
+2DD0: ------ hexedit.hexIn
+2DD0: 20E32B JSR 2BE3 hexedit.RestByte
 2DD3: 9001   BCC +1>D6
 2DD5: 60     RTS
+2DD6: ------ hexedit.AsciiIn
 2DD6: A657   LDXz 57 bs.topWait
 2DD8: F002   BEQ +2>DC
 2DDA: 18     CLC
 2DDB: 60     RTS
 2DDC: 48     PHA
-2DDD: A699   LDXz 99
+2DDD: A699   LDXz 99 hexedit.video2
 2DDF: E8     INX
-2DE0: 8655   STXz 55
-2DE2: BD7E03 LDAx 037E
+2DE0: 8655   STXz 55 hexedit.helpL
+2DE2: BD7E03 LDAx 037E hexedit.arrZeiNrL
 2DE5: 8558   STAz 58 bs.aktZeitL
-2DE7: BD9703 LDAx 0397
+2DE7: BD9703 LDAx 0397 hexedit.arrZeiNrH
 2DEA: 8559   STAz 59 bs.aktZeitH
-2DEC: BDB003 LDAx 03B0
+2DEC: BDB003 LDAx 03B0 hexedit.arrProsa
 2DEF: 855A   STAz 5A bs.neueZeitL
 2DF1: 68     PLA
 2DF2: 48     PHA
 2DF3: A000   LDYim 00
 2DF5: 91FA   STAiy FA monitor.POINTL
-2DF7: 20042C JSR 2C04
-2DFA: A655   LDXz 55
+2DF7: 20042C JSR 2C04 hexedit.berechneZeiNrAb0
+2DFA: A655   LDXz 55 hexedit.helpL
 2DFC: CA     DEX
-2DFD: BDB003 LDAx 03B0
+2DFD: BDB003 LDAx 03B0 hexedit.arrProsa
 2E00: F007   BEQ +7>09
 2E02: 68     PLA
-2E03: 206324 JSR 2463
+2E03: 206324 JSR 2463 hexedit.write
 2E06: 4C0D2E JMP 2E0D
 2E09: 68     PLA
-2E0A: 20EF24 JSR 24EF
-2E0D: 20202B JSR 2B20
-2E10: A655   LDXz 55
-2E12: BD7E03 LDAx 037E
+2E0A: 20EF24 JSR 24EF hexedit.byteDru
+2E0D: 20202B JSR 2B20 hexedit.PlusmBl
+2E10: A655   LDXz 55 hexedit.helpL
+2E12: BD7E03 LDAx 037E hexedit.arrZeiNrL
 2E15: C558   CMPz 58 bs.aktZeitL
 2E17: D00E   BNE +14>27
-2E19: BD9703 LDAx 0397
+2E19: BD9703 LDAx 0397 hexedit.arrZeiNrH
 2E1C: C559   CMPz 59 bs.aktZeitH
 2E1E: D007   BNE +7>27
-2E20: BDB003 LDAx 03B0
+2E20: BDB003 LDAx 03B0 hexedit.arrProsa
 2E23: C55A   CMPz 5A bs.neueZeitL
 2E25: F003   BEQ +3>2A
-2E27: 20482D JSR 2D48
+2E27: 20482D JSR 2D48 hexedit.displayuC
 2E2A: 60     RTS
 2E2B: FF     
 2E2C: FF     
 2E2D: FF     
 2E2E: 22     
 2E2F: 33     
-2E30: 20382E JSR 2E38
-2E33: 20A028 JSR 28A0
+2E30: ------ hexedit.pointFromCursPPlusZeige
+2E30: 20382E JSR 2E38 hexedit.pointFromCurs
+2E33: 20A028 JSR 28A0 hexedit.zeigeAusser
 2E36: 60     RTS
 2E37: 33     
+2E38: ------ hexedit.pointFromCurs
 2E38: A200   LDXim 00
 2E3A: 8657   STXz 57 bs.topWait
-2E3C: A699   LDXz 99
+2E3C: A699   LDXz 99 hexedit.video2
 2E3E: E018   CPXim 18
 2E40: B006   BCS +6>48
-2E42: A598   LDAz 98
+2E42: A598   LDAz 98 hexedit.videoSpa
 2E44: C906   CMPim 06
 2E46: B003   BCS +3>4B
 2E48: E657   INCz 57 bs.topWait
 2E4A: 60     RTS
 2E4B: 38     SEC
 2E4C: E906   SBCim 06
-2E4E: BCB003 LDYx 03B0
+2E4E: BCB003 LDYx 03B0 hexedit.arrProsa
 2E51: D001   BNE +1>54
 2E53: 4A     LSRa
 2E54: 18     CLC
-2E55: 7D7E03 ADCx 037E
+2E55: 7D7E03 ADCx 037E hexedit.arrZeiNrL
 2E58: 85FA   STAz FA monitor.POINTL
 2E5A: A900   LDAim 00
-2E5C: 7D9703 ADCx 0397
+2E5C: 7D9703 ADCx 0397 hexedit.arrZeiNrH
 2E5F: 85FB   STAz FB monitor.POINTH
 2E61: E8     INX
-2E62: DD9703 CMPx 0397
+2E62: DD9703 CMPx 0397 hexedit.arrZeiNrH
 2E65: 900B   BCC +11>72
 2E67: D007   BNE +7>70
 2E69: A5FA   LDAz FA monitor.POINTL
-2E6B: DD7E03 CMPx 037E
+2E6B: DD7E03 CMPx 037E hexedit.arrZeiNrL
 2E6E: 9002   BCC +2>72
 2E70: E657   INCz 57 bs.topWait
 2E72: 60     RTS
@@ -2337,7 +2436,8 @@
 2E7D: FF     
 2E7E: 22     
 2E7F: 33     
-2E80: 201029 JSR 2910
+2E80: ------ hexedit.VerschiebeDialog
+2E80: 201029 JSR 2910 hexedit.copy
 2E83: A032   LDYim 32
 2E85: C7     
 2E86: 32     
@@ -2346,33 +2446,33 @@
 2E8D: 18     CLC
 2E8E: A5FB   LDAz FB monitor.POINTH
 2E90: 85CB   STAz CB bs.Transfer3.vonH
-2E92: 20EF24 JSR 24EF
+2E92: 20EF24 JSR 24EF hexedit.byteDru
 2E95: A5FA   LDAz FA monitor.POINTL
 2E97: 85CA   STAz CA bs.Transfer3.vonL
-2E99: 20EF24 JSR 24EF
+2E99: 20EF24 JSR 24EF hexedit.byteDru
 2E9C: A005   LDYim 05
-2E9E: 209432 JSR 3294
-2EA1: 20D82B JSR 2BD8
+2E9E: 209432 JSR 3294 hexedit.cursIncPlus
+2EA1: 20D82B JSR 2BD8 hexedit.GetByte
 2EA4: B02E   BCS +46>D4
 2EA6: 85CD   STAz CD bs.Transfer3.bisH
-2EA8: 20EF24 JSR 24EF
-2EAB: 20D82B JSR 2BD8
+2EA8: 20EF24 JSR 24EF hexedit.byteDru
+2EAB: 20D82B JSR 2BD8 hexedit.GetByte
 2EAE: B024   BCS +36>D4
 2EB0: 85CC   STAz CC bs.Transfer3.bisL
-2EB2: 20EF24 JSR 24EF
+2EB2: 20EF24 JSR 24EF hexedit.byteDru
 2EB5: A006   LDYim 06
-2EB7: 209432 JSR 3294
-2EBA: 20D82B JSR 2BD8
+2EB7: 209432 JSR 3294 hexedit.cursIncPlus
+2EBA: 20D82B JSR 2BD8 hexedit.GetByte
 2EBD: B015   BCS +21>D4
 2EBF: 85CF   STAz CF bs.Transfer3.nachH
-2EC1: 20EF24 JSR 24EF
-2EC4: 20D82B JSR 2BD8
+2EC1: 20EF24 JSR 24EF hexedit.byteDru
+2EC4: 20D82B JSR 2BD8 hexedit.GetByte
 2EC7: B00B   BCS +11>D4
 2EC9: 85CE   STAz CE bs.Transfer3.nachL
-2ECB: 20EF24 JSR 24EF
-2ECE: 20403E JSR 3E40
-2ED1: 20042C JSR 2C04
-2ED4: 20482D JSR 2D48
+2ECB: 20EF24 JSR 24EF hexedit.byteDru
+2ECE: 20403E JSR 3E40 hexedit.Transfer2
+2ED1: 20042C JSR 2C04 hexedit.berechneZeiNrAb0
+2ED4: 20482D JSR 2D48 hexedit.displayuC
 2ED7: 60     RTS
 2ED8: FF     
 2ED9: FF     
@@ -2395,24 +2495,25 @@
 2EEA: FF     
 2EEB: 22     
 2EEC: 33     
-2EED: A699   LDXz 99
-2EEF: BDB003 LDAx 03B0
+2EED: ------ hexedit.keyRight
+2EED: A699   LDXz 99 hexedit.video2
+2EEF: BDB003 LDAx 03B0 hexedit.arrProsa
 2EF2: D003   BNE +3>F7
-2EF4: 208422 JSR 2284
-2EF7: 208422 JSR 2284
+2EF4: 208422 JSR 2284 hexedit.cursInc
+2EF7: 208422 JSR 2284 hexedit.cursInc
 2EFA: 4CDD2F JMP 2FDD
 2EFD: FF     
 2EFE: 22     
 2EFF: 33     
-2F00: ------ Hexeditor
-2F00: 20D038 JSR 38D0
+2F00: ------ hexedit.main
+2F00: 20D038 JSR 38D0 rkv.initBs
 2F03: EA     NOP
 2F04: EA     NOP
 2F05: EA     NOP
-2F06: 20AA2D JSR 2DAA
+2F06: 20AA2D JSR 2DAA hexedit.Vorlauf
 2F09: EA     NOP
 2F0A: EA     NOP
-2F0B: 206024 JSR 2460
+2F0B: 206024 JSR 2460 hexedit.read
 2F0E: EA     NOP
 2F0F: EA     NOP
 2F10: EA     NOP
@@ -2469,7 +2570,7 @@
 2F55: F004   BEQ +4>5B
 2F57: C920   CMPim 20
 2F59: 90AF   BCC -81>0A
-2F5B: 20D62D JSR 2DD6
+2F5B: 20D62D JSR 2DD6 hexedit.AsciiIn
 2F5E: 4C0A2F JMP 2F0A
 2F61: EA     NOP
 2F62: EA     NOP
@@ -2479,37 +2580,37 @@
 2F66: EA     NOP
 2F67: C947   CMPim 47
 2F69: D008   BNE +8>73
-2F6B: 20902A JSR 2A90
+2F6B: 20902A JSR 2A90 hexedit.Adr
 2F6E: EA     NOP
 2F6F: EA     NOP
 2F70: 4C0A2F JMP 2F0A
 2F73: C948   CMPim 48
 2F75: D006   BNE +6>7D
-2F77: 20432B JSR 2B43
+2F77: 20432B JSR 2B43 hexedit.MinusmBl
 2F7A: 4C0A2F JMP 2F0A
 2F7D: C949   CMPim 49
 2F7F: D006   BNE +6>87
-2F81: 20202B JSR 2B20
+2F81: 20202B JSR 2B20 hexedit.PlusmBl
 2F84: 4C0A2F JMP 2F0A
 2F87: C94A   CMPim 4A
 2F89: D00A   BNE +10>95
 2F8B: A557   LDAz 57 bs.topWait
 2F8D: D006   BNE +6>95
-2F8F: BC5022 LDYx 2250
+2F8F: BC5022 LDYx 2250 hexedit.initVideo
 2F92: 4C4C1C JMP 1C4C
 2F95: C94B   CMPim 4B
 2F97: D008   BNE +8>A1
-2F99: 20802E JSR 2E80
+2F99: 20802E JSR 2E80 hexedit.VerschiebeDialog
 2F9C: EA     NOP
 2F9D: EA     NOP
 2F9E: 4C0A2F JMP 2F0A
 2FA1: EA     NOP
 2FA2: EA     NOP
 2FA3: EA     NOP
-2FA4: 20C62B JSR 2BC6
+2FA4: 20C62B JSR 2BC6 hexedit.wandle
 2FA7: C910   CMPim 10
 2FA9: B008   BCS +8>B3
-2FAB: 20D02D JSR 2DD0
+2FAB: 20D02D JSR 2DD0 hexedit.hexIn
 2FAE: EA     NOP
 2FAF: EA     NOP
 2FB0: 4C0A2F JMP 2F0A
@@ -2525,25 +2626,29 @@
 2FBE: FF     
 2FBF: 22     
 2FC0: 33     
+2FC1: ------ hexedit.MiniInitBs(unused!)
 2FC1: A908   LDAim 08
 2FC3: 858E   STAz 8E bs.maxTask
 2FC5: 858F   STAz 8F bs.aktTask
 2FC7: A900   LDAim 00
 2FC9: 8591   STAz 91 bs.modus
-2FCB: 206B3A JSR 3A6B
+2FCB: 206B3A JSR 3A6B rkv.initUB
 2FCE: 60     RTS
 2FCF: 33     
-2FD0: A699   LDXz 99
-2FD2: BDB003 LDAx 03B0
+2FD0: ------ hexedit.keyLeft
+2FD0: A699   LDXz 99 hexedit.video2
+2FD2: BDB003 LDAx 03B0 hexedit.arrProsa
 2FD5: D003   BNE +3>DA
-2FD7: 20CF22 JSR 22CF
-2FDA: 20CF22 JSR 22CF
-2FDD: 201D23 JSR 231D
-2FE0: 20302E JSR 2E30
+2FD7: 20CF22 JSR 22CF hexedit.cursDec
+2FDA: 20CF22 JSR 22CF hexedit.cursDec
+2FDD: 201D23 JSR 231D hexedit.setCursSql
+2FE0: 20302E JSR 2E30 hexedit.pointFromCursPPlusZeige
 2FE3: 60     RTS
-2FE4: 209722 JSR 2297
+2FE4: ------ hexedit.keyDown
+2FE4: 209722 JSR 2297 hexedit.cursDown
 2FE7: 4CDD2F JMP 2FDD
-2FEA: 20C922 JSR 22C9
+2FEA: ------ hexedit.keyUp
+2FEA: 20C922 JSR 22C9 hexedit.cursUp
 2FED: 4CDD2F JMP 2FDD
 2FF0: FF     
 2FF1: FF     
@@ -2998,10 +3103,11 @@
 3291: FF     
 3292: 22     
 3293: 33     
-3294: 208422 JSR 2284
+3294: ------ hexedit.cursIncPlus
+3294: 208422 JSR 2284 hexedit.cursInc
 3297: 88     DEY
 3298: D0FA   BNE -6>94
-329A: 4C1D23 JMP 231D
+329A: 4C1D23 JMP 231D hexedit.setCursSql
 329D: FF     
 329E: FF     
 329F: 02     
@@ -3241,6 +3347,7 @@
 339D: FF     
 339E: 22     
 339F: 33     
+33A0: ------ keyb2.Umsetztabelle
 33A0: 7D0102 ADCx 0201
 33A3: 03     
 33A4: 04     
@@ -3307,7 +3414,7 @@
 3402: 42     
 3403: 43     
 3404: 44     
-3405: 4546   EORz 46
+3405: 4546   EORz 46 hexedit.da.zweites
 3407: 47     
 3408: 48     PHA
 3409: 494A   EORim 4A
@@ -3318,7 +3425,7 @@
 3412: 52     
 3413: 53     
 3414: 54     
-3415: 5556   EORzx 56
+3415: 5556   EORzx 56 hexedit.helpH
 3417: 57     
 3418: 58     CLI
 3419: 5A     
@@ -3336,7 +3443,7 @@
 3430: 9091   BCC -111>C3
 3432: 92     
 3433: 93     
-3434: 9495   STYz 95
+3434: 9495   STYz 95 hexedit.Prosa
 3436: 9697   STXzy 97
 3438: 98     TYA
 3439: 999A9B STAy 9B9A
@@ -3444,6 +3551,7 @@
 34DA: FF     
 34DB: 22     
 34DC: 33     
+34DD: ------ keyb2.initTastatur2
 34DD: 08     PHP
 34DE: 78     SEI
 34DF: AD0C14 LDA 140C VIA.PCR
@@ -3616,7 +3724,8 @@
 35A4: FF     
 35A5: 00     BRK
 35A6: 00     BRK
-35A7: 20F035 JSR 35F0
+35A7: ------ keyb2.readTastatur2OrHex
+35A7: 20F035 JSR 35F0 keyb2.sampleHex
 35AA: C915   CMPim 15
 35AC: F009   BEQ +9>B7
 35AE: C90A   CMPim 0A
@@ -3637,7 +3746,7 @@
 35CE: A57A   LDAz 7A
 35D0: 49FF   EORim FF
 35D2: AA     TAX
-35D3: BDA033 LDAx 33A0
+35D3: BDA033 LDAx 33A0 keyb2.Umsetztabelle
 35D6: 60     RTS
 35D7: FF     
 35D8: FF     
@@ -3645,7 +3754,8 @@
 35DA: FF     
 35DB: 22     
 35DC: 33     
-35DD: 20DD34 JSR 34DD
+35DD: ------ keyb2.initTastatur2AndHex
+35DD: 20DD34 JSR 34DD keyb2.initTastatur2
 35E0: 208E1D JSR 1D8E monitor.SCANDS
 35E3: D0FB   BNE -5>E0
 35E5: A915   LDAim 15
@@ -3657,6 +3767,7 @@
 35ED: FF     
 35EE: 22     
 35EF: 33     
+35F0: ------ keyb2.sampleHex
 35F0: 20881D JSR 1D88 monitor.SCAND
 35F3: F005   BEQ +5>FA
 35F5: 208E1D JSR 1D8E monitor.SCANDS
@@ -3715,7 +3826,7 @@
 3647: FF     
 3648: 22     
 3649: 33     
-364A: 206624 JSR 2466
+364A: 206624 JSR 2466 hexedit.openOutVideo
 364D: 20B038 JSR 38B0
 3650: 20BD37 JSR 37BD
 3653: 20B539 JSR 39B5
@@ -3947,7 +4058,7 @@
 37B8: 206A12 JSR 126A bs.NRWLSelbst
 37BB: 28     PLP
 37BC: 60     RTS
-37BD: 206B3A JSR 3A6B
+37BD: 206B3A JSR 3A6B rkv.initUB
 37C0: A900   LDAim 00
 37C2: 8558   STAz 58 bs.aktZeitL
 37C4: 8559   STAz 59 bs.aktZeitH
@@ -4029,17 +4140,17 @@
 3826: FF     
 3827: 22     
 3828: 33     
-3829: 206624 JSR 2466
+3829: 206624 JSR 2466 hexedit.openOutVideo
 382C: 20BD37 JSR 37BD
 382F: A55C   LDAz 5C bs.uhrZeitL
 3831: C500   CMPz 00
 3833: F0FA   BEQ -6>2F
 3835: 8500   STAz 00
 3837: A55D   LDAz 5D bs.uhrZeitH
-3839: 20EF24 JSR 24EF
+3839: 20EF24 JSR 24EF hexedit.byteDru
 383C: A55C   LDAz 5C bs.uhrZeitL
-383E: 20EF24 JSR 24EF
-3841: 20D424 JSR 24D4
+383E: 20EF24 JSR 24EF hexedit.byteDru
+3841: 20D424 JSR 24D4 hexedit.CR
 3844: A906   LDAim 06
 3846: EA     NOP
 3847: EA     NOP
@@ -4116,18 +4227,19 @@
 38BD: D0FA   BNE -6>B9
 38BF: A901   LDAim 01
 38C1: 8DD803 STA 03D8 bs.arrSema
-38C4: 20D038 JSR 38D0
+38C4: 20D038 JSR 38D0 rkv.initBs
 38C7: 206038 JSR 3860
 38CA: 20C037 JSR 37C0
 38CD: 60     RTS
 38CE: 22     
 38CF: 33     
+38D0: ------ rkv.initBs
 38D0: A908   LDAim 08
 38D2: 858E   STAz 8E bs.maxTask
 38D4: 858F   STAz 8F bs.aktTask
 38D6: A900   LDAim 00
 38D8: 8591   STAz 91 bs.modus
-38DA: 206B3A JSR 3A6B
+38DA: 206B3A JSR 3A6B rkv.initUB
 38DD: 60     RTS
 38DE: 22     
 38DF: 33     
@@ -4337,7 +4449,7 @@
 39B3: 22     
 39B4: 33     
 39B5: A003   LDYim 03
-39B7: 20A525 JSR 25A5
+39B7: 20A525 JSR 25A5 bs.KPUe
 39BA: 68     PLA
 39BB: 8594   STAz 94 bs.helpActivate
 39BD: EA     NOP
@@ -4500,6 +4612,7 @@
 3A68: FF     
 3A69: 22     
 3A6A: 33     
+3A6B: ------ rkv.initUB
 3A6B: 78     SEI
 3A6C: A913   LDAim 13
 3A6E: A203   LDXim 03
@@ -4695,15 +4808,15 @@
 3B65: 48     PHA
 3B66: A50C   LDAz 0C
 3B68: 58     CLI
-3B69: 20EF24 JSR 24EF
+3B69: 20EF24 JSR 24EF hexedit.byteDru
 3B6C: A93A   LDAim 3A
-3B6E: 206324 JSR 2463
+3B6E: 206324 JSR 2463 hexedit.write
 3B71: 68     PLA
-3B72: 20EF24 JSR 24EF
+3B72: 20EF24 JSR 24EF hexedit.byteDru
 3B75: A93A   LDAim 3A
-3B77: 206324 JSR 2463
+3B77: 206324 JSR 2463 hexedit.write
 3B7A: 68     PLA
-3B7B: 20EF24 JSR 24EF
+3B7B: 20EF24 JSR 24EF hexedit.byteDru
 3B7E: 60     RTS
 3B7F: FF     
 3B80: FF     
@@ -4765,7 +4878,7 @@
 3BDD: A000   LDYim 00
 3BDF: D1E6   CMPiy E6 editor.CURADL
 3BE1: D006   BNE +6>E9
-3BE3: 20903C JSR 3C90
+3BE3: 20903C JSR 3C90 hexedit.nextCurAd
 3BE6: 90F2   BCC -14>DA
 3BE8: 60     RTS
 3BE9: 85F9   STAz F9 monitor.INH
@@ -4887,9 +5000,10 @@
 3C83: 206E3C JSR 3C6E
 3C86: A000   LDYim 00
 3C88: 91E6   STAiy E6 editor.CURADL
-3C8A: 20903C JSR 3C90
+3C8A: 20903C JSR 3C90 hexedit.nextCurAd
 3C8D: 90F4   BCC -12>83
 3C8F: 60     RTS
+3C90: ------ hexedit.nextCurAd
 3C90: 48     PHA
 3C91: E6E6   INCz E6 editor.CURADL
 3C93: D002   BNE +2>97
@@ -4902,7 +5016,7 @@
 3CA1: A8     TAY
 3CA2: 18     CLC
 3CA3: 71E6   ADCiy E6 editor.CURADL
-3CA5: 20903C JSR 3C90
+3CA5: 20903C JSR 3C90 hexedit.nextCurAd
 3CA8: 90F8   BCC -8>A2
 3CAA: 48     PHA
 3CAB: 20D31E JSR 1ED3 editor.BEGIN
@@ -5043,7 +5157,7 @@
 3DB2: A000   LDYim 00
 3DB4: B1E6   LDAiy E6 editor.CURADL
 3DB6: 205F3D JSR 3D5F
-3DB9: 20903C JSR 3C90
+3DB9: 20903C JSR 3C90 hexedit.nextCurAd
 3DBC: 90F4   BCC -12>B2
 3DBE: 68     PLA
 3DBF: 205F3D JSR 3D5F
@@ -5121,7 +5235,7 @@
 3E0D: 4C1D1C JMP 1C1D monitor.RESET
 3E10: 20CD3C JSR 3CCD
 3E13: 4C1D1C JMP 1C1D monitor.RESET
-3E16: 20403E JSR 3E40
+3E16: 20403E JSR 3E40 hexedit.Transfer2
 3E19: 4C1D1C JMP 1C1D monitor.RESET
 3E1C: 208D3D JSR 3D8D
 3E1F: 4C1D1C JMP 1C1D monitor.RESET
@@ -5155,6 +5269,7 @@
 3E3D: FF     
 3E3E: 22     
 3E3F: 33     
+3E40: ------ hexedit.Transfer2
 3E40: 4C9011 JMP 1190
 3E43: 33     
 3E44: C5CE   CMPz CE bs.Transfer3.nachL
@@ -5218,33 +5333,33 @@
 3EA7: EA     NOP
 3EA8: EA     NOP
 3EA9: EA     NOP
-3EAA: 206F24 JSR 246F
+3EAA: 206F24 JSR 246F hexedit.openOutStarTty
 3EAD: A5E6   LDAz E6 editor.CURADL
 3EAF: A6E7   LDXz E7 editor.CURADH
 3EB1: A000   LDYim 00
-3EB3: 8D7E03 STA 037E
-3EB6: 8E9703 STX 0397
-3EB9: 8CB003 STY 03B0
-3EBC: 20042C JSR 2C04
+3EB3: 8D7E03 STA 037E hexedit.arrZeiNrL
+3EB6: 8E9703 STX 0397 hexedit.arrZeiNrH
+3EB9: 8CB003 STY 03B0 hexedit.arrProsa
+3EBC: 20042C JSR 2C04 hexedit.berechneZeiNrAb0
 3EBF: A200   LDXim 00
 3EC1: 865B   STXz 5B bs.neueZeitH
 3EC3: A5E7   LDAz E7 editor.CURADH
-3EC5: 20EF24 JSR 24EF
+3EC5: 20EF24 JSR 24EF hexedit.byteDru
 3EC8: A5E6   LDAz E6 editor.CURADL
-3ECA: 20EF24 JSR 24EF
-3ECD: 20C924 JSR 24C9
-3ED0: 20A02C JSR 2CA0
-3ED3: A56D   LDAz 6D
+3ECA: 20EF24 JSR 24EF hexedit.byteDru
+3ECD: 20C924 JSR 24C9 hexedit.2Blanks
+3ED0: 20A02C JSR 2CA0 hexedit.restZeile
+3ED3: A56D   LDAz 6D hexedit.spaTty
 3ED5: C901   CMPim 01
 3ED7: F003   BEQ +3>DC
-3ED9: 20D424 JSR 24D4
+3ED9: 20D424 JSR 24D4 hexedit.CR
 3EDC: 20051F JSR 1F05
 3EDF: B01E   BCS +30>FF
-3EE1: A56E   LDAz 6E
+3EE1: A56E   LDAz 6E hexedit.zeiTty
 3EE3: C939   CMPim 39
 3EE5: D005   BNE +5>EC
 3EE7: A90E   LDAim 0E
-3EE9: 206324 JSR 2463
+3EE9: 206324 JSR 2463 hexedit.write
 3EEC: A65B   LDXz 5B bs.neueZeitH
 3EEE: E8     INX
 3EEF: E018   CPXim 18
@@ -5254,7 +5369,7 @@
 3EF9: ACC803 LDY 03C8 bs.arrSP
 3EFC: 4CB33E JMP 3EB3
 3EFF: A90E   LDAim 0E
-3F01: 206324 JSR 2463
+3F01: 206324 JSR 2463 hexedit.write
 3F04: 4C1D1C JMP 1C1D monitor.RESET
 3F07: FF     
 3F08: FF     
@@ -5491,7 +5606,7 @@
 3FEF: 33     
 3FF0: CD4DA7 CMP A74D
 3FF3: 3E0164 ASLx 6401
-3FF6: 756D   ADCzx 6D
+3FF6: 756D   ADCzx 6D hexedit.spaTty
 3FF8: 7020   BCS +32>1A
 3FFA: FF     
 3FFB: FF     
@@ -5525,8 +5640,8 @@
 401D: FF     
 401E: 22     
 401F: 33     
-4020: 207023 JSR 2370
-4023: 203923 JSR 2339
+4020: 207023 JSR 2370 hexedit.clear
+4023: 203923 JSR 2339 hexedit.setCurs
 4026: 38     SEC
 4027: 00     BRK
 4028: 204940 JSR 4049
@@ -5549,18 +5664,18 @@
 4043: FF     
 4044: 22     
 4045: 33     
-4046: 20CE24 JSR 24CE
+4046: 20CE24 JSR 24CE hexedit.Blank
 4049: A001   LDYim 01
-404B: 20A525 JSR 25A5
+404B: 20A525 JSR 25A5 bs.KPUe
 404E: 68     PLA
 404F: 48     PHA
 4050: AA     TAX
 4051: B501   LDAzx 01
-4053: 20EF24 JSR 24EF
+4053: 20EF24 JSR 24EF hexedit.byteDru
 4056: 68     PLA
 4057: AA     TAX
 4058: B500   LDAzx 00
-405A: 20EF24 JSR 24EF
+405A: 20EF24 JSR 24EF hexedit.byteDru
 405D: 60     RTS
 405E: 22     
 405F: 33     
@@ -5577,25 +5692,25 @@
 4075: 8524   STAz 24
 4077: 8553   STAz 53
 4079: 4CAA40 JMP 40AA
-407C: 20FE23 JSR 23FE
+407C: 20FE23 JSR 23FE hexedit.block.readFile
 407F: C91D   CMPim 1D
 4081: F01F   BEQ +31>A2
 4083: C920   CMPim 20
 4085: 9050   BCC +80>D7
-4087: A698   LDXz 98
+4087: A698   LDXz 98 hexedit.videoSpa
 4089: E8     INX
 408A: E44C   CPXz 4C
 408C: F006   BEQ +6>94
-408E: 206324 JSR 2463
+408E: 206324 JSR 2463 hexedit.write
 4091: 18     CLC
 4092: 90E8   BCC -24>7C
-4094: 206324 JSR 2463
-4097: 20FE23 JSR 23FE
+4094: 206324 JSR 2463 hexedit.write
+4097: 20FE23 JSR 23FE hexedit.block.readFile
 409A: C91D   CMPim 1D
 409C: D039   BNE +57>D7
-409E: A598   LDAz 98
+409E: A598   LDAz 98 hexedit.videoSpa
 40A0: F003   BEQ +3>A5
-40A2: 20D424 JSR 24D4
+40A2: 20D424 JSR 24D4 hexedit.CR
 40A5: 203F41 JSR 413F
 40A8: EA     NOP
 40A9: EA     NOP
@@ -5604,7 +5719,7 @@
 40AE: A523   LDAz 23
 40B0: E552   SBCz 52
 40B2: 9006   BCC +6>BA
-40B4: A599   LDAz 99
+40B4: A599   LDAz 99 hexedit.video2
 40B6: D0C4   BNE -60>7C
 40B8: F00F   BEQ +15>C9
 40BA: 205741 JSR 4157
@@ -5615,7 +5730,7 @@
 40C2: EA     NOP
 40C3: EA     NOP
 40C4: E653   INCz 53
-40C6: 206423 JSR 2364
+40C6: 206423 JSR 2364 hexedit.Home
 40C9: A560   LDAz 60
 40CB: 8520   STAz 20
 40CD: A561   LDAz 61
@@ -5624,7 +5739,7 @@
 40D3: 8554   STAz 54
 40D5: 60     RTS
 40D6: 33     
-40D7: 200625 JSR 2506
+40D7: 200625 JSR 2506 hexedit.writeVonBis
 40DA: F4     
 40DB: 40     RTI
 40DC: 0E41EA ASL EA41
@@ -5725,7 +5840,7 @@
 4155: 00     BRK
 4156: 00     BRK
 4157: A002   LDYim 02
-4159: 20A525 JSR 25A5
+4159: 20A525 JSR 25A5 bs.KPUe
 415C: 68     PLA
 415D: 85CB   STAz CB bs.Transfer3.vonH
 415F: 85CD   STAz CD bs.Transfer3.bisH
@@ -5749,7 +5864,7 @@
 417D: 44     
 417E: 6174   ADCix 74
 4180: 6569   ADCz 69
-4182: 656E   ADCz 6E
+4182: 656E   ADCz 6E hexedit.zeiTty
 4184: 64     
 4185: 6523   ADCz 23
 4187: 202020 JSR 2020
@@ -5782,7 +5897,7 @@
 41CA: 205365 JSR 6553
 41CD: 6974   ADCim 74
 41CF: 6523   ADCz 23
-41D1: 201D23 JSR 231D
+41D1: 201D23 JSR 231D hexedit.setCursSql
 41D4: 6E6575 ROR 7565
 41D7: 6520   ADCz 20
 41D9: 44     
@@ -5820,7 +5935,7 @@
 4211: A900   LDAim 00
 4213: 854D   STAz 4D
 4215: 854E   STAz 4E
-4217: 203923 JSR 2339
+4217: 203923 JSR 2339 hexedit.setCurs
 421A: 00     BRK
 421B: 01EA   ORAix EA
 421D: A44C   LDYz 4C
@@ -5842,9 +5957,9 @@
 4231: 854D   STAz 4D
 4233: 9002   BCC +2>37
 4235: E64E   INCz 4E
-4237: 209722 JSR 2297
-423A: 201D23 JSR 231D
-423D: A599   LDAz 99
+4237: 209722 JSR 2297 hexedit.cursDown
+423A: 201D23 JSR 231D hexedit.setCursSql
+423D: A599   LDAz 99 hexedit.video2
 423F: D0DC   BNE -36>1D
 4241: 60     RTS
 4242: FF     
@@ -5932,7 +6047,7 @@
 42C3: E550   SBCz 50
 42C5: B00B   BCS +11>D2
 42C7: 205741 JSR 4157
-42CA: B641   LDXzy 41
+42CA: B641   LDXzy 41 hexedit.da.nr
 42CC: E624   INCz 24
 42CE: EA     NOP
 42CF: EA     NOP
@@ -5957,7 +6072,7 @@
 42E7: 8551   STAz 51
 42E9: A52B   LDAz 2B
 42EB: 8552   STAz 52
-42ED: 203923 JSR 2339
+42ED: 203923 JSR 2339 hexedit.setCurs
 42F0: 00     BRK
 42F1: 01EA   ORAix EA
 42F3: EA     NOP
@@ -5998,13 +6113,13 @@
 431A: 22     
 431B: 33     
 431C: A91D   LDAim 1D
-431E: 200924 JSR 2409
+431E: 200924 JSR 2409 hexedit.block.writeFile
 4321: EA     NOP
 4322: EA     NOP
 4323: EA     NOP
-4324: 20D424 JSR 24D4
+4324: 20D424 JSR 24D4 hexedit.CR
 4327: 203F41 JSR 413F
-432A: A599   LDAz 99
+432A: A599   LDAz 99 hexedit.video2
 432C: F003   BEQ +3>31
 432E: 4CF342 JMP 42F3
 4331: 60     RTS
@@ -6086,7 +6201,7 @@
 43AB: EA     NOP
 43AC: A54C   LDAz 4C
 43AE: 854D   STAz 4D
-43B0: 20FE23 JSR 23FE
+43B0: 20FE23 JSR 23FE hexedit.block.readFile
 43B3: C91D   CMPim 1D
 43B5: F017   BEQ +23>CE
 43B7: C920   CMPim 20
@@ -6095,7 +6210,7 @@
 43BD: D02B   BNE +43>EA
 43BF: C64D   DECz 4D
 43C1: D0ED   BNE -19>B0
-43C3: 20FE23 JSR 23FE
+43C3: 20FE23 JSR 23FE hexedit.block.readFile
 43C6: C91D   CMPim 1D
 43C8: F004   BEQ +4>CE
 43CA: E624   INCz 24
@@ -6229,21 +6344,21 @@
 448D: FF     
 448E: 00     BRK
 448F: 00     BRK
-4490: 20CE24 JSR 24CE
+4490: 20CE24 JSR 24CE hexedit.Blank
 4493: A5E9   LDAz E9 editor.CENDH
-4495: 20EF24 JSR 24EF
+4495: 20EF24 JSR 24EF hexedit.byteDru
 4498: A5E8   LDAz E8 editor.CENDL
-449A: 20EF24 JSR 24EF
-449D: 20CE24 JSR 24CE
+449A: 20EF24 JSR 24EF hexedit.byteDru
+449D: 20CE24 JSR 24CE hexedit.Blank
 44A0: A54E   LDAz 4E
-44A2: 20EF24 JSR 24EF
+44A2: 20EF24 JSR 24EF hexedit.byteDru
 44A5: A54D   LDAz 4D
-44A7: 20EF24 JSR 24EF
-44AA: 20CE24 JSR 24CE
+44A7: 20EF24 JSR 24EF hexedit.byteDru
+44AA: 20CE24 JSR 24CE hexedit.Blank
 44AD: A550   LDAz 50
-44AF: 20EF24 JSR 24EF
+44AF: 20EF24 JSR 24EF hexedit.byteDru
 44B2: A54F   LDAz 4F
-44B4: 20EF24 JSR 24EF
+44B4: 20EF24 JSR 24EF hexedit.byteDru
 44B7: 60     RTS
 44B8: FF     
 44B9: FF     
@@ -6326,7 +6441,7 @@
 4530: 23     
 4531: 73     
 4532: 797374 ADCy 7473
-4535: 656D   ADCz 6D
+4535: 656D   ADCz 6D hexedit.spaTty
 4537: 6665   RORz 65
 4539: 68     PLA
 453A: 6C6572 JMPi 7265
@@ -6449,7 +6564,7 @@
 4617: D086   BNE -122>9F
 4619: 4C006A JMP 6A00
 461C: 205741 JSR 4157
-461F: 2546   ANDz 46
+461F: 2546   ANDz 46 hexedit.da.zweites
 4621: 60     RTS
 4622: FF     
 4623: FF     
@@ -6663,7 +6778,7 @@
 4783: 990008 STAy 0800
 4786: 88     DEY
 4787: 10FA   BPL -6>83
-4789: 206423 JSR 2364
+4789: 206423 JSR 2364 hexedit.Home
 478C: 60     RTS
 478D: 22     
 478E: 33     
@@ -6681,11 +6796,11 @@
 47A4: FF     
 47A5: 22     
 47A6: 33     
-47A7: 20D038 JSR 38D0
-47AA: 206624 JSR 2466
-47AD: 208B24 JSR 248B
+47A7: 20D038 JSR 38D0 rkv.initBs
+47AA: 206624 JSR 2466 hexedit.openOutVideo
+47AD: 208B24 JSR 248B hexedit.openInHexKb
 47B0: 206C43 JSR 436C
-47B3: 206024 JSR 2460
+47B3: 206024 JSR 2460 hexedit.read
 47B6: 48     PHA
 47B7: AD1B08 LDA 081B
 47BA: C920   CMPim 20
@@ -6712,11 +6827,11 @@
 47DC: C90D   CMPim 0D
 47DE: B006   BCS +6>E6
 47E0: E654   INCz 54
-47E2: 206324 JSR 2463
+47E2: 206324 JSR 2463 hexedit.write
 47E5: 60     RTS
 47E6: C91D   CMPim 1D
 47E8: D008   BNE +8>F2
-47EA: A499   LDYz 99
+47EA: A499   LDYz 99 hexedit.video2
 47EC: D0F4   BNE -12>E2
 47EE: 20BF45 JSR 45BF
 47F1: 60     RTS
@@ -6725,19 +6840,19 @@
 47F6: 22     
 47F7: 33     
 47F8: 205741 JSR 4157
-47FB: 2648   ROLz 48
+47FB: 2648   ROLz 48 hexedit.da.adrL
 47FD: A52E   LDAz 2E
 47FF: A62F   LDXz 2F
 4801: 8560   STAz 60
 4803: 8661   STXz 61
-4805: 206F24 JSR 246F
+4805: 206F24 JSR 246F hexedit.openOutStarTty
 4808: 205848 JSR 4858
-480B: 206924 JSR 2469
+480B: 206924 JSR 2469 hexedit.openOutVideo2
 480E: 205741 JSR 4157
 4811: E041   CPXim 41
 4813: A920   LDAim 20
 4815: 8D0008 STA 0800
-4818: 206423 JSR 2364
+4818: 206423 JSR 2364 hexedit.Home
 481B: 60     RTS
 481C: FF     
 481D: FF     
@@ -6772,7 +6887,7 @@
 484C: A561   LDAz 61
 484E: E5E9   SBCz E9 editor.CENDH
 4850: 08     PHP
-4851: 20FE23 JSR 23FE
+4851: 20FE23 JSR 23FE hexedit.block.readFile
 4854: 28     PLP
 4855: 60     RTS
 4856: 22     
@@ -6782,7 +6897,7 @@
 485D: 60     RTS
 485E: C940   CMPim 40
 4860: F006   BEQ +6>68
-4862: 206324 JSR 2463
+4862: 206324 JSR 2463 hexedit.write
 4865: 4C5848 JMP 4858
 4868: 204848 JSR 4848
 486B: B053   BCS +83>C0
@@ -6790,9 +6905,9 @@
 486F: F00D   BEQ +13>7E
 4871: 48     PHA
 4872: A940   LDAim 40
-4874: 206324 JSR 2463
+4874: 206324 JSR 2463 hexedit.write
 4877: 68     PLA
-4878: 206324 JSR 2463
+4878: 206324 JSR 2463 hexedit.write
 487B: 4C5848 JMP 4858
 487E: 204848 JSR 4848
 4881: B043   BCS +67>C6
@@ -6816,7 +6931,7 @@
 48A8: 0633   ASLz 33
 48AA: 0633   ASLz 33
 48AC: 0533   ORAz 33
-48AE: 205C20 JSR 205C
+48AE: 205C20 JSR 205C drucker.outStar
 48B1: 4C7E48 JMP 487E
 48B4: 204848 JSR 4848
 48B7: 9001   BCC +1>BA
@@ -6825,16 +6940,16 @@
 48BC: D0F6   BNE -10>B4
 48BE: F098   BEQ -104>58
 48C0: A940   LDAim 40
-48C2: 206324 JSR 2463
+48C2: 206324 JSR 2463 hexedit.write
 48C5: 60     RTS
 48C6: A940   LDAim 40
-48C8: 206324 JSR 2463
+48C8: 206324 JSR 2463 hexedit.write
 48CB: A927   LDAim 27
-48CD: 206324 JSR 2463
+48CD: 206324 JSR 2463 hexedit.write
 48D0: 60     RTS
 48D1: 20C648 JSR 48C6
 48D4: A533   LDAz 33
-48D6: 20E224 JSR 24E2
+48D6: 20E224 JSR 24E2 hexedit.Nibble
 48D9: 60     RTS
 48DA: FF     
 48DB: FF     
@@ -6896,20 +7011,20 @@
 491D: 33     
 491E: A54C   LDAz 4C
 4920: 18     CLC
-4921: E598   SBCz 98
+4921: E598   SBCz 98 hexedit.videoSpa
 4923: A8     TAY
 4924: 88     DEY
 4925: 300B   BMI +11>32
 4927: 20911F JSR 1F91 texteditor.sr5
 492A: 8A     TXAa
 492B: C8     INY
-492C: 919A   STAiy 9A
+492C: 919A   STAiy 9A hexedit.video3
 492E: 88     DEY
 492F: 88     DEY
 4930: 10F5   BPL -11>27
 4932: A920   LDAim 20
 4934: C8     INY
-4935: 919A   STAiy 9A
+4935: 919A   STAiy 9A hexedit.video3
 4937: 60     RTS
 4938: FF     
 4939: FF     
@@ -6920,30 +7035,30 @@
 493E: 33     
 493F: A54C   LDAz 4C
 4941: 38     SEC
-4942: E598   SBCz 98
+4942: E598   SBCz 98 hexedit.videoSpa
 4944: 852C   STAz 2C
 4946: A001   LDYim 01
 4948: 20911F JSR 1F91 texteditor.sr5
 494B: 8A     TXAa
 494C: 88     DEY
-494D: 919A   STAiy 9A
+494D: 919A   STAiy 9A hexedit.video3
 494F: C8     INY
 4950: C8     INY
 4951: C42C   CPYz 2C
 4953: 90F3   BCC -13>48
 4955: A920   LDAim 20
 4957: 88     DEY
-4958: 919A   STAiy 9A
+4958: 919A   STAiy 9A hexedit.video3
 495A: 60     RTS
 495B: 22     
 495C: 33     
-495D: A599   LDAz 99
+495D: A599   LDAz 99 hexedit.video2
 495F: 48     PHA
 4960: A52B   LDAz 2B
 4962: 48     PHA
 4963: A52A   LDAz 2A
 4965: 48     PHA
-4966: A599   LDAz 99
+4966: A599   LDAz 99 hexedit.video2
 4968: F009   BEQ +9>73
 496A: 38     SEC
 496B: E901   SBCim 01
@@ -7015,40 +7130,40 @@
 49DF: 205045 JSR 4550
 49E2: 206040 JSR 4060
 49E5: 68     PLA
-49E6: 8599   STAz 99
-49E8: 20FD22 JSR 22FD
+49E6: 8599   STAz 99 hexedit.video2
+49E8: 20FD22 JSR 22FD hexedit.cursAdrSql
 49EB: 60     RTS
 49EC: FF     
 49ED: FF     
 49EE: FF     
 49EF: 22     
 49F0: 33     
-49F1: A59B   LDAz 9B
+49F1: A59B   LDAz 9B hexedit.video4
 49F3: 48     PHA
-49F4: A59A   LDAz 9A
+49F4: A59A   LDAz 9A hexedit.video3
 49F6: 48     PHA
 49F7: 38     SEC
-49F8: E598   SBCz 98
-49FA: 859A   STAz 9A
+49F8: E598   SBCz 98 hexedit.videoSpa
+49FA: 859A   STAz 9A hexedit.video3
 49FC: B002   BCS +2>00
-49FE: C69B   DECz 9B
+49FE: C69B   DECz 9B hexedit.video4
 4A00: A44C   LDYz 4C
 4A02: 88     DEY
 4A03: A920   LDAim 20
-4A05: 919A   STAiy 9A
+4A05: 919A   STAiy 9A hexedit.video3
 4A07: 88     DEY
 4A08: 10FB   BPL -5>05
 4A0A: 68     PLA
-4A0B: 859A   STAz 9A
+4A0B: 859A   STAz 9A hexedit.video3
 4A0D: 68     PLA
-4A0E: 859B   STAz 9B
-4A10: A599   LDAz 99
+4A0E: 859B   STAz 9B hexedit.video4
+4A10: A599   LDAz 99 hexedit.video2
 4A12: 48     PHA
 4A13: A52B   LDAz 2B
 4A15: 48     PHA
 4A16: A52A   LDAz 2A
 4A18: 48     PHA
-4A19: A599   LDAz 99
+4A19: A599   LDAz 99 hexedit.video2
 4A1B: C900   CMPim 00
 4A1D: F009   BEQ +9>28
 4A1F: 38     SEC
@@ -7117,8 +7232,8 @@
 4A89: 205045 JSR 4550
 4A8C: 206040 JSR 4060
 4A8F: 68     PLA
-4A90: 8599   STAz 99
-4A92: 20FD22 JSR 22FD
+4A90: 8599   STAz 99 hexedit.video2
+4A92: 20FD22 JSR 22FD hexedit.cursAdrSql
 4A95: 60     RTS
 4A96: FF     
 4A97: FF     
@@ -7528,10 +7643,10 @@
 4CCB: 33     
 4CCC: AE561A LDX 1A56
 4CCF: BDE44D LDAx 4DE4
-4CD2: 206324 JSR 2463
+4CD2: 206324 JSR 2463 hexedit.write
 4CD5: AE561A LDX 1A56
 4CD8: BDDD4D LDAx 4DDD
-4CDB: 206324 JSR 2463
+4CDB: 206324 JSR 2463 hexedit.write
 4CDE: 60     RTS
 4CDF: FF     
 4CE0: FF     
@@ -7703,26 +7818,26 @@
 4DEC: 22     
 4DED: 33     
 4DEE: AD531A LDA 1A53
-4DF1: 20EF24 JSR 24EF
+4DF1: 20EF24 JSR 24EF hexedit.byteDru
 4DF4: A92E   LDAim 2E
-4DF6: 206324 JSR 2463
+4DF6: 206324 JSR 2463 hexedit.write
 4DF9: AD541A LDA 1A54
-4DFC: 20EF24 JSR 24EF
+4DFC: 20EF24 JSR 24EF hexedit.byteDru
 4DFF: A92E   LDAim 2E
-4E01: 206324 JSR 2463
+4E01: 206324 JSR 2463 hexedit.write
 4E04: AD551A LDA 1A55
-4E07: 20EF24 JSR 24EF
+4E07: 20EF24 JSR 24EF hexedit.byteDru
 4E0A: 60     RTS
 4E0B: AD521A LDA 1A52
-4E0E: 20EF24 JSR 24EF
+4E0E: 20EF24 JSR 24EF hexedit.byteDru
 4E11: A93A   LDAim 3A
-4E13: 206324 JSR 2463
+4E13: 206324 JSR 2463 hexedit.write
 4E16: AD511A LDA 1A51
-4E19: 20EF24 JSR 24EF
+4E19: 20EF24 JSR 24EF hexedit.byteDru
 4E1C: A93A   LDAim 3A
-4E1E: 206324 JSR 2463
+4E1E: 206324 JSR 2463 hexedit.write
 4E21: AD501A LDA 1A50
-4E24: 20EF24 JSR 24EF
+4E24: 20EF24 JSR 24EF hexedit.byteDru
 4E27: 60     RTS
 4E28: FF     
 4E29: 22     
@@ -7730,16 +7845,16 @@
 4E2B: A903   LDAim 03
 4E2D: 8D081A STA 1A08 bs.param.ROMStatusMaster
 4E30: 20DD1F JSR 1FDD bios.activate EPROM segments(1A08)
-4E33: 206624 JSR 2466
+4E33: 206624 JSR 2466 hexedit.openOutVideo
 4E36: 20994C JSR 4C99
 4E39: AD501A LDA 1A50
 4E3C: 48     PHA
 4E3D: 20EE4D JSR 4DEE
-4E40: 20C924 JSR 24C9
+4E40: 20C924 JSR 24C9 hexedit.2Blanks
 4E43: 20CC4C JSR 4CCC
-4E46: 20C924 JSR 24C9
+4E46: 20C924 JSR 24C9 hexedit.2Blanks
 4E49: 200B4E JSR 4E0B
-4E4C: 20D424 JSR 24D4
+4E4C: 20D424 JSR 24D4 hexedit.CR
 4E4F: 20994C JSR 4C99
 4E52: 68     PLA
 4E53: 48     PHA
@@ -7767,13 +7882,13 @@
 4E78: 8A     TXAa
 4E79: C920   CMPim 20
 4E7B: F009   BEQ +9>86
-4E7D: 206324 JSR 2463
+4E7D: 206324 JSR 2463 hexedit.write
 4E80: A4EA   LDYz EA
 4E82: C8     INY
 4E83: 18     CLC
 4E84: 90ED   BCC -19>73
-4E86: 20CE24 JSR 24CE
-4E89: A598   LDAz 98
+4E86: 20CE24 JSR 24CE hexedit.Blank
+4E89: A598   LDAz 98 hexedit.videoSpa
 4E8B: 290F   ANDim 0F
 4E8D: D0F7   BNE -9>86
 4E8F: F0DA   BEQ -38>6B
@@ -7845,9 +7960,9 @@
 4EF9: 33     
 4EFA: A200   LDXim 00
 4EFC: 86EA   STXz EA
-4EFE: 206024 JSR 2460
+4EFE: 206024 JSR 2460 hexedit.read
 4F01: 48     PHA
-4F02: 206324 JSR 2463
+4F02: 206324 JSR 2463 hexedit.write
 4F05: 68     PLA
 4F06: C980   CMPim 80
 4F08: B010   BCS +16>1A
@@ -7878,16 +7993,16 @@
 4F30: A907   LDAim 07
 4F32: 8D081A STA 1A08 bs.param.ROMStatusMaster
 4F35: 20DD1F JSR 1FDD bios.activate EPROM segments(1A08)
-4F38: 206624 JSR 2466
-4F3B: 20D038 JSR 38D0
-4F3E: 208B24 JSR 248B
+4F38: 206624 JSR 2466 hexedit.openOutVideo
+4F3B: 20D038 JSR 38D0 rkv.initBs
+4F3E: 208B24 JSR 248B hexedit.openInHexKb
 4F41: A907   LDAim 07
 4F43: 8D091A STA 1A09 bs.param.ROMStatusSlave
 4F46: 20634E JSR 4E63
 4F49: A987   LDAim 87
 4F4B: 8D091A STA 1A09 bs.param.ROMStatusSlave
 4F4E: 20634E JSR 4E63
-4F51: 203821 JSR 2138
+4F51: 203821 JSR 2138 drucker.writeplus
 4F54: 07     
 4F55: 1D4E61 ORAx 614E
 4F58: 6D653A ADC 3A65
@@ -7906,7 +8021,7 @@
 4F7C: 20FE5B JSR 5BFE
 4F7F: AD1C03 LDA 031C
 4F82: D020   BNE +32>A4
-4F84: 203821 JSR 2138
+4F84: 203821 JSR 2138 drucker.writeplus
 4F87: 1020   BPL +32>A9
 4F89: 6E6963 ROR 6369
 4F8C: 68     PLA
@@ -7938,11 +8053,11 @@
 4FC5: A6E2   LDXz E2 editor.BEGADL
 4FC7: A5E3   LDAz E3 editor.BEGADH
 4FC9: 4CCB4E JMP 4ECB
-4FCC: 203821 JSR 2138
+4FCC: 203821 JSR 2138 drucker.writeplus
 4FCF: 0F     
 4FD0: 206765 JSR 6567
 4FD3: 6C6164 JMPi 6461
-4FD6: 656E   ADCz 6E
+4FD6: 656E   ADCz 6E hexedit.zeiTty
 4FD8: 2C2053 BIT 5320
 4FDB: 54     
 4FDC: 4F     
@@ -8042,9 +8157,9 @@
 506E: B500   LDAzx 00
 5070: 48     PHA
 5071: B501   LDAzx 01
-5073: 20EF24 JSR 24EF
+5073: 20EF24 JSR 24EF hexedit.byteDru
 5076: 68     PLA
-5077: 20EF24 JSR 24EF
+5077: 20EF24 JSR 24EF hexedit.byteDru
 507A: 60     RTS
 507B: FF     
 507C: FF     
@@ -8539,21 +8654,21 @@
 5399: EA     NOP
 539A: EA     NOP
 539B: A928   LDAim 28
-539D: 206324 JSR 2463
+539D: 206324 JSR 2463 hexedit.write
 53A0: AD6303 LDA 0363
-53A3: 20E224 JSR 24E2
-53A6: 20CE24 JSR 24CE
+53A3: 20E224 JSR 24E2 hexedit.Nibble
+53A6: 20CE24 JSR 24CE hexedit.Blank
 53A9: AD2B03 LDA 032B
-53AC: 20E224 JSR 24E2
+53AC: 20E224 JSR 24E2 hexedit.Nibble
 53AF: AD2A03 LDA 032A
-53B2: 20EF24 JSR 24EF
-53B5: 20CE24 JSR 24CE
+53B2: 20EF24 JSR 24EF hexedit.byteDru
+53B5: 20CE24 JSR 24CE hexedit.Blank
 53B8: AD7B03 LDA 037B
-53BB: 20EF24 JSR 24EF
+53BB: 20EF24 JSR 24EF hexedit.byteDru
 53BE: AD7A03 LDA 037A
-53C1: 20EF24 JSR 24EF
+53C1: 20EF24 JSR 24EF hexedit.byteDru
 53C4: A929   LDAim 29
-53C6: 206324 JSR 2463
+53C6: 206324 JSR 2463 hexedit.write
 53C9: 60     RTS
 53CA: FF     
 53CB: FF     
@@ -8638,14 +8753,14 @@
 545D: EA     NOP
 545E: A901   LDAim 01
 5460: 8DF8FF STA FFF8 bios.flag EPROM lo
-5463: 200325 JSR 2503
+5463: 200325 JSR 2503 hexedit.lwriteVonBis
 5466: 6F     
 5467: 53     
 5468: 92     
 5469: 53     
 546A: A2EA   LDXim EA
 546C: 206E50 JSR 506E
-546F: 20C924 JSR 24C9
+546F: 20C924 JSR 24C9 hexedit.2Blanks
 5472: 208354 JSR 5483
 5475: A901   LDAim 01
 5477: 8D2016 STA 1620
@@ -8657,18 +8772,18 @@
 5482: 33     
 5483: A200   LDXim 00
 5485: 86EA   STXz EA
-5487: 20CE24 JSR 24CE
+5487: 20CE24 JSR 24CE hexedit.Blank
 548A: A6EA   LDXz EA
 548C: BD6A03 LDAx 036A
-548F: 20EF24 JSR 24EF
+548F: 20EF24 JSR 24EF hexedit.byteDru
 5492: A6EA   LDXz EA
 5494: E8     INX
 5495: E007   CPXim 07
 5497: D0EC   BNE -20>85
-5499: 20C924 JSR 24C9
+5499: 20C924 JSR 24C9 hexedit.2Blanks
 549C: AD0016 LDA 1600 floppy.??
-549F: 20EF24 JSR 24EF
-54A2: 20CE24 JSR 24CE
+549F: 20EF24 JSR 24EF hexedit.byteDru
+54A2: 20CE24 JSR 24CE hexedit.Blank
 54A5: 60     RTS
 54A6: FF     
 54A7: FF     
@@ -8708,7 +8823,7 @@
 54E4: 33     
 54E5: A901   LDAim 01
 54E7: 8DF8FF STA FFF8 bios.flag EPROM lo
-54EA: 200325 JSR 2503
+54EA: 200325 JSR 2503 hexedit.lwriteVonBis
 54ED: 1B     
 54EE: 553E   EORzx 3E
 54F0: 55EA   EORzx EA
@@ -9074,18 +9189,18 @@
 5774: FF     
 5775: 22     
 5776: 33     
-5777: 206624 JSR 2466
+5777: 206624 JSR 2466 hexedit.openOutVideo
 577A: 20C152 JSR 52C1
-577D: 200325 JSR 2503
+577D: 200325 JSR 2503 hexedit.lwriteVonBis
 5780: 64     
 5781: 58     CLI
 5782: 97     
 5783: 58     CLI
 5784: EA     NOP
 5785: EA     NOP
-5786: 206024 JSR 2460
+5786: 206024 JSR 2460 hexedit.read
 5789: 48     PHA
-578A: 206324 JSR 2463
+578A: 206324 JSR 2463 hexedit.write
 578D: 68     PLA
 578E: C931   CMPim 31
 5790: D00B   BNE +11>9D
@@ -9094,27 +9209,27 @@
 5798: A901   LDAim 01
 579A: 8D2016 STA 1620
 579D: A901   LDAim 01
-579F: 200325 JSR 2503
+579F: 200325 JSR 2503 hexedit.lwriteVonBis
 57A2: 98     TYA
 57A3: 58     CLI
 57A4: A8     TAY
 57A5: 58     CLI
 57A6: A200   LDXim 00
 57A8: 86EA   STXz EA
-57AA: 206024 JSR 2460
+57AA: 206024 JSR 2460 hexedit.read
 57AD: 48     PHA
-57AE: 206324 JSR 2463
+57AE: 206324 JSR 2463 hexedit.write
 57B1: 68     PLA
 57B2: A6EA   LDXz EA
 57B4: C921   CMPim 21
 57B6: 9008   BCC +8>C0
-57B8: 9D0020 STAx 2000
+57B8: 9D0020 STAx 2000 drucker.writeStarTty
 57BB: E8     INX
 57BC: E020   CPXim 20
 57BE: D0E8   BNE -24>A8
 57C0: A920   LDAim 20
-57C2: 9D0020 STAx 2000
-57C5: 200325 JSR 2503
+57C2: 9D0020 STAx 2000 drucker.writeStarTty
+57C5: 200325 JSR 2503 hexedit.lwriteVonBis
 57C8: A958   LDAim 58
 57CA: B7     
 57CB: 58     CLI
@@ -9178,7 +9293,7 @@
 583F: A901   LDAim 01
 5841: 8D2016 STA 1620
 5844: A901   LDAim 01
-5846: 200325 JSR 2503
+5846: 200325 JSR 2503 hexedit.lwriteVonBis
 5849: CA     DEX
 584A: 58     CLI
 584B: E8     INX
@@ -9208,7 +9323,7 @@
 586D: 6F     
 586E: 67     
 586F: 72     
-5870: 616D   ADCix 6D
+5870: 616D   ADCix 6D hexedit.spaTty
 5872: 6D203A ADC 3A20
 5875: 206E65 JSR 656E
 5878: 7565   ADCzx 65
@@ -9221,7 +9336,7 @@
 5886: 6D6174 ADC 7461
 5889: 6965   ADCim 65
 588B: 72     
-588C: 656E   ADCz 6E
+588C: 656E   ADCz 6E hexedit.zeiTty
 588E: 203F20 JSR 203F
 5891: 28     PLP
 5892: 302F   BMI +47>C3
@@ -9269,7 +9384,7 @@
 58DE: 6F     
 58DF: 67     
 58E0: 72     
-58E1: 616D   ADCix 6D
+58E1: 616D   ADCix 6D hexedit.spaTty
 58E3: 6D656E ADC 6E65
 58E6: 64     
 58E7: 651D   ADCz 1D
@@ -9292,26 +9407,26 @@
 58FD: FF     
 58FE: 22     
 58FF: 33     
-5900: 206024 JSR 2460
+5900: 206024 JSR 2460 hexedit.read
 5903: C930   CMPim 30
 5905: 90F9   BCC -7>00
 5907: C93A   CMPim 3A
 5909: B0F5   BCS -11>00
 590B: 48     PHA
-590C: 206324 JSR 2463
+590C: 206324 JSR 2463 hexedit.write
 590F: 68     PLA
 5910: 0A     ASLa
 5911: 0A     ASLa
 5912: 0A     ASLa
 5913: 0A     ASLa
 5914: 85EA   STAz EA
-5916: 206024 JSR 2460
+5916: 206024 JSR 2460 hexedit.read
 5919: C930   CMPim 30
 591B: 90F9   BCC -7>16
 591D: C93A   CMPim 3A
 591F: B0F5   BCS -11>16
 5921: 48     PHA
-5922: 206324 JSR 2463
+5922: 206324 JSR 2463 hexedit.write
 5925: 68     PLA
 5926: 290F   ANDim 0F
 5928: 05EA   ORAz EA
@@ -9367,7 +9482,7 @@
 5980: AA     TAX
 5981: BD8021 LDAx 2180
 5984: 8D1803 STA 0318
-5987: BD8121 LDAx 2181
+5987: BD8121 LDAx 2181 drucker.manuellDruckeVideoSchirm
 598A: 8D1903 STA 0319
 598D: 60     RTS
 598E: FF     
@@ -9575,7 +9690,7 @@
 5AF5: D0E3   BNE -29>DA
 5AF7: A901   LDAim 01
 5AF9: 8DF8FF STA FFF8 bios.flag EPROM lo
-5AFC: 200325 JSR 2503
+5AFC: 200325 JSR 2503 hexedit.lwriteVonBis
 5AFF: 0B     
 5B00: 5B     
 5B01: 265B   ROLz 5B bs.neueZeitH
@@ -9747,7 +9862,7 @@
 5C3F: AD1803 LDA 0318
 5C42: 9D8021 STAx 2180
 5C45: AD1903 LDA 0319
-5C48: 9D8121 STAx 2181
+5C48: 9D8121 STAx 2181 drucker.manuellDruckeVideoSchirm
 5C4B: A902   LDAim 02
 5C4D: 8D2303 STA 0323
 5C50: 20BC55 JSR 55BC
@@ -10090,7 +10205,7 @@
 5EF5: 33     
 5EF6: A901   LDAim 01
 5EF8: 8DF8FF STA FFF8 bios.flag EPROM lo
-5EFB: 200325 JSR 2503
+5EFB: 200325 JSR 2503 hexedit.lwriteVonBis
 5EFE: 0B     
 5EFF: 5F     
 5F00: 265F   ROLz 5F bs.breakZeitH
@@ -10124,7 +10239,7 @@
 5F37: 6620   RORz 20
 5F39: 6175   ADCix 75
 5F3B: 6620   RORz 20
-5F3D: 756E   ADCzx 6E
+5F3D: 756E   ADCzx 6E hexedit.zeiTty
 5F3F: 62     
 5F40: 656B   ADCz 6B
 5F42: 2E2072 ROL 7220
@@ -10155,7 +10270,7 @@
 5F61: A901   LDAim 01
 5F63: 8D081A STA 1A08 bs.param.ROMStatusMaster
 5F66: 8DF8FF STA FFF8 bios.flag EPROM lo
-5F69: 200325 JSR 2503
+5F69: 200325 JSR 2503 hexedit.lwriteVonBis
 5F6C: 28     PLP
 5F6D: 5F     
 5F6E: 4F     
@@ -10793,18 +10908,18 @@
 6321: 33     
 6322: A200   LDXim 00
 6324: 86EA   STXz EA
-6326: 20CE24 JSR 24CE
+6326: 20CE24 JSR 24CE hexedit.Blank
 6329: A6EA   LDXz EA
 632B: BD6A03 LDAx 036A
-632E: 20EF24 JSR 24EF
+632E: 20EF24 JSR 24EF hexedit.byteDru
 6331: A6EA   LDXz EA
 6333: E8     INX
 6334: E007   CPXim 07
 6336: D0EC   BNE -20>24
-6338: 20C924 JSR 24C9
+6338: 20C924 JSR 24C9 hexedit.2Blanks
 633B: AD0016 LDA 1600 floppy.??
-633E: 20EF24 JSR 24EF
-6341: 20C924 JSR 24C9
+633E: 20EF24 JSR 24EF hexedit.byteDru
+6341: 20C924 JSR 24C9 hexedit.2Blanks
 6344: 60     RTS
 6345: FF     
 6346: FF     
@@ -10812,9 +10927,9 @@
 6348: FF     
 6349: 22     
 634A: 33     
-634B: 20CE24 JSR 24CE
+634B: 20CE24 JSR 24CE hexedit.Blank
 634E: AD6A03 LDA 036A
-6351: 20EF24 JSR 24EF
+6351: 20EF24 JSR 24EF hexedit.byteDru
 6354: 18     CLC
 6355: 90E1   BCC -31>38
 6357: FF     
@@ -10833,12 +10948,12 @@
 6364: 22     
 6365: 33     
 6366: EA     NOP
-6367: 20CE24 JSR 24CE
+6367: 20CE24 JSR 24CE hexedit.Blank
 636A: AD6A03 LDA 036A
-636D: 20EF24 JSR 24EF
-6370: 20CE24 JSR 24CE
+636D: 20EF24 JSR 24EF hexedit.byteDru
+6370: 20CE24 JSR 24CE hexedit.Blank
 6373: AD6B03 LDA 036B
-6376: 20EF24 JSR 24EF
+6376: 20EF24 JSR 24EF hexedit.byteDru
 6379: 18     CLC
 637A: 90BC   BCC -68>38
 637C: FF     
@@ -10882,10 +10997,10 @@
 63AD: A903   LDAim 03
 63AF: 8D081A STA 1A08 bs.param.ROMStatusMaster
 63B2: 20DD1F JSR 1FDD bios.activate EPROM segments(1A08)
-63B5: 206624 JSR 2466
-63B8: 20D038 JSR 38D0
-63BB: 208B24 JSR 248B
-63BE: 206024 JSR 2460
+63B5: 206624 JSR 2466 hexedit.openOutVideo
+63B8: 20D038 JSR 38D0 rkv.initBs
+63BB: 208B24 JSR 248B hexedit.openInHexKb
+63BE: 206024 JSR 2460 hexedit.read
 63C1: C93A   CMPim 3A
 63C3: 9002   BCC +2>C7
 63C5: E907   SBCim 07
@@ -10904,12 +11019,12 @@
 63E0: 48     PHA
 63E1: A5EE   LDAz EE
 63E3: 095E   ORAim 5E
-63E5: 206324 JSR 2463
+63E5: 206324 JSR 2463 hexedit.write
 63E8: 68     PLA
 63E9: AA     TAX
 63EA: 68     PLA
 63EB: 201063 JSR 6310
-63EE: 20D424 JSR 24D4
+63EE: 20D424 JSR 24D4 hexedit.CR
 63F1: 18     CLC
 63F2: 90CA   BCC -54>BE
 63F4: 6C001A JMPi 1A00 bs.help1
@@ -10922,7 +11037,7 @@
 63FD: FF     
 63FE: 22     
 63FF: 33     
-6400: 206024 JSR 2460
+6400: 206024 JSR 2460 hexedit.read
 6403: C93A   CMPim 3A
 6405: 9002   BCC +2>09
 6407: E907   SBCim 07
@@ -10941,7 +11056,7 @@
 6419: 200064 JSR 6400
 641C: 05EA   ORAz EA
 641E: 85EA   STAz EA
-6420: 20EF24 JSR 24EF
+6420: 20EF24 JSR 24EF hexedit.byteDru
 6423: A5EA   LDAz EA
 6425: 60     RTS
 6426: FF     
@@ -11000,24 +11115,24 @@
 6464: A900   LDAim 00
 6466: 8D2016 STA 1620
 6469: A94D   LDAim 4D
-646B: 206324 JSR 2463
+646B: 206324 JSR 2463 hexedit.write
 646E: 60     RTS
 646F: 33     
 6470: 200064 JSR 6400
 6473: 2907   ANDim 07
 6475: 8D2303 STA 0323
-6478: 206624 JSR 2466
-647B: 20C924 JSR 24C9
+6478: 206624 JSR 2466 hexedit.openOutVideo
+647B: 20C924 JSR 24C9 hexedit.2Blanks
 647E: AD2303 LDA 0323
-6481: 20E224 JSR 24E2
-6484: 20C924 JSR 24C9
+6481: 20E224 JSR 24E2 hexedit.Nibble
+6484: 20C924 JSR 24C9 hexedit.2Blanks
 6487: AC2303 LDY 0323
 648A: 200D56 JSR 560D
 648D: A5EB   LDAz EB
-648F: 20EF24 JSR 24EF
+648F: 20EF24 JSR 24EF hexedit.byteDru
 6492: A5EA   LDAz EA
-6494: 20EF24 JSR 24EF
-6497: 20C924 JSR 24C9
+6494: 20EF24 JSR 24EF hexedit.byteDru
+6497: 20C924 JSR 24C9 hexedit.2Blanks
 649A: AD2303 LDA 0323
 649D: 0A     ASLa
 649E: AA     TAX
@@ -11027,33 +11142,33 @@
 64A4: 0A     ASLa
 64A5: A918   LDAim 18
 64A7: 2A     ROLa
-64A8: 206324 JSR 2463
-64AB: 20CE24 JSR 24CE
+64A8: 206324 JSR 2463 hexedit.write
+64AB: 20CE24 JSR 24CE hexedit.Blank
 64AE: 68     PLA
 64AF: 297F   ANDim 7F
-64B1: 20EF24 JSR 24EF
+64B1: 20EF24 JSR 24EF hexedit.byteDru
 64B4: 68     PLA
 64B5: AA     TAX
 64B6: BD4E03 LDAx 034E
-64B9: 20EF24 JSR 24EF
-64BC: 20C924 JSR 24C9
+64B9: 20EF24 JSR 24EF hexedit.byteDru
+64BC: 20C924 JSR 24C9 hexedit.2Blanks
 64BF: AD3203 LDA 0332
-64C2: 20E224 JSR 24E2
-64C5: 20CE24 JSR 24CE
+64C2: 20E224 JSR 24E2 hexedit.Nibble
+64C5: 20CE24 JSR 24CE hexedit.Blank
 64C8: 200A56 JSR 560A
 64CB: A9FF   LDAim FF
 64CD: 85EC   STAz EC
-64CF: 20D424 JSR 24D4
+64CF: 20D424 JSR 24D4 hexedit.CR
 64D2: E6EC   INCz EC
-64D4: 20D424 JSR 24D4
+64D4: 20D424 JSR 24D4 hexedit.CR
 64D7: A5EC   LDAz EC
-64D9: 20E224 JSR 24E2
+64D9: 20E224 JSR 24E2 hexedit.Nibble
 64DC: A93A   LDAim 3A
-64DE: 206324 JSR 2463
-64E1: 20C924 JSR 24C9
+64DE: 206324 JSR 2463 hexedit.write
+64E1: 20C924 JSR 24C9 hexedit.2Blanks
 64E4: 20DD61 JSR 61DD
-64E7: 20EF24 JSR 24EF
-64EA: 20CE24 JSR 24CE
+64E7: 20EF24 JSR 24EF hexedit.byteDru
+64EA: 20CE24 JSR 24CE hexedit.Blank
 64ED: E6EA   INCz EA
 64EF: A5EA   LDAz EA
 64F1: EA     NOP
@@ -11062,11 +11177,11 @@
 64F5: F00A   BEQ +10>01
 64F7: 2907   ANDim 07
 64F9: D0E9   BNE -23>E4
-64FB: 20CE24 JSR 24CE
+64FB: 20CE24 JSR 24CE hexedit.Blank
 64FE: 18     CLC
 64FF: 90E3   BCC -29>E4
-6501: 20C924 JSR 24C9
-6504: 20C924 JSR 24C9
+6501: 20C924 JSR 24C9 hexedit.2Blanks
+6504: 20C924 JSR 24C9 hexedit.2Blanks
 6507: 38     SEC
 6508: A5EA   LDAz EA
 650A: E910   SBCim 10
@@ -11075,7 +11190,7 @@
 6511: C920   CMPim 20
 6513: B002   BCS +2>17
 6515: A92E   LDAim 2E
-6517: 206324 JSR 2463
+6517: 206324 JSR 2463 hexedit.write
 651A: E6EA   INCz EA
 651C: A5EA   LDAz EA
 651E: F00E   BEQ +14>2E
@@ -11083,10 +11198,10 @@
 6522: F0AE   BEQ -82>D2
 6524: 2907   ANDim 07
 6526: D003   BNE +3>2B
-6528: 20CE24 JSR 24CE
+6528: 20CE24 JSR 24CE hexedit.Blank
 652B: 18     CLC
 652C: 90E0   BCC -32>0E
-652E: 20D424 JSR 24D4
+652E: 20D424 JSR 24D4 hexedit.CR
 6531: 60     RTS
 6532: FF     
 6533: FF     
@@ -11095,7 +11210,7 @@
 6536: FF     
 6537: 22     
 6538: 33     
-6539: 203821 JSR 2138
+6539: 203821 JSR 2138 drucker.writeplus
 653C: 0620   ASLz 20
 653E: 68     PLA
 653F: 6F     
@@ -11104,18 +11219,18 @@
 6544: 200064 JSR 6400
 6547: 2907   ANDim 07
 6549: 8D2303 STA 0323
-654C: 20E224 JSR 24E2
-654F: 20CE24 JSR 24CE
+654C: 20E224 JSR 24E2 hexedit.Nibble
+654F: 20CE24 JSR 24CE hexedit.Blank
 6552: 200064 JSR 6400
 6555: 290F   ANDim 0F
 6557: 8D1903 STA 0319
-655A: 20E224 JSR 24E2
+655A: 20E224 JSR 24E2 hexedit.Nibble
 655D: 201064 JSR 6410
 6560: 8D1803 STA 0318
 6563: 206B55 JSR 556B
 6566: A207   LDXim 07
 6568: 60     RTS
-6569: 203821 JSR 2138
+6569: 203821 JSR 2138 drucker.writeplus
 656C: 0620   ASLz 20
 656E: 6C6F61 JMPi 616F
 6571: 64     
@@ -11132,7 +11247,7 @@
 6586: FF     
 6587: 22     
 6588: 33     
-6589: 203821 JSR 2138
+6589: 203821 JSR 2138 drucker.writeplus
 658C: 0620   ASLz 20
 658E: 73     
 658F: 6176   ADCix 76
@@ -11150,7 +11265,7 @@
 65A6: FF     
 65A7: 22     
 65A8: 33     
-65A9: 203821 JSR 2138
+65A9: 203821 JSR 2138 drucker.writeplus
 65AC: 08     PHP
 65AD: 207665 JSR 6576
 65B0: 72     
@@ -11167,7 +11282,7 @@
 65C6: FF     
 65C7: 22     
 65C8: 33     
-65C9: 203821 JSR 2138
+65C9: 203821 JSR 2138 drucker.writeplus
 65CC: 07     
 65CD: 20636C JSR 6C63
 65D0: 6561   ADCz 61
@@ -11185,7 +11300,7 @@
 65E6: FF     
 65E7: 22     
 65E8: 33     
-65E9: 203821 JSR 2138
+65E9: 203821 JSR 2138 drucker.writeplus
 65EC: 08     PHP
 65ED: 207374 JSR 7473
 65F0: 6174   ADCix 74
@@ -11195,7 +11310,7 @@
 65FA: 2907   ANDim 07
 65FC: 8D2303 STA 0323
 65FF: 48     PHA
-6600: 20E224 JSR 24E2
+6600: 20E224 JSR 24E2 hexedit.Nibble
 6603: 201064 JSR 6410
 6606: A8     TAY
 6607: 68     PLA
@@ -11210,7 +11325,7 @@
 6614: AA     TAX
 6615: 98     TYA
 6616: 9D4E03 STAx 034E
-6619: 20CE24 JSR 24CE
+6619: 20CE24 JSR 24CE hexedit.Blank
 661C: A201   LDXim 01
 661E: 60     RTS
 661F: FF     
@@ -11222,7 +11337,7 @@
 6625: FF     
 6626: 22     
 6627: 33     
-6628: 203821 JSR 2138
+6628: 203821 JSR 2138 drucker.writeplus
 662B: 0920   ORAim 20
 662D: 6E6577 ROR 7765
 6630: 6669   RORz 69
@@ -11231,9 +11346,9 @@
 6636: EA     NOP
 6637: A200   LDXim 00
 6639: 86EA   STXz EA
-663B: 206024 JSR 2460
+663B: 206024 JSR 2460 hexedit.read
 663E: 48     PHA
-663F: 206324 JSR 2463
+663F: 206324 JSR 2463 hexedit.write
 6642: 68     PLA
 6643: C980   CMPim 80
 6645: B010   BCS +16>57
@@ -11259,7 +11374,7 @@
 666B: A002   LDYim 02
 666D: 200D56 JSR 560D
 6670: 20DD61 JSR 61DD
-6673: 206324 JSR 2463
+6673: 206324 JSR 2463 hexedit.write
 6676: E6EA   INCz EA
 6678: A4EA   LDYz EA
 667A: C020   CPYim 20
@@ -11290,12 +11405,12 @@
 669F: 20DD61 JSR 61DD
 66A2: C920   CMPim 20
 66A4: F009   BEQ +9>AF
-66A6: 206324 JSR 2463
+66A6: 206324 JSR 2463 hexedit.write
 66A9: E6EA   INCz EA
 66AB: C6EC   DECz EC
 66AD: D0F0   BNE -16>9F
-66AF: 20CE24 JSR 24CE
-66B2: A598   LDAz 98
+66AF: 20CE24 JSR 24CE hexedit.Blank
+66B2: A598   LDAz 98 hexedit.videoSpa
 66B4: C923   CMPim 23
 66B6: D0F7   BNE -9>AF
 66B8: A900   LDAim 00
@@ -11310,12 +11425,12 @@
 66C6: EA     NOP
 66C7: EA     NOP
 66C8: 20DD61 JSR 61DD
-66CB: 20EF24 JSR 24EF
+66CB: 20EF24 JSR 24EF hexedit.byteDru
 66CE: A6EA   LDXz EA
 66D0: E8     INX
 66D1: C6EC   DECz EC
 66D3: D0EF   BNE -17>C4
-66D5: 20C924 JSR 24C9
+66D5: 20C924 JSR 24C9 hexedit.2Blanks
 66D8: A900   LDAim 00
 66DA: 85EA   STAz EA
 66DC: 60     RTS
@@ -11333,12 +11448,12 @@
 66EB: EA     NOP
 66EC: EA     NOP
 66ED: 20DD61 JSR 61DD
-66F0: 20EF24 JSR 24EF
+66F0: 20EF24 JSR 24EF hexedit.byteDru
 66F3: A6EA   LDXz EA
 66F5: CA     DEX
 66F6: C6EC   DECz EC
 66F8: D0EF   BNE -17>E9
-66FA: 20C924 JSR 24C9
+66FA: 20C924 JSR 24C9 hexedit.2Blanks
 66FD: A900   LDAim 00
 66FF: 85EA   STAz EA
 6701: 60     RTS
@@ -11347,7 +11462,7 @@
 6704: FF     
 6705: 22     
 6706: 33     
-6707: 20D424 JSR 24D4
+6707: 20D424 JSR 24D4 hexedit.CR
 670A: EA     NOP
 670B: EA     NOP
 670C: EA     NOP
@@ -11358,8 +11473,8 @@
 6716: 209B66 JSR 669B
 6719: A020   LDYim 20
 671B: 20DF61 JSR 61DF
-671E: 20E224 JSR 24E2
-6721: 20C924 JSR 24C9
+671E: 20E224 JSR 24E2 hexedit.Nibble
+6721: 20C924 JSR 24C9 hexedit.2Blanks
 6724: A222   LDXim 22
 6726: A002   LDYim 02
 6728: 20E766 JSR 66E7
@@ -11371,9 +11486,9 @@
 6737: 20C066 JSR 66C0
 673A: AD5303 LDA 0353
 673D: 297F   ANDim 7F
-673F: 20EF24 JSR 24EF
+673F: 20EF24 JSR 24EF hexedit.byteDru
 6742: AD5203 LDA 0352
-6745: 20EF24 JSR 24EF
+6745: 20EF24 JSR 24EF hexedit.byteDru
 6748: 60     RTS
 6749: FF     
 674A: FF     
@@ -11400,7 +11515,7 @@
 675F: 202020 JSR 2020
 6762: 206669 JSR 6966
 6765: 6C656E JMPi 6E65
-6768: 616D   ADCix 6D
+6768: 616D   ADCix 6D hexedit.spaTty
 676A: 6520   ADCz 20
 676C: 202020 JSR 2020
 676F: 202020 JSR 2020
@@ -11447,20 +11562,20 @@
 67C2: FF     
 67C3: 22     
 67C4: 33     
-67C5: 206624 JSR 2466
+67C5: 206624 JSR 2466 hexedit.openOutVideo
 67C8: A000   LDYim 00
 67CA: 200D56 JSR 560D
 67CD: 209B66 JSR 669B
 67D0: A020   LDYim 20
 67D2: 20DF61 JSR 61DF
-67D5: 20E224 JSR 24E2
-67D8: 20C924 JSR 24C9
+67D5: 20E224 JSR 24E2 hexedit.Nibble
+67D8: 20C924 JSR 24C9 hexedit.2Blanks
 67DB: A222   LDXim 22
 67DD: 20C066 JSR 66C0
 67E0: A22A   LDXim 2A
 67E2: A002   LDYim 02
 67E4: 20E766 JSR 66E7
-67E7: 203821 JSR 2138
+67E7: 203821 JSR 2138 drucker.writeplus
 67EA: 07     
 67EB: 6672   RORz 72
 67ED: 6569   ADCz 69
@@ -11470,8 +11585,8 @@
 67F4: A02B   LDYim 2B
 67F6: 20DF61 JSR 61DF
 67F9: 20DA68 JSR 68DA
-67FC: 20EF24 JSR 24EF
-67FF: 203821 JSR 2138
+67FC: 20EF24 JSR 24EF hexedit.byteDru
+67FF: 203821 JSR 2138 drucker.writeplus
 6802: 0620   ASLz 20
 6804: 6669   RORz 69
 6806: 6C6573 JMPi 7365
@@ -11494,7 +11609,7 @@
 6819: 22     
 681A: 33     
 681B: 20C567 JSR 67C5
-681E: 200325 JSR 2503
+681E: 200325 JSR 2503 hexedit.lwriteVonBis
 6821: 5F     
 6822: 67     
 6823: A567   LDAz 67
@@ -11525,9 +11640,9 @@
 6858: 8D081A STA 1A08 bs.param.ROMStatusMaster
 685B: 8DF8FF STA FFF8 bios.flag EPROM lo
 685E: 28     PLP
-685F: 20D424 JSR 24D4
+685F: 20D424 JSR 24D4 hexedit.CR
 6862: 20FD68 JSR 68FD
-6865: 200625 JSR 2506
+6865: 200625 JSR 2506 hexedit.writeVonBis
 6868: A8     TAY
 6869: 67     
 686A: B967EA LDAy EA67
@@ -11541,7 +11656,7 @@
 687B: FF     
 687C: 22     
 687D: 33     
-687E: 203821 JSR 2138
+687E: 203821 JSR 2138 drucker.writeplus
 6881: 0920   ORAim 20
 6883: 6669   RORz 69
 6885: 6C6561 JMPi 6165
@@ -11549,16 +11664,16 @@
 6889: 72     
 688A: 20EAEA JSR EAEA
 688D: A5E3   LDAz E3 editor.BEGADH
-688F: 20EF24 JSR 24EF
+688F: 20EF24 JSR 24EF hexedit.byteDru
 6892: A5E2   LDAz E2 editor.BEGADL
-6894: 20EF24 JSR 24EF
-6897: 20CE24 JSR 24CE
+6894: 20EF24 JSR 24EF hexedit.byteDru
+6897: 20CE24 JSR 24CE hexedit.Blank
 689A: A5E9   LDAz E9 editor.CENDH
-689C: 20EF24 JSR 24EF
+689C: 20EF24 JSR 24EF hexedit.byteDru
 689F: A5E8   LDAz E8 editor.CENDL
-68A1: 20EF24 JSR 24EF
-68A4: 20C924 JSR 24C9
-68A7: 206024 JSR 2460
+68A1: 20EF24 JSR 24EF hexedit.byteDru
+68A4: 20C924 JSR 24C9 hexedit.2Blanks
+68A7: 206024 JSR 2460 hexedit.read
 68AA: C930   CMPim 30
 68AC: B001   BCS +1>AF
 68AE: 60     RTS
@@ -11567,7 +11682,7 @@
 68B5: 85E3   STAz E3 editor.BEGADH
 68B7: 201064 JSR 6410
 68BA: 85E2   STAz E2 editor.BEGADL
-68BC: 20CE24 JSR 24CE
+68BC: 20CE24 JSR 24CE hexedit.Blank
 68BF: 201064 JSR 6410
 68C2: 85E9   STAz E9 editor.CENDH
 68C4: 201064 JSR 6410
@@ -11615,14 +11730,14 @@
 68FA: FF     
 68FB: 22     
 68FC: 33     
-68FD: A599   LDAz 99
+68FD: A599   LDAz 99 hexedit.video2
 68FF: D00D   BNE +13>0E
 6901: A901   LDAim 01
 6903: 8D2016 STA 1620
 6906: A901   LDAim 01
 6908: 08     PHP
 6909: 58     CLI
-690A: 206024 JSR 2460
+690A: 206024 JSR 2460 hexedit.read
 690D: 28     PLP
 690E: 60     RTS
 690F: 22     
@@ -11803,7 +11918,7 @@
 6A3D: EA     NOP
 6A3E: 60     RTS
 6A3F: 205741 JSR 4157
-6A42: 2546   ANDz 46
+6A42: 2546   ANDz 46 hexedit.da.zweites
 6A44: EA     NOP
 6A45: EA     NOP
 6A46: 60     RTS
@@ -18099,8 +18214,8 @@
 8331: A900   LDAim 00
 8333: 8DF9FF STA FFF9 bios.flag EPROM med
 8336: 8DFAFF STA FFFA bios.flag EPROM hi/NMIadr
-8339: 20D038 JSR 38D0
-833C: 208B24 JSR 248B
+8339: 20D038 JSR 38D0 rkv.initBs
+833C: 208B24 JSR 248B hexedit.openInHexKb
 833F: 4CF3D3 JMP D3F3
 8342: FF     
 8343: FF     
@@ -18351,12 +18466,12 @@
 8453: 207CDB JSR DB7C
 8456: 0122   ORAix 22
 8458: 33     
-8459: A541   LDAz 41
+8459: A541   LDAz 41 hexedit.da.nr
 845B: 858B   STAz 8B bs.RXSave
-845D: A542   LDAz 42
+845D: A542   LDAz 42 hexedit.da.laenge
 845F: 858C   STAz 8C bs.RYSave
 8461: A000   LDYim 00
-8463: B141   LDAiy 41
+8463: B141   LDAiy 41 hexedit.da.nr
 8465: D001   BNE +1>68
 8467: 60     RTS
 8468: 207CDB JSR DB7C
@@ -18366,9 +18481,9 @@
 846E: 33     
 846F: A5D0   LDAz D0
 8471: EA     NOP
-8472: 8543   STAz 43
+8472: 8543   STAz 43 hexedit.da.fehler
 8474: A900   LDAim 00
-8476: 8544   STAz 44
+8476: 8544   STAz 44 hexedit.da.opcode
 8478: 60     RTS
 8479: 33     
 847A: 203988 JSR 8839
@@ -18393,11 +18508,11 @@
 849A: A5C1   LDAz C1
 849C: A6C2   LDXz C2
 849E: 8554   STAz 54
-84A0: 8655   STXz 55
+84A0: 8655   STXz 55 hexedit.helpL
 84A2: A554   LDAz 54
-84A4: C545   CMPz 45
-84A6: A555   LDAz 55
-84A8: E546   SBCz 46
+84A4: C545   CMPz 45 hexedit.da.erstes
+84A6: A555   LDAz 55 hexedit.helpL
+84A8: E546   SBCz 46 hexedit.da.zweites
 84AA: 9001   BCC +1>AD
 84AC: 60     RTS
 84AD: EA     NOP
@@ -18411,7 +18526,7 @@
 84BC: 690E   ADCim 0E
 84BE: 8554   STAz 54
 84C0: 9002   BCC +2>C4
-84C2: E655   INCz 55
+84C2: E655   INCz 55 hexedit.helpL
 84C4: 4CA284 JMP 84A2
 84C7: 207CDB JSR DB7C
 84CA: 04     
@@ -18420,13 +18535,13 @@
 84CD: A5C1   LDAz C1
 84CF: A6C2   LDXz C2
 84D1: 8554   STAz 54
-84D3: 8655   STXz 55
+84D3: 8655   STXz 55 hexedit.helpL
 84D5: EA     NOP
 84D6: EA     NOP
 84D7: A554   LDAz 54
-84D9: C545   CMPz 45
-84DB: A555   LDAz 55
-84DD: E546   SBCz 46
+84D9: C545   CMPz 45 hexedit.da.erstes
+84DB: A555   LDAz 55 hexedit.helpL
+84DD: E546   SBCz 46 hexedit.da.zweites
 84DF: B01D   BCS +29>FE
 84E1: EA     NOP
 84E2: A000   LDYim 00
@@ -18438,7 +18553,7 @@
 84ED: 690E   ADCim 0E
 84EF: 8554   STAz 54
 84F1: 9002   BCC +2>F5
-84F3: E655   INCz 55
+84F3: E655   INCz 55 hexedit.helpL
 84F5: 4CD784 JMP 84D7
 84F8: 207CDB JSR DB7C
 84FB: 05EA   ORAz EA
@@ -18470,12 +18585,12 @@
 8528: 918B   STAiy 8B bs.RXSave
 852A: 60     RTS
 852B: A000   LDYim 00
-852D: B141   LDAiy 41
+852D: B141   LDAiy 41 hexedit.da.nr
 852F: F004   BEQ +4>35
 8531: 207CDB JSR DB7C
 8534: 07     
 8535: A901   LDAim 01
-8537: 9141   STAiy 41
+8537: 9141   STAiy 41 hexedit.da.nr
 8539: 60     RTS
 853A: A55A   LDAz 5A bs.neueZeitL
 853C: 38     SEC
@@ -18599,7 +18714,7 @@
 8615: 00     BRK
 8616: 00     BRK
 8617: A000   LDYim 00
-8619: B141   LDAiy 41
+8619: B141   LDAiy 41 hexedit.da.nr
 861B: D02C   BNE +44>49
 861D: A51F   LDAz 1F
 861F: 1005   BPL +5>26
@@ -18607,10 +18722,10 @@
 8624: 09EA   ORAim EA
 8626: A51C   LDAz 1C
 8628: C8     INY
-8629: 9141   STAiy 41
+8629: 9141   STAiy 41 hexedit.da.nr
 862B: A51D   LDAz 1D
 862D: C8     INY
-862E: 9141   STAiy 41
+862E: 9141   STAiy 41 hexedit.da.nr
 8630: A51C   LDAz 1C
 8632: 18     CLC
 8633: 6514   ADCz 14
@@ -18633,16 +18748,16 @@
 8653: 1005   BPL +5>5A
 8655: 207CDB JSR DB7C
 8658: 09EA   ORAim EA
-865A: A543   LDAz 43
+865A: A543   LDAz 43 hexedit.da.fehler
 865C: C8     INY
-865D: 9141   STAiy 41
+865D: 9141   STAiy 41 hexedit.da.nr
 865F: A900   LDAim 00
 8661: C8     INY
-8662: 9141   STAiy 41
-8664: A543   LDAz 43
+8662: 9141   STAiy 41 hexedit.da.nr
+8664: A543   LDAz 43 hexedit.da.fehler
 8666: 18     CLC
 8667: 6514   ADCz 14
-8669: 8543   STAz 43
+8669: 8543   STAz 43 hexedit.da.fehler
 866B: B005   BCS +5>72
 866D: C5DA   CMPz DA
 866F: EA     NOP
@@ -18651,7 +18766,7 @@
 8675: 0B     
 8676: 60     RTS
 8677: A002   LDYim 02
-8679: B141   LDAiy 41
+8679: B141   LDAiy 41 hexedit.da.nr
 867B: D011   BNE +17>8E
 867D: A51F   LDAz 1F
 867F: D0D6   BNE -42>57
@@ -18659,7 +18774,7 @@
 8683: 30D0   BMI -48>55
 8685: 18     CLC
 8686: 88     DEY
-8687: B141   LDAiy 41
+8687: B141   LDAiy 41 hexedit.da.nr
 8689: 6514   ADCz 14
 868B: B0E5   BCS -27>72
 868D: 60     RTS
@@ -18667,10 +18782,10 @@
 8690: 30C5   BMI -59>57
 8692: 18     CLC
 8693: 88     DEY
-8694: B141   LDAiy 41
+8694: B141   LDAiy 41 hexedit.da.nr
 8696: 6514   ADCz 14
 8698: C8     INY
-8699: B141   LDAiy 41
+8699: B141   LDAiy 41 hexedit.da.nr
 869B: 6515   ADCz 15
 869D: B0A5   BCS -91>44
 869F: 60     RTS
@@ -18680,7 +18795,7 @@
 86A3: 00     BRK
 86A4: 00     BRK
 86A5: A000   LDYim 00
-86A7: B141   LDAiy 41
+86A7: B141   LDAiy 41 hexedit.da.nr
 86A9: C903   CMPim 03
 86AB: 9004   BCC +4>B1
 86AD: 207CDB JSR DB7C
@@ -18690,13 +18805,13 @@
 86B7: A00A   LDYim 0A
 86B9: A207   LDXim 07
 86BB: B5A3   LDAzx A3
-86BD: 9141   STAiy 41
+86BD: 9141   STAiy 41 hexedit.da.nr
 86BF: 88     DEY
 86C0: CA     DEX
 86C1: 10F8   BPL -8>BB
 86C3: A5A0   LDAz A0 serial.CurrentL
 86C5: A000   LDYim 00
-86C7: 9141   STAiy 41
+86C7: 9141   STAiy 41 hexedit.da.nr
 86C9: 60     RTS
 86CA: FF     
 86CB: FF     
@@ -18888,7 +19003,7 @@
 87FD: 60     RTS
 87FE: 00     BRK
 87FF: 00     BRK
-8800: 206624 JSR 2466
+8800: 206624 JSR 2466 hexedit.openOutVideo
 8803: 2074CD JSR CD74
 8806: 20BED0 JSR D0BE
 8809: 4C1D1C JMP 1C1D monitor.RESET
@@ -19022,7 +19137,7 @@
 88C8: A203   LDXim 03
 88CA: B580   LDAzx 80
 88CC: 8B     
-88CD: 0595   ORAz 95
+88CD: 0595   ORAz 95 hexedit.Prosa
 88CF: 14     
 88D0: CA     DEX
 88D1: 10F9   BPL -7>CC
@@ -19030,7 +19145,7 @@
 88D4: 03     
 88D5: A203   LDXim 03
 88D7: BD828B LDAx 8B82
-88DA: 0595   ORAz 95
+88DA: 0595   ORAz 95 hexedit.Prosa
 88DC: 14     
 88DD: CA     DEX
 88DE: 10F8   BPL -8>D8
@@ -19120,7 +19235,7 @@
 894A: A003   LDYim 03
 894C: B180   LDAiy 80
 894E: 8B     
-894F: 0699   ASLz 99
+894F: 0699   ASLz 99 hexedit.video2
 8951: 14     
 8952: 00     BRK
 8953: 88     DEY
@@ -19439,7 +19554,7 @@
 8AD4: 80     
 8AD5: 8C0485 STY 8504
 8AD8: 54     
-8AD9: 8655   STXz 55
+8AD9: 8655   STXz 55 hexedit.helpL
 8ADB: 00     BRK
 8ADC: 01A5   ORAix A5
 8ADE: 80     
@@ -19448,7 +19563,7 @@
 8AE2: 818B   STAix 8B bs.RXSave
 8AE4: 04     
 8AE5: 8554   STAz 54
-8AE7: 8655   STXz 55
+8AE7: 8655   STXz 55 hexedit.helpL
 8AE9: 00     BRK
 8AEA: FF     
 8AEB: FF     
@@ -20096,7 +20211,7 @@
 8E40: 22     
 8E41: 33     
 8E42: A00A   LDYim 0A
-8E44: B141   LDAiy 41
+8E44: B141   LDAiy 41 hexedit.da.nr
 8E46: 998A00 STAy 008A bs.ACSave
 8E49: 88     DEY
 8E4A: 10F8   BPL -8>44
@@ -20135,7 +20250,7 @@
 8E85: 60     RTS
 8E86: 20E4D9 JSR D9E4
 8E89: 03     
-8E8A: 20D424 JSR 24D4
+8E8A: 20D424 JSR 24D4 hexedit.CR
 8E8D: 60     RTS
 8E8E: 20108E JSR 8E10
 8E91: 20A38B JSR 8BA3
@@ -20173,7 +20288,7 @@
 8EC0: 33     
 8EC1: 20E4D9 JSR D9E4
 8EC4: 03     
-8EC5: 206624 JSR 2466
+8EC5: 206624 JSR 2466 hexedit.openOutVideo
 8EC8: 60     RTS
 8EC9: FF     
 8ECA: FF     
@@ -20463,21 +20578,21 @@
 9063: FF     
 9064: 22     
 9065: 33     
-9066: A541   LDAz 41
+9066: A541   LDAz 41 hexedit.da.nr
 9068: 20F28E JSR 8EF2
-906B: A542   LDAz 42
+906B: A542   LDAz 42 hexedit.da.laenge
 906D: 20F28E JSR 8EF2
 9070: 60     RTS
 9071: 20038F JSR 8F03
-9074: 8542   STAz 42
+9074: 8542   STAz 42 hexedit.da.laenge
 9076: 20038F JSR 8F03
-9079: 8541   STAz 41
+9079: 8541   STAz 41 hexedit.da.nr
 907B: 60     RTS
 907C: FF     
 907D: 22     
 907E: 33     
 907F: A000   LDYim 00
-9081: B141   LDAiy 41
+9081: B141   LDAiy 41 hexedit.da.nr
 9083: 29BE   ANDim BE
 9085: C9A6   CMPim A6
 9087: F004   BEQ +4>8D
@@ -20491,13 +20606,13 @@
 9094: EA     NOP
 9095: EA     NOP
 9096: A002   LDYim 02
-9098: B141   LDAiy 41
+9098: B141   LDAiy 41 hexedit.da.nr
 909A: 8551   STAz 51
 909C: 88     DEY
-909D: B141   LDAiy 41
+909D: B141   LDAiy 41 hexedit.da.nr
 909F: 8550   STAz 50
 90A1: 88     DEY
-90A2: B141   LDAiy 41
+90A2: B141   LDAiy 41 hexedit.da.nr
 90A4: 0A     ASLa
 90A5: 3007   BMI +7>AE
 90A7: 204DDA JSR DA4D
@@ -20577,15 +20692,15 @@
 9119: 0938   ORAim 38
 911B: 2033DA JSR DA33
 911E: A000   LDYim 00
-9120: B141   LDAiy 41
+9120: B141   LDAiy 41 hexedit.da.nr
 9122: 2937   ANDim 37
 9124: 0908   ORAim 08
 9126: 858A   STAz 8A bs.ACSave
 9128: A005   LDYim 05
-912A: B141   LDAiy 41
+912A: B141   LDAiy 41 hexedit.da.nr
 912C: 858F   STAz 8F bs.aktTask
 912E: C8     INY
-912F: B141   LDAiy 41
+912F: B141   LDAiy 41 hexedit.da.nr
 9131: 8590   STAz 90 bs.grenzPrio
 9133: 60     RTS
 9134: FF     
@@ -20638,7 +20753,7 @@
 9178: 00     BRK
 9179: 00     BRK
 917A: A002   LDYim 02
-917C: 20A525 JSR 25A5
+917C: 20A525 JSR 25A5 bs.KPUe
 917F: 68     PLA
 9180: 8509   STAz 09
 9182: 68     PLA
@@ -21413,14 +21528,14 @@
 95F6: 22     
 95F7: 33     
 95F8: A000   LDYim 00
-95FA: B141   LDAiy 41
+95FA: B141   LDAiy 41 hexedit.da.nr
 95FC: 29C0   ANDim C0
 95FE: D008   BNE +8>08
-9600: B141   LDAiy 41
+9600: B141   LDAiy 41 hexedit.da.nr
 9602: 2938   ANDim 38
 9604: C920   CMPim 20
 9606: D008   BNE +8>10
-9608: B141   LDAiy 41
+9608: B141   LDAiy 41 hexedit.da.nr
 960A: 2930   ANDim 30
 960C: C910   CMPim 10
 960E: D004   BNE +4>14
@@ -22032,7 +22147,7 @@
 99AD: C920   CMPim 20
 99AF: D008   BNE +8>B9
 99B1: 204DDA JSR DA4D
-99B4: C499   CPYz 99
+99B4: C499   CPYz 99 hexedit.video2
 99B6: EA     NOP
 99B7: EA     NOP
 99B8: 60     RTS
@@ -22157,7 +22272,7 @@
 9A8C: DA     
 9A8D: ED0000 SBC 0000
 9A90: D8     CLD
-9A91: F56D   SBCzx 6D
+9A91: F56D   SBCzx 6D hexedit.spaTty
 9A93: F8     SED
 9A94: E9F5   SBCim F5
 9A96: F1F8   SBCiy F8
@@ -22223,7 +22338,7 @@
 9AED: F696   INCzx 96
 9AEF: F8     SED
 9AF0: 6A     RORa
-9AF1: F69A   INCzx 9A
+9AF1: F69A   INCzx 9A hexedit.video3
 9AF3: F8     SED
 9AF4: FF     
 9AF5: FF     
@@ -25688,7 +25803,7 @@ AA17: A9FF   LDAim FF
 AA19: A261   LDXim 61
 AA1B: 85CC   STAz CC bs.Transfer3.bisL
 AA1D: 86CD   STXz CD bs.Transfer3.bisH
-AA1F: 20403E JSR 3E40
+AA1F: 20403E JSR 3E40 hexedit.Transfer2
 AA22: A900   LDAim 00
 AA24: A2AA   LDXim AA
 AA26: 85CA   STAz CA bs.Transfer3.vonL
@@ -25699,7 +25814,7 @@ AA2E: A9FF   LDAim FF
 AA30: A2B7   LDXim B7
 AA32: 85CC   STAz CC bs.Transfer3.bisL
 AA34: 86CD   STXz CD bs.Transfer3.bisH
-AA36: 20403E JSR 3E40
+AA36: 20403E JSR 3E40 hexedit.Transfer2
 AA39: A900   LDAim 00
 AA3B: 8DF9FF STA FFF9 bios.flag EPROM med
 AA3E: 8DFAFF STA FFFA bios.flag EPROM hi/NMIadr
@@ -25908,26 +26023,26 @@ AB29: 22
 AB2A: 33     
 AB2B: A200   LDXim 00
 AB2D: 86EA   STXz EA
-AB2F: 20CE24 JSR 24CE
+AB2F: 20CE24 JSR 24CE hexedit.Blank
 AB32: A6EA   LDXz EA
 AB34: BD6A03 LDAx 036A
-AB37: 20EF24 JSR 24EF
+AB37: 20EF24 JSR 24EF hexedit.byteDru
 AB3A: A6EA   LDXz EA
 AB3C: E8     INX
 AB3D: E007   CPXim 07
 AB3F: D0EC   BNE -20>2D
-AB41: 20C924 JSR 24C9
+AB41: 20C924 JSR 24C9 hexedit.2Blanks
 AB44: AD0016 LDA 1600 floppy.??
-AB47: 20EF24 JSR 24EF
-AB4A: 20C924 JSR 24C9
+AB47: 20EF24 JSR 24EF hexedit.byteDru
+AB4A: 20C924 JSR 24C9 hexedit.2Blanks
 AB4D: 20DDAD JSR ADDD
 AB50: 60     RTS
 AB51: FF     
 AB52: 22     
 AB53: 33     
-AB54: 20CE24 JSR 24CE
+AB54: 20CE24 JSR 24CE hexedit.Blank
 AB57: AD6A03 LDA 036A
-AB5A: 20EF24 JSR 24EF
+AB5A: 20EF24 JSR 24EF hexedit.byteDru
 AB5D: 4C41AB JMP AB41
 AB60: FF     
 AB61: FF     
@@ -25943,12 +26058,12 @@ AB6C: FF
 AB6D: 22     
 AB6E: 33     
 AB6F: EA     NOP
-AB70: 20CE24 JSR 24CE
+AB70: 20CE24 JSR 24CE hexedit.Blank
 AB73: AD6A03 LDA 036A
-AB76: 20EF24 JSR 24EF
-AB79: 20CE24 JSR 24CE
+AB76: 20EF24 JSR 24EF hexedit.byteDru
+AB79: 20CE24 JSR 24CE hexedit.Blank
 AB7C: AD6B03 LDA 036B
-AB7F: 20EF24 JSR 24EF
+AB7F: 20EF24 JSR 24EF hexedit.byteDru
 AB82: 4C41AB JMP AB41
 AB85: FF     
 AB86: FF     
@@ -25971,7 +26086,7 @@ AB96: FF
 AB97: 22     
 AB98: 33     
 AB99: A907   LDAim 07
-AB9B: 20EF24 JSR 24EF
+AB9B: 20EF24 JSR 24EF hexedit.byteDru
 AB9E: A907   LDAim 07
 ABA0: 2069AC JSR AC69
 ABA3: AD6903 LDA 0369
@@ -25987,7 +26102,7 @@ ABB6: F0F1   BEQ -15>A9
 ABB8: 98     TYA
 ABB9: 60     RTS
 ABBA: A907   LDAim 07
-ABBC: 20EF24 JSR 24EF
+ABBC: 20EF24 JSR 24EF hexedit.byteDru
 ABBF: 209EAB JSR AB9E
 ABC2: 209EAB JSR AB9E
 ABC5: 60     RTS
@@ -25998,7 +26113,7 @@ ABC9: FF
 ABCA: 22     
 ABCB: 33     
 ABCC: A903   LDAim 03
-ABCE: 20EF24 JSR 24EF
+ABCE: 20EF24 JSR 24EF hexedit.byteDru
 ABD1: A903   LDAim 03
 ABD3: 2069AC JSR AC69
 ABD6: AD7803 LDA 0378
@@ -26014,7 +26129,7 @@ ABE8: FF
 ABE9: 22     
 ABEA: 33     
 ABEB: A904   LDAim 04
-ABED: 20EF24 JSR 24EF
+ABED: 20EF24 JSR 24EF hexedit.byteDru
 ABF0: A904   LDAim 04
 ABF2: 2069AC JSR AC69
 ABF5: AD6E03 LDA 036E
@@ -26031,9 +26146,9 @@ AC0C: 8D6A03 STA 036A
 AC0F: E8     INX
 AC10: 60     RTS
 AC11: A908   LDAim 08
-AC13: 20EF24 JSR 24EF
+AC13: 20EF24 JSR 24EF hexedit.byteDru
 AC16: A93A   LDAim 3A
-AC18: 206324 JSR 2463
+AC18: 206324 JSR 2463 hexedit.write
 AC1B: A908   LDAim 08
 AC1D: 2069AC JSR AC69
 AC20: A200   LDXim 00
@@ -26104,9 +26219,9 @@ AC74: FF
 AC75: 22     
 AC76: 33     
 AC77: A90D   LDAim 0D
-AC79: 20EF24 JSR 24EF
+AC79: 20EF24 JSR 24EF hexedit.byteDru
 AC7C: A93A   LDAim 3A
-AC7E: 206324 JSR 2463
+AC7E: 206324 JSR 2463 hexedit.write
 AC81: A90D   LDAim 0D
 AC83: 0D6803 ORA 0368
 AC86: 2069AC JSR AC69
@@ -26204,21 +26319,21 @@ AD14: 8A     TXAa
 AD15: 48     PHA
 AD16: A5EE   LDAz EE
 AD18: 095E   ORAim 5E
-AD1A: 206324 JSR 2463
+AD1A: 206324 JSR 2463 hexedit.write
 AD1D: 68     PLA
 AD1E: AA     TAX
 AD1F: 68     PLA
 AD20: 60     RTS
 AD21: 33     
-AD22: 206624 JSR 2466
+AD22: 206624 JSR 2466 hexedit.openOutVideo
 AD25: EA     NOP
 AD26: EA     NOP
 AD27: 2013AD JSR AD13
 AD2A: 2011AB JSR AB11
-AD2D: 20D424 JSR 24D4
-AD30: 206024 JSR 2460
+AD2D: 20D424 JSR 24D4 hexedit.CR
+AD30: 206024 JSR 2460 hexedit.read
 AD33: 48     PHA
-AD34: 206324 JSR 2463
+AD34: 206324 JSR 2463 hexedit.write
 AD37: 68     PLA
 AD38: C93A   CMPim 3A
 AD3A: 9003   BCC +3>3F
@@ -26275,10 +26390,10 @@ AD92: A900   LDAim 00
 AD94: 85EC   STAz EC
 AD96: 85ED   STAz ED
 AD98: A906   LDAim 06
-AD9A: 20EF24 JSR 24EF
+AD9A: 20EF24 JSR 24EF hexedit.byteDru
 AD9D: A93A   LDAim 3A
-AD9F: 206324 JSR 2463
-ADA2: 20CE24 JSR 24CE
+AD9F: 206324 JSR 2463 hexedit.write
+ADA2: 20CE24 JSR 24CE hexedit.Blank
 ADA5: A906   LDAim 06
 ADA7: 20BBAE JSR AEBB
 ADAA: 4CBFAD JMP ADBF
@@ -26302,28 +26417,28 @@ ADBD: 22
 ADBE: 33     
 ADBF: EA     NOP
 ADC0: 2016AF JSR AF16
-ADC3: 20C924 JSR 24C9
+ADC3: 20C924 JSR 24C9 hexedit.2Blanks
 ADC6: A5ED   LDAz ED
-ADC8: 20EF24 JSR 24EF
+ADC8: 20EF24 JSR 24EF hexedit.byteDru
 ADCB: A5EC   LDAz EC
-ADCD: 20EF24 JSR 24EF
+ADCD: 20EF24 JSR 24EF hexedit.byteDru
 ADD0: A921   LDAim 21
-ADD2: 206324 JSR 2463
+ADD2: 206324 JSR 2463 hexedit.write
 ADD5: 20DDAA JSR AADD
 ADD8: 60     RTS
 ADD9: FF     
 ADDA: FF     
 ADDB: 22     
 ADDC: 33     
-ADDD: 20C924 JSR 24C9
-ADE0: 20C924 JSR 24C9
+ADDD: 20C924 JSR 24C9 hexedit.2Blanks
+ADE0: 20C924 JSR 24C9 hexedit.2Blanks
 ADE3: A5ED   LDAz ED
-ADE5: 20EF24 JSR 24EF
+ADE5: 20EF24 JSR 24EF hexedit.byteDru
 ADE8: A5EC   LDAz EC
-ADEA: 20EF24 JSR 24EF
+ADEA: 20EF24 JSR 24EF hexedit.byteDru
 ADED: A921   LDAim 21
-ADEF: 206324 JSR 2463
-ADF2: 20C924 JSR 24C9
+ADEF: 206324 JSR 2463 hexedit.write
+ADF2: 20C924 JSR 24C9 hexedit.2Blanks
 ADF5: 60     RTS
 ADF6: FF     
 ADF7: FF     
@@ -26336,10 +26451,10 @@ ADFD: FF
 ADFE: 22     
 ADFF: 33     
 AE00: A905   LDAim 05
-AE02: 20EF24 JSR 24EF
+AE02: 20EF24 JSR 24EF hexedit.byteDru
 AE05: A93A   LDAim 3A
-AE07: 206324 JSR 2463
-AE0A: 20CE24 JSR 24CE
+AE07: 206324 JSR 2463 hexedit.write
+AE0A: 20CE24 JSR 24CE hexedit.Blank
 AE0D: A203   LDXim 03
 AE0F: BD7A03 LDAx 037A
 AE12: 95EA   STAzx EA
@@ -26512,10 +26627,10 @@ AEEB: FF
 AEEC: 22     
 AEED: 33     
 AEEE: A902   LDAim 02
-AEF0: 20EF24 JSR 24EF
+AEF0: 20EF24 JSR 24EF hexedit.byteDru
 AEF3: A93A   LDAim 3A
-AEF5: 206324 JSR 2463
-AEF8: 20CE24 JSR 24CE
+AEF5: 206324 JSR 2463 hexedit.write
+AEF8: 20CE24 JSR 24CE hexedit.Blank
 AEFB: A203   LDXim 03
 AEFD: BD7A03 LDAx 037A
 AF00: 95EA   STAzx EA
@@ -26606,14 +26721,14 @@ AF75: 22
 AF76: 33     
 AF77: 20EEAE JSR AEEE
 AF7A: 2016AF JSR AF16
-AF7D: 20C924 JSR 24C9
+AF7D: 20C924 JSR 24C9 hexedit.2Blanks
 AF80: A5ED   LDAz ED
-AF82: 20EF24 JSR 24EF
+AF82: 20EF24 JSR 24EF hexedit.byteDru
 AF85: A5EC   LDAz EC
-AF87: 20EF24 JSR 24EF
+AF87: 20EF24 JSR 24EF hexedit.byteDru
 AF8A: A921   LDAim 21
-AF8C: 206324 JSR 2463
-AF8F: 20C924 JSR 24C9
+AF8C: 206324 JSR 2463 hexedit.write
+AF8F: 20C924 JSR 24C9 hexedit.2Blanks
 AF92: 20DDAA JSR AADD
 AF95: 60     RTS
 AF96: FF     
@@ -26653,26 +26768,26 @@ AFB7: FF
 AFB8: FF     
 AFB9: 22     
 AFBA: 33     
-AFBB: 206624 JSR 2466
+AFBB: 206624 JSR 2466 hexedit.openOutVideo
 AFBE: AD7A03 LDA 037A
 AFC1: AE7B03 LDX 037B
 AFC4: 85EA   STAz EA
 AFC6: 86EB   STXz EB
-AFC8: 20C924 JSR 24C9
+AFC8: 20C924 JSR 24C9 hexedit.2Blanks
 AFCB: A5ED   LDAz ED
-AFCD: 20EF24 JSR 24EF
+AFCD: 20EF24 JSR 24EF hexedit.byteDru
 AFD0: A5EC   LDAz EC
-AFD2: 20EF24 JSR 24EF
-AFD5: 20D424 JSR 24D4
+AFD2: 20EF24 JSR 24EF hexedit.byteDru
+AFD5: 20D424 JSR 24D4 hexedit.CR
 AFD8: A900   LDAim 00
 AFDA: 8507   STAz 07
 AFDC: A5EB   LDAz EB
 AFDE: 8509   STAz 09
 AFE0: A507   LDAz 07
-AFE2: 20EF24 JSR 24EF
+AFE2: 20EF24 JSR 24EF hexedit.byteDru
 AFE5: A93A   LDAim 3A
-AFE7: 206324 JSR 2463
-AFEA: 20CE24 JSR 24CE
+AFE7: 206324 JSR 2463 hexedit.write
+AFEA: 20CE24 JSR 24CE hexedit.Blank
 AFED: A000   LDYim 00
 AFEF: 8408   STYz 08
 AFF1: 2055B0 JSR B055
@@ -26680,29 +26795,29 @@ AFF4: E608   INCz 08
 AFF6: A408   LDYz 08
 AFF8: C010   CPYim 10
 AFFA: D0F5   BNE -11>F1
-AFFC: 20CE24 JSR 24CE
+AFFC: 20CE24 JSR 24CE hexedit.Blank
 AFFF: A0F8   LDYim F8
 B001: 8408   STYz 08
 B003: 2055B0 JSR B055
 B006: E608   INCz 08
 B008: A408   LDYz 08
 B00A: D0F7   BNE -9>03
-B00C: 20D424 JSR 24D4
+B00C: 20D424 JSR 24D4 hexedit.CR
 B00F: E607   INCz 07
 B011: E609   INCz 09
 B013: A507   LDAz 07
 B015: C5ED   CMPz ED
 B017: D0C7   BNE -57>E0
 B019: A92A   LDAim 2A
-B01B: 206324 JSR 2463
+B01B: 206324 JSR 2463 hexedit.write
 B01E: 60     RTS
 B01F: FF     
 B020: 22     
 B021: 33     
-B022: 206624 JSR 2466
+B022: 206624 JSR 2466 hexedit.openOutVideo
 B025: 205451 JSR 5154
 B028: 2011AB JSR AB11
-B02B: 20D424 JSR 24D4
+B02B: 20D424 JSR 24D4 hexedit.CR
 B02E: 20BEAF JSR AFBE
 B031: 60     RTS
 B032: FF     
@@ -26744,17 +26859,17 @@ B055: A000   LDYim 00
 B057: B108   LDAiy 08
 B059: C940   CMPim 40
 B05B: D010   BNE +16>6D
-B05D: 20CE24 JSR 24CE
+B05D: 20CE24 JSR 24CE hexedit.Blank
 B060: A92E   LDAim 2E
-B062: 206324 JSR 2463
-B065: 20CE24 JSR 24CE
+B062: 206324 JSR 2463 hexedit.write
+B065: 20CE24 JSR 24CE hexedit.Blank
 B068: 60     RTS
 B069: FF     
 B06A: FF     
 B06B: 22     
 B06C: 33     
-B06D: 20EF24 JSR 24EF
-B070: 20CE24 JSR 24CE
+B06D: 20EF24 JSR 24EF hexedit.byteDru
+B070: 20CE24 JSR 24CE hexedit.Blank
 B073: 60     RTS
 B074: FF     
 B075: FF     
@@ -26777,7 +26892,7 @@ B085: FF
 B086: 22     
 B087: 33     
 B088: A90A   LDAim 0A
-B08A: 20EF24 JSR 24EF
+B08A: 20EF24 JSR 24EF hexedit.byteDru
 B08D: A90A   LDAim 0A
 B08F: 0D6803 ORA 0368
 B092: 2069AC JSR AC69
@@ -26795,9 +26910,9 @@ B0A7: FF
 B0A8: 22     
 B0A9: 33     
 B0AA: A90F   LDAim 0F
-B0AC: 20EF24 JSR 24EF
+B0AC: 20EF24 JSR 24EF hexedit.byteDru
 B0AF: A92E   LDAim 2E
-B0B1: 206324 JSR 2463
+B0B1: 206324 JSR 2463 hexedit.write
 B0B4: A90F   LDAim 0F
 B0B6: 2069AC JSR AC69
 B0B9: AD6E03 LDA 036E
@@ -26826,7 +26941,7 @@ B0D9: FF
 B0DA: 00     BRK
 B0DB: 22     
 B0DC: 33     
-B0DD: 203821 JSR 2138
+B0DD: 203821 JSR 2138 drucker.writeplus
 B0E0: 07     
 B0E1: 466F   LSRz 6F
 B0E3: 72     
@@ -26953,10 +27068,10 @@ B197: 2C0016 BIT 1600 floppy.??
 B19A: 10FB   BPL -5>97
 B19C: 5009   BVC +9>A7
 B19E: AD0116 LDA 1601 floppy.??
-B1A1: 20EF24 JSR 24EF
+B1A1: 20EF24 JSR 24EF hexedit.byteDru
 B1A4: 18     CLC
 B1A5: 90F0   BCC -16>97
-B1A7: 20CE24 JSR 24CE
+B1A7: 20CE24 JSR 24CE hexedit.Blank
 B1AA: 60     RTS
 B1AB: FF     
 B1AC: FF     
@@ -26974,12 +27089,12 @@ B1B7: FF
 B1B8: FF     
 B1B9: 22     
 B1BA: 33     
-B1BB: 203821 JSR 2138
+B1BB: 203821 JSR 2138 drucker.writeplus
 B1BE: 0553   ORAz 53
 B1C0: 6565   ADCz 65
 B1C2: 6B     
 B1C3: 20EAEA JSR EAEA
-B1C6: 206024 JSR 2460
+B1C6: 206024 JSR 2460 hexedit.read
 B1C9: C93A   CMPim 3A
 B1CB: 9002   BCC +2>CF
 B1CD: E907   SBCim 07
@@ -26989,20 +27104,20 @@ B1D2: 0A     ASLa
 B1D3: 0A     ASLa
 B1D4: 0A     ASLa
 B1D5: 85EA   STAz EA
-B1D7: 206024 JSR 2460
+B1D7: 206024 JSR 2460 hexedit.read
 B1DA: C93A   CMPim 3A
 B1DC: 9002   BCC +2>E0
 B1DE: E907   SBCim 07
 B1E0: 290F   ANDim 0F
 B1E2: 05EA   ORAz EA
 B1E4: 8D6D03 STA 036D
-B1E7: 20EF24 JSR 24EF
-B1EA: 206024 JSR 2460
+B1E7: 20EF24 JSR 24EF hexedit.byteDru
+B1EA: 206024 JSR 2460 hexedit.read
 B1ED: 2901   ANDim 01
 B1EF: 8D6E03 STA 036E
-B1F2: 20E224 JSR 24E2
+B1F2: 20E224 JSR 24E2 hexedit.Nibble
 B1F5: A93A   LDAim 3A
-B1F7: 206324 JSR 2463
+B1F7: 206324 JSR 2463 hexedit.write
 B1FA: 4C4D52 JMP 524D
 B1FD: 201BAC JSR AC1B
 B200: CA     DEX
@@ -27061,7 +27176,7 @@ B246: D002   BNE +2>4A
 B248: A900   LDAim 00
 B24A: 8D2016 STA 1620
 B24D: A94D   LDAim 4D
-B24F: 206324 JSR 2463
+B24F: 206324 JSR 2463 hexedit.write
 B252: 60     RTS
 B253: FF     
 B254: FF     
@@ -27076,7 +27191,7 @@ B25C: FF
 B25D: FF     
 B25E: 22     
 B25F: 33     
-B260: 206024 JSR 2460
+B260: 206024 JSR 2460 hexedit.read
 B263: C93A   CMPim 3A
 B265: 9002   BCC +2>69
 B267: E907   SBCim 07
@@ -27091,7 +27206,7 @@ B273: 85EA   STAz EA
 B275: 2060B2 JSR B260
 B278: 05EA   ORAz EA
 B27A: 85EA   STAz EA
-B27C: 20EF24 JSR 24EF
+B27C: 20EF24 JSR 24EF hexedit.byteDru
 B27F: A5EA   LDAz EA
 B281: 60     RTS
 B282: FF     
@@ -27139,10 +27254,10 @@ B2B2: A901   LDAim 01
 B2B4: D002   BNE +2>B8
 B2B6: A900   LDAim 00
 B2B8: 8D6303 STA 0363
-B2BB: 20CE24 JSR 24CE
+B2BB: 20CE24 JSR 24CE hexedit.Blank
 B2BE: 2060B2 JSR B260
 B2C1: 8D2B03 STA 032B
-B2C4: 20E224 JSR 24E2
+B2C4: 20E224 JSR 24E2 hexedit.Nibble
 B2C7: 206CB2 JSR B26C
 B2CA: 8D2A03 STA 032A
 B2CD: 20D653 JSR 53D6
@@ -27165,18 +27280,18 @@ B2DF: 33
 B2E0: 2060B2 JSR B260
 B2E3: 2907   ANDim 07
 B2E5: 8D2303 STA 0323
-B2E8: 206624 JSR 2466
-B2EB: 20C924 JSR 24C9
+B2E8: 206624 JSR 2466 hexedit.openOutVideo
+B2EB: 20C924 JSR 24C9 hexedit.2Blanks
 B2EE: AD2303 LDA 0323
-B2F1: 20E224 JSR 24E2
-B2F4: 20C924 JSR 24C9
+B2F1: 20E224 JSR 24E2 hexedit.Nibble
+B2F4: 20C924 JSR 24C9 hexedit.2Blanks
 B2F7: AC2303 LDY 0323
 B2FA: 200D56 JSR 560D
 B2FD: A5EB   LDAz EB
-B2FF: 20EF24 JSR 24EF
+B2FF: 20EF24 JSR 24EF hexedit.byteDru
 B302: A5EA   LDAz EA
-B304: 20EF24 JSR 24EF
-B307: 20C924 JSR 24C9
+B304: 20EF24 JSR 24EF hexedit.byteDru
+B307: 20C924 JSR 24C9 hexedit.2Blanks
 B30A: AD2303 LDA 0323
 B30D: 0A     ASLa
 B30E: AA     TAX
@@ -27186,19 +27301,19 @@ B313: 48     PHA
 B314: 0A     ASLa
 B315: A918   LDAim 18
 B317: 2A     ROLa
-B318: 206324 JSR 2463
-B31B: 20CE24 JSR 24CE
+B318: 206324 JSR 2463 hexedit.write
+B31B: 20CE24 JSR 24CE hexedit.Blank
 B31E: 68     PLA
 B31F: 297F   ANDim 7F
-B321: 20EF24 JSR 24EF
+B321: 20EF24 JSR 24EF hexedit.byteDru
 B324: 68     PLA
 B325: AA     TAX
 B326: BD4E03 LDAx 034E
-B329: 20EF24 JSR 24EF
-B32C: 20C924 JSR 24C9
+B329: 20EF24 JSR 24EF hexedit.byteDru
+B32C: 20C924 JSR 24C9 hexedit.2Blanks
 B32F: AD3203 LDA 0332
-B332: 20E224 JSR 24E2
-B335: 20CE24 JSR 24CE
+B332: 20E224 JSR 24E2 hexedit.Nibble
+B335: 20CE24 JSR 24CE hexedit.Blank
 B338: 200A56 JSR 560A
 B33B: 20A15C JSR 5CA1
 B33E: 48     PHA
@@ -27211,7 +27326,7 @@ B349: 68     PLA
 B34A: 8DF8FF STA FFF8 bios.flag EPROM lo
 B34D: 8D081A STA 1A08 bs.param.ROMStatusMaster
 B350: 206FB3 JSR B36F
-B353: 20D424 JSR 24D4
+B353: 20D424 JSR 24D4 hexedit.CR
 B356: 60     RTS
 B357: FF     
 B358: FF     
@@ -27243,18 +27358,18 @@ B373: 85EA   STAz EA
 B375: 86EB   STXz EB
 B377: A9FF   LDAim FF
 B379: 85EC   STAz EC
-B37B: 20D424 JSR 24D4
+B37B: 20D424 JSR 24D4 hexedit.CR
 B37E: E6EC   INCz EC
-B380: 20D424 JSR 24D4
+B380: 20D424 JSR 24D4 hexedit.CR
 B383: A5EC   LDAz EC
-B385: 20E224 JSR 24E2
+B385: 20E224 JSR 24E2 hexedit.Nibble
 B388: A93A   LDAim 3A
-B38A: 206324 JSR 2463
-B38D: 20C924 JSR 24C9
+B38A: 206324 JSR 2463 hexedit.write
+B38D: 20C924 JSR 24C9 hexedit.2Blanks
 B390: A000   LDYim 00
 B392: B1EA   LDAiy EA
-B394: 20EF24 JSR 24EF
-B397: 20CE24 JSR 24CE
+B394: 20EF24 JSR 24EF hexedit.byteDru
+B397: 20CE24 JSR 24CE hexedit.Blank
 B39A: E6EA   INCz EA
 B39C: A5EA   LDAz EA
 B39E: EA     NOP
@@ -27263,7 +27378,7 @@ B3A0: 290F   ANDim 0F
 B3A2: F01A   BEQ +26>BE
 B3A4: 2907   ANDim 07
 B3A6: D0E8   BNE -24>90
-B3A8: 20CE24 JSR 24CE
+B3A8: 20CE24 JSR 24CE hexedit.Blank
 B3AB: 18     CLC
 B3AC: 90E2   BCC -30>90
 B3AE: FF     
@@ -27282,8 +27397,8 @@ B3BA: FF
 B3BB: FF     
 B3BC: 22     
 B3BD: 33     
-B3BE: 20C924 JSR 24C9
-B3C1: 20C924 JSR 24C9
+B3BE: 20C924 JSR 24C9 hexedit.2Blanks
+B3C1: 20C924 JSR 24C9 hexedit.2Blanks
 B3C4: 38     SEC
 B3C5: A5EA   LDAz EA
 B3C7: E910   SBCim 10
@@ -27297,7 +27412,7 @@ B3D1: B1EA   LDAiy EA
 B3D3: C920   CMPim 20
 B3D5: B002   BCS +2>D9
 B3D7: A92E   LDAim 2E
-B3D9: 206324 JSR 2463
+B3D9: 206324 JSR 2463 hexedit.write
 B3DC: E6EA   INCz EA
 B3DE: A5EA   LDAz EA
 B3E0: F00E   BEQ +14>F0
@@ -27305,7 +27420,7 @@ B3E2: 290F   ANDim 0F
 B3E4: F098   BEQ -104>7E
 B3E6: 2907   ANDim 07
 B3E8: D003   BNE +3>ED
-B3EA: 20CE24 JSR 24CE
+B3EA: 20CE24 JSR 24CE hexedit.Blank
 B3ED: 18     CLC
 B3EE: 90DF   BCC -33>CF
 B3F0: 60     RTS
@@ -27366,7 +27481,7 @@ B426: FF
 B427: FF     
 B428: 22     
 B429: 33     
-B42A: 203821 JSR 2138
+B42A: 203821 JSR 2138 drucker.writeplus
 B42D: 08     PHP
 B42E: 207374 JSR 7473
 B431: 6174   ADCix 74
@@ -27376,7 +27491,7 @@ B438: 2060B2 JSR B260
 B43B: 2907   ANDim 07
 B43D: 8D2303 STA 0323
 B440: 48     PHA
-B441: 20E224 JSR 24E2
+B441: 20E224 JSR 24E2 hexedit.Nibble
 B444: 206CB2 JSR B26C
 B447: A8     TAY
 B448: 68     PLA
@@ -27391,7 +27506,7 @@ B454: 68     PLA
 B455: AA     TAX
 B456: 98     TYA
 B457: 9D4E03 STAx 034E
-B45A: 20CE24 JSR 24CE
+B45A: 20CE24 JSR 24CE hexedit.Blank
 B45D: A201   LDXim 01
 B45F: 60     RTS
 B460: FF     
@@ -27402,7 +27517,7 @@ B464: FF
 B465: FF     
 B466: 22     
 B467: 33     
-B468: 203821 JSR 2138
+B468: 203821 JSR 2138 drucker.writeplus
 B46B: 0620   ASLz 20
 B46D: 68     PLA
 B46E: 6F     
@@ -27411,8 +27526,8 @@ B472: EA     NOP
 B473: 2060B2 JSR B260
 B476: 2907   ANDim 07
 B478: 8D2303 STA 0323
-B47B: 20E224 JSR 24E2
-B47E: 20CE24 JSR 24CE
+B47B: 20E224 JSR 24E2 hexedit.Nibble
+B47E: 20CE24 JSR 24CE hexedit.Blank
 B481: 2060B2 JSR B260
 B484: 290F   ANDim 0F
 B486: 8D1903 STA 0319
@@ -27425,7 +27540,7 @@ B495: FF
 B496: FF     
 B497: 22     
 B498: 33     
-B499: 203821 JSR 2138
+B499: 203821 JSR 2138 drucker.writeplus
 B49C: 0920   ORAim 20
 B49E: 6E6577 ROR 7765
 B4A1: 6669   RORz 69
@@ -27434,9 +27549,9 @@ B4A6: EA     NOP
 B4A7: EA     NOP
 B4A8: A200   LDXim 00
 B4AA: 86EA   STXz EA
-B4AC: 206024 JSR 2460
+B4AC: 206024 JSR 2460 hexedit.read
 B4AF: 48     PHA
-B4B0: 206324 JSR 2463
+B4B0: 206324 JSR 2463 hexedit.write
 B4B3: 68     PLA
 B4B4: C980   CMPim 80
 B4B6: B010   BCS +16>C8
@@ -27470,7 +27585,7 @@ B4EA: 68     PLA
 B4EB: 8D081A STA 1A08 bs.param.ROMStatusMaster
 B4EE: 8DF8FF STA FFF8 bios.flag EPROM lo
 B4F1: 8A     TXAa
-B4F2: 206324 JSR 2463
+B4F2: 206324 JSR 2463 hexedit.write
 B4F5: E6EA   INCz EA
 B4F7: A4EA   LDYz EA
 B4F9: C020   CPYim 20
@@ -27481,7 +27596,7 @@ B502: A207   LDXim 07
 B504: 60     RTS
 B505: 22     
 B506: 33     
-B507: 203821 JSR 2138
+B507: 203821 JSR 2138 drucker.writeplus
 B50A: 0620   ASLz 20
 B50C: 73     
 B50D: 6176   ADCix 76
@@ -27507,7 +27622,7 @@ B52B: FF
 B52C: FF     
 B52D: 22     
 B52E: 33     
-B52F: 203821 JSR 2138
+B52F: 203821 JSR 2138 drucker.writeplus
 B532: 0620   ASLz 20
 B534: 6C6F61 JMPi 616F
 B537: 64     
@@ -27536,7 +27651,7 @@ B557: FF
 B558: FF     
 B559: 22     
 B55A: 33     
-B55B: 203821 JSR 2138
+B55B: 203821 JSR 2138 drucker.writeplus
 B55E: 08     PHP
 B55F: 207665 JSR 6576
 B562: 72     
@@ -27570,7 +27685,7 @@ B588: FF
 B589: FF     
 B58A: 22     
 B58B: 33     
-B58C: 203821 JSR 2138
+B58C: 203821 JSR 2138 drucker.writeplus
 B58F: 07     
 B590: 20636C JSR 6C63
 B593: 6561   ADCz 61
@@ -27595,14 +27710,14 @@ B5AD: A000   LDYim 00
 B5AF: 205BB6 JSR B65B
 B5B2: C920   CMPim 20
 B5B4: F00A   BEQ +10>C0
-B5B6: 206324 JSR 2463
+B5B6: 206324 JSR 2463 hexedit.write
 B5B9: E6EA   INCz EA
 B5BB: C6EC   DECz EC
 B5BD: D0EE   BNE -18>AD
 B5BF: EA     NOP
 B5C0: A923   LDAim 23
-B5C2: 8598   STAz 98
-B5C4: 20FD22 JSR 22FD
+B5C2: 8598   STAz 98 hexedit.videoSpa
+B5C4: 20FD22 JSR 22FD hexedit.cursAdrSql
 B5C7: A900   LDAim 00
 B5C9: 85EA   STAz EA
 B5CB: 60     RTS
@@ -27615,12 +27730,12 @@ B5D2: 84EC   STYz EC
 B5D4: 86EA   STXz EA
 B5D6: A000   LDYim 00
 B5D8: 205BB6 JSR B65B
-B5DB: 20EF24 JSR 24EF
+B5DB: 20EF24 JSR 24EF hexedit.byteDru
 B5DE: A6EA   LDXz EA
 B5E0: E8     INX
 B5E1: C6EC   DECz EC
 B5E3: D0EF   BNE -17>D4
-B5E5: 20C924 JSR 24C9
+B5E5: 20C924 JSR 24C9 hexedit.2Blanks
 B5E8: A900   LDAim 00
 B5EA: 85EA   STAz EA
 B5EC: 60     RTS
@@ -27637,12 +27752,12 @@ B5F7: 84EC   STYz EC
 B5F9: 86EA   STXz EA
 B5FB: A000   LDYim 00
 B5FD: 205BB6 JSR B65B
-B600: 20EF24 JSR 24EF
+B600: 20EF24 JSR 24EF hexedit.byteDru
 B603: A6EA   LDXz EA
 B605: CA     DEX
 B606: C6EC   DECz EC
 B608: D0EF   BNE -17>F9
-B60A: 20C924 JSR 24C9
+B60A: 20C924 JSR 24C9 hexedit.2Blanks
 B60D: A900   LDAim 00
 B60F: 85EA   STAz EA
 B611: 60     RTS
@@ -27651,17 +27766,17 @@ B613: FF
 B614: FF     
 B615: 22     
 B616: 33     
-B617: 20D424 JSR 24D4
-B61A: A599   LDAz 99
+B617: 20D424 JSR 24D4 hexedit.CR
+B61A: A599   LDAz 99 hexedit.video2
 B61C: D003   BNE +3>21
-B61E: 206024 JSR 2460
+B61E: 206024 JSR 2460 hexedit.read
 B621: A002   LDYim 02
 B623: 200D56 JSR 560D
 B626: 20A9B5 JSR B5A9
 B629: A020   LDYim 20
 B62B: 205BB6 JSR B65B
-B62E: 20E224 JSR 24E2
-B631: 20C924 JSR 24C9
+B62E: 20E224 JSR 24E2 hexedit.Nibble
+B631: 20C924 JSR 24C9 hexedit.2Blanks
 B634: A223   LDXim 23
 B636: 20F5B5 JSR B5F5
 B639: A226   LDXim 26
@@ -27698,7 +27813,7 @@ B66C: 02
 B66D: 202020 JSR 2020
 B670: 206669 JSR 6966
 B673: 6C656E JMPi 6E65
-B676: 616D   ADCix 6D
+B676: 616D   ADCix 6D hexedit.spaTty
 B678: 6500   ADCz 00
 B67A: 00     BRK
 B67B: 00     BRK
@@ -27728,7 +27843,7 @@ B695: 73
 B696: 6F     
 B697: 6C7574 JMPi 7475
 B69A: 206C61 JSR 616C
-B69D: 656E   ADCz 6E
+B69D: 656E   ADCz 6E hexedit.zeiTty
 B69F: 67     
 B6A0: 6520   ADCz 20
 B6A2: 206572 JSR 7265
@@ -27761,20 +27876,20 @@ B6D1: FF
 B6D2: FF     
 B6D3: 22     
 B6D4: 33     
-B6D5: 206624 JSR 2466
+B6D5: 206624 JSR 2466 hexedit.openOutVideo
 B6D8: A000   LDYim 00
 B6DA: 200D56 JSR 560D
 B6DD: 20A9B5 JSR B5A9
 B6E0: A020   LDYim 20
 B6E2: 205BB6 JSR B65B
-B6E5: 20E224 JSR 24E2
-B6E8: 20C924 JSR 24C9
+B6E5: 20E224 JSR 24E2 hexedit.Nibble
+B6E8: 20C924 JSR 24C9 hexedit.2Blanks
 B6EB: A222   LDXim 22
 B6ED: 20D0B5 JSR B5D0
 B6F0: A22A   LDXim 2A
 B6F2: A002   LDYim 02
 B6F4: 20F7B5 JSR B5F7
-B6F7: 203821 JSR 2138
+B6F7: 203821 JSR 2138 drucker.writeplus
 B6FA: 07     
 B6FB: 6672   RORz 72
 B6FD: 6569   ADCz 69
@@ -27783,8 +27898,8 @@ B700: 2020EA JSR EA20
 B703: EA     NOP
 B704: A02B   LDYim 2B
 B706: 205BB6 JSR B65B
-B709: 20EF24 JSR 24EF
-B70C: 203821 JSR 2138
+B709: 20EF24 JSR 24EF hexedit.byteDru
+B70C: 203821 JSR 2138 drucker.writeplus
 B70F: 0620   ASLz 20
 B711: 6669   RORz 69
 B713: 6C6573 JMPi 7365
@@ -27810,7 +27925,7 @@ B728: FF
 B729: 22     
 B72A: 33     
 B72B: 20D5B6 JSR B6D5
-B72E: 200325 JSR 2503
+B72E: 200325 JSR 2503 hexedit.lwriteVonBis
 B731: 6DB6B5 ADC B5B6
 B734: B6EA   LDXzy EA
 B736: EA     NOP
@@ -27838,7 +27953,7 @@ B765: 90D8   BCC -40>3F
 B767: 68     PLA
 B768: 8D081A STA 1A08 bs.param.ROMStatusMaster
 B76B: 8DF8FF STA FFF8 bios.flag EPROM lo
-B76E: 200325 JSR 2503
+B76E: 200325 JSR 2503 hexedit.lwriteVonBis
 B771: B6B6   LDXzy B6
 B773: C6B6   DECz B6
 B775: EA     NOP
@@ -29512,7 +29627,7 @@ BE01: 40     RTI
 BE02: 7F     
 BE03: 3B     
 BE04: 80     
-BE05: 4645   LSRz 45
+BE05: 4645   LSRz 45 hexedit.da.erstes
 BE07: 44     
 BE08: 42     
 BE09: 80     
@@ -29738,7 +29853,7 @@ BF12: 3B
 BF13: 3C     
 BF14: 43     
 BF15: 44     
-BF16: 4648   LSRz 48
+BF16: 4648   LSRz 48 hexedit.da.adrL
 BF18: 4B     
 BF19: 00     BRK
 BF1A: 4C5354 JMP 5453
@@ -29797,7 +29912,7 @@ BF5F: FF
 BF60: 40     RTI
 BF61: 42     
 BF62: 44     
-BF63: 4649   LSRz 49
+BF63: 4649   LSRz 49 hexedit.da.adrH
 BF65: 4B     
 BF66: 4E5358 LSR 5853
 BF69: 5F     
@@ -29805,7 +29920,7 @@ BF6A: 6D7177 ADC 7771
 BF6D: 80     
 BF6E: 8181   STAix 81 bs.??
 BF70: 8D9192 STA 9291
-BF73: 9598   STAzx 98
+BF73: 9598   STAzx 98 hexedit.videoSpa
 BF75: 9B     
 BF76: 9B     
 BF77: 9C     
@@ -30124,7 +30239,7 @@ C104: 00     BRK
 C105: 83     
 C106: 4180   EORix 80
 C108: 04     
-C109: 8447   STYz 47
+C109: 8447   STYz 47 hexedit.da.drittes
 C10B: 80     
 C10C: 08     PHP
 C10D: 8680   STXz 80
@@ -30677,7 +30792,7 @@ C390: 394042 ANDy 4240
 C393: 44     
 C394: 464B   LSRz 4B
 C396: 4E5152 LSR 5251
-C399: 5556   EORzx 56
+C399: 5556   EORzx 56 hexedit.helpH
 C39B: 58     CLI
 C39C: 60     RTS
 C39D: 696A   ADCim 6A
@@ -30921,7 +31036,7 @@ C4F2: 7C
 C4F3: 7E8286 RORx 8682
 C4F6: 88     DEY
 C4F7: 8D8F94 STA 948F
-C4FA: 969A   STXzy 9A
+C4FA: 969A   STXzy 9A hexedit.video3
 C4FC: 9F     
 C4FD: A6A8   LDXz A8
 C4FF: AB     
@@ -30950,7 +31065,7 @@ C51C: 414D   EORix 4D
 C51E: 4D4143 EOR 4341
 C521: 48     PHA
 C522: 494E   EORim 4E
-C524: 4543   EORz 43
+C524: 4543   EORz 43 hexedit.da.fehler
 C526: 4F     
 C527: 44     
 C528: 454C   EORz 4C
@@ -30966,7 +31081,7 @@ C537: 4552   EORz 52
 C539: 4F     
 C53A: 5041   BVC +65>7D
 C53C: 47     
-C53D: 4544   EORz 44
+C53D: 4544   EORz 44 hexedit.da.opcode
 C53F: 43     
 C540: 4C4245 JMP 4542
 C543: 47     
@@ -31007,15 +31122,15 @@ C578: 4554   EORz 54
 C57A: 5052   BVC +82>CE
 C57C: 4F     
 C57D: 43     
-C57E: 4655   LSRz 55
+C57E: 4655   LSRz 55 hexedit.helpL
 C580: 4E4353 LSR 5343
 C583: 54     
-C584: 4143   EORix 43
+C584: 4143   EORix 43 hexedit.da.fehler
 C586: 4B     
 C587: 53     
 C588: 54     
 C589: 52     
-C58A: 5543   EORzx 43
+C58A: 5543   EORzx 43 hexedit.da.fehler
 C58C: 464F   LSRz 4F
 C58E: 52     
 C58F: 42     
@@ -31026,11 +31141,11 @@ C596: 48     PHA
 C597: 454E   EORz 4E
 C599: 454C   EORz 4C
 C59B: 53     
-C59C: 4546   EORz 46
+C59C: 4546   EORz 46 hexedit.da.zweites
 C59E: 4957   EORim 57
 C5A0: 48     PHA
 C5A1: 494C   EORim 4C
-C5A3: 4544   EORz 44
+C5A3: 4544   EORz 44 hexedit.da.opcode
 C5A5: 4F     
 C5A6: 554E   EORzx 4E
 C5A8: 54     
@@ -31042,7 +31157,7 @@ C5AE: 48     PHA
 C5AF: 454E   EORz 4E
 C5B1: 42     
 C5B2: 52     
-C5B3: 4541   EORz 41
+C5B3: 4541   EORz 41 hexedit.da.nr
 C5B5: 4B     
 C5B6: 454E   EORz 4E
 C5B8: 44     
@@ -31053,7 +31168,7 @@ C5BD: 494E   EORim 4E
 C5BF: 4F     
 C5C0: 5554   EORzx 54
 C5C2: 52     
-C5C3: 4541   EORz 41
+C5C3: 4541   EORz 41 hexedit.da.nr
 C5C5: 44     
 C5C6: 57     
 C5C7: 52     
@@ -31076,13 +31191,13 @@ C5E1: 52
 C5E2: 4D4F44 EOR 444F
 C5E5: 54     
 C5E6: 52     
-C5E7: 5545   EORzx 45
-C5E9: 4641   LSRz 41
+C5E7: 5545   EORzx 45 hexedit.da.erstes
+C5E9: 4641   LSRz 41 hexedit.da.nr
 C5EB: 4C5345 JMP 4553
 C5EE: 43     
 C5EF: 4F     
 C5F0: 4C434C JMP 4C43
-C5F3: 4541   EORz 41
+C5F3: 4541   EORz 41 hexedit.da.nr
 C5F5: 52     
 C5F6: 43     
 C5F7: 48     PHA
@@ -31146,7 +31261,7 @@ C634: EA     NOP
 C635: EA     NOP
 C636: EA     NOP
 C637: EA     NOP
-C638: A556   LDAz 56
+C638: A556   LDAz 56 hexedit.helpH
 C63A: C941   CMPim 41
 C63C: B001   BCS +1>3F
 C63E: 60     RTS
@@ -31160,7 +31275,7 @@ C649: C9F2   CMPim F2
 C64B: D023   BNE +35>70
 C64D: EA     NOP
 C64E: EA     NOP
-C64F: A556   LDAz 56
+C64F: A556   LDAz 56 hexedit.helpH
 C651: C941   CMPim 41
 C653: 900C   BCC +12>61
 C655: EA     NOP
@@ -31183,7 +31298,7 @@ C670: C9F3   CMPim F3
 C672: D013   BNE +19>87
 C674: EA     NOP
 C675: EA     NOP
-C676: A556   LDAz 56
+C676: A556   LDAz 56 hexedit.helpH
 C678: C930   CMPim 30
 C67A: B001   BCS +1>7D
 C67C: 60     RTS
@@ -31197,7 +31312,7 @@ C687: C9F4   CMPim F4
 C689: D02A   BNE +42>B5
 C68B: EA     NOP
 C68C: EA     NOP
-C68D: A556   LDAz 56
+C68D: A556   LDAz 56 hexedit.helpH
 C68F: C921   CMPim 21
 C691: F01C   BEQ +28>AF
 C693: C926   CMPim 26
@@ -31249,7 +31364,7 @@ C6E1: BD17C4 LDAx C417
 C6E4: 300A   BMI +10>F0
 C6E6: EA     NOP
 C6E7: EA     NOP
-C6E8: C556   CMPz 56
+C6E8: C556   CMPz 56 hexedit.helpH
 C6EA: F00D   BEQ +13>F9
 C6EC: E657   INCz 57 bs.topWait
 C6EE: D0E7   BNE -25>D7
@@ -31279,24 +31394,24 @@ C711: 855F   STAz 5F bs.breakZeitH
 C713: CD03C4 CMP C403
 C716: D0B8   BNE -72>D0
 C718: 60     RTS
-C719: 200325 JSR 2503
+C719: 200325 JSR 2503 hexedit.lwriteVonBis
 C71C: 44     
 C71D: C7     
 C71E: 61C7   ADCix C7
 C720: EA     NOP
 C721: EA     NOP
 C722: A561   LDAz 61
-C724: 20EF24 JSR 24EF
+C724: 20EF24 JSR 24EF hexedit.byteDru
 C727: A560   LDAz 60
-C729: 20EF24 JSR 24EF
-C72C: 20CE24 JSR 24CE
+C729: 20EF24 JSR 24EF hexedit.byteDru
+C72C: 20CE24 JSR 24CE hexedit.Blank
 C72F: EA     NOP
 C730: EA     NOP
-C731: A556   LDAz 56
-C733: 20EF24 JSR 24EF
-C736: 20CE24 JSR 24CE
+C731: A556   LDAz 56 hexedit.helpH
+C733: 20EF24 JSR 24EF hexedit.byteDru
+C736: 20CE24 JSR 24CE hexedit.Blank
 C739: A55F   LDAz 5F bs.breakZeitH
-C73B: 20EF24 JSR 24EF
+C73B: 20EF24 JSR 24EF hexedit.byteDru
 C73E: 4C3EC7 JMP C73E
 C741: FF     
 C742: FF     
@@ -31315,7 +31430,7 @@ C756: 6573   ADCz 73
 C758: 207A65 JSR 657A
 C75B: 6963   ADCim 63
 C75D: 68     PLA
-C75E: 656E   ADCz 6E
+C75E: 656E   ADCz 6E hexedit.zeiTty
 C760: 3A     
 C761: 2003FF JSR FF03
 C764: FF     
@@ -31324,7 +31439,7 @@ C766: 00     BRK
 C767: 00     BRK
 C768: A000   LDYim 00
 C76A: B15D   LDAiy 5D bs.uhrZeitH
-C76C: 206324 JSR 2463
+C76C: 206324 JSR 2463 hexedit.write
 C76F: E65D   INCz 5D bs.uhrZeitH
 C771: D002   BNE +2>75
 C773: E65E   INCz 5E bs.breakZeitL
@@ -31336,7 +31451,7 @@ C77B: A55E   LDAz 5E bs.breakZeitL
 C77D: E55C   SBCz 5C bs.uhrZeitL
 C77F: 90E7   BCC -25>68
 C781: A9BB   LDAim BB
-C783: 206324 JSR 2463
+C783: 206324 JSR 2463 hexedit.write
 C786: 60     RTS
 C787: FF     
 C788: 00     BRK
@@ -31364,7 +31479,7 @@ C7B1: 30CE   BMI -50>81
 C7B3: 00     BRK
 C7B4: C9BD   CMPim BD
 C7B6: 57     
-C7B7: C448   CPYz 48
+C7B7: C448   CPYz 48 hexedit.da.adrL
 C7B9: 2940   ANDim 40
 C7BB: F003   BEQ +3>C0
 C7BD: 2099CB JSR CB99
@@ -31391,14 +31506,14 @@ C7E0: 00     BRK
 C7E1: 00     BRK
 C7E2: BD57C4 LDAx C457
 C7E5: 48     PHA
-C7E6: 20CE24 JSR 24CE
+C7E6: 20CE24 JSR 24CE hexedit.Blank
 C7E9: A55F   LDAz 5F bs.breakZeitH
-C7EB: 20EF24 JSR 24EF
+C7EB: 20EF24 JSR 24EF hexedit.byteDru
 C7EE: A000   LDYim 00
 C7F0: B160   LDAiy 60
-C7F2: 206324 JSR 2463
+C7F2: 206324 JSR 2463 hexedit.write
 C7F5: A557   LDAz 57 bs.topWait
-C7F7: 20EF24 JSR 24EF
+C7F7: 20EF24 JSR 24EF hexedit.byteDru
 C7FA: 68     PLA
 C7FB: 60     RTS
 C7FC: 00     BRK
@@ -31407,7 +31522,7 @@ C7FE: EA     NOP
 C7FF: EA     NOP
 C800: 2016C9 JSR C916
 C803: 48     PHA
-C804: 20A123 JSR 23A1
+C804: 20A123 JSR 23A1 hexedit.block.rangeIn
 C807: 9004   BCC +4>0D
 C809: A97F   LDAim 7F
 C80B: D014   BNE +20>21
@@ -31424,7 +31539,7 @@ C819: 9006   BCC +6>21
 C81B: C97B   CMPim 7B
 C81D: B002   BCS +2>21
 C81F: 295F   ANDim 5F
-C821: 8556   STAz 56
+C821: 8556   STAz 56 hexedit.helpH
 C823: 68     PLA
 C824: 60     RTS
 C825: FF     
@@ -31438,14 +31553,14 @@ C82C: FF
 C82D: FF     
 C82E: 00     BRK
 C82F: 00     BRK
-C830: 200325 JSR 2503
+C830: 200325 JSR 2503 hexedit.lwriteVonBis
 C833: 50C8   BVC -56>FD
 C835: 6F     
 C836: C8     INY
 C837: EA     NOP
 C838: A252   LDXim 52
 C83A: 2080C8 JSR C880
-C83D: 200625 JSR 2506
+C83D: 200625 JSR 2506 hexedit.writeVonBis
 C840: 70C8   BCS -56>0A
 C842: 77     
 C843: C8     INY
@@ -31457,7 +31572,7 @@ C84C: FF
 C84D: FF     
 C84E: FF     
 C84F: 02     
-C850: 756E   ADCzx 6E
+C850: 756E   ADCzx 6E hexedit.zeiTty
 C852: 6572   ADCz 72
 C854: 77     
 C855: 6172   ADCix 72
@@ -31467,7 +31582,7 @@ C85A: 6573   ADCz 73
 C85C: 204461 JSR 6144
 C85F: 74     
 C860: 6569   ADCz 69
-C862: 656E   ADCz 6E
+C862: 656E   ADCz 6E hexedit.zeiTty
 C864: 64     
 C865: 6520   ADCz 20
 C867: 696E   ADCim 6E
@@ -31481,12 +31596,12 @@ C877: 3A
 C878: 03     
 C879: 8A     TXAa
 C87A: 48     PHA
-C87B: 20D424 JSR 24D4
+C87B: 20D424 JSR 24D4 hexedit.CR
 C87E: 68     PLA
 C87F: AA     TAX
 C880: A900   LDAim 00
 C882: 8554   STAz 54
-C884: 8555   STAz 55
+C884: 8555   STAz 55 hexedit.helpL
 C886: B500   LDAzx 00
 C888: 48     PHA
 C889: B501   LDAzx 01
@@ -31500,15 +31615,15 @@ C893: 3601   ROLzx 01
 C895: A554   LDAz 54
 C897: 6554   ADCz 54
 C899: 8554   STAz 54
-C89B: A555   LDAz 55
-C89D: 6555   ADCz 55
-C89F: 8555   STAz 55
+C89B: A555   LDAz 55 hexedit.helpL
+C89D: 6555   ADCz 55 hexedit.helpL
+C89F: 8555   STAz 55 hexedit.helpL
 C8A1: 88     DEY
 C8A2: D0ED   BNE -19>91
 C8A4: D8     CLD
-C8A5: 20EF24 JSR 24EF
+C8A5: 20EF24 JSR 24EF hexedit.byteDru
 C8A8: A554   LDAz 54
-C8AA: 20EF24 JSR 24EF
+C8AA: 20EF24 JSR 24EF hexedit.byteDru
 C8AD: 68     PLA
 C8AE: AA     TAX
 C8AF: 68     PLA
@@ -31565,7 +31680,7 @@ C900: A558   LDAz 58 bs.aktZeitL
 C902: CD00C4 CMP C400
 C905: F005   BEQ +5>0C
 C907: A920   LDAim 20
-C909: 8556   STAz 56
+C909: 8556   STAz 56 hexedit.helpH
 C90B: 60     RTS
 C90C: A920   LDAim 20
 C90E: 20B8C7 JSR C7B8
@@ -31574,8 +31689,8 @@ C912: FF
 C913: FF     
 C914: 00     BRK
 C915: 00     BRK
-C916: 20DB23 JSR 23DB
-C919: A556   LDAz 56
+C916: 20DB23 JSR 23DB hexedit.block.incCursIn
+C919: A556   LDAz 56 hexedit.helpH
 C91B: C91D   CMPim 1D
 C91D: D00B   BNE +11>2A
 C91F: E652   INCz 52
@@ -31600,7 +31715,7 @@ C93D: 203C3D JSR 3D3C
 C940: 3E3D2D ASLx 2D3D
 C943: 2D7E3D AND 3D7E
 C946: 5B     
-C947: 205C20 JSR 205C
+C947: 205C20 JSR 205C drucker.outStar
 C94A: 5D205E EORx 5E20
 C94D: 207E20 JSR 207E
 C950: 3F     
@@ -31656,7 +31771,7 @@ C996: A916   LDAim 16
 C998: 0A     ASLa
 C999: AA     TAX
 C99A: BD10C9 LDAx C910
-C99D: 206324 JSR 2463
+C99D: 206324 JSR 2463 hexedit.write
 C9A0: A55A   LDAz 5A bs.neueZeitL
 C9A2: C940   CMPim 40
 C9A4: 9002   BCC +2>A8
@@ -31664,13 +31779,13 @@ C9A6: A916   LDAim 16
 C9A8: 0A     ASLa
 C9A9: AA     TAX
 C9AA: BD11C9 LDAx C911
-C9AD: 206324 JSR 2463
+C9AD: 206324 JSR 2463 hexedit.write
 C9B0: 4C75C7 JMP C775
 C9B3: 00     BRK
 C9B4: 00     BRK
-C9B5: 20E923 JSR 23E9
+C9B5: 20E923 JSR 23E9 hexedit.block.initInFile
 C9B8: 2003C8 JSR C803
-C9BB: 206624 JSR 2466
+C9BB: 206624 JSR 2466 hexedit.openOutVideo
 C9BE: 2049CA JSR CA49
 C9C1: 20DAC9 JSR C9DA
 C9C4: 20B2CC JSR CCB2
@@ -31750,11 +31865,11 @@ CA47: FF
 CA48: 00     BRK
 CA49: A900   LDAim 00
 CA4B: A6DD   LDXz DD
-CA4D: 8547   STAz 47
-CA4F: 8648   STXz 48
+CA4D: 8547   STAz 47 hexedit.da.drittes
+CA4F: 8648   STXz 48 hexedit.da.adrL
 CA51: A6C2   LDXz C2
-CA53: 8545   STAz 45
-CA55: 8646   STXz 46
+CA53: 8545   STAz 45 hexedit.da.erstes
+CA55: 8646   STXz 46 hexedit.da.zweites
 CA57: 60     RTS
 CA58: FF     
 CA59: FF     
@@ -31768,26 +31883,26 @@ CA60: A55B   LDAz 5B bs.neueZeitH
 CA62: E55D   SBCz 5D bs.uhrZeitH
 CA64: 8551   STAz 51
 CA66: A900   LDAim 00
-CA68: 8541   STAz 41
+CA68: 8541   STAz 41 hexedit.da.nr
 CA6A: A5C2   LDAz C2
 CA6C: EA     NOP
-CA6D: 8542   STAz 42
-CA6F: A541   LDAz 41
-CA71: C545   CMPz 45
+CA6D: 8542   STAz 42 hexedit.da.laenge
+CA6F: A541   LDAz 41 hexedit.da.nr
+CA71: C545   CMPz 45 hexedit.da.erstes
 CA73: D007   BNE +7>7C
-CA75: A542   LDAz 42
-CA77: C546   CMPz 46
+CA75: A542   LDAz 42 hexedit.da.laenge
+CA77: C546   CMPz 46 hexedit.da.zweites
 CA79: D001   BNE +1>7C
 CA7B: 60     RTS
 CA7C: A00D   LDYim 0D
-CA7E: B141   LDAiy 41
+CA7E: B141   LDAiy 41 hexedit.da.nr
 CA80: C551   CMPz 51
 CA82: D022   BNE +34>A6
 CA84: A00B   LDYim 0B
-CA86: B141   LDAiy 41
+CA86: B141   LDAiy 41 hexedit.da.nr
 CA88: 853F   STAz 3F
 CA8A: C8     INY
-CA8B: B141   LDAiy 41
+CA8B: B141   LDAiy 41 hexedit.da.nr
 CA8D: 8540   STAz 40
 CA8F: A451   LDYz 51
 CA91: 88     DEY
@@ -31803,26 +31918,26 @@ CAA2: 88     DEY
 CAA3: 10ED   BPL -19>92
 CAA5: 60     RTS
 CAA6: 18     CLC
-CAA7: A541   LDAz 41
+CAA7: A541   LDAz 41 hexedit.da.nr
 CAA9: 690E   ADCim 0E
-CAAB: 8541   STAz 41
+CAAB: 8541   STAz 41 hexedit.da.nr
 CAAD: 9002   BCC +2>B1
-CAAF: E642   INCz 42
+CAAF: E642   INCz 42 hexedit.da.laenge
 CAB1: 4C6FCA JMP CA6F
 CAB4: EA     NOP
 CAB5: 18     CLC
-CAB6: A547   LDAz 47
+CAB6: A547   LDAz 47 hexedit.da.drittes
 CAB8: 853F   STAz 3F
 CABA: 6551   ADCz 51
-CABC: 8547   STAz 47
-CABE: A548   LDAz 48
+CABC: 8547   STAz 47 hexedit.da.drittes
+CABE: A548   LDAz 48 hexedit.da.adrL
 CAC0: 8540   STAz 40
 CAC2: 6900   ADCim 00
-CAC4: 8548   STAz 48
+CAC4: 8548   STAz 48 hexedit.da.adrL
 CAC6: C5C0   CMPz C0
 CAC8: EA     NOP
 CAC9: 900F   BCC +15>DA
-CACB: 200325 JSR 2503
+CACB: 200325 JSR 2503 hexedit.lwriteVonBis
 CACE: 2B     
 CACF: CB     
 CAD0: 4B     
@@ -31831,19 +31946,19 @@ CAD2: A252   LDXim 52
 CAD4: 2080C8 JSR C880
 CAD7: 4CD7CA JMP CAD7
 CADA: 18     CLC
-CADB: A545   LDAz 45
+CADB: A545   LDAz 45 hexedit.da.erstes
 CADD: EA     NOP
 CADE: 690E   ADCim 0E
-CAE0: 8545   STAz 45
-CAE2: A546   LDAz 46
+CAE0: 8545   STAz 45 hexedit.da.erstes
+CAE2: A546   LDAz 46 hexedit.da.zweites
 CAE4: EA     NOP
 CAE5: EA     NOP
 CAE6: 6900   ADCim 00
-CAE8: 8546   STAz 46
+CAE8: 8546   STAz 46 hexedit.da.zweites
 CAEA: C5C4   CMPz C4
 CAEC: EA     NOP
 CAED: 900B   BCC +11>FA
-CAEF: 200325 JSR 2503
+CAEF: 200325 JSR 2503 hexedit.lwriteVonBis
 CAF2: 4CCB6B JMP 6BCB
 CAF5: CB     
 CAF6: EA     NOP
@@ -31861,16 +31976,16 @@ CB0B: 88     DEY
 CB0C: 10EF   BPL -17>FD
 CB0E: A000   LDYim 00
 CB10: A900   LDAim 00
-CB12: 9141   STAiy 41
+CB12: 9141   STAiy 41 hexedit.da.nr
 CB14: A00B   LDYim 0B
 CB16: A53F   LDAz 3F
-CB18: 9141   STAiy 41
+CB18: 9141   STAiy 41 hexedit.da.nr
 CB1A: C8     INY
 CB1B: A540   LDAz 40
-CB1D: 9141   STAiy 41
+CB1D: 9141   STAiy 41 hexedit.da.nr
 CB1F: C8     INY
 CB20: A551   LDAz 51
-CB22: 9141   STAiy 41
+CB22: 9141   STAiy 41 hexedit.da.nr
 CB24: 60     RTS
 CB25: FF     
 CB26: FF     
@@ -31883,7 +31998,7 @@ CB2D: 68     PLA
 CB2E: 6C6572 JMPi 7265
 CB31: 3A     
 CB32: 4E616D LSR 6D61
-CB35: 656E   ADCz 6E
+CB35: 656E   ADCz 6E hexedit.zeiTty
 CB37: 6C6973 JMPi 7369
 CB3A: 74     
 CB3B: 6520   ADCz 20
@@ -31979,7 +32094,7 @@ CBBA: 20F0CC JSR CCF0
 CBBD: A55D   LDAz 5D bs.uhrZeitH
 CBBF: 8554   STAz 54
 CBC1: A55E   LDAz 5E bs.breakZeitL
-CBC3: 8555   STAz 55
+CBC3: 8555   STAz 55 hexedit.helpL
 CBC5: A559   LDAz 59 bs.aktZeitH
 CBC7: 8550   STAz 50
 CBC9: A900   LDAim 00
@@ -31988,7 +32103,7 @@ CBCD: 851F   STAz 1F
 CBCF: A554   LDAz 54
 CBD1: C55B   CMPz 5B bs.neueZeitH
 CBD3: D007   BNE +7>DC
-CBD5: A555   LDAz 55
+CBD5: A555   LDAz 55 hexedit.helpL
 CBD7: C55C   CMPz 5C bs.uhrZeitL
 CBD9: D001   BNE +1>DC
 CBDB: 60     RTS
@@ -32008,7 +32123,7 @@ CBF6: F003   BEQ +3>FB
 CBF8: 200ACC JSR CC0A
 CBFB: E654   INCz 54
 CBFD: D002   BNE +2>01
-CBFF: E655   INCz 55
+CBFF: E655   INCz 55 hexedit.helpL
 CC01: 4CCFCB JMP CBCF
 CC04: FF     
 CC05: FF     
@@ -32028,7 +32143,7 @@ CC1A: A51D   LDAz 1D
 CC1C: C5D5   CMPz D5
 CC1E: EA     NOP
 CC1F: 900C   BCC +12>2D
-CC21: 200325 JSR 2503
+CC21: 200325 JSR 2503 hexedit.lwriteVonBis
 CC24: 31CC   ANDiy CC bs.Transfer3.bisL
 CC26: 52     
 CC27: CCEAEA CPY EAEA
@@ -32068,14 +32183,14 @@ CC62: D01F   BNE +31>83
 CC64: A002   LDYim 02
 CC66: B13F   LDAiy 3F
 CC68: C8     INY
-CC69: 9149   STAiy 49
+CC69: 9149   STAiy 49 hexedit.da.adrH
 CC6B: A900   LDAim 00
 CC6D: C8     INY
-CC6E: 9149   STAiy 49
+CC6E: 9149   STAiy 49 hexedit.da.adrH
 CC70: C8     INY
-CC71: 9149   STAiy 49
+CC71: 9149   STAiy 49 hexedit.da.adrH
 CC73: C8     INY
-CC74: 9149   STAiy 49
+CC74: 9149   STAiy 49 hexedit.da.adrH
 CC76: A53F   LDAz 3F
 CC78: 851C   STAz 1C
 CC7A: A540   LDAz 40
@@ -32085,24 +32200,24 @@ CC7F: 0940   ORAim 40
 CC81: D017   BNE +23>9A
 CC83: A51F   LDAz 1F
 CC85: A006   LDYim 06
-CC87: 9149   STAiy 49
+CC87: 9149   STAiy 49 hexedit.da.adrH
 CC89: A001   LDYim 01
 CC8B: 913F   STAiy 3F
 CC8D: A51E   LDAz 1E
 CC8F: A005   LDYim 05
-CC91: 9149   STAiy 49
+CC91: 9149   STAiy 49 hexedit.da.adrH
 CC93: A000   LDYim 00
 CC95: 913F   STAiy 3F
 CC97: 68     PLA
 CC98: 09A0   ORAim A0
 CC9A: A000   LDYim 00
-CC9C: 9149   STAiy 49
+CC9C: 9149   STAiy 49 hexedit.da.adrH
 CC9E: C8     INY
 CC9F: A53F   LDAz 3F
-CCA1: 9149   STAiy 49
+CCA1: 9149   STAiy 49 hexedit.da.adrH
 CCA3: C8     INY
 CCA4: A540   LDAz 40
-CCA6: 9149   STAiy 49
+CCA6: 9149   STAiy 49 hexedit.da.adrH
 CCA8: 60     RTS
 CCA9: FF     
 CCAA: FF     
@@ -32115,7 +32230,7 @@ CCB0: 00     BRK
 CCB1: 00     BRK
 CCB2: A900   LDAim 00
 CCB4: A6C6   LDXz C6
-CCB6: 8549   STAz 49
+CCB6: 8549   STAz 49 hexedit.da.adrH
 CCB8: 864A   STXz 4A
 CCBA: A6D3   LDXz D3
 CCBC: 851C   STAz 1C
@@ -32136,9 +32251,9 @@ CCD8: A540   LDAz 40
 CCDA: 851D   STAz 1D
 CCDC: 60     RTS
 CCDD: 18     CLC
-CCDE: A549   LDAz 49
+CCDE: A549   LDAz 49 hexedit.da.adrH
 CCE0: 6907   ADCim 07
-CCE2: 8549   STAz 49
+CCE2: 8549   STAz 49 hexedit.da.adrH
 CCE4: 9002   BCC +2>E8
 CCE6: E64A   INCz 4A
 CCE8: 60     RTS
@@ -32249,7 +32364,7 @@ CD76: A6C6   LDXz C6
 CD78: 8520   STAz 20
 CD7A: 8621   STXz 21
 CD7C: EA     NOP
-CD7D: 20D424 JSR 24D4
+CD7D: 20D424 JSR 24D4 hexedit.CR
 CD80: 2027D9 JSR D927
 CD83: 18     CLC
 CD84: A520   LDAz 20
@@ -32259,7 +32374,7 @@ CD8A: A521   LDAz 21
 CD8C: 6900   ADCim 00
 CD8E: 8521   STAz 21
 CD90: A520   LDAz 20
-CD92: C549   CMPz 49
+CD92: C549   CMPz 49 hexedit.da.adrH
 CD94: A521   LDAz 21
 CD96: E54A   SBCz 4A
 CD98: 90E3   BCC -29>7D
@@ -32283,7 +32398,7 @@ CDAA: 20F0CC JSR CCF0
 CDAD: A55B   LDAz 5B bs.neueZeitH
 CDAF: 8554   STAz 54
 CDB1: A55C   LDAz 5C bs.uhrZeitL
-CDB3: 8555   STAz 55
+CDB3: 8555   STAz 55 hexedit.helpL
 CDB5: A900   LDAim 00
 CDB7: 851E   STAz 1E
 CDB9: 851F   STAz 1F
@@ -32291,12 +32406,12 @@ CDBB: 8550   STAz 50
 CDBD: A554   LDAz 54
 CDBF: C55D   CMPz 5D bs.uhrZeitH
 CDC1: D006   BNE +6>C9
-CDC3: A555   LDAz 55
+CDC3: A555   LDAz 55 hexedit.helpL
 CDC5: C55E   CMPz 5E bs.breakZeitL
 CDC7: F02F   BEQ +47>F8
 CDC9: A554   LDAz 54
 CDCB: D002   BNE +2>CF
-CDCD: C655   DECz 55
+CDCD: C655   DECz 55 hexedit.helpL
 CDCF: C654   DECz 54
 CDD1: A000   LDYim 00
 CDD3: B154   LDAiy 54
@@ -32375,14 +32490,14 @@ CE4E: FF
 CE4F: 00     BRK
 CE50: 00     BRK
 CE51: 18     CLC
-CE52: A549   LDAz 49
+CE52: A549   LDAz 49 hexedit.da.adrH
 CE54: 6907   ADCim 07
 CE56: A54A   LDAz 4A
 CE58: 6900   ADCim 00
 CE5A: C5C8   CMPz C8
 CE5C: EA     NOP
 CE5D: 9031   BCC +49>90
-CE5F: 200325 JSR 2503
+CE5F: 200325 JSR 2503 hexedit.lwriteVonBis
 CE62: 6ECE8E ROR 8ECE
 CE65: CEEAEA DEC EAEA
 CE68: 4CD2CA JMP CAD2
@@ -32425,48 +32540,48 @@ CE9F: 8520   STAz 20
 CEA1: 8621   STXz 21
 CEA3: EA     NOP
 CEA4: A520   LDAz 20
-CEA6: C549   CMPz 49
+CEA6: C549   CMPz 49 hexedit.da.adrH
 CEA8: A521   LDAz 21
 CEAA: E54A   SBCz 4A
 CEAC: 9001   BCC +1>AF
 CEAE: 60     RTS
 CEAF: A000   LDYim 00
-CEB1: B149   LDAiy 49
+CEB1: B149   LDAiy 49 hexedit.da.adrH
 CEB3: D120   CMPiy 20
 CEB5: 8551   STAz 51
 CEB7: D06A   BNE +106>23
 CEB9: A006   LDYim 06
-CEBB: B149   LDAiy 49
+CEBB: B149   LDAiy 49 hexedit.da.adrH
 CEBD: D120   CMPiy 20
 CEBF: 851F   STAz 1F
 CEC1: D060   BNE +96>23
 CEC3: 88     DEY
-CEC4: B149   LDAiy 49
+CEC4: B149   LDAiy 49 hexedit.da.adrH
 CEC6: D120   CMPiy 20
 CEC8: 851E   STAz 1E
 CECA: D057   BNE +87>23
 CECC: A551   LDAz 51
 CECE: 3010   BMI +16>E0
 CED0: 88     DEY
-CED1: B149   LDAiy 49
+CED1: B149   LDAiy 49 hexedit.da.adrH
 CED3: D120   CMPiy 20
 CED5: D04C   BNE +76>23
 CED7: 88     DEY
-CED8: B149   LDAiy 49
+CED8: B149   LDAiy 49 hexedit.da.adrH
 CEDA: D120   CMPiy 20
 CEDC: D045   BNE +69>23
 CEDE: 18     CLC
 CEDF: 60     RTS
 CEE0: A002   LDYim 02
 CEE2: B120   LDAiy 20
-CEE4: 8555   STAz 55
+CEE4: 8555   STAz 55 hexedit.helpL
 CEE6: 88     DEY
 CEE7: B120   LDAiy 20
 CEE9: 8554   STAz 54
 CEEB: A53F   LDAz 3F
-CEED: 8541   STAz 41
+CEED: 8541   STAz 41 hexedit.da.nr
 CEEF: A540   LDAz 40
-CEF1: 8542   STAz 42
+CEF1: 8542   STAz 42 hexedit.da.laenge
 CEF3: 201ACD JSR CD1A
 CEF6: A902   LDAim 02
 CEF8: 200ACD JSR CD0A
@@ -32484,14 +32599,14 @@ CF0A: 18     CLC
 CF0B: 60     RTS
 CF0C: C61E   DECz 1E
 CF0E: B154   LDAiy 54
-CF10: D141   CMPiy 41
+CF10: D141   CMPiy 41 hexedit.da.nr
 CF12: D00F   BNE +15>23
 CF14: E654   INCz 54
 CF16: D002   BNE +2>1A
-CF18: E655   INCz 55
-CF1A: E641   INCz 41
+CF18: E655   INCz 55 hexedit.helpL
+CF1A: E641   INCz 41 hexedit.da.nr
 CF1C: D002   BNE +2>20
-CF1E: E642   INCz 42
+CF1E: E642   INCz 42 hexedit.da.laenge
 CF20: 4C02CF JMP CF02
 CF23: 18     CLC
 CF24: A520   LDAz 20
@@ -32513,7 +32628,7 @@ CF3A: 20F0CC JSR CCF0
 CF3D: A55B   LDAz 5B bs.neueZeitH
 CF3F: 8554   STAz 54
 CF41: A55C   LDAz 5C bs.uhrZeitL
-CF43: 8555   STAz 55
+CF43: 8555   STAz 55 hexedit.helpL
 CF45: A900   LDAim 00
 CF47: 851E   STAz 1E
 CF49: 851F   STAz 1F
@@ -32522,12 +32637,12 @@ CF4D: 8550   STAz 50
 CF4F: A554   LDAz 54
 CF51: C55D   CMPz 5D bs.uhrZeitH
 CF53: D006   BNE +6>5B
-CF55: A555   LDAz 55
+CF55: A555   LDAz 55 hexedit.helpL
 CF57: C55E   CMPz 5E bs.breakZeitL
 CF59: F031   BEQ +49>8C
 CF5B: A554   LDAz 54
 CF5D: D002   BNE +2>61
-CF5F: C655   DECz 55
+CF5F: C655   DECz 55 hexedit.helpL
 CF61: C654   DECz 54
 CF63: A000   LDYim 00
 CF65: B154   LDAiy 54
@@ -32603,7 +32718,7 @@ CFD0: 2E205A ROL 5A20
 CFD3: 6569   ADCz 69
 CFD5: 6C6520 JMPi 2065
 CFD8: 03     
-CFD9: 200325 JSR 2503
+CFD9: 200325 JSR 2503 hexedit.lwriteVonBis
 CFDC: BCCFD7 LDYx D7CF
 CFDF: CF     
 CFE0: EA     NOP
@@ -32660,7 +32775,7 @@ D035: 8540   STAz 40
 D037: A55D   LDAz 5D bs.uhrZeitH
 D039: 8554   STAz 54
 D03B: A55E   LDAz 5E bs.breakZeitL
-D03D: 8555   STAz 55
+D03D: 8555   STAz 55 hexedit.helpL
 D03F: A900   LDAim 00
 D041: 8518   STAz 18
 D043: 8519   STAz 19
@@ -32682,11 +32797,11 @@ D060: D003   BNE +3>65
 D062: 20D9CF JSR CFD9
 D065: E654   INCz 54
 D067: D002   BNE +2>6B
-D069: E655   INCz 55
+D069: E655   INCz 55 hexedit.helpL
 D06B: A554   LDAz 54
 D06D: C55B   CMPz 5B bs.neueZeitH
 D06F: D006   BNE +6>77
-D071: A555   LDAz 55
+D071: A555   LDAz 55 hexedit.helpL
 D073: C55C   CMPz 5C bs.uhrZeitL
 D075: F006   BEQ +6>7D
 D077: 201AD0 JSR D01A
@@ -32695,7 +32810,7 @@ D07D: 2051CE JSR CE51
 D080: A006   LDYim 06
 D082: A203   LDXim 03
 D084: B518   LDAzx 18
-D086: 9149   STAiy 49
+D086: 9149   STAiy 49 hexedit.da.adrH
 D088: 88     DEY
 D089: CA     DEX
 D08A: 10F8   BPL -8>84
@@ -32736,9 +32851,9 @@ D0C0: A6C2   LDXz C2
 D0C2: 8520   STAz 20
 D0C4: 8621   STXz 21
 D0C6: EA     NOP
-D0C7: 20D424 JSR 24D4
+D0C7: 20D424 JSR 24D4 hexedit.CR
 D0CA: 2027D9 JSR D927
-D0CD: 20C924 JSR 24C9
+D0CD: 20C924 JSR 24C9 hexedit.2Blanks
 D0D0: A00B   LDYim 0B
 D0D2: B120   LDAiy 20
 D0D4: 853F   STAz 3F
@@ -32751,7 +32866,7 @@ D0DE: 8551   STAz 51
 D0E0: A000   LDYim 00
 D0E2: 8450   STYz 50
 D0E4: B13F   LDAiy 3F
-D0E6: 206324 JSR 2463
+D0E6: 206324 JSR 2463 hexedit.write
 D0E9: A450   LDYz 50
 D0EB: C8     INY
 D0EC: C451   CPYz 51
@@ -32763,9 +32878,9 @@ D0F5: 8520   STAz 20
 D0F7: 9002   BCC +2>FB
 D0F9: E621   INCz 21
 D0FB: A520   LDAz 20
-D0FD: C545   CMPz 45
+D0FD: C545   CMPz 45 hexedit.da.erstes
 D0FF: A521   LDAz 21
-D101: E546   SBCz 46
+D101: E546   SBCz 46 hexedit.da.zweites
 D103: 90C2   BCC -62>C7
 D105: 60     RTS
 D106: FF     
@@ -32913,10 +33028,10 @@ D1E8: FF
 D1E9: FF     
 D1EA: 00     BRK
 D1EB: 00     BRK
-D1EC: 206624 JSR 2466
-D1EF: 203923 JSR 2339
+D1EC: 206624 JSR 2466 hexedit.openOutVideo
+D1EF: 203923 JSR 2339 hexedit.setCurs
 D1F2: 2400   BITz 00
-D1F4: 200625 JSR 2506
+D1F4: 200625 JSR 2506 hexedit.writeVonBis
 D1F7: 75D1   ADCzx D1
 D1F9: E4D1   CPXz D1
 D1FB: EA     NOP
@@ -32927,21 +33042,21 @@ D203: 8504   STAz 04
 D205: BD41D1 LDAx D141
 D208: 8505   STAz 05
 D20A: BD10D1 LDAx D110
-D20D: 8598   STAz 98
+D20D: 8598   STAz 98 hexedit.videoSpa
 D20F: BD11D1 LDAx D111
-D212: 8599   STAz 99
-D214: 20FD22 JSR 22FD
+D212: 8599   STAz 99 hexedit.video2
+D214: 20FD22 JSR 22FD hexedit.cursAdrSql
 D217: A001   LDYim 01
 D219: B104   LDAiy 04
-D21B: 20EF24 JSR 24EF
+D21B: 20EF24 JSR 24EF hexedit.byteDru
 D21E: A000   LDYim 00
 D220: B104   LDAiy 04
-D222: 20EF24 JSR 24EF
+D222: 20EF24 JSR 24EF hexedit.byteDru
 D225: C606   DECz 06
 D227: C606   DECz 06
 D229: A606   LDXz 06
 D22B: 10D3   BPL -45>00
-D22D: 206423 JSR 2364
+D22D: 206423 JSR 2364 hexedit.Home
 D230: 60     RTS
 D231: 00     BRK
 D232: 00     BRK
@@ -32957,24 +33072,24 @@ D23F: 00     BRK
 D240: A527   LDAz 27
 D242: D009   BNE +9>4D
 D244: 20ECD1 JSR D1EC
-D247: 203923 JSR 2339
+D247: 203923 JSR 2339 hexedit.setCurs
 D24A: 00     BRK
 D24B: 16EA   ASLzx EA
 D24D: 2093D5 JSR D593
 D250: A252   LDXim 52
 D252: 2080C8 JSR C880
-D255: 20C924 JSR 24C9
+D255: 20C924 JSR 24C9 hexedit.2Blanks
 D258: A004   LDYim 04
-D25A: 20A525 JSR 25A5
+D25A: 20A525 JSR 25A5 bs.KPUe
 D25D: A003   LDYim 03
 D25F: 68     PLA
 D260: 993100 STAy 0031
 D263: 88     DEY
 D264: 10F9   BPL -7>5F
-D266: 201425 JSR 2514
-D269: 206423 JSR 2364
-D26C: 20D038 JSR 38D0
-D26F: 208B24 JSR 248B
+D266: 201425 JSR 2514 hexedit.writeBlock
+D269: 206423 JSR 2364 hexedit.Home
+D26C: 20D038 JSR 38D0 rkv.initBs
+D26F: 208B24 JSR 248B hexedit.openInHexKb
 D272: 4CF6D3 JMP D3F6
 D275: 33     
 D276: A900   LDAim 00
@@ -32985,13 +33100,13 @@ D27E: E600   INCz 00
 D280: A600   LDXz 00
 D282: E020   CPXim 20
 D284: 9004   BCC +4>8A
-D286: 206423 JSR 2364
+D286: 206423 JSR 2364 hexedit.Home
 D289: 60     RTS
 D28A: BD10D1 LDAx D110
-D28D: 8598   STAz 98
+D28D: 8598   STAz 98 hexedit.videoSpa
 D28F: BD11D1 LDAx D111
-D292: 8599   STAz 99
-D294: 20FD22 JSR 22FD
+D292: 8599   STAz 99 hexedit.video2
+D294: 20FD22 JSR 22FD hexedit.cursAdrSql
 D297: 60     RTS
 D298: FF     
 D299: FF     
@@ -33008,10 +33123,10 @@ D2A7: 8504   STAz 04
 D2A9: BD41D1 LDAx D141
 D2AC: 8505   STAz 05
 D2AE: BD10D1 LDAx D110
-D2B1: 8598   STAz 98
+D2B1: 8598   STAz 98 hexedit.videoSpa
 D2B3: BD11D1 LDAx D111
-D2B6: 8599   STAz 99
-D2B8: 20FD22 JSR 22FD
+D2B6: 8599   STAz 99 hexedit.video2
+D2B8: 20FD22 JSR 22FD hexedit.cursAdrSql
 D2BB: A000   LDYim 00
 D2BD: 2041D3 JSR D341
 D2C0: B023   BCS +35>E5
@@ -33034,7 +33149,7 @@ D2E4: 60     RTS
 D2E5: 20ECD1 JSR D1EC
 D2E8: A941   LDAim 41
 D2EA: 8D0008 STA 0800
-D2ED: 201029 JSR 2910
+D2ED: 201029 JSR 2910 hexedit.copy
 D2F0: 03     
 D2F1: D3     
 D2F2: 1A     
@@ -33071,7 +33186,7 @@ D31F: 00     BRK
 D320: FF     
 D321: 00     BRK
 D322: 00     BRK
-D323: 209925 JSR 2599
+D323: 209925 JSR 2599 hexedit.Grossbuchstaben
 D326: C930   CMPim 30
 D328: 9012   BCC +18>3C
 D32A: C947   CMPim 47
@@ -33089,7 +33204,7 @@ D33D: 60     RTS
 D33E: FF     
 D33F: 00     BRK
 D340: 00     BRK
-D341: B19A   LDAiy 9A
+D341: B19A   LDAiy 9A hexedit.video3
 D343: 2023D3 JSR D323
 D346: 9001   BCC +1>49
 D348: 60     RTS
@@ -33099,7 +33214,7 @@ D34B: 0A     ASLa
 D34C: 0A     ASLa
 D34D: 8506   STAz 06
 D34F: C8     INY
-D350: B19A   LDAiy 9A
+D350: B19A   LDAiy 9A hexedit.video3
 D352: 2023D3 JSR D323
 D355: 9001   BCC +1>58
 D357: 60     RTS
@@ -33114,9 +33229,9 @@ D360: FF
 D361: FF     
 D362: 00     BRK
 D363: 00     BRK
-D364: 206024 JSR 2460
+D364: 206024 JSR 2460 hexedit.read
 D367: 48     PHA
-D368: 206324 JSR 2463
+D368: 206324 JSR 2463 hexedit.write
 D36B: 68     PLA
 D36C: C91D   CMPim 1D
 D36E: D0F4   BNE -12>64
@@ -33126,7 +33241,7 @@ D372: 00     BRK
 D373: 00     BRK
 D374: 2064D3 JSR D364
 D377: AD0008 LDA 0800
-D37A: 209925 JSR 2599
+D37A: 209925 JSR 2599 hexedit.Grossbuchstaben
 D37D: C943   CMPim 43
 D37F: D007   BNE +7>88
 D381: 2030D5 JSR D530
@@ -33138,12 +33253,12 @@ D38C: A5D6   LDAz D6
 D38E: A6D7   LDXz D7
 D390: 85FA   STAz FA monitor.POINTL
 D392: 86FB   STXz FB monitor.POINTH
-D394: 4C002F JMP 2F00 Hexeditor
+D394: 4C002F JMP 2F00 hexedit.main
 D397: EA     NOP
 D398: EA     NOP
 D399: C947   CMPim 47
 D39B: D00B   BNE +11>A8
-D39D: 200625 JSR 2506
+D39D: 200625 JSR 2506 hexedit.writeVonBis
 D3A0: 26D5   ROLz D5
 D3A2: 2B     
 D3A3: D5EA   CMPzx EA
@@ -33153,7 +33268,7 @@ D3AA: D003   BNE +3>AF
 D3AC: 4C0040 JMP 4000 Texteditor
 D3AF: C941   CMPim 41
 D3B1: D012   BNE +18>C5
-D3B3: A599   LDAz 99
+D3B3: A599   LDAz 99 hexedit.video2
 D3B5: C901   CMPim 01
 D3B7: D006   BNE +6>BF
 D3B9: 2076D2 JSR D276
@@ -33377,12 +33492,12 @@ D52A: 67
 D52B: 1D03FF ORAx FF03
 D52E: 00     BRK
 D52F: 00     BRK
-D530: 206624 JSR 2466
-D533: 200625 JSR 2506
+D530: 206624 JSR 2466 hexedit.openOutVideo
+D533: 200625 JSR 2506 hexedit.writeVonBis
 D536: F4     
 D537: D4     
 D538: FDD4EA SBCx EAD4
-D53B: 20E923 JSR 23E9
+D53B: 20E923 JSR 23E9 hexedit.block.initInFile
 D53E: 2003C8 JSR C803
 D541: 2049CA JSR CA49
 D544: 20DAC9 JSR C9DA
@@ -33435,10 +33550,10 @@ D58A: BD01D6 LDAx D601
 D58D: 853C   STAz 3C
 D58F: 6C3B00 JMPi 003B
 D592: 33     
-D593: 20D424 JSR 24D4
+D593: 20D424 JSR 24D4 hexedit.CR
 D596: A04F   LDYim 4F
 D598: A920   LDAim 20
-D59A: 919A   STAiy 9A
+D59A: 919A   STAiy 9A hexedit.video3
 D59C: 88     DEY
 D59D: 10FB   BPL -5>9A
 D59F: 60     RTS
@@ -33447,27 +33562,27 @@ D5A2: C44B   CPYz 4B
 D5A4: F00F   BEQ +15>B5
 D5A6: B139   LDAiy 39
 D5A8: 8450   STYz 50
-D5AA: 20EF24 JSR 24EF
-D5AD: 20CE24 JSR 24CE
+D5AA: 20EF24 JSR 24EF hexedit.byteDru
+D5AD: 20CE24 JSR 24CE hexedit.Blank
 D5B0: A450   LDYz 50
 D5B2: C8     INY
 D5B3: D0ED   BNE -19>A2
 D5B5: A524   LDAz 24
-D5B7: 20EF24 JSR 24EF
+D5B7: 20EF24 JSR 24EF hexedit.byteDru
 D5BA: 60     RTS
 D5BB: 33     
-D5BC: A599   LDAz 99
+D5BC: A599   LDAz 99 hexedit.video2
 D5BE: C91B   CMPim 1B
 D5C0: D003   BNE +3>C5
-D5C2: 206024 JSR 2460
+D5C2: 206024 JSR 2460 hexedit.read
 D5C5: 2093D5 JSR D593
 D5C8: 20A0D5 JSR D5A0
 D5CB: A940   LDAim 40
-D5CD: 8598   STAz 98
-D5CF: 20FD22 JSR 22FD
+D5CD: 8598   STAz 98 hexedit.videoSpa
+D5CF: 20FD22 JSR 22FD hexedit.cursAdrSql
 D5D2: A523   LDAz 23
-D5D4: 20EF24 JSR 24EF
-D5D7: 20CE24 JSR 24CE
+D5D4: 20EF24 JSR 24EF hexedit.byteDru
+D5D7: 20CE24 JSR 24CE hexedit.Blank
 D5DA: 2090C9 JSR C990
 D5DD: 60     RTS
 D5DE: FF     
@@ -33511,7 +33626,7 @@ D604: 00     BRK
 D605: D600   DECzx 00
 D607: D600   DECzx 00
 D609: D640   DECzx 40
-D60B: 8447   STYz 47
+D60B: 8447   STYz 47 hexedit.da.drittes
 D60D: 8400   STYz 00
 D60F: D66F   DECzx 6F
 D611: 847A   STYz 7A
@@ -33578,7 +33693,7 @@ D680: 82
 D681: 9B     
 D682: 8B     
 D683: 9B     
-D684: B69B   LDXzy 9B
+D684: B69B   LDXzy 9B hexedit.video4
 D686: 13     
 D687: 9C     
 D688: 00     BRK
@@ -33753,7 +33868,7 @@ D77B: A903   LDAim 03
 D77D: 8550   STAz 50
 D77F: A651   LDXz 51
 D781: BD0AD7 LDAx D70A
-D784: 206324 JSR 2463
+D784: 206324 JSR 2463 hexedit.write
 D787: E651   INCz 51
 D789: C650   DECz 50
 D78B: 10F2   BPL -14>7F
@@ -33773,7 +33888,7 @@ D79B: 4A     LSRa
 D79C: 4A     LSRa
 D79D: AA     TAX
 D79E: BD06D7 LDAx D706
-D7A1: 206324 JSR 2463
+D7A1: 206324 JSR 2463 hexedit.write
 D7A4: 68     PLA
 D7A5: 68     PLA
 D7A6: 48     PHA
@@ -33801,10 +33916,10 @@ D7C8: 207BD7 JSR D77B
 D7CB: 68     PLA
 D7CC: 60     RTS
 D7CD: A975   LDAim 75
-D7CF: 206324 JSR 2463
+D7CF: 206324 JSR 2463 hexedit.write
 D7D2: A976   LDAim 76
-D7D4: 206324 JSR 2463
-D7D7: 20C924 JSR 24C9
+D7D4: 206324 JSR 2463 hexedit.write
+D7D7: 20C924 JSR 24C9 hexedit.2Blanks
 D7DA: 68     PLA
 D7DB: 2907   ANDim 07
 D7DD: 0A     ASLa
@@ -33814,7 +33929,7 @@ D7E1: 8551   STAz 51
 D7E3: A901   LDAim 01
 D7E5: 8550   STAz 50
 D7E7: 207FD7 JSR D77F
-D7EA: 20CE24 JSR 24CE
+D7EA: 20CE24 JSR 24CE hexedit.Blank
 D7ED: 60     RTS
 D7EE: FF     
 D7EF: FF     
@@ -33822,7 +33937,7 @@ D7F0: FF
 D7F1: 00     BRK
 D7F2: EA     NOP
 D7F3: A002   LDYim 02
-D7F5: 20A525 JSR 25A5
+D7F5: 20A525 JSR 25A5 bs.KPUe
 D7F8: 68     PLA
 D7F9: 8509   STAz 09
 D7FB: 68     PLA
@@ -33901,12 +34016,12 @@ D864: 6C0000 JMPi 0000
 D867: A003   LDYim 03
 D869: 8451   STYz 51
 D86B: B120   LDAiy 20
-D86D: 20EF24 JSR 24EF
+D86D: 20EF24 JSR 24EF hexedit.byteDru
 D870: A451   LDYz 51
 D872: C8     INY
 D873: C007   CPYim 07
 D875: D0F2   BNE -14>69
-D877: 20CE24 JSR 24CE
+D877: 20CE24 JSR 24CE hexedit.Blank
 D87A: 2024D8 JSR D824
 D87D: 20B1E0 JSR E0B1
 D880: 60     RTS
@@ -33919,13 +34034,13 @@ D886: 00     BRK
 D887: A001   LDYim 01
 D889: B154   LDAiy 54
 D88B: 851F   STAz 1F
-D88D: 20EF24 JSR 24EF
+D88D: 20EF24 JSR 24EF hexedit.byteDru
 D890: A000   LDYim 00
 D892: B154   LDAiy 54
 D894: 851E   STAz 1E
-D896: 20EF24 JSR 24EF
+D896: 20EF24 JSR 24EF hexedit.byteDru
 D899: A927   LDAim 27
-D89B: 206324 JSR 2463
+D89B: 206324 JSR 2463 hexedit.write
 D89E: 60     RTS
 D89F: FF     
 D8A0: FF     
@@ -33938,7 +34053,7 @@ D8A6: 00     BRK
 D8A7: 2087D8 JSR D887
 D8AA: 204AE1 JSR E14A
 D8AD: A927   LDAim 27
-D8AF: 206324 JSR 2463
+D8AF: 206324 JSR 2463 hexedit.write
 D8B2: 60     RTS
 D8B3: FF     
 D8B4: FF     
@@ -33981,7 +34096,7 @@ D8D8: 2087D8 JSR D887
 D8DB: 2090E2 JSR E290
 D8DE: 2018E1 JSR E118
 D8E1: A927   LDAim 27
-D8E3: 206324 JSR 2463
+D8E3: 206324 JSR 2463 hexedit.write
 D8E6: 60     RTS
 D8E7: FF     
 D8E8: FF     
@@ -34035,13 +34150,13 @@ D925: 00     BRK
 D926: 00     BRK
 D927: A002   LDYim 02
 D929: B120   LDAiy 20
-D92B: 8555   STAz 55
-D92D: 20EF24 JSR 24EF
+D92B: 8555   STAz 55 hexedit.helpL
+D92D: 20EF24 JSR 24EF hexedit.byteDru
 D930: A001   LDYim 01
 D932: B120   LDAiy 20
 D934: 8554   STAz 54
-D936: 20EF24 JSR 24EF
-D939: 20CE24 JSR 24CE
+D936: 20EF24 JSR 24EF hexedit.byteDru
+D939: 20CE24 JSR 24CE hexedit.Blank
 D93C: A000   LDYim 00
 D93E: B120   LDAiy 20
 D940: 48     PHA
@@ -34069,9 +34184,9 @@ D966: 20D8D8 JSR D8D8
 D969: 60     RTS
 D96A: 68     PLA
 D96B: A93F   LDAim 3F
-D96D: 206324 JSR 2463
+D96D: 206324 JSR 2463 hexedit.write
 D970: A93F   LDAim 3F
-D972: 206324 JSR 2463
+D972: 206324 JSR 2463 hexedit.write
 D975: 60     RTS
 D976: FF     
 D977: FF     
@@ -34146,12 +34261,12 @@ D9E1: FF
 D9E2: 00     BRK
 D9E3: 00     BRK
 D9E4: A001   LDYim 01
-D9E6: 20A525 JSR 25A5
+D9E6: 20A525 JSR 25A5 bs.KPUe
 D9E9: 68     PLA
 D9EA: 8507   STAz 07
 D9EC: 20C9D9 JSR D9C9
 D9EF: A407   LDYz 07
-D9F1: 20A525 JSR 25A5
+D9F1: 20A525 JSR 25A5 bs.KPUe
 D9F4: A407   LDYz 07
 D9F6: 88     DEY
 D9F7: 68     PLA
@@ -34172,7 +34287,7 @@ DA0C: FF
 DA0D: 00     BRK
 DA0E: 00     BRK
 DA0F: A003   LDYim 03
-DA11: 20A525 JSR 25A5
+DA11: 20A525 JSR 25A5 bs.KPUe
 DA14: 68     PLA
 DA15: 8509   STAz 09
 DA17: 68     PLA
@@ -34210,7 +34325,7 @@ DA4A: FF
 DA4B: 00     BRK
 DA4C: 00     BRK
 DA4D: A002   LDYim 02
-DA4F: 20A525 JSR 25A5
+DA4F: 20A525 JSR 25A5 bs.KPUe
 DA52: 68     PLA
 DA53: 8509   STAz 09
 DA55: 68     PLA
@@ -34273,7 +34388,7 @@ DABD: FF
 DABE: FF     
 DABF: 00     BRK
 DAC0: A002   LDYim 02
-DAC2: 20A525 JSR 25A5
+DAC2: 20A525 JSR 25A5 bs.KPUe
 DAC5: 68     PLA
 DAC6: AA     TAX
 DAC7: 68     PLA
@@ -34296,30 +34411,30 @@ DADD: 00     BRK
 DADE: FF     
 DADF: 00     BRK
 DAE0: 00     BRK
-DAE1: 20C924 JSR 24C9
+DAE1: 20C924 JSR 24C9 hexedit.2Blanks
 DAE4: A00B   LDYim 0B
-DAE6: B141   LDAiy 41
+DAE6: B141   LDAiy 41 hexedit.da.nr
 DAE8: 853F   STAz 3F
 DAEA: C8     INY
-DAEB: B141   LDAiy 41
+DAEB: B141   LDAiy 41 hexedit.da.nr
 DAED: 8540   STAz 40
 DAEF: C8     INY
-DAF0: B141   LDAiy 41
+DAF0: B141   LDAiy 41 hexedit.da.nr
 DAF2: 8551   STAz 51
 DAF4: F010   BEQ +16>06
 DAF6: A000   LDYim 00
 DAF8: 8450   STYz 50
 DAFA: B13F   LDAiy 3F
-DAFC: 206324 JSR 2463
+DAFC: 206324 JSR 2463 hexedit.write
 DAFF: A450   LDYz 50
 DB01: C8     INY
 DB02: C451   CPYz 51
 DB04: D0F2   BNE -14>F8
-DB06: 20D424 JSR 24D4
+DB06: 20D424 JSR 24D4 hexedit.CR
 DB09: EA     NOP
 DB0A: A000   LDYim 00
 DB0C: A908   LDAim 08
-DB0E: 9141   STAiy 41
+DB0E: 9141   STAiy 41 hexedit.da.nr
 DB10: 60     RTS
 DB11: 207FD9 JSR D97F
 DB14: 20E4D9 JSR D9E4
@@ -34327,12 +34442,12 @@ DB17: 02
 DB18: 18     CLC
 DB19: 90EA   BCC -22>05
 DB1B: A900   LDAim 00
-DB1D: 8541   STAz 41
+DB1D: 8541   STAz 41 hexedit.da.nr
 DB1F: A5C2   LDAz C2
 DB21: EA     NOP
-DB22: 8542   STAz 42
+DB22: 8542   STAz 42 hexedit.da.laenge
 DB24: A00D   LDYim 0D
-DB26: B141   LDAiy 41
+DB26: B141   LDAiy 41 hexedit.da.nr
 DB28: 18     CLC
 DB29: 6904   ADCim 04
 DB2B: EA     NOP
@@ -34346,13 +34461,13 @@ DB36: FF
 DB37: 02     
 DB38: A003   LDYim 03
 DB3A: A00B   LDYim 0B
-DB3C: B141   LDAiy 41
+DB3C: B141   LDAiy 41 hexedit.da.nr
 DB3E: 8508   STAz 08
 DB40: C8     INY
-DB41: B141   LDAiy 41
+DB41: B141   LDAiy 41 hexedit.da.nr
 DB43: 8509   STAz 09
 DB45: C8     INY
-DB46: B141   LDAiy 41
+DB46: B141   LDAiy 41 hexedit.da.nr
 DB48: 201BDA JSR DA1B
 DB4B: A903   LDAim 03
 DB4D: 208DD9 JSR D98D
@@ -34403,17 +34518,17 @@ DB7B: 33
 DB7C: A527   LDAz 27
 DB7E: D009   BNE +9>89
 DB80: 20ECD1 JSR D1EC
-DB83: 203923 JSR 2339
+DB83: 203923 JSR 2339 hexedit.setCurs
 DB86: 00     BRK
 DB87: 16EA   ASLzx EA
 DB89: A252   LDXim 52
 DB8B: 2079C8 JSR C879
-DB8E: 20CE24 JSR 24CE
+DB8E: 20CE24 JSR 24CE hexedit.Blank
 DB91: 2055CD JSR CD55
 DB94: 2068C7 JSR C768
-DB97: 20C924 JSR 24C9
+DB97: 20C924 JSR 24C9 hexedit.2Blanks
 DB9A: A001   LDYim 01
-DB9C: 20A525 JSR 25A5
+DB9C: 20A525 JSR 25A5 bs.KPUe
 DB9F: 68     PLA
 DBA0: 0A     ASLa
 DBA1: A8     TAY
@@ -34498,7 +34613,7 @@ DC1B: 72
 DC1C: 6573   ADCz 73
 DC1E: 73     
 DC1F: 6520   ADCz 20
-DC21: 756E   ADCzx 6E
+DC21: 756E   ADCzx 6E hexedit.zeiTty
 DC23: 67     
 DC24: 6565   ADCz 65
 DC26: 6967   ADCim 67
@@ -34547,7 +34662,7 @@ DC77: 7A
 DC78: 6564   ADCz 64
 DC7A: 7572   ADCzx 72
 DC7C: 72     
-DC7D: 756D   ADCzx 6D
+DC7D: 756D   ADCzx 6D hexedit.spaTty
 DC7F: 7066   BCS +102>E7
 DC81: 206665 JSR 6566
 DC84: 68     PLA
@@ -34684,7 +34799,7 @@ DD68: 656C   ADCz 6C
 DD6A: 6520   ADCz 20
 DD6C: 42     
 DD6D: 52     
-DD6E: 4541   EORz 41
+DD6E: 4541   EORz 41 hexedit.da.nr
 DD70: 4B     
 DD71: 73     
 DD72: 1D6E75 ORAx 756E
@@ -34702,7 +34817,7 @@ DD8C: 494C   EORim 4C
 DD8E: 4520   EORz 20
 DD90: 42     
 DD91: 52     
-DD92: 4541   EORz 41
+DD92: 4541   EORz 41 hexedit.da.nr
 DD94: 4B     
 DD95: 1D6661 ORAx 6166
 DD98: 6C7363 JMPi 6373
@@ -34711,7 +34826,7 @@ DD9C: 6520   ADCz 20
 DD9E: 53     
 DD9F: 74     
 DDA0: 7566   ADCzx 66
-DDA2: 656E   ADCz 6E
+DDA2: 656E   ADCz 6E hexedit.zeiTty
 DDA4: 7A     
 DDA5: 6168   ADCix 68
 DDA7: 6C1D50 JMPi 501D
@@ -35373,7 +35488,7 @@ E0AE: 204FE2 JSR E24F
 E0B1: A511   LDAz 11
 E0B3: F005   BEQ +5>BA
 E0B5: A92D   LDAim 2D
-E0B7: 206324 JSR 2463
+E0B7: 206324 JSR 2463 hexedit.write
 E0BA: A209   LDXim 09
 E0BC: B507   LDAzx 07
 E0BE: D003   BNE +3>C3
@@ -35382,7 +35497,7 @@ E0C1: D0F9   BNE -7>BC
 E0C3: B507   LDAzx 07
 E0C5: 0930   ORAim 30
 E0C7: 8651   STXz 51
-E0C9: 206324 JSR 2463
+E0C9: 206324 JSR 2463 hexedit.write
 E0CC: A651   LDXz 51
 E0CE: CA     DEX
 E0CF: 10F2   BPL -14>C3
@@ -35455,10 +35570,10 @@ E12D: C61F   DECz 1F
 E12F: C61E   DECz 1E
 E131: A001   LDYim 01
 E133: B154   LDAiy 54
-E135: 20EF24 JSR 24EF
+E135: 20EF24 JSR 24EF hexedit.byteDru
 E138: A554   LDAz 54
 E13A: D002   BNE +2>3E
-E13C: C655   DECz 55
+E13C: C655   DECz 55 hexedit.helpL
 E13E: C654   DECz 54
 E140: 18     CLC
 E141: 90E2   BCC -30>25
@@ -35473,10 +35588,10 @@ E14A: A51E   LDAz 1E
 E14C: F017   BEQ +23>65
 E14E: A002   LDYim 02
 E150: B154   LDAiy 54
-E152: 206324 JSR 2463
+E152: 206324 JSR 2463 hexedit.write
 E155: E654   INCz 54
 E157: D002   BNE +2>5B
-E159: E655   INCz 55
+E159: E655   INCz 55 hexedit.helpL
 E15B: A51E   LDAz 1E
 E15D: D002   BNE +2>61
 E15F: C61F   DECz 1F
@@ -35559,7 +35674,7 @@ E1E0: 6901   ADCim 01
 E1E2: 8554   STAz 54
 E1E4: A525   LDAz 25
 E1E6: 6900   ADCim 00
-E1E8: 8555   STAz 55
+E1E8: 8555   STAz 55 hexedit.helpL
 E1EA: 60     RTS
 E1EB: FF     
 E1EC: FF     
@@ -35568,7 +35683,7 @@ E1EE: 8554   STAz 54
 E1F0: 8A     TXAa
 E1F1: 18     CLC
 E1F2: 6513   ADCz 13
-E1F4: 8555   STAz 55
+E1F4: 8555   STAz 55 hexedit.helpL
 E1F6: 60     RTS
 E1F7: FF     
 E1F8: FF     
@@ -35578,7 +35693,7 @@ E1FB: 6512   ADCz 12
 E1FD: 8554   STAz 54
 E1FF: 8A     TXAa
 E200: 6513   ADCz 13
-E202: 8555   STAz 55
+E202: 8555   STAz 55 hexedit.helpL
 E204: 60     RTS
 E205: FF     
 E206: FF     
@@ -35586,7 +35701,7 @@ E207: FF
 E208: 8518   STAz 18
 E20A: F009   BEQ +9>15
 E20C: A91D   LDAim 1D
-E20E: 206324 JSR 2463
+E20E: 206324 JSR 2463 hexedit.write
 E211: C618   DECz 18
 E213: D0F7   BNE -9>0C
 E215: 60     RTS
@@ -35644,7 +35759,7 @@ E268: 05EA   ORAz EA
 E26A: F00B   BEQ +11>77
 E26C: 8518   STAz 18
 E26E: A920   LDAim 20
-E270: 206324 JSR 2463
+E270: 206324 JSR 2463 hexedit.write
 E273: C618   DECz 18
 E275: D0F7   BNE -9>6E
 E277: 60     RTS
@@ -35711,7 +35826,7 @@ E2DD: FF
 E2DE: 22     
 E2DF: 33     
 E2E0: 0930   ORAim 30
-E2E2: 4C6324 JMP 2463
+E2E2: 4C6324 JMP 2463 hexedit.write
 E2E5: 20ACE1 JSR E1AC
 E2E8: 4CAEE0 JMP E0AE
 E2EB: 20B9E1 JSR E1B9
@@ -35726,10 +35841,10 @@ E303: 0930   ORAim 30
 E305: 48     PHA
 E306: 2048E2 JSR E248
 E309: 68     PLA
-E30A: 4C6324 JMP 2463
+E30A: 4C6324 JMP 2463 hexedit.write
 E30D: 20E1EE JSR EEE1
 E310: 07     
-E311: 206324 JSR 2463
+E311: 206324 JSR 2463 hexedit.write
 E314: 4C48E2 JMP E248
 E317: 20DDE1 JSR E1DD
 E31A: 20CBE1 JSR E1CB
@@ -35801,10 +35916,10 @@ E3B3: 22
 E3B4: 33     
 E3B5: 48     PHA
 E3B6: 38     SEC
-E3B7: E598   SBCz 98
+E3B7: E598   SBCz 98 hexedit.videoSpa
 E3B9: F00A   BEQ +10>C5
 E3BB: B005   BCS +5>C2
-E3BD: 20D424 JSR 24D4
+E3BD: 20D424 JSR 24D4 hexedit.CR
 E3C0: 68     PLA
 E3C1: 48     PHA
 E3C2: 206AE2 JSR E26A
@@ -35815,10 +35930,10 @@ E3C8: FF
 E3C9: FF     
 E3CA: 48     PHA
 E3CB: 38     SEC
-E3CC: E599   SBCz 99
+E3CC: E599   SBCz 99 hexedit.video2
 E3CE: F00A   BEQ +10>DA
 E3D0: B005   BCS +5>D7
-E3D2: 207023 JSR 2370
+E3D2: 207023 JSR 2370 hexedit.clear
 E3D5: 68     PLA
 E3D6: 48     PHA
 E3D7: 2008E2 JSR E208
@@ -35870,7 +35985,7 @@ E421: 8513   STAz 13
 E423: 2002E0 JSR E002
 E426: 8554   STAz 54
 E428: 2002E0 JSR E002
-E42B: 8555   STAz 55
+E42B: 8555   STAz 55 hexedit.helpL
 E42D: EA     NOP
 E42E: EA     NOP
 E42F: EA     NOP
@@ -35930,7 +36045,7 @@ E47D: A554   LDAz 54
 E47F: 38     SEC
 E480: 6512   ADCz 12
 E482: 85CA   STAz CA bs.Transfer3.vonL
-E484: A555   LDAz 55
+E484: A555   LDAz 55 hexedit.helpL
 E486: 6513   ADCz 13
 E488: EA     NOP
 E489: EA     NOP
@@ -36102,7 +36217,7 @@ E590: 85CA   STAz CA bs.Transfer3.vonL
 E592: 8A     TXAa
 E593: 6900   ADCim 00
 E595: 28     PLP
-E596: 6555   ADCz 55
+E596: 6555   ADCz 55 hexedit.helpL
 E598: 85CB   STAz CB bs.Transfer3.vonH
 E59A: A524   LDAz 24
 E59C: 851A   STAz 1A
@@ -36230,13 +36345,13 @@ E65C: FF
 E65D: 00     BRK
 E65E: 00     BRK
 E65F: A002   LDYim 02
-E661: 20A525 JSR 25A5
+E661: 20A525 JSR 25A5 bs.KPUe
 E664: 68     PLA
 E665: 85CD   STAz CD bs.Transfer3.bisH
 E667: 68     PLA
 E668: 85CC   STAz CC bs.Transfer3.bisL
 E66A: A554   LDAz 54
-E66C: A655   LDXz 55
+E66C: A655   LDXz 55 hexedit.helpL
 E66E: 85CA   STAz CA bs.Transfer3.vonL
 E670: 86CB   STXz CB bs.Transfer3.vonH
 E672: 2002E6 JSR E602
@@ -36370,13 +36485,13 @@ E715: FF
 E716: 00     BRK
 E717: 00     BRK
 E718: A002   LDYim 02
-E71A: 20A525 JSR 25A5
+E71A: 20A525 JSR 25A5 bs.KPUe
 E71D: 68     PLA
 E71E: 85CD   STAz CD bs.Transfer3.bisH
 E720: 68     PLA
 E721: 85CC   STAz CC bs.Transfer3.bisL
 E723: A554   LDAz 54
-E725: A655   LDXz 55
+E725: A655   LDXz 55 hexedit.helpL
 E727: 85CE   STAz CE bs.Transfer3.nachL
 E729: 86CF   STXz CF bs.Transfer3.nachH
 E72B: 20F5E6 JSR E6F5
@@ -36385,7 +36500,7 @@ E72F: FF
 E730: 00     BRK
 E731: 00     BRK
 E732: A002   LDYim 02
-E734: 20A525 JSR 25A5
+E734: 20A525 JSR 25A5 bs.KPUe
 E737: 68     PLA
 E738: 85CD   STAz CD bs.Transfer3.bisH
 E73A: 68     PLA
@@ -36396,7 +36511,7 @@ E741: FF
 E742: 00     BRK
 E743: 00     BRK
 E744: A002   LDYim 02
-E746: 20A525 JSR 25A5
+E746: 20A525 JSR 25A5 bs.KPUe
 E749: 68     PLA
 E74A: 85CD   STAz CD bs.Transfer3.bisH
 E74C: 68     PLA
@@ -36409,7 +36524,7 @@ E756: FF
 E757: 00     BRK
 E758: 00     BRK
 E759: A002   LDYim 02
-E75B: 20A525 JSR 25A5
+E75B: 20A525 JSR 25A5 bs.KPUe
 E75E: 68     PLA
 E75F: 8551   STAz 51
 E761: 68     PLA
@@ -36438,7 +36553,7 @@ E789: FF
 E78A: 00     BRK
 E78B: 00     BRK
 E78C: A002   LDYim 02
-E78E: 20A525 JSR 25A5
+E78E: 20A525 JSR 25A5 bs.KPUe
 E791: 68     PLA
 E792: 8551   STAz 51
 E794: 68     PLA
@@ -36520,7 +36635,7 @@ E7F4: 8550   STAz 50
 E7F6: 68     PLA
 E7F7: 8551   STAz 51
 E7F9: 68     PLA
-E7FA: 8555   STAz 55
+E7FA: 8555   STAz 55 hexedit.helpL
 E7FC: 68     PLA
 E7FD: 8554   STAz 54
 E7FF: 68     PLA
@@ -36610,7 +36725,7 @@ E88B: A554   LDAz 54
 E88D: 38     SEC
 E88E: 6512   ADCz 12
 E890: 85CE   STAz CE bs.Transfer3.nachL
-E892: A555   LDAz 55
+E892: A555   LDAz 55 hexedit.helpL
 E894: 6513   ADCz 13
 E896: 85CF   STAz CF bs.Transfer3.nachH
 E898: 20F5E6 JSR E6F5
@@ -36774,7 +36889,7 @@ E9A1: 18     CLC
 E9A2: 6554   ADCz 54
 E9A4: 8520   STAz 20
 E9A6: 8A     TXAa
-E9A7: 6555   ADCz 55
+E9A7: 6555   ADCz 55 hexedit.helpL
 E9A9: 8521   STAz 21
 E9AB: 20C6E8 JSR E8C6
 E9AE: 20E6E8 JSR E8E6
@@ -36916,7 +37031,7 @@ EA80: 8519   STAz 19
 EA82: 68     PLA
 EA83: 8554   STAz 54
 EA85: 68     PLA
-EA86: 8555   STAz 55
+EA86: 8555   STAz 55 hexedit.helpL
 EA88: A519   LDAz 19
 EA8A: 48     PHA
 EA8B: A518   LDAz 18
@@ -36928,7 +37043,7 @@ EA91: 68     PLA
 EA92: 8518   STAz 18
 EA94: 68     PLA
 EA95: 8519   STAz 19
-EA97: A555   LDAz 55
+EA97: A555   LDAz 55 hexedit.helpL
 EA99: 48     PHA
 EA9A: A554   LDAz 54
 EA9C: 48     PHA
@@ -36944,14 +37059,14 @@ EAA7: A512   LDAz 12
 EAA9: A613   LDXz 13
 EAAB: 2020E6 JSR E620
 EAAE: A554   LDAz 54
-EAB0: A655   LDXz 55
+EAB0: A655   LDXz 55 hexedit.helpL
 EAB2: 2020E6 JSR E620
 EAB5: 60     RTS
 EAB6: 8516   STAz 16
 EAB8: 2002E0 JSR E002
 EABB: 8554   STAz 54
 EABD: 2002E0 JSR E002
-EAC0: 8555   STAz 55
+EAC0: 8555   STAz 55 hexedit.helpL
 EAC2: A516   LDAz 16
 EAC4: 60     RTS
 EAC5: 48     PHA
@@ -37004,7 +37119,7 @@ EB0B: 8517   STAz 17
 EB0D: 68     PLA
 EB0E: 8516   STAz 16
 EB10: A004   LDYim 04
-EB12: 20A525 JSR 25A5
+EB12: 20A525 JSR 25A5 bs.KPUe
 EB15: 68     PLA
 EB16: 8519   STAz 19
 EB18: 68     PLA
@@ -37145,7 +37260,7 @@ EBB3: 00     BRK
 EBB4: 00     BRK
 EBB5: 200AEB JSR EB0A
 EBB8: A002   LDYim 02
-EBBA: 20A525 JSR 25A5
+EBBA: 20A525 JSR 25A5 bs.KPUe
 EBBD: 68     PLA
 EBBE: 8519   STAz 19
 EBC0: 68     PLA
@@ -37156,8 +37271,8 @@ EBC8: 18     CLC
 EBC9: 6554   ADCz 54
 EBCB: 8554   STAz 54
 EBCD: A515   LDAz 15
-EBCF: 6555   ADCz 55
-EBD1: 8555   STAz 55
+EBCF: 6555   ADCz 55 hexedit.helpL
+EBD1: 8555   STAz 55 hexedit.helpL
 EBD3: 60     RTS
 EBD4: FF     
 EBD5: FF     
@@ -37180,7 +37295,7 @@ EBE9: 00     BRK
 EBEA: 2002E0 JSR E002
 EBED: 8554   STAz 54
 EBEF: 2002E0 JSR E002
-EBF2: 8555   STAz 55
+EBF2: 8555   STAz 55 hexedit.helpL
 EBF4: 60     RTS
 EBF5: 200AEB JSR EB0A
 EBF8: 0614   ASLz 14
@@ -37311,9 +37426,9 @@ ECA8: A554   LDAz 54
 ECAA: 18     CLC
 ECAB: 651E   ADCz 1E
 ECAD: 8554   STAz 54
-ECAF: A555   LDAz 55
+ECAF: A555   LDAz 55 hexedit.helpL
 ECB1: 651F   ADCz 1F
-ECB3: 8555   STAz 55
+ECB3: 8555   STAz 55 hexedit.helpL
 ECB5: A001   LDYim 01
 ECB7: B154   LDAiy 54
 ECB9: 3DF2E5 ORAx E5F2
@@ -37326,14 +37441,14 @@ ECC5: A51E   LDAz 1E
 ECC7: D002   BNE +2>CB
 ECC9: C61F   DECz 1F
 ECCB: C61E   DECz 1E
-ECCD: 20CE24 JSR 24CE
+ECCD: 20CE24 JSR 24CE hexedit.Blank
 ECD0: A001   LDYim 01
 ECD2: B154   LDAiy 54
 ECD4: 290F   ANDim 0F
-ECD6: 20E224 JSR 24E2
+ECD6: 20E224 JSR 24E2 hexedit.Nibble
 ECD9: A554   LDAz 54
 ECDB: D002   BNE +2>DF
-ECDD: C655   DECz 55
+ECDD: C655   DECz 55 hexedit.helpL
 ECDF: C654   DECz 54
 ECE1: 60     RTS
 ECE2: FF     
@@ -37669,8 +37784,8 @@ EEDE: FF
 EEDF: 22     
 EEE0: 33     
 EEE1: A001   LDYim 01
-EEE3: 20A525 JSR 25A5
-EEE6: 200325 JSR 2503
+EEE3: 20A525 JSR 25A5 bs.KPUe
+EEE6: 200325 JSR 2503 hexedit.lwriteVonBis
 EEE9: 5EEF6D LSRx 6DEF
 EEEC: EF     
 EEED: 68     PLA
@@ -37684,8 +37799,8 @@ EEF8: C8     INY
 EEF9: E8     INX
 EEFA: E004   CPXim 04
 EEFC: D0F5   BNE -11>F3
-EEFE: 201425 JSR 2514
-EF01: 200625 JSR 2506
+EEFE: 201425 JSR 2514 hexedit.writeBlock
+EF01: 200625 JSR 2506 hexedit.writeVonBis
 EF04: 5EEF64 LSRx 64EF
 EF07: EF     
 EF08: EA     NOP
@@ -37802,17 +37917,17 @@ EF9C: 62
 EF9D: 6572   ADCz 72
 EF9F: 6C6175 JMPi 7561
 EFA2: 661D   RORz 1D
-EFA4: 756E   ADCzx 6E
+EFA4: 756E   ADCzx 6E hexedit.zeiTty
 EFA6: 6D6F65 ADC 656F
 EFA9: 67     
 EFAA: 6C6963 JMPi 6369
 EFAD: 68     PLA
 EFAE: 6520   ADCz 20
-EFB0: 416E   EORix 6E
+EFB0: 416E   EORix 6E hexedit.zeiTty
 EFB2: 7061   BCS +97>15
 EFB4: 73     
 EFB5: 73     
-EFB6: 756E   ADCzx 6E
+EFB6: 756E   ADCzx 6E hexedit.zeiTty
 EFB8: 67     
 EFB9: 1D5374 ORAx 7453
 EFBC: 6163   ADCix 63
@@ -38160,7 +38275,7 @@ F171: A2F1   LDXim F1
 F173: 8D001A STA 1A00 bs.help1
 F176: 8E011A STX 1A01
 F179: A002   LDYim 02
-F17B: 20A525 JSR 25A5
+F17B: 20A525 JSR 25A5 bs.KPUe
 F17E: 68     PLA
 F17F: 851F   STAz 1F
 F181: 68     PLA
@@ -38972,7 +39087,7 @@ F728: 8410   STYz 10
 F72A: 8D001A STA 1A00 bs.help1
 F72D: 8E011A STX 1A01
 F730: A002   LDYim 02
-F732: 20A525 JSR 25A5
+F732: 20A525 JSR 25A5 bs.KPUe
 F735: 68     PLA
 F736: 851F   STAz 1F
 F738: 68     PLA
@@ -39270,13 +39385,13 @@ F8CD: FF
 F8CE: 22     
 F8CF: 33     
 F8D0: A001   LDYim 01
-F8D2: 20A525 JSR 25A5
+F8D2: 20A525 JSR 25A5 bs.KPUe
 F8D5: 68     PLA
 F8D6: D001   BNE +1>D9
 F8D8: 60     RTS
 F8D9: 8550   STAz 50
 F8DB: A004   LDYim 04
-F8DD: 20A525 JSR 25A5
+F8DD: 20A525 JSR 25A5 bs.KPUe
 F8E0: 68     PLA
 F8E1: 851F   STAz 1F
 F8E3: 8519   STAz 19
@@ -39296,7 +39411,7 @@ F8FB: A550   LDAz 50
 F8FD: 2910   ANDim 10
 F8FF: F00B   BEQ +11>0C
 F901: A002   LDYim 02
-F903: 20A525 JSR 25A5
+F903: 20A525 JSR 25A5 bs.KPUe
 F906: 68     PLA
 F907: 8515   STAz 15
 F909: 68     PLA
@@ -40780,7 +40895,7 @@ FFC5: 68     PLA
 FFC6: 6972   ADCim 72
 FFC8: 6E20D3 ROR D320
 FFCB: FF     
-FFCC: 5556   EORzx 56
+FFCC: 5556   EORzx 56 hexedit.helpH
 FFCE: 83     
 FFCF: 7061   BCS +97>32
 FFD1: 63     

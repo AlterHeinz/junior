@@ -128,7 +128,7 @@ namespace TestAssembler
         public void KnownFunctionAddressVerboseYieldsExtraOutput()
         {
             string output = TransformVerbose("2F00", 0xA9, 0x07);
-            Assert.AreEqual("2F00: ------ Hexeditor\r\n2F00: A907   LDAim 07\r\n", output);
+            Assert.AreEqual("2F00: ------ hexedit.main\r\n2F00: A907   LDAim 07\r\n", output);
         }
 
         [TestMethod]

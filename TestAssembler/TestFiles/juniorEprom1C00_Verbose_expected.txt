@@ -361,6 +361,7 @@
 1E5C: ------ editor.OPLEN
 1E5C: A000   LDYim 00
 1E5E: B1E6   LDAiy E6 editor.CURADL
+1E60: ------ editor.OPLEN2
 1E60: A001   LDYim 01
 1E62: C900   CMPim 00
 1E64: F01A   BEQ +26>80
@@ -394,7 +395,7 @@
 1E97: D008   BNE +8>A1
 1E99: A901   LDAim 01
 1E9B: 8DF8FF STA FFF8 bios.flag EPROM lo
-1E9E: 4C002F JMP 2F00 Hexeditor
+1E9E: 4C002F JMP 2F00 hexedit.main
 1EA1: C901   CMPim 01
 1EA3: D008   BNE +8>AD
 1EA5: A901   LDAim 01
@@ -498,11 +499,11 @@
 1F3D: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1F40: 88     DEY
 1F41: 301A   BMI +26>5D
-1F43: B19A   LDAiy 9A
+1F43: B19A   LDAiy 9A hexedit.video3
 1F45: C920   CMPim 20
 1F47: F0F7   BEQ -9>40
 1F49: 844D   STYz 4D
-1F4B: B19A   LDAiy 9A
+1F4B: B19A   LDAiy 9A hexedit.video3
 1F4D: 9166   STAiy 66
 1F4F: 88     DEY
 1F50: 10F9   BPL -7>4B
@@ -519,7 +520,7 @@
 1F62: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1F65: 88     DEY
 1F66: 3006   BMI +6>6E
-1F68: B19A   LDAiy 9A
+1F68: B19A   LDAiy 9A hexedit.video3
 1F6A: C920   CMPim 20
 1F6C: F0F7   BEQ -9>65
 1F6E: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
@@ -544,7 +545,7 @@
 1F90: 33     
 1F91: ------ texteditor.sr5
 1F91: 20EE1F JSR 1FEE bios.deactivate EPROM segments
-1F94: B19A   LDAiy 9A
+1F94: B19A   LDAiy 9A hexedit.video3
 1F96: AA     TAX
 1F97: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
 1F9A: 22     
@@ -566,7 +567,7 @@
 1FB0: 86FB   STXz FB monitor.POINTH
 1FB2: A901   LDAim 01
 1FB4: 8DF8FF STA FFF8 bios.flag EPROM lo
-1FB7: 4C002F JMP 2F00 Hexeditor
+1FB7: 4C002F JMP 2F00 hexedit.main
 1FBA: FF     
 1FBB: FF     
 1FBC: 22     
