@@ -48,7 +48,7 @@ namespace juniorassembler
             }
         }
 
-        private int CalcRealAddr(ConcreteInstruction instr) =>  startAddr + instr.Address;
+        private ushort CalcRealAddr(ConcreteInstruction instr) => (ushort)(startAddr + instr.Address);
 
         private string FormatDisassembledPart(ConcreteInstruction instr, int innerPos)
         {

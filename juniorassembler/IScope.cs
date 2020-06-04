@@ -3,6 +3,6 @@
     // contains visible symbols 
     internal interface IScope
     {
-        string find(int address);
+        string find(ushort address);
     }
 }
