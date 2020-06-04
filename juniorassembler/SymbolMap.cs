@@ -4,19 +4,16 @@ namespace juniorassembler
 {
     // a lookup table for known symbols - function or variable addresses
     // Original junior module names: orig, monitor, editor, "".
-    internal class SymbolMap
+    internal class SymbolMap : IScope
     {
-        internal static SymbolMap OfBank1 { get { return new SymbolMap(false); } }
-        internal static SymbolMap OfBank2 { get { return new SymbolMap(true); } }
-
-        private SymbolMap(bool inBank2)
+        internal SymbolMap(bool inBank2)
         {
             this.inBank2 = inBank2;
         }
 
         private bool inBank2;
 
-        internal string find(int argument)
+        public string find(int argument)
         {
             string ret;
             // prio 1 - may override common symbols!
