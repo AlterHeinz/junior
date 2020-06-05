@@ -16,23 +16,23 @@ namespace juniorassembler
 
             bool verbose = args[0] == "-dv";
             string startAddr = (verbose && args.Length >= 2) ? args[1] : "";
-            IScope scope = Scopes.OfBank1;
+            IDualScope dualScope = Scopes.OfBank1;
             if (startAddr.Length == 6)
             {
                 startAddr = startAddr.Substring(0, 4);
-                scope = Scopes.OfBank2;
+                dualScope = Scopes.OfBank2;
             }
                 
             bool withoutFilename = args.Length == 1 || (verbose && args.Length == 2);
             if (withoutFilename)
             {
-                var filterPipeline = new HexCharCombiner(new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr, scope)));
+                var filterPipeline = new HexCharCombiner(new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr, dualScope)));
                 Iterators.IterateTextChars(Console.In, filterPipeline);
             }
             else
             {
                 string filename = verbose ? args[2]: args[1];
-                var filterPipeline = new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr, scope));
+                var filterPipeline = new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr, dualScope));
                 Iterators.IterateFileBytes(filename, filterPipeline);
             }
             Console.Error.WriteLine("bye.");

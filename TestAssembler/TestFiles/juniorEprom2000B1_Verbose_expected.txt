@@ -997,15 +997,15 @@
 25A5: ------ bs.KPUe
 25A5: 847F   STYz 7F bs.KPUe.saveRY
 25A7: 68     PLA
-25A8: 8580   STAz 80 bs.KPUe.savePCH
+25A8: 8580   STAz 80 bs.KPUe.savePCL
 25AA: 68     PLA
-25AB: 8581   STAz 81 bs.KPUe.savePCL
+25AB: 8581   STAz 81 bs.KPUe.savePCH
 25AD: 68     PLA
-25AE: 8582   STAz 82 bs.KPUe.adrParamsH
+25AE: 8582   STAz 82 bs.KPUe.adrParamsL
 25B0: 68     PLA
-25B1: 8583   STAz 83 bs.KPUe.adrParamsL
+25B1: 8583   STAz 83 bs.KPUe.adrParamsH
 25B3: 48     PHA
-25B4: A582   LDAz 82 bs.KPUe.adrParamsH
+25B4: A582   LDAz 82 bs.KPUe.adrParamsL
 25B6: 48     PHA
 25B7: BA     TSX
 25B8: A000   LDYim 00
@@ -1013,13 +1013,13 @@
 25BB: FE0101 INCx 0101 bs.RetAdrL
 25BE: D003   BNE +3>C3
 25C0: FE0201 INCx 0102 bs.RetAdrH
-25C3: B182   LDAiy 82 bs.KPUe.adrParamsH
+25C3: B182   LDAiy 82 bs.KPUe.adrParamsL
 25C5: 48     PHA
 25C6: C47F   CPYz 7F bs.KPUe.saveRY
 25C8: D0F0   BNE -16>BA
-25CA: A581   LDAz 81 bs.KPUe.savePCL
+25CA: A581   LDAz 81 bs.KPUe.savePCH
 25CC: 48     PHA
-25CD: A580   LDAz 80 bs.KPUe.savePCH
+25CD: A580   LDAz 80 bs.KPUe.savePCL
 25CF: 48     PHA
 25D0: 60     RTS
 25D1: ------ hexedit.writeMoni.continued
@@ -9499,7 +9499,7 @@
 5998: FF     
 5999: 22     
 599A: 33     
-599B: 0180   ORAix 80 bs.KPUe.savePCH
+599B: 0180   ORAix 80 bs.KPUe.savePCL
 599D: 02     
 599E: 80     
 599F: 00     BRK
@@ -19124,7 +19124,7 @@
 88B4: 8B     
 88B5: 03     
 88B6: 8514   STAz 14
-88B8: A581   LDAz 81 bs.KPUe.savePCL
+88B8: A581   LDAz 81 bs.KPUe.savePCH
 88BA: BB     
 88BB: 00     BRK
 88BC: 01AD   ORAix AD
@@ -19136,7 +19136,7 @@
 88C6: 00     BRK
 88C7: 03     
 88C8: A203   LDXim 03
-88CA: B580   LDAzx 80 bs.KPUe.savePCH
+88CA: B580   LDAzx 80 bs.KPUe.savePCL
 88CC: 8B     
 88CD: 0595   ORAz 95 hexedit.Prosa
 88CF: 14     
@@ -19219,22 +19219,22 @@
 8933: 00     BRK
 8934: 03     
 8935: A000   LDYim 00
-8937: B180   LDAiy 80 bs.KPUe.savePCH
+8937: B180   LDAiy 80 bs.KPUe.savePCL
 8939: 8B     
 893A: 00     BRK
 893B: 03     
 893C: A000   LDYim 00
-893E: B180   LDAiy 80 bs.KPUe.savePCH
+893E: B180   LDAiy 80 bs.KPUe.savePCL
 8940: 8B     
 8941: 04     
 8942: 8514   STAz 14
 8944: C8     INY
-8945: B180   LDAiy 80 bs.KPUe.savePCH
+8945: B180   LDAiy 80 bs.KPUe.savePCL
 8947: 8B     
 8948: 00     BRK
 8949: 03     
 894A: A003   LDYim 03
-894C: B180   LDAiy 80 bs.KPUe.savePCH
+894C: B180   LDAiy 80 bs.KPUe.savePCL
 894E: 8B     
 894F: 0699   ASLz 99 hexedit.video2
 8951: 14     
@@ -20635,7 +20635,7 @@
 90C3: 01A5   ORAix A5
 90C5: 80     
 90C6: 5001   BVC +1>C9
-90C8: A681   LDXz 81 bs.KPUe.savePCL
+90C8: A681   LDXz 81 bs.KPUe.savePCH
 90CA: 5003   BVC +3>CF
 90CC: 2020E6 JSR E620
 90CF: 00     BRK
@@ -20891,7 +20891,7 @@
 9245: 818B   STAix 8B bs.RXSave
 9247: 03     
 9248: A514   LDAz 14
-924A: 8580   STAz 80 bs.KPUe.savePCH
+924A: 8580   STAz 80 bs.KPUe.savePCL
 924C: 8B     
 924D: 00     BRK
 924E: 018D   ORAix 8D bs.SPSave
@@ -20904,7 +20904,7 @@
 9259: 05A2   ORAz A2 serial.CurrentHiOrLoBits
 925B: 03     
 925C: B514   LDAzx 14
-925E: 9580   STAzx 80 bs.KPUe.savePCH
+925E: 9580   STAzx 80 bs.KPUe.savePCL
 9260: 8B     
 9261: 03     
 9262: CA     DEX
@@ -20997,23 +20997,23 @@
 92C5: 00     BRK
 92C6: 03     
 92C7: A000   LDYim 00
-92C9: 9180   STAiy 80 bs.KPUe.savePCH
+92C9: 9180   STAiy 80 bs.KPUe.savePCL
 92CB: 8B     
 92CC: 00     BRK
 92CD: 03     
 92CE: A001   LDYim 01
-92D0: 9180   STAiy 80 bs.KPUe.savePCH
+92D0: 9180   STAiy 80 bs.KPUe.savePCL
 92D2: 8B     
 92D3: 04     
 92D4: A514   LDAz 14
 92D6: 88     DEY
-92D7: 9180   STAiy 80 bs.KPUe.savePCH
+92D7: 9180   STAiy 80 bs.KPUe.savePCL
 92D9: 8B     
 92DA: 00     BRK
 92DB: 06A0   ASLz A0 serial.CurrentL
 92DD: 03     
 92DE: B91400 LDAy 0014
-92E1: 9180   STAiy 80 bs.KPUe.savePCH
+92E1: 9180   STAiy 80 bs.KPUe.savePCL
 92E3: 8B     
 92E4: 03     
 92E5: 88     DEY
@@ -22698,7 +22698,7 @@
 9D01: 60     RTS
 9D02: 0120   ORAix 20
 9D04: 82     
-9D05: A182   LDAix 82 bs.KPUe.adrParamsH
+9D05: A182   LDAix 82 bs.KPUe.adrParamsL
 9D07: 1E00A5 ASLx A500
 9D0A: A029   LDYim 29
 9D0C: 37     
@@ -22728,7 +22728,7 @@
 9D2F: 22     
 9D30: 33     
 9D31: 82     
-9D32: A182   LDAix 82 bs.KPUe.adrParamsH
+9D32: A182   LDAix 82 bs.KPUe.adrParamsL
 9D34: A500   LDAz 00
 9D36: 82     
 9D37: A900   LDAim 00
@@ -29919,7 +29919,7 @@ BF66: 4E5358 LSR 5853
 BF69: 5F     
 BF6A: 6D7177 ADC 7771
 BF6D: 80     
-BF6E: 8181   STAix 81 bs.KPUe.savePCL
+BF6E: 8181   STAix 81 bs.KPUe.savePCH
 BF70: 8D9192 STA 9291
 BF73: 9598   STAzx 98 hexedit.videoSpa
 BF75: 9B     
@@ -30235,15 +30235,15 @@ C0FD: FF
 C0FE: 00     BRK
 C0FF: 00     BRK
 C100: 1080   BPL -128>82
-C102: 0180   ORAix 80 bs.KPUe.savePCH
+C102: 0180   ORAix 80 bs.KPUe.savePCL
 C104: 00     BRK
 C105: 83     
-C106: 4180   EORix 80 bs.KPUe.savePCH
+C106: 4180   EORix 80 bs.KPUe.savePCL
 C108: 04     
 C109: 8447   STYz 47 hexedit.da.drittes
 C10B: 80     
 C10C: 08     PHP
-C10D: 8680   STXz 80 bs.KPUe.savePCH
+C10D: 8680   STXz 80 bs.KPUe.savePCL
 C10F: 0B     
 C110: 8E4980 STX 8049
 C113: 0C     
@@ -30256,7 +30256,7 @@ C11A: 8412   STYz 12
 C11C: 80     
 C11D: 0512   ORAz 12
 C11F: 80     
-C120: 0683   ASLz 83 bs.KPUe.adrParamsL
+C120: 0683   ASLz 83 bs.KPUe.adrParamsH
 C122: 8412   STYz 12
 C124: 80     
 C125: 0912   ORAim 12
@@ -30284,7 +30284,7 @@ C13D: 0D3D8A ORA 8A3D
 C140: 80     
 C141: 0E8800 ASL 0088
 C144: 80     
-C145: 1580   ORAzx 80 bs.KPUe.savePCH
+C145: 1580   ORAzx 80 bs.KPUe.savePCL
 C147: 1613   ASLzx 13
 C149: 80     
 C14A: 17     
@@ -30450,9 +30450,9 @@ C1FF: 199380 ORAy 8093
 C202: 2193   ANDix 93
 C204: 80     
 C205: 1A     
-C206: 9580   STAzx 80 bs.KPUe.savePCH
+C206: 9580   STAzx 80 bs.KPUe.savePCL
 C208: 1C     
-C209: 9480   STYz 80 bs.KPUe.savePCH
+C209: 9480   STYz 80 bs.KPUe.savePCL
 C20B: 1C     
 C20C: 97     
 C20D: 80     
@@ -30609,7 +30609,7 @@ C2D1: 3A
 C2D2: A8     TAY
 C2D3: 80     
 C2D4: 3B     
-C2D5: A680   LDXz 80 bs.KPUe.savePCH
+C2D5: A680   LDXz 80 bs.KPUe.savePCL
 C2D7: 3C     
 C2D8: A8     TAY
 C2D9: 00     BRK
@@ -30831,17 +30831,17 @@ C3C5: A7
 C3C6: 00     BRK
 C3C7: 80     
 C3C8: 00     BRK
-C3C9: A680   LDXz 80 bs.KPUe.savePCH
+C3C9: A680   LDXz 80 bs.KPUe.savePCL
 C3CB: 00     BRK
 C3CC: A8     TAY
 C3CD: 80     
 C3CE: 00     BRK
-C3CF: A680   LDXz 80 bs.KPUe.savePCH
+C3CF: A680   LDXz 80 bs.KPUe.savePCL
 C3D1: 00     BRK
 C3D2: A8     TAY
 C3D3: 80     
 C3D4: 00     BRK
-C3D5: A680   LDXz 80 bs.KPUe.savePCH
+C3D5: A680   LDXz 80 bs.KPUe.savePCL
 C3D7: 00     BRK
 C3D8: A8     TAY
 C3D9: 00     BRK
@@ -33987,7 +33987,7 @@ D839: 33
 D83A: 0127   ORAix 27
 D83C: 00     BRK
 D83D: 02     
-D83E: 390068 ANDy 6800
+D83E: 390068 ANDy 6800 Superhirn
 D841: 02     
 D842: 62     
 D843: BB     

@@ -7,12 +7,12 @@ namespace juniorassembler
     // formats one ConcreteInstruction and writes it out
     internal class OutputFormatter : IObserver<Tuple<ConcreteInstruction, int>>
     {
-        public OutputFormatter(TextWriter output, bool verbose, string startAddr, IScope symbolMap)
+        public OutputFormatter(TextWriter output, bool verbose, string startAddr, IDualScope dualScope)
         {
             this.output = output;
             this.verbose = verbose;
             this.startAddr = startAddr.Length > 0 ? Convert.ToUInt16(startAddr, 16) : (ushort)0;
-            this.scope = symbolMap;
+            this.dualScope = dualScope;
         }
 
         public void OnCompleted()
@@ -33,7 +33,7 @@ namespace juniorassembler
             // extra line for function symbol?
             if (verbose)
             {
-                string knownSymbol = scope.find(CalcRealAddr(instr));
+                string knownSymbol = dualScope.findCallerSymbol(CalcRealAddr(instr));
                 if (knownSymbol != null)
                     output.WriteLine("{0:X4}: ------ {1}", CalcRealAddr(instr), knownSymbol);
             }
@@ -121,7 +121,7 @@ namespace juniorassembler
         {
             if (verbose && instr.NoOfBytes != 1)
             {
-                string postfix = scope.find(instr.Argument);
+                string postfix = dualScope.findUsedSymbol(instr.Argument);
                 return postfix == null ? "" : " " + postfix;
             }
             return "";
@@ -136,6 +136,6 @@ namespace juniorassembler
         private readonly TextWriter output;
         private bool verbose;
         private ushort startAddr;
-        private IScope scope;
+        private IDualScope dualScope;
     }
 }
