@@ -73,6 +73,7 @@ namespace juniorassembler
             { 0x2560, "dump.dump(unused)" },
             { 0x2599, "hexedit.Grossbuchstaben" },
             { 0x25A5, "bs.KPUe" },
+            { 0x25D1, "hexedit.writeMoni.continued" },
             { 0x2600, "hexedit.decoder" },
             { 0x2640, "hexedit.sucheInET" },
             { 0x2668, "hexedit.suche" },

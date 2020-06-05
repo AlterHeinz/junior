@@ -812,30 +812,30 @@
 25A2: FF     
 25A3: 22     
 25A4: 33     
-25A5: 847F   STYz 7F bs.??
+25A5: 847F   STYz 7F bs.KPUe.saveRY
 25A7: 68     PLA
-25A8: 8580   STAz 80
+25A8: 8580   STAz 80 bs.KPUe.savePCH
 25AA: 68     PLA
-25AB: 8581   STAz 81 bs.??
+25AB: 8581   STAz 81 bs.KPUe.savePCL
 25AD: 68     PLA
-25AE: 8582   STAz 82 bs.??
+25AE: 8582   STAz 82 bs.KPUe.adrParamsH
 25B0: 68     PLA
-25B1: 8583   STAz 83 bs.??
+25B1: 8583   STAz 83 bs.KPUe.adrParamsL
 25B3: 48     PHA
-25B4: A582   LDAz 82 bs.??
+25B4: A582   LDAz 82 bs.KPUe.adrParamsH
 25B6: 48     PHA
 25B7: BA     TSX
 25B8: A000   LDYim 00
 25BA: C8     INY
 25BB: FE0101 INCx 0101 bs.RetAdrL
-25BE: B182   LDAiy 82 bs.??
+25BE: B182   LDAiy 82 bs.KPUe.adrParamsH
 25C0: 48     PHA
-25C1: C67F   DECz 7F bs.??
+25C1: C67F   DECz 7F bs.KPUe.saveRY
 25C3: D0F5   BNE -11>BA
-25C5: E680   INCz 80
+25C5: E680   INCz 80 bs.KPUe.savePCH
 25C7: D002   BNE +2>CB
-25C9: E681   INCz 81 bs.??
-25CB: 6C8000 JMPi 0080
+25C9: E681   INCz 81 bs.KPUe.savePCL
+25CB: 6C8000 JMPi 0080 bs.KPUe.savePCH
 25CE: 22     
 25CF: 33     
 25D0: 208422 JSR 2284

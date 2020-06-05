@@ -31,8 +31,8 @@ namespace TestAssembler
         [DeploymentItem(@"juniorassembler.exe")]
         public void SingleByteOpPHAViaFileVerboseYieldsPHA()
         {
-            string output = TransformVerbose("0080", 0x48);
-            Assert.AreEqual("0080: 48     PHA\r\n", output);
+            string output = TransformVerbose("007E", 0x48);
+            Assert.AreEqual("007E: 48     PHA\r\n", output);
         }
 
         [TestMethod]
