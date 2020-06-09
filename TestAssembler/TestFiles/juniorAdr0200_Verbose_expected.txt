@@ -118,8 +118,8 @@
 02A2: D0F9   BNE -7>9D
 02A4: EA     NOP
 02A5: EA     NOP
-02A6: 206402 JSR 0264 serial.sendHi/log0/Startbit
-02A9: 206402 JSR 0264 serial.sendHi/log0/Startbit
+02A6: 206002 JSR 0260 serial.sendLow/log1/Stopbit
+02A9: 206002 JSR 0260 serial.sendLow/log1/Stopbit
 02AC: 60     RTS
 02AD: FF     
 02AE: FF     
