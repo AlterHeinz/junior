@@ -96,12 +96,8 @@
 1CAE: 05E1   ORAz E1 monitor.KEY
 1CB0: 85FA   STAz FA monitor.POINTL
 1CB2: 4C7A1C JMP 1C7A
-1CB5: FF     
-1CB6: FF     
-1CB7: FF     
-1CB8: FF     
-1CB9: 22     
-1CBA: 33     
+1CB5: FFFFFF 
+1CB8: FF2233 
 1CBB: ------ floppy.writeExec
 1CBB: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1CBE: A920   LDAim 20
@@ -123,12 +119,8 @@
 1CE1: E6EB   INCz EB
 1CE3: E6ED   INCz ED
 1CE5: 4CD31C JMP 1CD3
-1CE8: FF     
-1CE9: FF     
-1CEA: FF     
-1CEB: FF     
-1CEC: 22     
-1CED: 33     
+1CE8: FFFFFF 
+1CEB: FF2233 
 1CEE: ------ floppy.vglExec
 1CEE: 20EE1F JSR 1FEE bios.deactivate EPROM segments
 1CF1: A920   LDAim 20
@@ -154,45 +146,19 @@
 1D1D: A901   LDAim 01
 1D1F: 85EE   STAz EE
 1D21: 4C051D JMP 1D05
-1D24: FF     
-1D25: FF     
-1D26: FF     
-1D27: FF     
-1D28: FF     
-1D29: FF     
-1D2A: FF     
-1D2B: FF     
-1D2C: FF     
-1D2D: FF     
-1D2E: FF     
-1D2F: FF     
-1D30: FF     
-1D31: FF     
-1D32: FF     
-1D33: FF     
-1D34: FF     
-1D35: FF     
-1D36: FF     
-1D37: FF     
-1D38: FF     
-1D39: FF     
-1D3A: FF     
-1D3B: FF     
-1D3C: FF     
-1D3D: FF     
-1D3E: FF     
-1D3F: FF     
-1D40: FF     
-1D41: FF     
-1D42: FF     
-1D43: FF     
-1D44: FF     
-1D45: FF     
-1D46: FF     
-1D47: FF     
-1D48: FF     
-1D49: FF     
-1D4A: FF     
+1D24: FFFFFF 
+1D27: FFFFFF 
+1D2A: FFFFFF 
+1D2D: FFFFFF 
+1D30: FFFFFF 
+1D33: FFFFFF 
+1D36: FFFFFF 
+1D39: FFFFFF 
+1D3C: FFFFFF 
+1D3F: FFFFFF 
+1D42: FFFFFF 
+1D45: FFFFFF 
+1D48: FFFFFF 
 1D4B: 22     
 1D4C: 33     
 1D4D: ------ editor.SCAN
@@ -318,9 +284,7 @@
 1E1C: CA     DEX
 1E1D: D0FA   BNE -6>19
 1E1F: 60     RTS
-1E20: FF     
-1E21: 22     
-1E22: 33     
+1E20: FF2233 
 1E23: ------ floppy.readExec
 1E23: A920   LDAim 20
 1E25: A000   LDYim 00
@@ -341,21 +305,11 @@
 1E44: E6EB   INCz EB
 1E46: E6ED   INCz ED
 1E48: 4C381E JMP 1E38
-1E4B: FF     
-1E4C: FF     
-1E4D: FF     
-1E4E: FF     
-1E4F: FF     
-1E50: FF     
-1E51: FF     
-1E52: FF     
-1E53: FF     
-1E54: FF     
-1E55: FF     
-1E56: FF     
-1E57: FF     
-1E58: FF     
-1E59: FF     
+1E4B: FFFFFF 
+1E4E: FFFFFF 
+1E51: FFFFFF 
+1E54: FFFFFF 
+1E57: FFFFFF 
 1E5A: 22     
 1E5B: 33     
 1E5C: ------ editor.OPLEN
@@ -380,9 +334,7 @@
 1E7D: BC1F1F LDYx 1F1F editor.opLen
 1E80: 84F6   STYz F6 monitor.BYTES
 1E82: 60     RTS
-1E83: FF     
-1E84: 22     
-1E85: 33     
+1E83: FF2233 
 1E86: ------ comfortableReset
 1E86: 86F2   STXz F2 monitor.SaveSP
 1E88: D8     CLD
@@ -412,15 +364,9 @@
 1EBF: 8DF9FF STA FFF9 bios.flag EPROM med
 1EC2: 4C0050 JMP 5000 Floppy
 1EC5: 4C331C JMP 1C33 monitor.START
-1EC8: FF     
-1EC9: FF     
-1ECA: FF     
-1ECB: FF     
-1ECC: FF     
-1ECD: FF     
-1ECE: FF     
-1ECF: FF     
-1ED0: FF     
+1EC8: FFFFFF 
+1ECB: FFFFFF 
+1ECE: FFFFFF 
 1ED1: 22     
 1ED2: 33     
 1ED3: ------ editor.BEGIN
@@ -487,12 +433,8 @@
 1F2E: 03     
 1F2F: 6C7A1A JMPi 1A7A orig.NMIL
 1F32: 6C7E1A JMPi 1A7E orig.IRQL
-1F35: FF     
-1F36: FF     
-1F37: FF     
-1F38: FF     
-1F39: FF     
-1F3A: FF     
+1F35: FFFFFF 
+1F38: FFFFFF 
 1F3B: 22     
 1F3C: 33     
 1F3D: ------ texteditor.sr1
@@ -555,9 +497,7 @@
 1F9F: B160   LDAiy 60
 1FA1: AA     TAX
 1FA2: 4CDD1F JMP 1FDD bios.activate EPROM segments(1A08)
-1FA5: FF     
-1FA6: FF     
-1FA7: FF     
+1FA5: FFFFFF 
 1FA8: 22     
 1FA9: 33     
 1FAA: ------ hexeditor.start
@@ -568,9 +508,7 @@
 1FB2: A901   LDAim 01
 1FB4: 8DF8FF STA FFF8 bios.flag EPROM lo
 1FB7: 4C002F JMP 2F00 hexedit.main
-1FBA: FF     
-1FBB: FF     
-1FBC: 22     
+1FBA: FFFF22 
 1FBD: 33     
 1FBE: ------ bios.read 1 byte from EPROM
 1FBE: 20D41F JSR 1FD4 bios.activate EPROM bank and segments(1A09)
@@ -585,15 +523,11 @@
 1FCC: 6A     RORa
 1FCD: 6A     RORa
 1FCE: 4CE01F JMP 1FE0 bios.activate EPROM segments(AC)
-1FD1: FF     
-1FD2: 22     
-1FD3: 33     
+1FD1: FF2233 
 1FD4: ------ bios.activate EPROM bank and segments(1A09)
 1FD4: AD091A LDA 1A09 bs.param.ROMStatusSlave
 1FD7: 4CC71F JMP 1FC7 bios.activate EPROM bank and segments(AC)
-1FDA: FF     
-1FDB: 22     
-1FDC: 33     
+1FDA: FF2233 
 1FDD: ------ bios.activate EPROM segments(1A08)
 1FDD: AD081A LDA 1A08 bs.param.ROMStatusMaster
 1FE0: ------ bios.activate EPROM segments(AC)

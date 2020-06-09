@@ -23,7 +23,7 @@ namespace juniorassembler
 
         public bool IsBranchInstruction => data.Item3 == AddressMode.rel;
 
-        public bool IsZeroAddressing => (NoOfBytes == 2 && data.Item3 != AddressMode.im && data.Item3 != AddressMode.rel);
+        public bool IsZeroAddressing => (NoOfArgBytes == 1 && data.Item3 != AddressMode.im && data.Item3 != AddressMode.rel);
 
         public int NoOfBytes
         {
@@ -33,6 +33,8 @@ namespace juniorassembler
                 {
                     case AddressMode.NONE:
                         return 1;
+                    case AddressMode.NONE3:
+                        return 3;
                     case AddressMode.ix:
                     case AddressMode.iy:
                     case AddressMode.zp:
@@ -57,6 +59,20 @@ namespace juniorassembler
             }
         }
 
+        public int NoOfArgBytes
+        {
+            get
+            {
+                switch (data.Item3)
+                {
+                    case AddressMode.NONE3:
+                        return 0;
+                    default:
+                        return NoOfBytes - 1;
+                }
+            }
+        }
+
         public string Label
         {
             get
@@ -72,6 +88,7 @@ namespace juniorassembler
                 switch (data.Item3)
                 {
                     case AddressMode.NONE:
+                    case AddressMode.NONE3:
                     case AddressMode.abs:
                     case AddressMode.rel:
                         return "";
@@ -351,7 +368,7 @@ namespace juniorassembler
             new Instruction(0xFC, "", AddressMode.NONE),
             new Instruction(0xFD, "SBC", AddressMode.x),
             new Instruction(0xFE, "INC", AddressMode.x),
-            new Instruction(0xFF, "", AddressMode.NONE)
+            new Instruction(0xFF, "", AddressMode.NONE3)
         };
     }
 }

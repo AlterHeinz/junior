@@ -52,11 +52,11 @@ namespace juniorassembler
 
         private string FormatDisassembledPart(ConcreteInstruction instr, int innerPos)
         {
-            switch (instr.NoOfBytes)
+            switch (instr.NoOfArgBytes)
             {
-                case 1:
+                case 0:
                     return "{0}";
-                case 2:
+                case 1:
                     if (2 == innerPos)
                     {
                         if (verbose && instr.IsBranchInstruction)
@@ -69,7 +69,7 @@ namespace juniorassembler
                     }
                     else
                         return "{0} ??";
-                case 3:
+                case 2:
                     if (3 == innerPos)
                         return "{0} {2:X2}{1:X2}{6}"; // special postfix for instructions with symbols
                     else if (2 == innerPos)
@@ -77,7 +77,7 @@ namespace juniorassembler
                     else
                         return "{0} ????";
                 default:
-                    Debug.Fail("bad instruction.NoOfBytes");
+                    Debug.Fail("bad instruction.NoOfArgBytes");
                     return null;
             }
         }
@@ -119,7 +119,7 @@ namespace juniorassembler
 
         public string GetSymbolPostfix(ConcreteInstruction instr)
         {
-            if (verbose && instr.NoOfBytes != 1)
+            if (verbose && instr.NoOfArgBytes > 0)
             {
                 string postfix = dualScope.findUsedSymbol(instr.Argument);
                 return postfix == null ? "" : " " + postfix;

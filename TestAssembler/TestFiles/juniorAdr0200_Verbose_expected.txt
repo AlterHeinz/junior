@@ -21,48 +21,20 @@
 022D: E6A1   INCz A1 serial.CurrentH
 022F: 10EC   BPL -20>1D
 0231: 4C1D1C JMP 1C1D monitor.RESET
-0234: FF     
-0235: FF     
-0236: FF     
-0237: FF     
-0238: FF     
-0239: FF     
-023A: FF     
-023B: FF     
-023C: FF     
-023D: FF     
-023E: FF     
-023F: FF     
-0240: FF     
-0241: FF     
-0242: FF     
-0243: FF     
-0244: FF     
-0245: FF     
-0246: FF     
-0247: FF     
-0248: FF     
-0249: FF     
-024A: FF     
-024B: FF     
-024C: FF     
-024D: FF     
-024E: FF     
-024F: FF     
-0250: FF     
-0251: FF     
-0252: FF     
-0253: FF     
-0254: FF     
-0255: FF     
-0256: FF     
-0257: FF     
-0258: FF     
-0259: FF     
-025A: FF     
-025B: FF     
-025C: FF     
-025D: FF     
+0234: FFFFFF 
+0237: FFFFFF 
+023A: FFFFFF 
+023D: FFFFFF 
+0240: FFFFFF 
+0243: FFFFFF 
+0246: FFFFFF 
+0249: FFFFFF 
+024C: FFFFFF 
+024F: FFFFFF 
+0252: FFFFFF 
+0255: FFFFFF 
+0258: FFFFFF 
+025B: FFFFFF 
 025E: 22     
 025F: 33     
 0260: ------ serial.sendLow/log1/Stopbit
@@ -76,21 +48,11 @@
 026B: CA     DEX
 026C: D0FD   BNE -3>6B
 026E: 60     RTS
-026F: FF     
-0270: FF     
-0271: FF     
-0272: FF     
-0273: FF     
-0274: FF     
-0275: FF     
-0276: FF     
-0277: FF     
-0278: FF     
-0279: FF     
-027A: FF     
-027B: FF     
-027C: FF     
-027D: FF     
+026F: FFFFFF 
+0272: FFFFFF 
+0275: FFFFFF 
+0278: FFFFFF 
+027B: FFFFFF 
 027E: 22     
 027F: 33     
 0280: ------ serial.send7BitWord
@@ -121,87 +83,33 @@
 02A6: 206002 JSR 0260 serial.sendLow/log1/Stopbit
 02A9: 206002 JSR 0260 serial.sendLow/log1/Stopbit
 02AC: 60     RTS
-02AD: FF     
-02AE: FF     
-02AF: FF     
-02B0: FF     
-02B1: FF     
-02B2: FF     
-02B3: FF     
-02B4: FF     
-02B5: FF     
-02B6: FF     
-02B7: FF     
-02B8: FF     
-02B9: FF     
-02BA: FF     
-02BB: FF     
-02BC: FF     
-02BD: FF     
-02BE: FF     
-02BF: FF     
-02C0: FF     
-02C1: FF     
-02C2: FF     
-02C3: FF     
-02C4: FF     
-02C5: FF     
-02C6: FF     
-02C7: FF     
-02C8: FF     
-02C9: FF     
-02CA: FF     
-02CB: FF     
-02CC: FF     
-02CD: FF     
-02CE: FF     
-02CF: FF     
-02D0: FF     
-02D1: FF     
-02D2: FF     
-02D3: FF     
-02D4: FF     
-02D5: FF     
-02D6: FF     
-02D7: FF     
-02D8: FF     
-02D9: FF     
-02DA: FF     
-02DB: FF     
-02DC: FF     
-02DD: FF     
-02DE: FF     
-02DF: FF     
-02E0: FF     
-02E1: FF     
-02E2: FF     
-02E3: FF     
-02E4: FF     
-02E5: FF     
-02E6: FF     
-02E7: FF     
-02E8: FF     
-02E9: FF     
-02EA: FF     
-02EB: FF     
-02EC: FF     
-02ED: FF     
-02EE: FF     
-02EF: FF     
-02F0: FF     
-02F1: FF     
-02F2: FF     
-02F3: FF     
-02F4: FF     
-02F5: FF     
-02F6: FF     
-02F7: FF     
-02F8: FF     
-02F9: FF     
-02FA: FF     
-02FB: FF     
-02FC: FF     
-02FD: FF     
+02AD: FFFFFF 
+02B0: FFFFFF 
+02B3: FFFFFF 
+02B6: FFFFFF 
+02B9: FFFFFF 
+02BC: FFFFFF 
+02BF: FFFFFF 
+02C2: FFFFFF 
+02C5: FFFFFF 
+02C8: FFFFFF 
+02CB: FFFFFF 
+02CE: FFFFFF 
+02D1: FFFFFF 
+02D4: FFFFFF 
+02D7: FFFFFF 
+02DA: FFFFFF 
+02DD: FFFFFF 
+02E0: FFFFFF 
+02E3: FFFFFF 
+02E6: FFFFFF 
+02E9: FFFFFF 
+02EC: FFFFFF 
+02EF: FFFFFF 
+02F2: FFFFFF 
+02F5: FFFFFF 
+02F8: FFFFFF 
+02FB: FFFFFF 
 02FE: 22     
 02FF: 33     
 0300: ------ serial.receive from PC
@@ -306,9 +214,8 @@
 037C: 67     
 037D: 67     
 037E: ------ hexedit.arrZeiNrL
-037E: FF     
-037F: 02     
-0380: 0507   ORAz 07
+037E: FF0205 
+0381: 07     
 0382: 0A     ASLa
 0383: 0D1012 ORA 1210
 0386: 14     
@@ -434,13 +341,9 @@
 03FD: 67     
 03FE: 67     
 03FF: 67     
-0400: FF     
-0401: 00     BRK
-0402: FF     
+0400: FF00FF 
 0403: 00     BRK
-0404: FF     
-0405: 00     BRK
-0406: FF     
+0404: FF00FF 
 0407: 00     BRK
 0408: 04     
 0409: 04     

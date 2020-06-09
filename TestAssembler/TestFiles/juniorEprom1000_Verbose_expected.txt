@@ -1,6 +1,4 @@
-﻿1000: FF     
-1001: FF     
-1002: FF     
+﻿1000: FFFFFF 
 1003: 22     
 1004: 33     
 1005: ------ bs.RestartTastatur
@@ -16,9 +14,7 @@
 1018: 8D0E14 STA 140E VIA.IER
 101B: 28     PLP
 101C: 60     RTS
-101D: FF     
-101E: FF     
-101F: FF     
+101D: FFFFFF 
 1020: 22     
 1021: 33     
 1022: ------ bs.IRouCB2
@@ -30,45 +26,19 @@
 102F: A984   LDAim 84
 1031: 8D0E14 STA 140E VIA.IER
 1034: 60     RTS
-1035: FF     
-1036: FF     
-1037: FF     
-1038: FF     
-1039: FF     
-103A: FF     
-103B: FF     
-103C: FF     
-103D: FF     
-103E: FF     
-103F: FF     
-1040: FF     
-1041: FF     
-1042: FF     
-1043: FF     
-1044: FF     
-1045: FF     
-1046: FF     
-1047: FF     
-1048: FF     
-1049: FF     
-104A: FF     
-104B: FF     
-104C: FF     
-104D: FF     
-104E: FF     
-104F: FF     
-1050: FF     
-1051: FF     
-1052: FF     
-1053: FF     
-1054: FF     
-1055: FF     
-1056: FF     
-1057: FF     
-1058: FF     
-1059: FF     
-105A: FF     
-105B: 22     
+1035: FFFFFF 
+1038: FFFFFF 
+103B: FFFFFF 
+103E: FFFFFF 
+1041: FFFFFF 
+1044: FFFFFF 
+1047: FFFFFF 
+104A: FFFFFF 
+104D: FFFFFF 
+1050: FFFFFF 
+1053: FFFFFF 
+1056: FFFFFF 
+1059: FFFF22 
 105C: 33     
 105D: ------ bs.IRouSR.1
 105D: A9D0   LDAim D0
@@ -77,9 +47,7 @@
 1065: A96E   LDAim 6E
 1067: 8D641A STA 1A64 bs.irous.VIA.SR
 106A: 60     RTS
-106B: FF     
-106C: 22     
-106D: 33     
+106B: FF2233 
 106E: ------ bs.IRouSR.2
 106E: AD0A14 LDA 140A VIA.SR
 1071: 857C   STAz 7C
@@ -94,12 +62,8 @@
 1082: 200510 JSR 1005 bs.RestartTastatur
 1085: 8579   STAz 79
 1087: 60     RTS
-1088: FF     
-1089: FF     
-108A: FF     
-108B: FF     
-108C: FF     
-108D: FF     
+1088: FFFFFF 
+108B: FFFFFF 
 108E: 22     
 108F: 33     
 1090: ------ bs.IRouWait
@@ -147,168 +111,60 @@
 10DB: AA     TAX
 10DC: 68     PLA
 10DD: 60     RTS
-10DE: FF     
-10DF: FF     
-10E0: FF     
-10E1: FF     
-10E2: FF     
-10E3: FF     
-10E4: FF     
-10E5: FF     
-10E6: FF     
-10E7: FF     
-10E8: FF     
-10E9: FF     
-10EA: FF     
-10EB: FF     
-10EC: FF     
-10ED: FF     
-10EE: FF     
-10EF: FF     
-10F0: FF     
-10F1: FF     
-10F2: FF     
-10F3: FF     
-10F4: FF     
-10F5: FF     
-10F6: FF     
-10F7: FF     
-10F8: FF     
-10F9: FF     
-10FA: FF     
-10FB: FF     
-10FC: FF     
-10FD: FF     
-10FE: FF     
-10FF: FF     
-1100: FF     
-1101: FF     
-1102: FF     
-1103: FF     
-1104: FF     
-1105: FF     
-1106: FF     
-1107: FF     
-1108: FF     
-1109: FF     
-110A: FF     
-110B: FF     
-110C: FF     
-110D: FF     
-110E: FF     
-110F: FF     
-1110: FF     
-1111: FF     
-1112: FF     
-1113: FF     
-1114: FF     
-1115: FF     
-1116: FF     
-1117: FF     
-1118: FF     
-1119: FF     
-111A: FF     
-111B: FF     
-111C: FF     
-111D: FF     
-111E: FF     
-111F: FF     
-1120: FF     
-1121: FF     
-1122: FF     
-1123: FF     
-1124: FF     
-1125: FF     
-1126: FF     
-1127: FF     
-1128: FF     
-1129: FF     
-112A: FF     
-112B: FF     
-112C: FF     
-112D: FF     
-112E: FF     
-112F: FF     
-1130: FF     
-1131: FF     
-1132: FF     
-1133: FF     
-1134: FF     
-1135: FF     
-1136: FF     
-1137: FF     
-1138: FF     
-1139: FF     
-113A: FF     
-113B: FF     
-113C: FF     
-113D: FF     
-113E: FF     
-113F: FF     
-1140: FF     
-1141: FF     
-1142: FF     
-1143: FF     
-1144: FF     
-1145: FF     
-1146: FF     
-1147: FF     
-1148: FF     
-1149: FF     
-114A: FF     
-114B: FF     
-114C: FF     
-114D: FF     
-114E: FF     
-114F: FF     
-1150: FF     
-1151: FF     
-1152: FF     
-1153: FF     
-1154: FF     
-1155: FF     
-1156: FF     
-1157: FF     
-1158: FF     
-1159: FF     
-115A: FF     
-115B: FF     
-115C: FF     
-115D: FF     
-115E: FF     
-115F: FF     
-1160: FF     
-1161: FF     
-1162: FF     
-1163: FF     
-1164: FF     
-1165: FF     
-1166: FF     
-1167: FF     
-1168: FF     
-1169: FF     
-116A: FF     
-116B: FF     
-116C: FF     
-116D: FF     
-116E: FF     
-116F: FF     
-1170: FF     
-1171: FF     
-1172: FF     
-1173: FF     
-1174: FF     
-1175: FF     
-1176: FF     
-1177: FF     
-1178: FF     
-1179: FF     
-117A: FF     
-117B: FF     
-117C: FF     
-117D: FF     
-117E: 22     
-117F: 33     
+10DE: FFFFFF 
+10E1: FFFFFF 
+10E4: FFFFFF 
+10E7: FFFFFF 
+10EA: FFFFFF 
+10ED: FFFFFF 
+10F0: FFFFFF 
+10F3: FFFFFF 
+10F6: FFFFFF 
+10F9: FFFFFF 
+10FC: FFFFFF 
+10FF: FFFFFF 
+1102: FFFFFF 
+1105: FFFFFF 
+1108: FFFFFF 
+110B: FFFFFF 
+110E: FFFFFF 
+1111: FFFFFF 
+1114: FFFFFF 
+1117: FFFFFF 
+111A: FFFFFF 
+111D: FFFFFF 
+1120: FFFFFF 
+1123: FFFFFF 
+1126: FFFFFF 
+1129: FFFFFF 
+112C: FFFFFF 
+112F: FFFFFF 
+1132: FFFFFF 
+1135: FFFFFF 
+1138: FFFFFF 
+113B: FFFFFF 
+113E: FFFFFF 
+1141: FFFFFF 
+1144: FFFFFF 
+1147: FFFFFF 
+114A: FFFFFF 
+114D: FFFFFF 
+1150: FFFFFF 
+1153: FFFFFF 
+1156: FFFFFF 
+1159: FFFFFF 
+115C: FFFFFF 
+115F: FFFFFF 
+1162: FFFFFF 
+1165: FFFFFF 
+1168: FFFFFF 
+116B: FFFFFF 
+116E: FFFFFF 
+1171: FFFFFF 
+1174: FFFFFF 
+1177: FFFFFF 
+117A: FFFFFF 
+117D: FF2233 
 1180: ------ bs.Transfer3
 1180: 38     SEC
 1181: A5CC   LDAz CC bs.Transfer3.bisL
@@ -322,9 +178,7 @@
 118E: 22     
 118F: 33     
 1190: 4C8011 JMP 1180 bs.Transfer3
-1193: FF     
-1194: FF     
-1195: FF     
+1193: FFFFFF 
 1196: 22     
 1197: 33     
 1198: A5CA   LDAz CA bs.Transfer3.vonL
@@ -422,24 +276,12 @@
 1229: A58A   LDAz 8A bs.ACSave
 122B: C691   DECz 91 bs.modus
 122D: 40     RTI
-122E: FF     
-122F: FF     
-1230: FF     
-1231: FF     
-1232: FF     
-1233: FF     
-1234: FF     
-1235: FF     
-1236: FF     
-1237: FF     
-1238: FF     
-1239: FF     
-123A: FF     
-123B: FF     
-123C: FF     
-123D: FF     
-123E: 22     
-123F: 33     
+122E: FFFFFF 
+1231: FFFFFF 
+1234: FFFFFF 
+1237: FFFFFF 
+123A: FFFFFF 
+123D: FF2233 
 1240: ------ bs.RWL
 1240: 08     PHP
 1241: AA     TAX
@@ -450,30 +292,14 @@
 124A: B002   BCS +2>4E
 124C: 868E   STXz 8E bs.maxTask
 124E: 4C8612 JMP 1286 bs.RKVOderNicht
-1251: FF     
-1252: FF     
-1253: FF     
-1254: FF     
-1255: FF     
-1256: FF     
-1257: FF     
-1258: FF     
-1259: FF     
-125A: FF     
-125B: FF     
-125C: FF     
-125D: FF     
-125E: FF     
-125F: FF     
-1260: FF     
-1261: FF     
-1262: FF     
-1263: FF     
-1264: FF     
-1265: FF     
-1266: FF     
-1267: FF     
-1268: 22     
+1251: FFFFFF 
+1254: FFFFFF 
+1257: FFFFFF 
+125A: FFFFFF 
+125D: FFFFFF 
+1260: FFFFFF 
+1263: FFFFFF 
+1266: FFFF22 
 1269: 33     
 126A: ------ bs.NRWLSelbst
 126A: A58F   LDAz 8F bs.aktTask
@@ -506,12 +332,8 @@
 1295: FE0201 INCx 0102 bs.RetAdrH
 1298: 08     PHP
 1299: 4C0012 JMP 1200 bs.RKV
-129C: FF     
-129D: FF     
-129E: FF     
-129F: FF     
-12A0: FF     
-12A1: 22     
+129C: FFFFFF 
+129F: FFFF22 
 12A2: 33     
 12A3: ------ bs.IRouFortsetzg
 12A3: 78     SEI
@@ -521,87 +343,33 @@
 12A9: E691   INCz 91 bs.modus
 12AB: 58     CLI
 12AC: 4C0012 JMP 1200 bs.RKV
-12AF: FF     
-12B0: FF     
-12B1: FF     
-12B2: FF     
-12B3: FF     
-12B4: FF     
-12B5: FF     
-12B6: FF     
-12B7: FF     
-12B8: FF     
-12B9: FF     
-12BA: FF     
-12BB: FF     
-12BC: FF     
-12BD: FF     
-12BE: FF     
-12BF: FF     
-12C0: FF     
-12C1: FF     
-12C2: FF     
-12C3: FF     
-12C4: FF     
-12C5: FF     
-12C6: FF     
-12C7: FF     
-12C8: FF     
-12C9: FF     
-12CA: FF     
-12CB: FF     
-12CC: FF     
-12CD: FF     
-12CE: FF     
-12CF: FF     
-12D0: FF     
-12D1: FF     
-12D2: FF     
-12D3: FF     
-12D4: FF     
-12D5: FF     
-12D6: FF     
-12D7: FF     
-12D8: FF     
-12D9: FF     
-12DA: FF     
-12DB: FF     
-12DC: FF     
-12DD: FF     
-12DE: FF     
-12DF: FF     
-12E0: FF     
-12E1: FF     
-12E2: FF     
-12E3: FF     
-12E4: FF     
-12E5: FF     
-12E6: FF     
-12E7: FF     
-12E8: FF     
-12E9: FF     
-12EA: FF     
-12EB: FF     
-12EC: FF     
-12ED: FF     
-12EE: FF     
-12EF: FF     
-12F0: FF     
-12F1: FF     
-12F2: FF     
-12F3: FF     
-12F4: FF     
-12F5: FF     
-12F6: FF     
-12F7: FF     
-12F8: FF     
-12F9: FF     
-12FA: FF     
-12FB: FF     
-12FC: FF     
-12FD: FF     
-12FE: 22     
-12FF: 33     
+12AF: FFFFFF 
+12B2: FFFFFF 
+12B5: FFFFFF 
+12B8: FFFFFF 
+12BB: FFFFFF 
+12BE: FFFFFF 
+12C1: FFFFFF 
+12C4: FFFFFF 
+12C7: FFFFFF 
+12CA: FFFFFF 
+12CD: FFFFFF 
+12D0: FFFFFF 
+12D3: FFFFFF 
+12D6: FFFFFF 
+12D9: FFFFFF 
+12DC: FFFFFF 
+12DF: FFFFFF 
+12E2: FFFFFF 
+12E5: FFFFFF 
+12E8: FFFFFF 
+12EB: FFFFFF 
+12EE: FFFFFF 
+12F1: FFFFFF 
+12F4: FFFFFF 
+12F7: FFFFFF 
+12FA: FFFFFF 
+12FD: FF2233 
 1300: ------ bs.HauptIRou
 1300: E691   INCz 91 bs.modus
 1302: 2C0D14 BIT 140D VIA.IFR
@@ -641,9 +409,7 @@
 1342: 6C601A JMPi 1A60 bs.irous.VIA.CA2
 1345: 68     PLA
 1346: 4CA312 JMP 12A3 bs.IRouFortsetzg
-1349: FF     
-134A: FF     
-134B: 22     
+1349: FFFF22 
 134C: 33     
 134D: 2CD51A BIT 1AD5 RDFLAG
 1350: 3004   BMI +4>56
@@ -662,12 +428,8 @@
 1368: 6C761A JMPi 1A76 bs.irous.PIA.Timer
 136B: ------ bs.PA7IRou
 136B: 6C741A JMPi 1A74 bs.irous.PIA.PA7
-136E: FF     
-136F: FF     
-1370: FF     
-1371: FF     
-1372: 22     
-1373: 33     
+136E: FFFFFF 
+1371: FF2233 
 1374: 48     PHA
 1375: 2C0016 BIT 1600 floppy.??
 1378: 10FB   BPL -5>75
@@ -683,113 +445,41 @@
 138C: 18     CLC
 138D: 90F1   BCC -15>80
 138F: 4CA312 JMP 12A3 bs.IRouFortsetzg
-1392: FF     
-1393: FF     
-1394: FF     
-1395: FF     
-1396: FF     
-1397: FF     
-1398: FF     
-1399: FF     
-139A: FF     
-139B: FF     
-139C: FF     
-139D: FF     
-139E: FF     
-139F: FF     
-13A0: FF     
-13A1: FF     
-13A2: FF     
-13A3: FF     
-13A4: FF     
-13A5: FF     
-13A6: FF     
-13A7: FF     
-13A8: FF     
-13A9: FF     
-13AA: FF     
-13AB: FF     
-13AC: FF     
-13AD: FF     
-13AE: FF     
-13AF: FF     
-13B0: FF     
-13B1: FF     
-13B2: FF     
-13B3: FF     
-13B4: FF     
-13B5: FF     
-13B6: FF     
-13B7: FF     
-13B8: FF     
-13B9: FF     
-13BA: FF     
-13BB: FF     
-13BC: FF     
-13BD: FF     
-13BE: FF     
-13BF: FF     
-13C0: FF     
-13C1: FF     
-13C2: FF     
-13C3: FF     
-13C4: FF     
-13C5: FF     
-13C6: FF     
-13C7: FF     
-13C8: FF     
-13C9: FF     
-13CA: FF     
-13CB: FF     
-13CC: FF     
-13CD: FF     
-13CE: FF     
-13CF: FF     
-13D0: FF     
-13D1: FF     
-13D2: FF     
-13D3: FF     
-13D4: FF     
-13D5: FF     
-13D6: FF     
-13D7: FF     
-13D8: FF     
-13D9: FF     
-13DA: FF     
-13DB: FF     
-13DC: FF     
-13DD: FF     
-13DE: FF     
-13DF: FF     
-13E0: FF     
-13E1: FF     
-13E2: FF     
-13E3: FF     
-13E4: FF     
-13E5: FF     
-13E6: FF     
-13E7: FF     
-13E8: FF     
-13E9: FF     
-13EA: FF     
-13EB: FF     
-13EC: FF     
-13ED: FF     
-13EE: FF     
-13EF: FF     
-13F0: FF     
-13F1: FF     
-13F2: FF     
-13F3: FF     
-13F4: FF     
-13F5: FF     
-13F6: FF     
-13F7: FF     
-13F8: FF     
-13F9: FF     
-13FA: FF     
-13FB: FF     
-13FC: FF     
-13FD: FF     
+1392: FFFFFF 
+1395: FFFFFF 
+1398: FFFFFF 
+139B: FFFFFF 
+139E: FFFFFF 
+13A1: FFFFFF 
+13A4: FFFFFF 
+13A7: FFFFFF 
+13AA: FFFFFF 
+13AD: FFFFFF 
+13B0: FFFFFF 
+13B3: FFFFFF 
+13B6: FFFFFF 
+13B9: FFFFFF 
+13BC: FFFFFF 
+13BF: FFFFFF 
+13C2: FFFFFF 
+13C5: FFFFFF 
+13C8: FFFFFF 
+13CB: FFFFFF 
+13CE: FFFFFF 
+13D1: FFFFFF 
+13D4: FFFFFF 
+13D7: FFFFFF 
+13DA: FFFFFF 
+13DD: FFFFFF 
+13E0: FFFFFF 
+13E3: FFFFFF 
+13E6: FFFFFF 
+13E9: FFFFFF 
+13EC: FFFFFF 
+13EF: FFFFFF 
+13F2: FFFFFF 
+13F5: FFFFFF 
+13F8: FFFFFF 
+13FB: FFFFFF 
 13FE: 22     
 13FF: 33     

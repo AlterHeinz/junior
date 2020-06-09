@@ -93,10 +93,6 @@ STAz FA
 JMP 1C7A
 
 
-
-
-
-
 JSR 1FEE
 LDAim 20
 LDYim 00
@@ -117,10 +113,6 @@ JMP 1FDD
 INCz EB
 INCz ED
 JMP 1CD3
-
-
-
-
 
 
 JSR 1FEE
@@ -147,32 +139,6 @@ JMP 1D08
 LDAim 01
 STAz EE
 JMP 1D05
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -301,8 +267,6 @@ DEX
 BNE FA
 RTS
 
-
-
 LDAim 20
 LDYim 00
 BIT 1600
@@ -322,16 +286,6 @@ RTS
 INCz EB
 INCz ED
 JMP 1E38
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -359,8 +313,6 @@ TAX
 LDYx 1F1F
 STYz F6
 RTS
-
-
 
 STXz F2
 CLD
@@ -390,12 +342,6 @@ LDAim 01
 STA FFF9
 JMP 5000
 JMP 1C33
-
-
-
-
-
-
 
 
 
@@ -463,10 +409,6 @@ JMPi 1A7E
 
 
 
-
-
-
-
 JSR 1FEE
 DEY
 BMI 1A
@@ -524,8 +466,6 @@ JMP 1FDD
 
 
 
-
-
 LDAz E2
 LDXz E3
 STAz FA
@@ -533,8 +473,6 @@ STXz FB
 LDAim 01
 STA FFF8
 JMP 2F00
-
-
 
 
 JSR 1FD4
@@ -548,12 +486,8 @@ RORa
 RORa
 JMP 1FE0
 
-
-
 LDA 1A09
 JMP 1FC7
-
-
 
 LDA 1A08
 STA FFF8
