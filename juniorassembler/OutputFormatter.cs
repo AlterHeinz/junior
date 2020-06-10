@@ -28,7 +28,7 @@ namespace juniorassembler
         public void OnNext(Tuple<ConcreteInstruction, int> value)
         {
             ConcreteInstruction instr = value.Item1;
-            int innerPos = value.Item2;
+            int missingArgBytes = value.Item2;
 
             // extra line for function symbol?
             if (verbose)
@@ -38,26 +38,26 @@ namespace juniorassembler
                     output.WriteLine("{0:X4}: ------ {1}", CalcRealAddr(instr), knownSymbol);
             }
 
-            string format = FormatDisassembledPart(instr, innerPos);
+            string format = FormatDisassembledPart(instr, missingArgBytes);
 
             if (format != null)
             {
                 if (verbose)
-                    format = PrependHexBytes(instr, innerPos) + format;
+                    format = PrependHexBytes(instr, missingArgBytes) + format;
                 Forward(format, instr);
             }
         }
 
         private ushort CalcRealAddr(ConcreteInstruction instr) => (ushort)(startAddr + instr.Address);
 
-        private string FormatDisassembledPart(ConcreteInstruction instr, int innerPos)
+        private string FormatDisassembledPart(ConcreteInstruction instr, int missingArgBytes)
         {
             switch (instr.NoOfArgBytes)
             {
                 case 0:
                     return "{0}";
                 case 1:
-                    if (2 == innerPos)
+                    if (0 == missingArgBytes)
                     {
                         if (verbose && instr.IsBranchInstruction)
                             // special case for branch instructions
@@ -70,9 +70,9 @@ namespace juniorassembler
                     else
                         return "{0} ??";
                 case 2:
-                    if (3 == innerPos)
+                    if (0 == missingArgBytes)
                         return "{0} {2:X2}{1:X2}{6}"; // special postfix for instructions with symbols
-                    else if (2 == innerPos)
+                    else if (1 == missingArgBytes)
                         return "{0} ??{1:X2}";
                     else
                         return "{0} ????";
@@ -82,21 +82,21 @@ namespace juniorassembler
             }
         }
 
-        private string PrependHexBytes(ConcreteInstruction instr, int innerPos)
+        private string PrependHexBytes(ConcreteInstruction instr, int missingArgBytes)
         {
             switch (instr.NoOfBytes)
             {
                 case 1:
                     return "{4:X4}: {3:X2}     ";
                 case 2:
-                    if (2 == innerPos)
+                    if (0 == missingArgBytes)
                         return "{4:X4}: {3:X2}{1:X2}   ";
                     else
                         return "{4:X4}: {3:X2}??   ";
                 case 3:
-                    if (3 == innerPos)
+                    if (0 == missingArgBytes)
                         return "{4:X4}: {3:X2}{1:X2}{2:X2} ";
-                    if (2 == innerPos)
+                    if (1 == missingArgBytes)
                         return "{4:X4}: {3:X2}{1:X2}?? ";
                     return "{4:X4}: {3:X2}???? ";
                 default:
