@@ -5,7 +5,7 @@ using System.IO;
 namespace juniorassembler
 {
     // formats one ConcreteInstruction and writes it out
-    internal class OutputFormatter : IObserver<Tuple<ConcreteInstruction, int>>
+    internal class OutputFormatter : IObserver<ConcreteInstructionWithPossiblyMissingBytes>
     {
         public OutputFormatter(TextWriter output, bool verbose, string startAddr, IDualScope dualScope)
         {
@@ -25,10 +25,9 @@ namespace juniorassembler
             throw new NotImplementedException();
         }
 
-        public void OnNext(Tuple<ConcreteInstruction, int> value)
+        public void OnNext(ConcreteInstructionWithPossiblyMissingBytes value)
         {
-            ConcreteInstruction instr = value.Item1;
-            int missingArgBytes = value.Item2;
+            ConcreteInstruction instr = value.Instr;
 
             // extra line for function symbol?
             if (verbose)
@@ -38,20 +37,23 @@ namespace juniorassembler
                     output.WriteLine("{0:X4}: ------ {1}", CalcRealAddr(instr), knownSymbol);
             }
 
-            string format = FormatDisassembledPart(instr, missingArgBytes);
+            string format = FormatDisassembledPart(value);
 
             if (format != null)
             {
                 if (verbose)
-                    format = PrependHexBytes(instr, missingArgBytes) + format;
+                    format = PrependHexBytes(value) + format;
                 Forward(format, instr);
             }
         }
 
         private ushort CalcRealAddr(ConcreteInstruction instr) => (ushort)(startAddr + instr.Address);
 
-        private string FormatDisassembledPart(ConcreteInstruction instr, int missingArgBytes)
+        private string FormatDisassembledPart(ConcreteInstructionWithPossiblyMissingBytes value)
         {
+            ConcreteInstruction instr = value.Instr;
+            int missingArgBytes = value.MissingArgBytes;
+
             switch (instr.NoOfArgBytes)
             {
                 case 0:
@@ -82,9 +84,11 @@ namespace juniorassembler
             }
         }
 
-        private string PrependHexBytes(ConcreteInstruction instr, int missingArgBytes)
+        private string PrependHexBytes(ConcreteInstructionWithPossiblyMissingBytes value)
         {
-            switch (instr.NoOfBytes)
+            int missingArgBytes = value.MissingArgBytes;
+
+            switch (value.Instr.NoOfBytes)
             {
                 case 1:
                     return "{4:X4}: {3:X2}     ";

@@ -5,7 +5,7 @@ namespace juniorassembler
     // combines up to 3 consecutive bytes to an operation and outputs it.
     public class OperationCombiner : IObserver<byte>
     {
-        public OperationCombiner(IObserver<Tuple<ConcreteInstruction, int>> output)
+        public OperationCombiner(IObserver<ConcreteInstructionWithPossiblyMissingBytes> output)
         {
             this.output = output;
         }
@@ -18,7 +18,7 @@ namespace juniorassembler
                     Console.Error.WriteLine("posStart {0}: obsolete final byte: {1:X2}", posStart, instr.OpCode);
                 else
                     Console.Error.WriteLine("posStart {0}: obsolete final bytes: {1:X2} {2:X2}", posStart, instr.OpCode, instr.Arg1);
-                output.OnNext(new Tuple<ConcreteInstruction, int>(instr, instr.NoOfBytes - innerPos));
+                output.OnNext(new ConcreteInstructionWithPossiblyMissingBytes(instr, instr.NoOfBytes - innerPos));
             }
         }
 
@@ -47,13 +47,13 @@ namespace juniorassembler
 
             if (innerPos == instr.NoOfBytes)
             {
-                output.OnNext(new Tuple<ConcreteInstruction, int>(instr, 0));
+                output.OnNext(new ConcreteInstructionWithPossiblyMissingBytes(instr, 0));
                 posStart += innerPos;
                 innerPos = 0;
             }
         }
 
-        private readonly IObserver<Tuple<ConcreteInstruction, int>> output;
+        private readonly IObserver<ConcreteInstructionWithPossiblyMissingBytes> output;
         private ConcreteInstruction instr;
         private int innerPos = 0;
         private int posStart = 0;
