@@ -30,20 +30,12 @@ namespace juniorassembler
         public void OnNext(byte value)
         {
             if (innerPos == 0)
-            {
                 instr = new ConcreteInstruction(posStart, value);
-                innerPos++;
-            }
             else if (innerPos == 1)
-            {
                 instr.Arg1 = value;
-                innerPos++;
-            }
             else
-            {
                 instr.Arg2 = value;
-                innerPos++;
-            }
+            innerPos++;
 
             if (innerPos == instr.NoOfBytes)
             {
