@@ -28,22 +28,37 @@ namespace juniorassembler
         public void OnNext(ConcreteInstructionWithPossiblyMissingBytes value)
         {
             ConcreteInstruction instr = value.Instr;
-
-            // extra line for function symbol?
-            if (verbose)
+            if (value is TextDataBlock)
             {
-                string knownSymbol = dualScope.findCallerSymbol(CalcRealAddr(instr));
-                if (knownSymbol != null)
-                    output.WriteLine("{0:X4}: ------ {1}", CalcRealAddr(instr), knownSymbol);
-            }
-
-            string format = FormatDisassembledPart(value);
-
-            if (format != null)
-            {
+                var text = (value as TextDataBlock).Text;
                 if (verbose)
-                    format = PrependHexBytes(value) + format;
-                Forward(format, instr);
+                {
+                    var bytes = (value as TextDataBlock).Bytes;
+                    output.Write("{0:X4}: ", CalcRealAddr(instr));
+                    foreach (byte b in bytes)
+                        output.Write("{0:X2}", b);
+                    output.Write("     ");
+                }
+                output.WriteLine("'{0}'", text);
+            }
+            else
+            {
+                // extra line for function symbol?
+                if (verbose)
+                {
+                    string knownSymbol = dualScope.findCallerSymbol(CalcRealAddr(instr));
+                    if (knownSymbol != null)
+                        output.WriteLine("{0:X4}: ------ {1}", CalcRealAddr(instr), knownSymbol);
+                }
+
+                string format = FormatDisassembledPart(value);
+
+                if (format != null)
+                {
+                    if (verbose)
+                        format = PrependHexBytes(value) + format;
+                    Forward(format, instr);
+                }
             }
         }
 

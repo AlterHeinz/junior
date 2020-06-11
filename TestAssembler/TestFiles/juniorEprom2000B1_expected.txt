@@ -953,37 +953,8 @@ RTS
 
 
 
-
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
-PLA
+---- text data
+'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh'
 
 BRK
 
@@ -1242,30 +1213,8 @@ JSR 3E40
 RTS
 
 
-
-ADCix 75
-
-
-ADCz 72
-PLA
-ADCix 6C
-
-JSR 6120
-ADCz 6E
-
-ADCz 72
-ADCz 20
-ADCix 64
-
-ADCz 73
-
-ADCz 20
-PLA
-ADCix 72
-
-
-
-BCS 79
+---- text data
+'ausserhalb  aendere adresse hardcopy'
 
 
 
@@ -2043,17 +1992,8 @@ JMP 2FDD
 
 
 
-
-JSR 2020
-JMPi 7864
-ADCim 6D
-JSR 207A
-JSR 787A
-JSR 2078
-JSR 2061
-JSR 797A
-JSR 2079
-JSR 2020
+---- text data
+'   ldxim z  zx x  a  zy y    '
 
 LDYim 31
 BRK
@@ -2071,184 +2011,35 @@ BRK
 
 
 
-
-
-
-
-
-BCS 68
-BCS FF
-JSR 6220
-BCS 6C
-
-
-JMPi FF63
-JSR 6A20
-
-
-
-ADCim 74
-BCS 6C
-BCS 62
-ADCim 74
-
-ADC FF69
-JSR 7320
-ADCz 63
-
-
-
-ADCim FF
-JSR 7020
-PLA
-ADCix 6A
-ADC 6270
-RORzx 63
-
-
-JMPi FF69
-JSR 7220
-
-
-
-BCS 6C
-ADCix 6A
-ADCim 20
-
-RORzx 73
-
-
-ADCz 69
-
-
-
-
-ADCy 6564
-ADCy 7473
-ADCy 6362
-
-
-
-ADCy 7974
-ADCix FF
-JSR 6C20
-
-ADCy 646C
-ADCy 6174
-ADCy 646C
-ADCy 6362
-
-JMPi 7964
-
-JMPi 6C76
-
-ADCy 7063
-ADCy 7063
-ADCy 6E69
-ADCy 7063
-ADCy 6E62
-ADCz FF
-JSR 6320
-JMPi FF64
-JSR 6320
-BCS 78
-
-BCS 78
-ADCim 6E
-SEI
-
-BCS 78
-
-ADCz 71
-
-
-ADCz 64
-
+---- text data
+'brk?  php?  bpl?  clc?  jsrbitplpbitbmi?  sec?  rti?  phajmpbvc?  cli?  rts?  plaji bvs?  sei?  ?  stydeystybccstytya?  ldyldytayldybcsldyclvldycpycpyinycpybne?  cld?  cpxcpxinxcpxbeq?  sed?  '
 
 BRK
 CPXim 05
 
-
-
-
-ADCix 61
-ROR 6564
-
-
-ADCix 64
-
-
-
-ADCix 6C
-
-ADCix 63
-ADC 7370
-
-
+---- text data
+'oraandeoradcstaldacmpsbc'
 
 BRK
 BEQ 04
 
-
-ADCix 73
-JMPi 20FF
-JSR 6F72
-JMPi 20FF
-JSR 736C
-
-
-
-
-
-
-
-SEI
-ADCix 74
-SEI
-
-
-ADCix 78
-
-
-SEI
-
-ADCz 78
-
-ROR 706F
-JSR 2020
+---- text data
+'asl?  rol?  lsr?  ror?  txatxstaxtsxdex?  nop   '
 
 BRK
 CPXim 05
 
-
-ADCix 73
-JMPi 6F72
-JMPi 736C
-
-
-
-
-
-
-SEI
-JMPi 7864
-
-ADCz 63
-ADCim 6E
-
+---- text data
+'aslrollsrrorstxldxdecinc'
 
 BRK
 
 
 
+---- text data
+'ixz im  iyzxy x '
 
-ADCim 78
-
-JSR 6D69
-JSR 6920
-ADCy 787A
-ADCy 7820
-JSR 0003
+BRK
 ORAzx 03
 BRK
 ASL 89FF
@@ -2361,34 +2152,8 @@ JSR 2284
 DEY
 BNE FA
 JMP 231D
-
-LSRzx 65
-
-
-
-PLA
-ADCim 65
-
-ADCz 20
-RORzx 6F
-ROR 5820
-CLI
-CLI
-CLI
-JSR 6962
-
-JSR 5858
-CLI
-CLI
-JSR 616E
-
-PLA
-JSR 5858
-CLI
-CLI
-ROL 2020
-JSR 2020
-JSR 2020
+---- text data
+'Verschiebe von XXXX bis XXXX nach XXXX.        '
 
 
 
@@ -3969,23 +3734,8 @@ BCC FE
 
 
 
-
-
-
-LSRz 65
-PLA
-JMPi 7265
-PLA
-ADCix 66
-
-ADCz 72
-JSR 6153
-
-
-JSR 6F66
-JMPi 7467
-
-
+---- text data
+'##Fehlerhafter Satz folgt##'
 
 
 
@@ -4040,62 +3790,8 @@ LDAim 08
 STAz CF
 JSR 1190
 RTS
-
-
-
-ADCix 74
-ADCz 69
-ADCz 6E
-
-ADCz 23
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 1D20
-
-ADCzx 70
-
-ADCix 74
-ADCim 6E
-
-
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-ORAx 5023
-JMPi 7461
-
-JSR 757A
-JSR 6577
-ROR 6769
-JSR 7566
-ADCz 72
-JSR 6553
-ADCim 74
-ADCz 23
-JSR 231D
-ROR 7565
-ADCz 20
-
-ADCix 74
-ADCz 69
-
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR FF03
+---- text data
+'#Dateiende#                 ?#updating#                  ?#Platz zu wenig fuer Seite# ?#neue Datei#                               '
 
 
 
@@ -4512,20 +4208,9 @@ JMP 4503
 
 
 
+---- text data
+'#systemfehler#              '
 
-
-
-ADCy 7473
-ADCz 6D
-RORz 65
-PLA
-JMPi 7265
-
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 0320
 BRK
 
 
@@ -4631,19 +4316,9 @@ JMP 6A00
 JSR 4157
 ANDz 46
 RTS
+---- text data
+'#Falsches Kommando#        '
 
-
-LSRz 61
-JMPi 6373
-PLA
-ADCz 73
-JSR 6F4B
-ADC 616D
-ROR 6F64
-
-JSR 2020
-JSR 2020
-JSR 0320
 
 
 
@@ -4872,22 +4547,10 @@ RTS
 
 
 
+---- text data
+'Druckerkopie                 '
 
 
-
-ADCzx 63
-
-ADCz 72
-
-
-BCS 69
-ADCz 20
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 0303
 
 
 
@@ -6198,39 +5861,10 @@ CLC
 BCC F0
 JSR 52EC
 RTS
-
-JSR 2020
-JSR 2020
-JSR 4620
-JMPi 706F
-BCS 79
-JSR 6F6E
-
-JSR 6572
-ADCix 64
-ADCy 2020
-JSR 2020
-JSR 1D20
-JSR 6C46
-
-BCS 70
-ADCy 4C20
-ADCz 73
-ADCz 2F
+---- text data
+'        Floppy not ready       ? Floppy Lese/Schr-Fehler, STOP. adr='
 
 
-PLA
-
-AND 6546
-PLA
-JMPi 7265
-BIT 5320
-
-
-BVC 2E
-JSR 6461
-
-ORAx 2203
 
 RTS
 NOP
@@ -6405,26 +6039,8 @@ DEC 0323
 RTS
 
 
-
-JSR 2121
-ANDix 20
-LSRz 6C
-
-BCS 70
-ADCy 562D
-ADCz 72
-ADCim 66
-ADCy 6620
-ADCz 68
-JMPi 7265
-PLA
-ADCix 66
-
-BIT 5320
-
-
-BVC 20
-ORAx FF03
+---- text data
+' !!! Floppy-Verify fehlerhaft, STOP ?'
 
 
 LDAim 00
@@ -6782,78 +6398,8 @@ BRK
 BRK
 
 
-
-JSR 2020
-JSR 2020
-JSR 7250
-
-
-
-ADCix 6D
-ADC 3A20
-JSR 656E
-ADCzx 65
-JSR 6C46
-
-BCS 70
-ADCy 1D1D
-LSRz 6F
-
-ADC 7461
-ADCim 65
-
-ADCz 6E
-JSR 203F
-PLP
-BMI 2F
-ANDiy 29
-
-JSR 1D1D
-LSR 6D61
-ADCz 20
-PLP
-ADC 7861
-JSR 3233
-ANDim 3A
-JSR 1D1D
-LSR 2072
-PLP
-BMI 30
-ROL 392E
-ANDy 3A29
-JSR 1D1D
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ORAx 1D1D
-JSR 2020
-JSR 2020
-JSR 6546
-
-
-ADCim 67
-ROL 5020
-
-
-
-
-ADCix 6D
-ADC 6E65
-
-ADCz 1D
+---- text data
+'       Programm : neue Floppy??Formatieren ? (0/1): ??Name (max 32): ??Nr (00..99): ??++++++++++++++++???       Fertig. Programmende?'
 
 
 
@@ -7109,21 +6655,9 @@ ROLz 5B
 NOP
 NOP
 JMP 1C1D
+---- text data
+' !!! Floppy-BAM falsch, STOP'
 
-JSR 2121
-ANDix 20
-LSRz 6C
-
-BCS 70
-ADCy 422D
-EORix 4D
-JSR 6166
-JMPi 6373
-PLA
-BIT 5320
-
-
-BVC 03
 
 
 LDAiy EA
@@ -7581,42 +7115,8 @@ NOP
 NOP
 NOP
 JMP 1C1D
-
-JSR 2121
-ANDix 20
-LSRz 69
-JMPi 2065
-ROR 6369
-PLA
-
-JSR 666F
-RORz 65
-ROR 2C20
-JSR 5453
-
-BVC 1D
-JSR 2121
-ANDix 20
-JMP 7365
-ADCz 7A
-ADCzx 67
-
-ADCim 66
-RORz 20
-ADCix 75
-RORz 20
-ADCzx 6E
-
-ADCz 6B
-ROL 7220
-ADCz 63
-
-
-
-BIT 5320
-
-
-BVC 1D
+---- text data
+' !!! File nicht offen , STOP? !!! Lesezugriff auf unbek. record, STOP?'
 
 
 
@@ -8876,24 +8376,10 @@ ANDz 46
 NOP
 NOP
 RTS
+---- text data
+'#Abschnitt zu lang f Datei##?'
 
 
-EORix 62
-
-
-PLA
-ROR 7469
-
-JSR 757A
-JSR 616C
-ROR 2067
-RORz 20
-
-ADCix 74
-ADCz 69
-
-
-ORAx FF03
 
 
 
@@ -18663,174 +18149,8 @@ DEC D7D2
 INCz EC
 
 
-
-BVC 52
-
-
-
-EORix 4D
-EOR 4341
-PHA
-EORim 4E
-EORz 43
-
-
-EORz 4C
-EORim 4E
-EORz 5A
-EORz 52
-
-EORim 44
-EORz 4E
-
-
-EORz 52
-
-BVC 41
-
-EORz 44
-
-JMP 4542
-
-EORim 4E
-EORz 4E
-
-BVC 52
-
-
-
-EORix 4D
-EORim 4E
-
-
-EORim 4E
-
-SEC
-EORim 4E
-
-ANDiy 35
-EORim 4E
-
-ANDiy 36
-EORim 4E
-
-
-ANDiy 20
-JSR 2020
-JSR 4320
-PHA
-EORix 52
-
-EORim 54
-BVC 55
-
-
-EORz 54
-BVC 52
-
-
-LSRz 55
-LSR 5343
-
-EORix 43
-
-
-
-
-EORzx 43
-LSRz 4F
-
-
-EORy 4F54
-EORim 46
-
-PHA
-EORz 4E
-EORz 4C
-
-EORz 46
-EORim 57
-PHA
-EORim 4C
-EORz 44
-
-EORzx 4E
-
-EORim 4C
-
-
-
-PHA
-EORz 4E
-
-
-EORz 41
-
-EORz 4E
-
-BVC 52
-
-
-EORim 4E
-
-EORzx 54
-
-EORz 41
-
-
-
-EORim 54
-EORz 53
-
-EORim 50
-BVC 55
-
-PHA
-BVC 4F
-BVC 52
-EORz 54
-EORzx 52
-LSR 5553
-
-
-
-
-EOR 444F
-
-
-EORzx 45
-LSRz 41
-JMP 4553
-
-
-JMP 4C43
-EORz 41
-
-
-PHA
-EORix 52
-
-
-
-
-EORim 54
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---- text data
+'PROGRAMMACHINECODELINEZEROIDENTZEROPAGEDCLBEGINENDPROGRAMINT7INT8INT15INT16INT31      CHARBITPUTGETPROCFUNCSTACKSTRUCFORBYTOIFTHENELSEFIWHILEDOUNTILODWHENBREAKENDPROCINOUTREADWRITESKIPPUSHPOPRETURNSUBSTRMODTRUEFALSECOLCLEARCHARSTRBITSTR??????????????????????????????????????????'
 
 
 
@@ -18980,25 +18300,11 @@ JSR 24CE
 LDAz 5F
 JSR 24EF
 JMP C73E
+---- text data
+'fehler: unerwartetes zeichen: '
 
-RORz 65
-PLA
-JMPi 7265
 
-JSR 6E75
-ADCz 72
-
-ADCix 72
-
-ADCz 74
-ADCz 73
-JSR 657A
-ADCim 63
-PLA
-ADCz 6E
-
-JSR FF03
-
+BRK
 BRK
 LDYim 00
 LDAiy 5D
@@ -19120,28 +18426,8 @@ INY
 JSR C768
 JMP C847
 
-
-ADCzx 6E
-ADCz 72
-
-ADCix 72
-
-ADCz 74
-ADCz 73
-JSR 6144
-
-ADCz 69
-ADCz 6E
-
-ADCz 20
-ADCim 6E
-JSR 655A
-ADCim 6C
-ADCz 20
-JSR 6968
-ROR 6574
-
-
+---- text data
+'unerwartetes Dateiende in Zeile  hinter:'
 
 TXAa
 PHA
@@ -19246,66 +18532,8 @@ STAz 58
 RTS
 INCz 58
 RTS
-
-RTI
-JSR 2041
-
-JSR 2023
-
-JSR 2058
-
-JSR 3D3C
-ASLx 2D3D
-AND 3D7E
-
-JSR 205C
-EORx 5E20
-JSR 207E
-
-
-ANDix 20
-
-
-
-
-
-
-
-
-ROLz 20
-
-JSR 2028
-PLP
-JSR 202A
-
-JSR 202C
-AND 2E20
-JSR 202F
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-JSR 203B
-
-JSR 203D
-ASLx 3F20
+---- text data
+'@ A B #  X R <=>=--~=[ \ ] ^ ~ ??! ????????& ' ( ( * + , - . / ????????????????????: ; < = > ?'
 
 LDAz 5A
 CMPim 40
@@ -19521,42 +18749,8 @@ LDAz 51
 STAiy 41
 RTS
 
-
-LSRz 65
-PLA
-JMPi 7265
-
-LSR 6D61
-ADCz 6E
-JMPi 7369
-
-ADCz 20
-
-ADCzx 20
-
-ADCzx 72
-
-ROL 5A20
-ADCz 69
-JMPi 2065
-LSRz 65
-PLA
-JMPi 7265
-
-
-ADCz 6B
-JMPi 696C
-
-
-ADCz 20
-
-ADCzx 20
-
-ADCzx 72
-
-ROL 5A20
-ADCz 69
-JMPi 2065
+---- text data
+'Fehler:Namenliste zu kurz. Zeile Fehler:Deklliste zu kurz. Zeile '
 
 
 
@@ -19648,24 +18842,8 @@ ANDiy CC
 CPY EAEA
 JMP CAD2
 RTS
-
-LSRz 65
-PLA
-JMPi 7265
-
-
-
-ROR 7473
-
-ADCix 74
-ADCix 20
-JSR 757A
-JSR 756B
-
-
-ROL 5A20
-ADCz 69
-JMPi 2065
+---- text data
+'Fehler:Konstdata  zu kurz. Zeile '
 
 BRK
 BRK
@@ -19934,25 +19112,8 @@ JSR 2503
 ROR 8ECE
 DEC EAEA
 JMP CAD2
-
-LSRz 65
-PLA
-JMPi 7265
-
-
-
-ROR 7473
-JMPi 7369
-
-ADCz 20
-
-ADCzx 20
-
-ADCzx 72
-
-ROL 5A20
-ADCz 69
-JMPi 2065
+---- text data
+'Fehler:Konstliste zu kurz. Zeile '
 
 RTS
 
@@ -20111,23 +19272,8 @@ BRK
 
 BRK
 BRK
-
-LSRz 65
-PLA
-JMPi 7265
-
-
-ADCix 68
-JMPi 7A20
-ADCzx 20
-
-
-
-
-
-ROL 5A20
-ADCz 69
-JMPi 2065
+---- text data
+'Fehler:Zahl zu gross. Zeile '
 
 JSR 2503
 LDYx D7CF
@@ -20363,24 +19509,10 @@ EORz 00
 EORim 00
 BRK
 BRK
-
-
-
-EOR 4950
-JMP 5245
-ORAx 201D
-JSR 4B28
-
-ADC 616D
-ROR 6F64
-
-JSR 2063
-
-JSR 2061
-ADCz 20
-JMPi 7320
-ANDim 1D
-ORAx 0000
+---- text data
+'COMPILER??  (Kommandos c g a e l s)??'
+BRK
+BRK
 BRK
 BRK
 BRK
@@ -20551,16 +19683,8 @@ JSR D280
 RTS
 BRK
 BRK
-
-LSRz 61
-JMPi 6373
-PLA
-ADCz 20
-EORix 64
-
-ADCz 73
-
-ADCz 2C
+---- text data
+'Falsche Adresse,'
 BRK
 ROR 636F
 PLA
@@ -20808,37 +19932,10 @@ CMPz 23
 RTS
 
 
+---- text data
+'#Compiling?#Syntaktisch einwandfrei?#Syntaxfehler?Going?'
 
 
-
-
-ADC 6970
-JMPi 6E69
-
-ORAx 5323
-ADCy 746E
-ADCix 6B
-
-ADCim 73
-
-PLA
-JSR 6965
-ROR 6177
-ROR 6664
-
-ADCz 69
-ORAx 5323
-ADCy 746E
-ADCix 78
-RORz 65
-PLA
-JMPi 7265
-ORAx 6F47
-ADCim 6E
-
-ORAx FF03
-BRK
-BRK
 JSR 2466
 JSR 2506
 
@@ -21089,79 +20186,8 @@ BRK
 BRK
 BRK
 BRK
-
-JSR 2023
-LSRx 6B73
-ADCix 6C
-
-
-
-JSR 313F
-BMI 3F
-
-ANDiy 38
-
-ADCix 31
-JSR 6120
-ANDiy 64
-
-ADCix 32
-JSR 6120
-
-
-
-ADCim 37
-JSR 6920
-SEC
-JSR 6920
-ANDiy 35
-JSR 3169
-ROLzx 20
-ADCim 33
-ANDiy 20
-ADCim 33
-
-
-
-PLA
-
-JSR 6962
-
-JSR 753F
-RORzx 3F
-BCS 72
-
-
-RORz 75
-ROR 7063
-
-
-
-
-
-
-ADCzx 3F
-
-SEC
-
-
-
-BMI 3F
-
-
-SEC
-
-ADCix 6C
-
-JSR 6469
-BCS 63
-RORz 75
-
-
-
-
-
-
+---- text data
+' # ^skalstk ?10??18?a1  a1d?a2  a2d?i7  i8  i15 i16 i31 i32?chr bit ?uv?progfuncprocstru?28??30??38?alz idpcfu??????'
 
 LDAim 03
 STAz 50
@@ -21454,18 +20480,9 @@ JSR D240
 
 CMPy D9C4
 JMP 1C1D
+---- text data
+'Code -Bereich voll'
 
-
-
-
-ADCz 20
-AND 6542
-
-ADCz 69
-
-PLA
-JSR 6F76
-JMPi 036C
 
 CLC
 ADCz 12
@@ -21657,7 +20674,7 @@ NOP
 JSR D98D
 JSR D9E4
 
-
+---- text data
 LDYim 03
 LDYim 0B
 LDAiy 41
@@ -21772,93 +20789,8 @@ INCx 0000
 BRK
 BRK
 BRK
-
-ADCix 6C
-
-JSR 6441
-
-ADCz 73
-
-ADCz 20
-ADCzx 6E
-
-ADCz 65
-ADCim 67
-ROR 7465
-ORAx 655A
-
-
-AND 6542
-
-ADCz 69
-
-PLA
-JSR 656C
-ADCz 72
-ORAx 6144
-
-ADCix 2D
-
-ADCz 72
-ADCz 69
-
-PLA
-JSR 656C
-ADCz 72
-ORAx 6F43
-
-ADCz 2D
-
-ADCz 72
-ADCz 69
-
-PLA
-JSR 656C
-ADCz 72
-ORAx 6544
-
-JMPi 7261
-ADCix 74
-ADCim 6F
-ROR 6620
-ADCz 68
-JMPi 1D74
-BVC 72
-
-
-ADCz 64
-ADCzx 72
-
-ADCzx 6D
-BCS 66
-JSR 6566
-PLA
-JMPi 1D74
-
-
-ADC 6970
-JMPi 7265
-RORz 65
-PLA
-JMPi 7265
-JSR 2121
-ORAx 6542
-
-JSR 656D
-PLA
-
-RORz 61
-
-PLA
-JSR 6564
-
-JMPi 4D1D
-ADCix 74
-
-ADCim 78
-JSR 6976
-ADCz 6C
-JSR 757A
+---- text data
+'als Adresse ungeeignet?Zero-Bereich leer?Data-Bereich leer?Code-Bereich leer?Deklaration fehlt?Prozedurrumpf fehlt?Compilerfehler !!?Bez mehrfach dekl?Matrix viel zu'
 BRK
 
 
@@ -24425,169 +23357,8 @@ BEQ FF
 
 
 
-
-JSR 2A2A
-ROLa
-ROLa
-ROLa
-JSR 6546
-PLA
-JMPi 7265
-JSR 203A
-ORAx FFFF
-
-
-
-
-
-
-
-ROR 6564
-SEI
-
-ADCz 72
-ADCz 69
-
-PLA
-ORAx 6E49
-
-ADCz 67
-ADCz 72
-JSR 6555
-
-ADCz 72
-JMPi 7561
-RORz 1D
-ADCzx 6E
-ADC 656F
-
-JMPi 6369
-PLA
-ADCz 20
-EORix 6E
-BCS 61
-
-
-ADCzx 6E
-
-ORAx 7453
-ADCix 63
-
-JSR 656C
-ADCz 72
-ORAx 7453
-ADCix 63
-
-JSR 6F76
-JMPi 1D6C
-LSRz 6F
-
-ADC 7461
-ORAx 6945
-ROR 6167
-
-ADCz 1D
-
-
-ADC 6970
-JMPi 7265
-ORAx 6166
-JMPi 6373
-PLA
-ADCz 72
-JSR 7954
-BCS 1D
-LSR 6C75
-JMPi 6964
-RORzx 69
-
-ADCim 6F
-ROR 661D
-ADCix 6C
-
-
-PLA
-ADCz 20
-LSRz 65
-JMPi 6C64
-ADCix 65
-ROR 6567
-ORAx FFFF
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---- text data
+' ***** Fehler : ???????????????????????Indexbereich?Integer Ueberlauf?unmoegliche Anpassung?Stack leer?Stack voll?Format?Eingabe?Compiler?falscher Typ?Nulldivision?falsche Feldlaenge????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????'
 
 
 

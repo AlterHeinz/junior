@@ -1087,28 +1087,8 @@ INCx 3FFF
 
 
 
-
-ANDy 52FF
-JSR 4520
-JSR 5620
-JSR 4520
-JSR 5220
-JSR 5320
-JSR 4920
-
-ANDiy 20
-JSR 3220
-JSR 2020
-
-JSR 2020
-
-JSR 2020
-ANDzx 20
-JSR 3620
-JSR 2020
-
-JSR 2020
-SEC
+---- text data
+'9?R  E  V  E  R  S  I???1   2   3   4   5   6   7   8'
 
 CPXz BB
 
@@ -6377,29 +6357,9 @@ BRK
 
 
 
+---- text data
+'Ergebnisausdruck gew}nscht ? (0/1): ?'
 
-EORz 72
-
-ADCz 62
-ROR 7369
-ADCix 75
-
-
-
-ADCzx 63
-
-JSR 6567
-
-ADCx 736E
-
-PLA
-
-JSR 203F
-PLP
-BMI 2F
-ANDiy 29
-
-JSR 031D
 
 
 
@@ -6774,139 +6734,8 @@ RTS
 
 JMP 5161
 
-
-AND 2D2D
-AND 2D2D
-AND 2D2D
-AND 202D
-EORz 50
-
-
-EOR 2D20
-JSR 4F4D
-LSR 5449
-
-
-JSR 7566
-ADCz 72
-JSR 3732
-ANDiy 36
-JSR 2D20
-AND 2D2D
-AND 2D2D
-AND 2D2D
-AND 1D1D
-EORim 6E
-
-ADCz 72
-RORzx 61
-JMPi 656C
-
-ORAx 6177
-ADCz 68
-JMPi 3A65
-JSR 3732
-ANDiy 36
-
-ANDiy 20
-JSR 3732
-
-ANDzx 36
-JSR 4948
-
-EORix 43
-PHA
-EORim 3A
-
-JSR 3220
-
-
-ANDzx 36
-JSR 454E
-
-
-
-JSR 2020
-JSR 1D3E
-EORix 6E
-
-ADCix 68
-JMPi 4220
-ADCy 6574
-
-JSR 203A
-ORAx 6542
-
-ADCim 6E
-ROR 6920
-ADC 5220
-EORix 4D
-JSR 3A20
-JSR 421D
-ADCz 67
-ADCim 6E
-ROR 6920
-ADC 4520
-BVC 52
-
-EOR 203A
-ORAx 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 661D
-ADCz 72
-
-ADCim 67
-JSR 2020
-JSR 651D
-ADCim 6E
-
-ADCz 74
-
-ADCz 6E
-ORAx 7056
-BCS 2D
-JSR 6154
-
-
-ADCz 20
-
-
-ADCzx 65
-
-
-ADCz 6E
-ORAx 655A
-JMPi 656C
-JSR 6166
-JMPi 6373
-PLA
-ORAx 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 5A1D
-ADCz 6C
-JMPi 2065
-
-ADCz 6C
-ADCz 67
-
-ORAx 6172
-ADCzx 73
-ROR 6865
-ADC 6E65
-ORAx 2E2E
-ROL 2E2E
-ROL 2E2E
+---- text data
+'----------- EPROM - MONITOR fuer 2716  -----------??Intervalle:?waehle: 2716:1  27256 HITACHI:2  27256 NEC:3    >?Anzahl Bytes : ?Beginn im RAM  : ?Beginn im EPROM: ?                  ?fertig    ?einsetzen?Vpp- Taste druecken?Zelle falsch?...........................?Zelle belegt?rausnehmen?........'
 
 
 
@@ -7148,57 +6977,10 @@ PLA
 JSR 24EF
 JMP 4F06
 
-
-EORim 6E
-
-ADCz 72
-RORzx 61
-JMPi 656C
-JSR 6573
+---- text data
+'Intervalle setzen:0  lesen:1  einlesen:2 schreiben:3 testleer:4?vgl:5 ende:6  >?................'
 
 
-ADCz 6E
-
-BMI 20
-JSR 656C
-
-ADCz 6E
-
-ANDiy 20
-JSR 6965
-ROR 656C
-
-ADCz 6E
-
-
-JSR 6373
-PLA
-
-ADCz 69
-
-ADCz 6E
-
-
-JSR 6574
-
-
-JMPi 6565
-
-
-
-ORAx 6776
-JMPi 353A
-JSR 6E65
-
-ADCz 3A
-ROLzx 20
-JSR 1D3E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL 2E2E
-ROL FF03
 
 
 JSR 2466
@@ -10038,15 +9820,9 @@ BPL F8
 RTS
 
 
+---- text data
+'  ?wie bitte?  '
 
-JSR 3F20
-
-ADCim 65
-JSR 6962
-
-
-ADCz 3F
-JSR 0320
 
 
 
@@ -10082,18 +9858,8 @@ PHA
 JSR 6861
 PLA
 RTS
-
-LSR 434F
-PHA
-JSR 4945
-LSR 5320
-BVC 49
-EORz 4C
-
-JSR 3028
-
-ANDiy 29
-
+---- text data
+'NOCH EIN SPIEL? (0/1):'
 
 
 
@@ -10141,62 +9907,8 @@ RTS
 
 
 
-
-
-JSR 2055
-BVC 20
-EORz 20
-
-JSR 2048
-EORim 20
-
-JSR 204E
-JSR 2020
-JSR 1D20
-
-EORim 46
-LSRz 45
-
-LSR 2820
-BMI 2E
-ROL 2936
-JSR 2020
-JSR 2036
-LSRzx 45
-
-
-EORzx 43
-PHA
-EORz 20
-JSR 2020
-ORAx 495A
-LSRz 46
-EORz 52
-JSR 4F4B
-EOR 544D
-JSR 4F56
-
-
-JSR 2020
-JSR 2020
-JSR 2020
-JSR 202D
-ORAx 495A
-LSRz 46
-EORz 52
-JSR 4D41
-JSR 4952
-
-PHA
-
-EORim 47
-EORz 4E
-JSR 4C50
-EORix 54
-
-
-JSR 202B
-JSR 2020
+---- text data
+'S U P E R H I R N      ?ZIFFERN (0..6)    6 VERSUCHE    ?ZIFFER KOMMT VOR:          - ?ZIFFER AM RICHTIGEN PLATZ: +    '
 
 
 JSR 24D4
@@ -10212,15 +9924,9 @@ CPXz 69
 ADCim 60
 
 
+---- text data
+'. VERSUCH:     '
 
-ROL 5620
-EORz 52
-
-EORzx 43
-PHA
-
-JSR 2020
-JSR 0320
 
 
 
@@ -10304,62 +10010,8 @@ BNE F1
 RTS
 
 
-
-
-
-EORix 54
-EORzx 4C
-EORim 45
-
-EORz 20
-ANDix 20
-JSR 1D20
-LSR 4945
-LSR 2C20
-JSR 4241
-EORz 52
-JSR 4146
-
-
-JSR 2021
-JSR 1D20
-JMP 4945
-
-EORz 52
-JSR 494E
-
-PHA
-
-JSR 2021
-JSR 2020
-ORAx 4957
-EORz 20
-
-
-EOR 534D
-
-JSR 5544
-JSR 4544
-LSR 204E
-
-EORix 20
-
-
-EORix 55
-LSRz 20
-
-
-
-JSR 2020
-ORAx 4547
-
-EORzx 43
-PHA
-
-JSR 4157
-
-
-JSR 2020
+---- text data
+'GRATULIERE !   ?NEIN , ABER FAST !   ?LEIDER NICHT !    ?WIE KOMMST DU DENN DA DRAUF ???   ?GESUCHT WAR:   '
 
 
 

@@ -221,6 +221,46 @@ namespace TestAssembler
 
         [TestMethod]
         [DeploymentItem(@"juniorassembler.exe")]
+        public void FFFF02With0TextCharsFollowingYieldsNothingSpecial()
+        {
+            string output = TransformVerbose("2010", 0xFF, 0xFF, 0x02, 0x03);
+            Assert.AreEqual("2010: FFFF02 ---- text data\r\n2013: 03     \r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void FFFF02With1TextCharFollowingYieldsDataBlockWithTextLine()
+        {
+            string output = TransformVerbose("2010", 0xFF, 0xFF, 0x02, 0x41, 0x03);
+            Assert.AreEqual("2010: FFFF02 ---- text data\r\n2013: 41     'A'\r\n2014: 03     \r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void FFFF02With2TextCharsFollowingYieldsDataBlockWithTextLine()
+        {
+            string output = TransformVerbose("2010", 0xFF, 0xFF, 0x02, 0x41, 0x62, 0x00);
+            Assert.AreEqual("2010: FFFF02 ---- text data\r\n2013: 4162     'Ab'\r\n2015: 00     BRK\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void FFFF02With3TextCharsFollowingYieldsDataBlockWithTextLine()
+        {
+            string output = TransformVerbose("2010", 0xFF, 0xFF, 0x02, 0x41, 0x62, 0x63, 0x00);
+            Assert.AreEqual("2010: FFFF02 ---- text data\r\n2013: 416263     'Abc'\r\n2016: 00     BRK\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
+        public void FFFF02With4TextCharsFollowingYieldsDataBlockWith2TextLines()
+        {
+            string output = TransformVerbose("2010", 0xFF, 0xFF, 0x02, 0x41, 0x62, 0x63, 0x64, 0x00);
+            Assert.AreEqual("2010: FFFF02 ---- text data\r\n2013: 41626364     'Abcd'\r\n2017: 00     BRK\r\n", output);
+        }
+
+        [TestMethod]
+        [DeploymentItem(@"juniorassembler.exe")]
         [DeploymentItem(@"juniorAdr0200.bin")]
         [DeploymentItem(@"TestFiles\juniorAdr0200_expected.txt")]
         public void Disassemble0200DumpYieldsExpectedText()
