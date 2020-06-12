@@ -1,25 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace juniorassembler
 {
     // combines up to 3 consecutive bytes to an operation and outputs it.
     public class OperationCombiner : IObserver<byte>
     {
-        public OperationCombiner(IObserver<ConcreteInstructionWithPossiblyMissingBytes> output)
+        public OperationCombiner(IObserver<DataBlock> output)
         {
             this.output = output;
         }
 
         public void OnCompleted()
         {
-            if (innerPos > 0)
+            if (IsInTextDataMode)
+                FlushTextDataAndLeaveTextDataMode();
+            else
             {
-                if (innerPos == 1)
-                    Console.Error.WriteLine("posStart {0}: obsolete final byte: {1:X2}", posStart, instr.OpCode);
-                else
-                    Console.Error.WriteLine("posStart {0}: obsolete final bytes: {1:X2} {2:X2}", posStart, instr.OpCode, instr.Arg1);
-                output.OnNext(new ConcreteInstructionWithPossiblyMissingBytes(instr, instr.NoOfBytes - innerPos));
+                if (instr != null)
+                {
+                    if (instr.CurNoOfBytes == 1)
+                        Console.Error.WriteLine("posStart {0}: obsolete final byte: {1:X2}", posStart, instr.OpCode);
+                    else
+                        Console.Error.WriteLine("posStart {0}: obsolete final bytes: {1:X2} {2:X2}", posStart, instr.OpCode, instr.Arg1);
+                    FlushInstruction();
+                }
             }
         }
 
@@ -30,69 +34,58 @@ namespace juniorassembler
 
         public void OnNext(byte value)
         {
-            if (isInTextDataMode)
+            if (IsInTextDataMode)
             {
-                if (isPrintable(value))
-                {
-                    textDataBytes.Add(value);
-                    textData += (0x1D == value || 0xFF == value) ? '?' : Convert.ToChar(value);
-                }
+                if (TextDataBlock.isPrintable(value))
+                    textDataBlock.Append(value);
                 else
                 {
-                    if (textData.Length > 0)
-                        output.OnNext(new TextDataBlock(posStart, textDataBytes, textData));
-                    posStart += textData.Length;
-                    LeaveTextDataMode();
-                    // recurse
+                    FlushTextDataAndLeaveTextDataMode();
+                    // recurse to processs value now
                     OnNext(value);
                 }
             }
             else
             {
-                if (innerPos == 0)
+                if (instr == null)
                     instr = new ConcreteInstruction(posStart, value);
-                else if (innerPos == 1)
-                    instr.Arg1 = value;
                 else
-                    instr.Arg2 = value;
-                innerPos++;
+                    instr.Append(value);
 
-                if (innerPos == instr.NoOfBytes)
+                if (instr.IsComplete)
                 {
-                    output.OnNext(new ConcreteInstructionWithPossiblyMissingBytes(instr, 0));
-                    posStart += innerPos;
-                    innerPos = 0;
+                    FlushInstruction();
                     if (instr.IsTextDataLabel)
                         EnterTextDataMode();
+                    instr = null;
                 }
             }
         }
 
-        private bool isPrintable(byte value)
-        {
-            return 0x1D == value || (0x20 <= value && value <= 0x5E) || (0x60 <= value && value <= 0x7F) || 0xFF == value;
-        }
+        private bool IsInTextDataMode => textDataBlock != null;
 
         private void EnterTextDataMode()
         {
-            isInTextDataMode = true;
-            textDataBytes = new List<byte>();
-            textData = "";
+            textDataBlock = new TextDataBlock(posStart);
         }
 
-        private void LeaveTextDataMode()
+        private void FlushTextDataAndLeaveTextDataMode()
         {
-            isInTextDataMode = false;
-            textDataBytes = new List<byte>();
-            textData = "";
+            if (textDataBlock.CurNoOfBytes > 0)
+                output.OnNext(textDataBlock);
+            posStart += textDataBlock.CurNoOfBytes;
+            textDataBlock = null;
         }
 
-        private readonly IObserver<ConcreteInstructionWithPossiblyMissingBytes> output;
-        private ConcreteInstruction instr;
-        private int innerPos = 0;
-        private int posStart = 0;
-        private bool isInTextDataMode = false;
-        private List<byte> textDataBytes;
-        private string textData;
+        private void FlushInstruction()
+        {
+            output.OnNext(instr);
+            posStart += instr.CurNoOfBytes;
+        }
+
+        private readonly IObserver<DataBlock> output;
+        private ushort posStart = 0;
+        private ConcreteInstruction instr = null;
+        private TextDataBlock textDataBlock = null;
     }
 }

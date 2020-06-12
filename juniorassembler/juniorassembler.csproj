@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressMode.cs" />
-    <Compile Include="ConcreteInstructionWithPossiblyMissingBytes.cs" />
     <Compile Include="ConcreteInstruction.cs" />
     <Compile Include="IDualScope.cs" />
     <Compile Include="IScope.cs" />
@@ -61,6 +60,7 @@
     <Compile Include="SymbolMapStandard.cs" />
     <Compile Include="SymbolMapBank1.cs" />
     <Compile Include="SymbolMapBank2.cs" />
+    <Compile Include="DataBlock.cs" />
     <Compile Include="TextDataBlock.cs" />
   </ItemGroup>
   <ItemGroup>

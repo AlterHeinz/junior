@@ -5,7 +5,7 @@ using System.IO;
 namespace juniorassembler
 {
     // formats one ConcreteInstruction and writes it out
-    internal class OutputFormatter : IObserver<ConcreteInstructionWithPossiblyMissingBytes>
+    internal class OutputFormatter : IObserver<DataBlock>
     {
         public OutputFormatter(TextWriter output, bool verbose, string startAddr, IDualScope dualScope)
         {
@@ -25,103 +25,90 @@ namespace juniorassembler
             throw new NotImplementedException();
         }
 
-        public void OnNext(ConcreteInstructionWithPossiblyMissingBytes value)
+        public void OnNext(DataBlock value)
         {
-            ConcreteInstruction instr = value.Instr;
-            if (value is TextDataBlock)
+            // extra line for function symbol?
+            if (verbose)
             {
-                var text = (value as TextDataBlock).Text;
-                if (verbose)
-                {
-                    var bytes = (value as TextDataBlock).Bytes;
-                    output.Write("{0:X4}: ", CalcRealAddr(instr));
-                    foreach (byte b in bytes)
-                        output.Write("{0:X2}", b);
-                    output.Write("     ");
-                }
-                output.WriteLine("'{0}'", text);
+                string knownSymbol = dualScope.findCallerSymbol(CalcRealAddr(value));
+                if (knownSymbol != null)
+                    output.WriteLine("{0:X4}: ------ {1}", CalcRealAddr(value), knownSymbol);
             }
+
+            if (verbose)
+                PrependHexBytes(value);
+
+            if (value is TextDataBlock)
+                output.WriteLine("'{0}'", value.Text);
             else
             {
-                // extra line for function symbol?
-                if (verbose)
-                {
-                    string knownSymbol = dualScope.findCallerSymbol(CalcRealAddr(instr));
-                    if (knownSymbol != null)
-                        output.WriteLine("{0:X4}: ------ {1}", CalcRealAddr(instr), knownSymbol);
-                }
+                output.Write("{0}", value.Text);
 
-                string format = FormatDisassembledPart(value);
-
-                if (format != null)
-                {
-                    if (verbose)
-                        format = PrependHexBytes(value) + format;
-                    Forward(format, instr);
-                }
+                var instr = value as ConcreteInstruction;
+                OutputDisassembledPart(instr);
             }
         }
 
-        private ushort CalcRealAddr(ConcreteInstruction instr) => (ushort)(startAddr + instr.Address);
+        private ushort CalcRealAddr(DataBlock value) => (ushort)(startAddr + value.Address);
 
-        private string FormatDisassembledPart(ConcreteInstructionWithPossiblyMissingBytes value)
+        private void OutputDisassembledPart(ConcreteInstruction instr)
         {
-            ConcreteInstruction instr = value.Instr;
-            int missingArgBytes = value.MissingArgBytes;
+            int missingArgBytes = instr.MissingBytes;
 
             switch (instr.NoOfArgBytes)
             {
                 case 0:
-                    return "{0}";
+                    output.WriteLine("");
+                    break;
                 case 1:
                     if (0 == missingArgBytes)
                     {
                         if (verbose && instr.IsBranchInstruction)
                             // special case for branch instructions
-                            return "{0} {5}";
+                            output.WriteLine(" {0}", GetArg1OrBranchDestination(instr));
                         else if (verbose && instr.IsZeroAddressing)
-                            return "{0} {1:X2}{6}"; // special postfix for instructions with symbols
+                            // special postfix for instructions with symbols
+                            output.WriteLine(" {0:X2}{1}", instr.Arg1, GetSymbolPostfix(instr));
                         else
-                            return "{0} {1:X2}";
+                            output.WriteLine(" {0:X2}", instr.Arg1);
                     }
                     else
-                        return "{0} ??";
+                        output.WriteLine(" ??");
+                    break;
                 case 2:
                     if (0 == missingArgBytes)
-                        return "{0} {2:X2}{1:X2}{6}"; // special postfix for instructions with symbols
+                        // special postfix for instructions with symbols
+                        output.WriteLine(" {1:X2}{0:X2}{2}", instr.Arg1, instr.Arg2, GetSymbolPostfix(instr));
                     else if (1 == missingArgBytes)
-                        return "{0} ??{1:X2}";
+                        output.WriteLine(" ??{0:X2}", instr.Arg1);
                     else
-                        return "{0} ????";
+                        output.WriteLine(" ????");
+                    break;
                 default:
                     Debug.Fail("bad instruction.NoOfArgBytes");
-                    return null;
+                    output.WriteLine("?????");
+                    break;
             }
         }
 
-        private string PrependHexBytes(ConcreteInstructionWithPossiblyMissingBytes value)
+        private void PrependHexBytes(DataBlock value)
         {
-            int missingArgBytes = value.MissingArgBytes;
+            output.Write("{0:X4}: ", CalcRealAddr(value));
+            foreach (byte b in value.Bytes)
+                output.Write("{0:X2}", b);
 
-            switch (value.Instr.NoOfBytes)
+            if (value is ConcreteInstruction)
             {
-                case 1:
-                    return "{4:X4}: {3:X2}     ";
-                case 2:
-                    if (0 == missingArgBytes)
-                        return "{4:X4}: {3:X2}{1:X2}   ";
-                    else
-                        return "{4:X4}: {3:X2}??   ";
-                case 3:
-                    if (0 == missingArgBytes)
-                        return "{4:X4}: {3:X2}{1:X2}{2:X2} ";
-                    if (1 == missingArgBytes)
-                        return "{4:X4}: {3:X2}{1:X2}?? ";
-                    return "{4:X4}: {3:X2}???? ";
-                default:
-                    Debug.Fail("bad instruction.NoOfBytes");
-                    return "       ";
+                var instr = value as ConcreteInstruction;
+
+                for (int i = 0; i < instr.MissingBytes; i++)
+                    output.Write("??");
+                for (int i = instr.NoOfBytesDesired; i < 3; i++)
+                    output.Write("  ");
+                output.Write(" ");
             }
+            else
+                output.Write("     ");
         }
 
         public string GetArg1OrBranchDestination(ConcreteInstruction instr)
@@ -144,12 +131,6 @@ namespace juniorassembler
                 return postfix == null ? "" : " " + postfix;
             }
             return "";
-        }
-
-        private void Forward(string format, ConcreteInstruction instr)
-        {
-            output.WriteLine(format, instr.Label, instr.Arg1, instr.Arg2, instr.OpCode, CalcRealAddr(instr),
-                             GetArg1OrBranchDestination(instr), GetSymbolPostfix(instr));
         }
 
         private readonly TextWriter output;

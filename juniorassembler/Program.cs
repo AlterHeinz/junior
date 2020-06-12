@@ -23,16 +23,15 @@ namespace juniorassembler
                 dualScope = Scopes.OfBank2;
             }
                 
+            var filterPipeline = new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr, dualScope));
             bool withoutFilename = args.Length == 1 || (verbose && args.Length == 2);
             if (withoutFilename)
             {
-                var filterPipeline = new HexCharCombiner(new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr, dualScope)));
-                Iterators.IterateTextChars(Console.In, filterPipeline);
+                Iterators.IterateTextChars(Console.In, new HexCharCombiner(filterPipeline));
             }
             else
             {
                 string filename = verbose ? args[2]: args[1];
-                var filterPipeline = new OperationCombiner(new OutputFormatter(Console.Out, verbose, startAddr, dualScope));
                 Iterators.IterateFileBytes(filename, filterPipeline);
             }
             Console.Error.WriteLine("bye.");
