@@ -1088,7 +1088,10 @@ INCx 3FFF
 
 
 ---- text data
-'9?R  E  V  E  R  S  I???1   2   3   4   5   6   7   8'
+'9?R  E  V  E  R '
+' S  I???1   2   '
+'3   4   5   6   '
+'7   8'
 
 CPXz BB
 
@@ -6358,7 +6361,9 @@ BRK
 
 
 ---- text data
-'Ergebnisausdruck gew}nscht ? (0/1): ?'
+'Ergebnisausdruck'
+' gew}nscht ? (0/'
+'1): ?'
 
 
 
@@ -6735,7 +6740,25 @@ RTS
 JMP 5161
 
 ---- text data
-'----------- EPROM - MONITOR fuer 2716  -----------??Intervalle:?waehle: 2716:1  27256 HITACHI:2  27256 NEC:3    >?Anzahl Bytes : ?Beginn im RAM  : ?Beginn im EPROM: ?                  ?fertig    ?einsetzen?Vpp- Taste druecken?Zelle falsch?...........................?Zelle belegt?rausnehmen?........'
+'----------- EPRO'
+'M - MONITOR fuer'
+' 2716  ---------'
+'--??Intervalle:?'
+'waehle: 2716:1  '
+'27256 HITACHI:2 '
+' 27256 NEC:3    '
+'>?Anzahl Bytes :'
+' ?Beginn im RAM '
+' : ?Beginn im EP'
+'ROM: ?          '
+'        ?fertig '
+'   ?einsetzen?Vp'
+'p- Taste druecke'
+'n?Zelle falsch?.'
+'................'
+'..........?Zelle'
+' belegt?rausnehm'
+'en?........'
 
 
 
@@ -6978,7 +7001,12 @@ JSR 24EF
 JMP 4F06
 
 ---- text data
-'Intervalle setzen:0  lesen:1  einlesen:2 schreiben:3 testleer:4?vgl:5 ende:6  >?................'
+'Intervalle setze'
+'n:0  lesen:1  ei'
+'nlesen:2 schreib'
+'en:3 testleer:4?'
+'vgl:5 ende:6  >?'
+'................'
 
 
 
@@ -9859,7 +9887,8 @@ JSR 6861
 PLA
 RTS
 ---- text data
-'NOCH EIN SPIEL? (0/1):'
+'NOCH EIN SPIEL? '
+'(0/1):'
 
 
 
@@ -9908,7 +9937,14 @@ RTS
 
 
 ---- text data
-'S U P E R H I R N      ?ZIFFERN (0..6)    6 VERSUCHE    ?ZIFFER KOMMT VOR:          - ?ZIFFER AM RICHTIGEN PLATZ: +    '
+'S U P E R H I R '
+'N      ?ZIFFERN '
+'(0..6)    6 VERS'
+'UCHE    ?ZIFFER '
+'KOMMT VOR:      '
+'    - ?ZIFFER AM'
+' RICHTIGEN PLATZ'
+': +    '
 
 
 JSR 24D4
@@ -10011,7 +10047,13 @@ RTS
 
 
 ---- text data
-'GRATULIERE !   ?NEIN , ABER FAST !   ?LEIDER NICHT !    ?WIE KOMMST DU DENN DA DRAUF ???   ?GESUCHT WAR:   '
+'GRATULIERE !   ?'
+'NEIN , ABER FAST'
+' !   ?LEIDER NIC'
+'HT !    ?WIE KOM'
+'MST DU DENN DA D'
+'RAUF ???   ?GESU'
+'CHT WAR:   '
 
 
 

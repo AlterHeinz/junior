@@ -94,8 +94,13 @@ namespace juniorassembler
         private void PrependHexBytes(DataBlock value)
         {
             output.Write("{0:X4}: ", CalcRealAddr(value));
+            int n = 0;
             foreach (byte b in value.Bytes)
+            {
                 output.Write("{0:X2}", b);
+                if ((++n & 3) == 0)
+                    output.Write(" ");
+            }
 
             if (value is ConcreteInstruction)
             {
@@ -108,7 +113,7 @@ namespace juniorassembler
                 output.Write(" ");
             }
             else
-                output.Write("     ");
+                output.Write(" ");
         }
 
         public string GetArg1OrBranchDestination(ConcreteInstruction instr)

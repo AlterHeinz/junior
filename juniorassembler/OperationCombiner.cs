@@ -37,7 +37,14 @@ namespace juniorassembler
             if (IsInTextDataMode)
             {
                 if (TextDataBlock.isPrintable(value))
+                {
                     textDataBlock.Append(value);
+                    if (textDataBlock.CurNoOfBytes == 16)
+                    {
+                        FlushTextDataAndLeaveTextDataMode();
+                        EnterTextDataMode();
+                    }
+                }
                 else
                 {
                     FlushTextDataAndLeaveTextDataMode();
