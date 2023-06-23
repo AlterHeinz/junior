@@ -8,3 +8,5 @@ I felt like creating a new external storage: why not connect junior to my laptop
 
 This git project contains 
 *  a console program which can connect to junior and transfer data in both directions. In a quite experimental way, still.
+
+See https://www.dropbox.com/sh/8cvleogcecqciky/AADiPHcOljjcWIgww9G52PLDa?dl=0 for more in ths junior Computer.
